@@ -125,7 +125,10 @@ export default function Header() {
     const match = document.cookie.match(/googtrans=\/auto\/([^;]+)/) || document.cookie.match(/googtrans=\/en\/([^;]+)/);
     if (match && match[1]) {
       const found = LANGUAGES.find(l => l.code === match[1]);
-      if (found) setCurrentLang(found);
+      if (found) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setCurrentLang(found);
+      }
     }
     
     const handleScroll = () => {
@@ -142,7 +145,9 @@ export default function Header() {
       script.async = true;
       document.body.appendChild(script);
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (window as any).googleTranslateElementInit = () => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         new (window as any).google.translate.TranslateElement(
           { pageLanguage: 'en', autoDisplay: false },
           'google_translate_element'
@@ -172,7 +177,7 @@ export default function Header() {
       {/* Main Navbar: Height 90px */}
       <div className={clsx(
         "h-[90px] w-full flex items-center transition-colors duration-300 border-b",
-        isTransparent ? "bg-transparent border-[#9BA5E0]" : "bg-primary-dark shadow-md border-transparent"
+        isTransparent ? "bg-transparent border-[#9BA5E0]" : "bg-white border-[#E5E5E5] shadow-sm"
       )}>
         <div className="w-[1800px] max-w-full mx-auto px-4 xl:px-0 flex items-center justify-between h-full">
           
@@ -183,20 +188,23 @@ export default function Header() {
               alt="Ksquare Energy Logo" 
               width={199} 
               height={49} 
-              className="brightness-0 invert" 
+              className={clsx("transition-all duration-300", isTransparent ? "brightness-0 invert" : "")} 
               priority
             />
           </Link>
 
           {/* Center Navigation */}
-          <nav className="hidden lg:flex items-stretch gap-[40px] h-full">
-            {["Products", "Solutions", "Manufacturing", "Projects", "Resources", "Company", "Contact"].map((item) => {
-              const hasDropdown = ["Products", "Solutions", "Resources", "Company"].includes(item);
+          <nav className="hidden lg:flex items-center gap-[40px] h-full">
+            {["Products", "Solutions", "Manufacturing", "Projects", "Resources", "About us", "Contact"].map((item) => {
+              const hasDropdown = ["Products", "Solutions", "Resources", "About us"].includes(item);
               return (
                 <div key={item} className="relative h-full flex items-center group">
                   <Link 
-                    href={`/${item.toLowerCase()}`}
-                    className="text-primary-soft font-archivo text-[18px] font-semibold group-hover:text-white flex items-center gap-2 transition-colors h-full"
+                    href={`/${item.toLowerCase().replace(' ', '-')}`}
+                    className={clsx(
+                      "font-archivo text-[15px] flex items-center gap-[8px] transition-colors h-full",
+                      isTransparent ? "text-primary-soft hover:text-white" : "text-[#4F4F4F] hover:text-primary font-medium"
+                    )}
                   >
                     {item}
                     {hasDropdown && (
@@ -208,12 +216,12 @@ export default function Header() {
 
                   {/* Dropdown Menu */}
                   {hasDropdown && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-[260px] bg-white shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border-t-2 border-primary translate-y-4 group-hover:translate-y-0 rounded-b-lg overflow-hidden">
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-[260px] bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border-t-2 border-primary translate-y-4 group-hover:translate-y-0 rounded-b-lg overflow-hidden">
                       <div className="flex flex-col">
                         {[1, 2, 3].map((subItem) => (
                           <Link 
                             key={subItem} 
-                            href={`/${item.toLowerCase()}/item-${subItem}`}
+                            href={`/${item.toLowerCase().replace(' ', '-')}/item-${subItem}`}
                             className="px-6 py-4 text-gray-dark hover:text-primary hover:bg-gray-50/50 font-archivo text-[15px] font-normal transition-colors border-b border-gray-100 last:border-0"
                           >
                             {item} Category {subItem}
@@ -228,45 +236,36 @@ export default function Header() {
           </nav>
 
           {/* Right Actions */}
-          <div className="hidden lg:flex items-stretch gap-[10px] h-[50px] my-auto">
+          <div className="hidden lg:flex items-center gap-[12px] h-[44px] my-auto">
             {/* Language Selector */}
             <div className="relative h-full group flex items-center">
-              <button className="h-full px-4 border border-[#C6CCED] flex items-center gap-[12px] text-[#C6CCED] group-hover:text-white group-hover:border-white transition-colors cursor-pointer">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M26.4573 10.1093C27.4718 11.9067 28.0033 13.9361 28 16C28 17.0373 27.868 18.044 27.6213 19.004C26.9546 21.5791 25.4515 23.8598 23.348 25.488C21.2446 27.1163 18.66 27.9998 16 28M5.54267 10.1093C4.56 11.8493 4 13.86 4 16C3.9991 17.0133 4.12633 18.0226 4.37867 19.004C5.04544 21.5791 6.54854 23.8598 8.65197 25.488C10.7554 27.1163 13.34 27.9998 16 28M16 28C19.3133 28 22 22.6267 22 16C22 9.37334 19.3133 4 16 4M16 28C12.6867 28 10 22.6267 10 16C10 9.37334 12.6867 4 16 4M27.6213 19.004C24.0656 20.9752 20.0656 22.0064 16 22C11.784 22 7.82267 20.9133 4.37867 19.004M16 4C18.1283 3.99911 20.2186 4.56448 22.0563 5.63809C23.894 6.71169 25.4129 8.25489 26.4573 10.1093M16 4C13.8717 3.99911 11.7814 4.56448 9.94375 5.63809C8.10606 6.71169 6.58708 8.25489 5.54267 10.1093M26.4573 10.1093C23.5542 12.6239 19.8407 14.0055 16 14C12.0027 14 8.34667 12.5333 5.54267 10.1093" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <button className={clsx(
+                "h-full px-[16px] border flex items-center gap-[10px] transition-colors cursor-pointer",
+                isTransparent ? "border-white/30 text-white hover:border-white" : "border-[#D1D1D1] text-[#4F4F4F] hover:border-[#4F4F4F]"
+              )}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
                 </svg>
-                <div className="flex items-center gap-2">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img 
-                    src={`https://flagcdn.com/w40/${currentLang.flagCode}.png`}
-                    alt={currentLang.label}
-                    className="w-[20px] h-[14px] object-cover rounded-xs border border-white/20 shadow-xs"
-                  />
-                  <span className="font-archivo text-[16px]">{currentLang.short}</span>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-300 group-hover:-rotate-180">
-                    <path d="M16.5 8.25L10.5 14.25L4.5 8.25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
+                <span className="font-archivo text-[14px] font-medium leading-none mt-[2px]">EN</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-[2px] mt-[2px]">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
               </button>
 
               {/* Language Dropdown */}
-              <div className="absolute top-full right-0 w-[190px] max-h-[340px] overflow-y-auto no-scrollbar bg-white shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border-t-2 border-primary translate-y-4 group-hover:translate-y-0 rounded-b-lg">
+              <div className="absolute top-full right-0 w-[190px] max-h-[340px] overflow-y-auto no-scrollbar bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border-t-2 border-primary translate-y-4 group-hover:translate-y-0 rounded-b-lg mt-1">
                 <div className="flex flex-col">
                   {LANGUAGES.map((lang) => (
                     <button 
                       key={lang.code}
                       onClick={() => handleLanguageChange(lang)}
                       className={clsx(
-                        "px-4 py-3 text-gray-dark hover:text-primary hover:bg-gray-50/70 font-archivo text-[15px] flex items-center justify-start gap-3 transition-colors border-b border-gray-100 last:border-0 w-full text-left",
+                        "px-4 py-3 text-[#4F4F4F] hover:text-primary hover:bg-gray-50/70 font-archivo text-[14px] flex items-center justify-start gap-3 transition-colors border-b border-gray-100 last:border-0 w-full text-left",
                         currentLang.code === lang.code && "bg-blue-50/50 text-primary font-semibold"
                       )}
                     >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img 
-                        src={`https://flagcdn.com/w40/${lang.flagCode}.png`}
-                        alt={lang.label}
-                        className="w-[22px] h-[15px] object-cover rounded-xs border border-gray-200 shrink-0 shadow-xs"
-                      />
                       <span className="truncate">{lang.label}</span>
                     </button>
                   ))}
@@ -277,15 +276,18 @@ export default function Header() {
             {/* Request a Quote Button */}
             <Link 
               href="/quote"
-              className="h-full px-[24px] border border-white rounded-none text-white font-archivo text-[17px] font-semibold flex items-center justify-center gap-[16px] hover:bg-white hover:text-primary transition-colors group"
+              className={clsx(
+                "h-full px-[20px] border flex items-center justify-center gap-[12px] font-archivo text-[14px] font-medium transition-colors group",
+                isTransparent ? "border-white text-white hover:bg-white hover:text-primary" : "border-[#D1D1D1] text-[#4F4F4F] hover:border-[#4F4F4F]"
+              )}
             >
               Request a Quote
-              <span className="w-2 h-2 rounded-full bg-white group-hover:bg-primary transition-colors"></span>
+              <span className={clsx("w-[5px] h-[5px] rounded-full transition-colors", isTransparent ? "bg-white group-hover:bg-primary" : "bg-[#4F4F4F]")}></span>
             </Link>
           </div>
           
           {/* Mobile Menu Toggle */}
-          <button className="lg:hidden text-white hover:text-primary-soft transition-colors">
+          <button className={clsx("lg:hidden transition-colors", isTransparent ? "text-white hover:text-primary-soft" : "text-[#4F4F4F] hover:text-primary")}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="6" x2="21" y2="6"></line>

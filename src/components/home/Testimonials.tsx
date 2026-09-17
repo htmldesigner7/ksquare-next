@@ -39,6 +39,7 @@ const QuoteIcon = () => (
   </svg>
 );
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const TestimonialCard = ({ item }: { item: any }) => (
   <div className="w-[320px] sm:w-[450px] xl:w-[740px] xl:h-[300px] bg-white border border-[#E5E5E5] p-[32px] sm:p-[40px] xl:p-0 flex flex-col xl:block relative shrink-0">
     <div className="absolute right-[32px] top-[32px] xl:left-[648px] xl:top-[20px] xl:right-auto text-[#EEEEEE]">

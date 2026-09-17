@@ -36,7 +36,7 @@ export default function Hero() {
           {/* Titles (Frame 2085663114) */}
           <div className="absolute left-[509px] top-[0px] w-[1093px] h-[179px]">
             <h1 className="absolute left-0 top-0 font-jost font-normal text-[68px] leading-tight text-[#FFFFFF] whitespace-nowrap">
-              India's Trusted Manufacturer of
+              India&apos;s Trusted Manufacturer of
             </h1>
             <h1 className="absolute left-[255px] top-[82px] font-recia font-semibold text-[68px] leading-tight text-[#FFFFFF] whitespace-nowrap">
               Solar Component Systems
@@ -75,7 +75,7 @@ export default function Hero() {
         <div className="relative z-10 xl:hidden pt-[140px] px-6 pb-12 flex flex-col gap-8 items-center text-center">
           <div className="flex flex-col gap-2">
             <h1 className="font-jost font-normal text-4xl sm:text-5xl text-white">
-              India's Trusted Manufacturer of
+              India&apos;s Trusted Manufacturer of
             </h1>
             <h1 className="font-recia font-semibold text-4xl sm:text-5xl text-white">
               Solar Component Systems

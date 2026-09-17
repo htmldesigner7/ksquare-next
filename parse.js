@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const fs = require('fs');
 const d = JSON.parse(fs.readFileSync('figma_full.json', 'utf-8'));
 function findNode(n, id) {

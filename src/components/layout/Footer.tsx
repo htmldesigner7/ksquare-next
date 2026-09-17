@@ -490,7 +490,7 @@ export default function Footer() {
                     {col.sections.map((sec, sIdx) => (
                       <div key={sIdx} className="flex flex-col gap-3">
                         {sec.subtitle && (
-                          <h5 className={`font-archivo ${sec.isTitle ? 'font-semibold text-[18px] text-[#2B398B] mt-4 uppercase tracking-wide' : 'font-medium text-[16px] text-[#333333]'}`}>
+                          <h5 className={`font-archivo ${('isTitle' in sec && sec.isTitle) ? 'font-semibold text-[18px] text-[#2B398B] mt-4 uppercase tracking-wide' : 'font-medium text-[16px] text-[#333333]'}`}>
                             {sec.subtitle}
                           </h5>
                         )}
