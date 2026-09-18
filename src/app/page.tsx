@@ -7,6 +7,12 @@ import Solutions from "@/components/home/Solutions";
 import PartnerCTA from "@/components/home/PartnerCTA";
 import Testimonials from "@/components/home/Testimonials";
 import Insights from "@/components/home/Insights";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home | Ksquare Energy",
+  description: "Explore Ksquare Energy's leading solar solutions, from residential rooftops to industrial plants.",
+};
 
 export default function Home() {
   return (

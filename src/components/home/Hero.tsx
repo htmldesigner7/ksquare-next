@@ -35,11 +35,14 @@ export default function Hero() {
 
           {/* Titles (Frame 2085663114) */}
           <div className="absolute left-[509px] top-[0px] w-[1093px] h-[179px]">
-            <h1 className="absolute left-0 top-0 font-jost font-normal text-[68px] leading-tight text-[#FFFFFF] whitespace-nowrap">
-              India&apos;s Trusted Manufacturer of
+            <h1 className="absolute left-0 top-0 font-jost font-normal text-[68px] leading-tight whitespace-nowrap">
+              <span className="text-[#C6CCED]">India&apos;s Trusted </span>
+              <span className="font-recia italic font-semibold text-white">Manufacturer</span>
+              <span className="text-[#C6CCED]"> of</span>
             </h1>
-            <h1 className="absolute left-[255px] top-[82px] font-recia font-semibold text-[68px] leading-tight text-[#FFFFFF] whitespace-nowrap">
-              Solar Component Systems
+            <h1 className="absolute left-[255px] top-[82px] text-[68px] leading-tight whitespace-nowrap">
+              <span className="font-recia italic font-semibold text-white">Solar Component </span>
+              <span className="font-archivo text-[#C6CCED]">Systems</span>
             </h1>
           </div>
 
@@ -49,7 +52,7 @@ export default function Hero() {
               DCDBs, ACDBs, combiner boxes, junction boxes and BOS accessories engineered, tested and shipped from our own Ahmedabad facility to EPCs, distributors and OEM partners across India.
             </p>
             
-            <div className="absolute left-0 top-[144px] w-[419px] h-[50px] flex items-center gap-[16px]">
+            <div className="absolute left-0 top-[144px] w-[419px] h-[50px] flex items-center gap-[16px] mt-[34px]">
               {/* Request Bulk Quote */}
               <Link 
                 href="/quote"
@@ -74,11 +77,14 @@ export default function Hero() {
         {/* Responsive layout for smaller screens (< 1280px) since Figma doesn't provide specific mobile views */}
         <div className="relative z-10 xl:hidden pt-[140px] px-6 pb-12 flex flex-col gap-8 items-center text-center">
           <div className="flex flex-col gap-2">
-            <h1 className="font-jost font-normal text-4xl sm:text-5xl text-white">
-              India&apos;s Trusted Manufacturer of
+            <h1 className="font-jost font-normal text-4xl sm:text-5xl">
+              <span className="text-[#C6CCED]">India&apos;s Trusted </span>
+              <span className="font-recia italic font-semibold text-white">Manufacturer</span>
+              <span className="text-[#C6CCED]"> of</span>
             </h1>
-            <h1 className="font-recia font-semibold text-4xl sm:text-5xl text-white">
-              Solar Component Systems
+            <h1 className="text-4xl sm:text-5xl">
+              <span className="font-recia italic font-semibold text-white">Solar Component </span>
+              <span className="font-archivo text-[#C6CCED]">Systems</span>
             </h1>
           </div>
           

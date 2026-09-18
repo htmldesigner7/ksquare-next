@@ -3,7 +3,7 @@ import Link from 'next/link';
 import clsx from 'clsx';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'solid' | 'outline' | 'ghost';
+  variant?: 'solid' | 'outline' | 'ghost' | 'outline-primary';
   href?: string;
   className?: string;
   children: React.ReactNode;
@@ -24,16 +24,18 @@ export default function Button({
   const variants = {
     solid: "bg-white text-primary hover:bg-gray-100 px-[24px] py-[12px] border border-transparent",
     outline: "border border-white text-white hover:bg-white hover:text-primary px-[24px] py-[12px]",
+    "outline-primary": "border border-primary text-primary hover:bg-[#F0F5FE] px-[24px] py-[12px]",
     ghost: "text-[#C6CCED] hover:text-white px-[16px] py-[12px] border border-transparent hover:border-white"
   };
 
   const dotStyles = {
     solid: "bg-primary-dark group-hover:bg-primary",
     outline: "bg-white group-hover:bg-primary",
+    "outline-primary": "bg-primary transition-transform group-hover:scale-110",
     ghost: "bg-[#C6CCED] group-hover:bg-white"
   };
 
-  const classes = clsx(baseStyles, variants[variant], className);
+  const classes = clsx(baseStyles, variants[variant as keyof typeof variants], className);
 
   const inner = (
     <>

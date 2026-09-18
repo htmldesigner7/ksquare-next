@@ -32,7 +32,7 @@ export default function Insights() {
         <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
           <div className="flex flex-col gap-4 max-w-[883px]">
             <h2 className="font-jost font-normal text-[48px] xl:text-[60px] text-[#2B398B] leading-[1.1] xl:leading-[86.7px] m-0 p-0">
-              Latest <span className="font-serif italic font-medium">Insights</span>
+              Latest <span className="font-recia italic font-medium">Insights</span>
             </h2>
             <p className="font-archivo font-normal text-[16px] xl:text-[17px] text-[#666666] m-0 p-0">
               Stay updated with industry trends, technical knowledge, product innovations, and company updates.

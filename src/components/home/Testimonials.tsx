@@ -91,10 +91,10 @@ export default function Testimonials() {
           {/* Header (Frame 23) */}
           <div className="absolute left-[160px] top-0 w-[1600px] h-[91px] text-center">
             <h2 className="absolute left-0 top-0 w-[1600px] font-jost font-normal text-[60px] text-[#2B398B] leading-none m-0 p-0 text-center">
-              Client Testimonials
+              What Our <span className="font-recia italic">Clients Say</span>
             </h2>
             <p className="absolute left-0 top-[65px] w-[1600px] font-archivo font-normal text-[17px] text-[#666666] m-0 p-0 text-center">
-              Hear from our satisfied clients and long-term partners across India.
+              Hear from EPC companies, distributors, and customers who trust Ksquare Energy for quality products and dependable service.
             </p>
           </div>
           
@@ -126,10 +126,10 @@ export default function Testimonials() {
         <div className="xl:hidden flex flex-col gap-12 px-6 overflow-hidden">
           <div className="flex flex-col gap-4 text-center">
             <h2 className="font-jost font-normal text-[40px] sm:text-[60px] text-[#2B398B] leading-[1.1] m-0 p-0">
-              Client Testimonials
+              What Our <span className="font-recia italic">Clients Say</span>
             </h2>
             <p className="font-archivo font-normal text-[16px] md:text-[17px] text-[#666666] m-0 p-0">
-              Hear from our satisfied clients and long-term partners across India.
+              Hear from EPC companies, distributors, and customers who trust Ksquare Energy for quality products and dependable service.
             </p>
           </div>
           
