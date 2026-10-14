@@ -68,38 +68,63 @@ const footerLinks: { title: string; sections: FooterSection[] }[] = [
 export default function Footer() {
   const pathname = usePathname();
   // We keep hasCTA true as per recent user request for uniform footer.
-  // We can easily revert this to pathname !== "/products/dcdb" if needed.
-  const hasCTA = pathname !== "/products/dcdb";
+  // Blog detail pages embed their own narrower, column-scaled CTA per Figma
+  // (nested inside the sidebar+article layout), so the global one is skipped there.
+  // FAQs and Grievance already end with their own dedicated CTA ("Have a Technical
+  // Question" / "Still Have a Concern?"), so skip the global one there too —
+  // otherwise two CTA banners stack back-to-back.
+  const hasCTA =
+    pathname !== "/products/dcdb" &&
+    !pathname.startsWith("/blog/") &&
+    pathname !== "/faqs" &&
+    pathname !== "/grievance";
 
   return (
     <footer className="w-full bg-[#FFFFFF] font-archivo">
       
       {/* CTA Section */}
       {hasCTA && (
-        <div className="w-full bg-[#2B398B] py-[80px] lg:py-[120px]">
-          <Container maxWidth="1600">
-            <div className="flex flex-col gap-[24px]">
-              <h2 className="font-jost font-normal text-[40px] md:text-[60px] text-[#FFFFFF] leading-[1.1] max-w-[1025px]">
-                Get bulk pricing on Solar BOS Components
-              </h2>
-              <p className="font-normal text-[16px] md:text-[17px] text-[#FFFFFF] max-w-[1025px]">
-                Whether you need certified solar components, OEM manufacturing, or complete rooftop solar solutions, our team is ready to help.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-[16px] mt-[32px]">
-                <Link 
-                  href="/quote"
-                  className="w-full sm:w-[209px] h-[58px] bg-[#FFFFFF] hover:bg-gray-100 transition-colors flex items-center justify-center"
-                >
-                  <span className="font-normal text-[17px] text-[#2B398B]">Request a Quote</span>
-                </Link>
-                
-                <Link 
-                  href="/contact"
-                  className="w-full sm:w-[241px] h-[58px] border border-[#FFFFFF] hover:bg-[#FFFFFF] hover:text-[#2B398B] transition-colors flex items-center justify-center group"
-                >
-                  <span className="font-normal text-[17px] text-[#FFFFFF] group-hover:text-[#2B398B] transition-colors">Talk to Our Experts</span>
-                </Link>
+        <div className="relative w-full bg-[#2B398B] overflow-hidden py-[80px] lg:py-0 lg:h-[480px]">
+          <Image
+            src="/assets/common/cta_bg_pattern.png"
+            alt=""
+            fill
+            quality={100}
+            sizes="100vw"
+            className="object-cover pointer-events-none"
+            aria-hidden="true"
+          />
+          <div className="hidden lg:block absolute right-0 top-[31.34px] w-[36.2%] max-w-[694.46px] aspect-[694.46/430.18] pointer-events-none">
+            <Image
+              src="/assets/common/cta_illustration_figma.svg"
+              alt=""
+              fill
+              className="object-contain"
+              aria-hidden="true"
+            />
+          </div>
+          <Container maxWidth="1600" className="relative z-10 lg:pt-[94.93px]">
+            <div className="flex flex-col gap-[40px] lg:gap-[64px]">
+              <div className="flex flex-col gap-[8px] max-w-[1025px]">
+                <h2 className="m-0 font-jost font-normal text-[40px] md:text-[60px] leading-[1.15] md:leading-[68px] text-[#FFFFFF]">
+                  Get bulk pricing on <span className="font-recia italic font-medium">Solar BOS Components</span>
+                </h2>
+                <p className="m-0 font-normal text-[17px] leading-[26px] text-[#FFFFFF]">
+                  Whether you need certified solar components, OEM manufacturing, or complete rooftop solar solutions, our team is ready to help.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-[24px]">
+                {["Request a Quote", "Talk to Our Experts"].map((label) => (
+                  <Link
+                    key={label}
+                    href="/contact"
+                    className="group inline-flex items-center justify-center gap-[16px] px-[24px] py-[16px] border border-[#FFFFFF] text-[#FFFFFF] hover:bg-[#FFFFFF] hover:text-[#2B398B] transition-colors"
+                  >
+                    <span className="font-normal text-[17px] leading-[26px]">{label}</span>
+                    <span className="w-[8px] h-[8px] rounded-full bg-[#FFFFFF] group-hover:bg-[#2B398B] transition-colors" />
+                  </Link>
+                ))}
               </div>
             </div>
           </Container>

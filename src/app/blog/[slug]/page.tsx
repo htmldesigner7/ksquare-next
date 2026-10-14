@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import SectionSpacer from "@/components/common/SectionSpacer";
+import TocSidebar from "./TocSidebar";
 
 export const metadata: Metadata = {
   title: "The Ultimate Guide to Surge Protection for Utility-Scale Solar Systems | Ksquare Energy",
@@ -11,18 +12,30 @@ export const metadata: Metadata = {
     "As PV installations scale to utility capacities, learn the precision engineering protocols required to safeguard high-voltage DC arrays against lightning-induced surges and switching transients.",
 };
 
+// Note: the TOC labels below are copied verbatim from Figma's sidebar "Container" (#106:6012).
+// The Figma file itself contains two identical "Product Recommendations" entries (a duplicate
+// left over from the design source) and labels ("System Vulnerabilities", "Protection Solutions",
+// "Product Recommendations") that don't literally match any on-page H2. Per the literal-text rule
+// the copy is kept as authored; the anchors are wired positionally to the article's real sections
+// so the links still function.
 const toc = [
   { id: "introduction", label: "Introduction" },
-  { id: "what-is-mcb", label: "What is an MCB?" },
-  { id: "how-mcb-works", label: "How MCB Works" },
-  { id: "specifications", label: "Technical Specifications" },
-  { id: "real-world-example", label: "Real-World Example" },
-  { id: "faqs", label: "FAQs" },
+  { id: "what-is-mcb", label: "System Vulnerabilities" },
+  { id: "how-mcb-works", label: "Protection Solutions" },
+  { id: "specifications", label: "Product Recommendations" },
+  { id: "real-world-example", label: "Product Recommendations" },
 ];
 
-const specs = [
+// Left table — literal to Figma (#106:6055..6084), which duplicates the "Nominal Voltage (Un)"
+// row (rows 1 and 3 share the same template/text in the source file). Kept as authored.
+const specsLeft = [
+  { label: "Nominal Voltage (Un)", value: "230/400V AC" },
   { label: "Max. Continuous Operating Voltage (Uc)", value: "275V AC" },
+  { label: "Nominal Voltage (Un)", value: "230/400V AC" },
   { label: "Max. Discharge Current (Imax)", value: "40kA (8/20µs)" },
+];
+
+const specsRight = [
   { label: "Voltage Protection Level (Up)", value: "≤1.5kV" },
   { label: "Response Time", value: "<25ns" },
   { label: "SPD Type / Test Class", value: "Type 2 / Class II" },
@@ -68,7 +81,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
         </Link>
         <svg width="5" height="10" viewBox="0 0 5 10" fill="none"><path d="M1 1L4 5L1 9" stroke="#333333" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
         <span className="font-archivo text-[16px] lg:text-[20px] text-primary leading-[26px] truncate max-w-[400px]">
-          Surge Protection Guide
+          Blogs Blog Detail
         </span>
       </Container>
 
@@ -79,27 +92,29 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
         <div className="flex flex-col xl:flex-row items-stretch gap-[40px]">
           <div className="relative w-full xl:w-[900px] aspect-[900/615] rounded-[16px] overflow-hidden shrink-0">
             <Image
-              src="/assets/blog/detail_hero.png"
+              src="/assets/blog-detail/hero-article.png"
               alt="Utility-scale solar array with surge protection"
               fill
               className="object-cover"
               priority
             />
           </div>
-          <div className="flex flex-col gap-[24px] w-full justify-center">
-            <h1 className="font-archivo text-[36px] lg:text-[52px] leading-[1.15] font-medium text-primary">
-              The Ultimate Guide to Surge Protection for Utility-Scale Solar Systems
-            </h1>
-            <p className="font-archivo text-[17px] leading-[26px] text-[#666666] text-justify">
-              As PV installations scale to utility capacities, the risk of lightning-induced surges and switching transients increases exponentially. Learn the precision engineering protocols required to safeguard high-voltage DC arrays.
-            </p>
-            <div className="flex items-center gap-[12px]">
-              <div className="relative w-[40px] h-[40px] rounded-full overflow-hidden shrink-0">
-                <Image src="/assets/blog/detail_author.png" alt="Kuldip Sorathiya" fill className="object-cover" />
-              </div>
-              <span className="font-archivo text-[17px] text-[#333333]">Kuldip Sorathiya</span>
-              <span className="w-px h-[16px] bg-[#333333]" />
-              <span className="font-archivo text-[17px] text-[#333333]">Sep 15, 2026</span>
+          <div className="flex flex-col gap-[30px] w-full justify-center">
+            <div className="flex flex-col gap-[30px]">
+              <h1 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[70px] font-medium text-primary">
+                The Ultimate Guide to Surge Protection for Utility-Scale Solar Systems
+              </h1>
+              <p className="font-archivo text-[17px] leading-[26px] text-[#666666] text-justify">
+                As PV installations scale to utility capacities, the risk of lightning-induced surges and switching transients increases exponentially. Learn the precision engineering protocols required to safeguard high-voltage DC arrays.
+              </p>
+            </div>
+            <div className="flex flex-col gap-[18px]">
+              <p className="font-archivo text-[17px] leading-[26px] text-[#666666] text-justify">
+                Electrical protection is an extremely important process in establishing the safety, reliability and life of the new electrical systems. Electrical devices such as protective devices help prevent electricity faults, equipment damage and even fire in the homes, offices, factories or even in solar installations.
+              </p>
+              <p className="font-archivo text-[17px] leading-[26px] text-[#666666] text-justify">
+                The SPD (Surge Protecting Device) and the MCB (Miniature Circuit Breaker) are both regarded to be two of the most essential protection appliances of the contemporary world. The two are employed in different mechanisms although they are used to protect but to ensure different kind of electrical problems are addressed.
+              </p>
             </div>
           </div>
         </div>
@@ -109,120 +124,119 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
 
       {/* Content + Sidebar */}
       <Container maxWidth="1800">
-        <div className="flex flex-col-reverse xl:flex-row items-start gap-[40px] xl:gap-[60px]">
+        <div className="flex flex-col-reverse xl:flex-row items-stretch gap-[40px] xl:gap-[48px]">
           {/* Sidebar TOC */}
-          <aside className="hidden xl:flex flex-col gap-[32px] w-[360px] shrink-0 bg-[#EFF0F6] p-[24px] sticky top-[110px]">
-            <span className="font-archivo text-[24px] text-[#333333]">Contents</span>
-            <nav className="flex flex-col gap-[12px]">
-              {toc.map((item, i) => (
-                <a
-                  key={item.id}
-                  href={`#${item.id}`}
-                  className={`font-archivo text-[20px] leading-[26px] pl-[16px] py-[4px] border-l-2 transition-colors ${
-                    i === 0
-                      ? "border-primary text-primary"
-                      : "border-transparent text-[#666666] hover:text-primary hover:border-primary"
-                  }`}
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
+          <aside className="hidden xl:block w-[360px] shrink-0 bg-[#EFF0F6]">
+            <div className="flex flex-col gap-[32px] p-[24px] sticky top-[110px]">
+              <span className="font-archivo text-[24px] text-[#333333]">CONTENTS</span>
+              <TocSidebar items={toc} />
+            </div>
           </aside>
 
           {/* Article Body */}
-          <div className="flex flex-col gap-[64px] w-full">
+          <div className="flex flex-col gap-[24px] w-full">
             <section id="introduction" className="flex flex-col gap-[24px] scroll-mt-[110px]">
-              <h2 className="font-archivo text-[28px] lg:text-[40px] leading-[1.2] text-[#333333]">
-                Difference Between SPD and MCB &mdash; Complete Guide
+              <h2 className="font-archivo text-[28px] lg:text-[40px] leading-[1.25] lg:leading-[50px] text-[#333333]">
+                Difference Between SPD and MCB - Complete Guide
               </h2>
-              <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">
-                Electrical protection is an extremely important part of establishing the safety, reliability and life of any electrical system. Protective devices help prevent electrical faults, equipment damage and even fire in homes, offices, factories or solar installations.
-              </p>
-              <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">
-                The Surge Protection Device (SPD) and the Miniature Circuit Breaker (MCB) are both regarded as two of the most essential protection appliances in modern electrical systems. Both are used to protect equipment, but they are designed to address different kinds of electrical problems.
-              </p>
+              <div className="flex flex-col gap-[18px]">
+                <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">
+                  Electrical protection is an extremely important process in establishing the safety, reliability and life of the new electrical systems. Electrical devices such as protective devices help prevent electricity faults, equipment damage and even fire in the homes, offices, factories or even in solar installations.
+                </p>
+                <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">
+                  The SPD (Surge Protecting Device) and the MCB (Miniature Circuit Breaker) are both regarded to be two of the most essential protection appliances of the contemporary world. The two are employed in different mechanisms although they are used to protect but to ensure different kind of electrical problems are addressed.
+                </p>
+              </div>
             </section>
 
             <section id="what-is-mcb" className="flex flex-col gap-[24px] scroll-mt-[110px]">
-              <h2 className="font-archivo text-[28px] lg:text-[40px] leading-[1.2] text-[#333333]">
+              <h2 className="font-archivo text-[28px] lg:text-[40px] leading-[1.25] lg:leading-[50px] text-[#333333]">
                 What is an MCB (Miniature Circuit Breaker)?
               </h2>
               <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">
-                A Miniature Circuit Breaker (MCB) is a safety device that automatically de-energizes an electric circuit upon detecting an overload or short circuit. In simple terms, it works like a resettable fuse that trips before excess current can damage your wiring and equipment.
+                Miniature Circuit Breaker (MCB) is a safety gadget that uses the detection of over load or short circuit to automatically deenergize electric circuits. To make it easier to understand, it is a fuse which can be reset in case of current overload which is bound to blow your wiring and equipments.
               </p>
             </section>
 
             <section id="how-mcb-works" className="flex flex-col gap-[24px] scroll-mt-[110px]">
-              <h2 className="font-archivo text-[28px] lg:text-[40px] leading-[1.2] text-[#333333]">
+              <h2 className="font-archivo text-[28px] lg:text-[40px] leading-[1.25] lg:leading-[50px] text-[#333333]">
                 How MCB Works
               </h2>
               <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">
-                When the electrical current flowing through a circuit exceeds its rated value, heat builds up within the MCB. This heat triggers a tripping mechanism that breaks the circuit. The MCB responds instantly to a short circuit, helping prevent equipment damage or fire.
+                When the electrical current flowing through a circuit exceeds its rated value, heat builds up within the MCB. This heat causes the release of a tripping mechanism which breaks the circuit. The MCB instantly responds in case of a short circuit and in this way, the destruction or fire are avoided.
               </p>
             </section>
 
-            <section id="specifications" className="flex flex-col gap-[24px] scroll-mt-[110px]">
-              <h2 className="font-archivo text-[28px] lg:text-[40px] leading-[1.2] text-[#333333] text-center">
-                Technical Specifications
+            <section id="specifications" className="flex flex-col gap-[24px] scroll-mt-[110px] items-center">
+              <h2 className="font-archivo text-[28px] lg:text-[40px] leading-[1.25] lg:leading-[50px] text-[#333333] text-center">
+                The Specification of SPD and MCB
               </h2>
-              <div className="w-full overflow-x-auto border border-[#DDDDDD]">
-                <table className="w-full min-w-[500px] border-collapse">
-                  <thead>
-                    <tr className="bg-primary">
-                      <th className="text-left font-archivo text-[20px] lg:text-[24px] font-normal text-white p-[16px_24px]">Parameters</th>
-                      <th className="text-left font-archivo text-[20px] lg:text-[24px] font-normal text-white p-[16px_24px]">Value</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {specs.map((row) => (
-                      <tr key={row.label} className="border-b border-[#DDDDDD]">
-                        <td className="font-archivo text-[16px] lg:text-[17px] font-medium text-primary p-[16px_24px] align-top">{row.label}</td>
-                        <td className="font-archivo text-[16px] lg:text-[18px] text-[#666666] p-[16px_24px] align-top">{row.value}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+              <div className="w-full flex flex-col lg:flex-row gap-[24px]">
+                {[specsLeft, specsRight].map((rows, tableIdx) => (
+                  <div key={tableIdx} className="w-full lg:w-1/2 border border-[#DDDDDD] overflow-x-auto">
+                    <table className="w-full min-w-[400px] border-collapse">
+                      <thead>
+                        <tr className="bg-primary">
+                          <th className="text-left font-archivo text-[20px] lg:text-[24px] font-normal leading-[34px] text-white p-[16px_24px]">Parameters</th>
+                          <th className="text-left font-archivo text-[20px] lg:text-[24px] font-normal leading-[34px] text-white p-[16px_24px]">Specifications</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {rows.map((row, i) => (
+                          <tr key={i} className={i % 2 === 0 ? "bg-white border-t border-[#F1F5F9]" : "bg-[#EFF0F6] border-t border-[#F1F5F9]"}>
+                            <td className="font-archivo text-[16px] lg:text-[17px] font-medium text-primary p-[16px_24px] align-top">{row.label}</td>
+                            <td className="font-archivo text-[16px] lg:text-[18px] text-[#666666] p-[16px_24px] align-top">{row.value}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ))}
               </div>
             </section>
 
             <section id="real-world-example" className="flex flex-col gap-[24px] scroll-mt-[110px]">
-              <h2 className="font-archivo text-[28px] lg:text-[40px] leading-[1.2] text-[#333333]">
-                Real-Life Example &mdash; Renewable Energy Installation
+              <h2 className="font-archivo text-[28px] lg:text-[40px] leading-[1.25] lg:leading-[50px] text-[#333333]">
+                Real-Life Example – Renewable Energy Installation
               </h2>
               <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">
-                Solar energy farms are unique among industrial facilities due to their large physical footprint and exposure to atmospheric phenomena. The interconnected nature of DC strings and AC collection networks creates multiple entry points for high-energy surges that can disrupt production for weeks if left unprotected.
+                Solar energy farms are unique among industrial facilities due to their immense physical footprint and exposure to atmospheric phenomena. The interconnected nature of DC strings and AC collection networks creates multiple entry points for high-energy surges that can cripple production for weeks.
               </p>
             </section>
 
             {/* Author bio */}
             <div className="flex flex-col sm:flex-row items-center gap-[24px] p-[24px] border border-primary">
               <div className="relative w-[100px] h-[100px] sm:w-[150px] sm:h-[150px] rounded-full overflow-hidden border-[3px] border-primary shrink-0">
-                <Image src="/assets/blog/detail_author.png" alt="Kuldip Sorathiya" fill className="object-cover" />
+                <Image src="/assets/blog-detail/author-kuldip.png" alt="Kuldip Sorathiya" fill className="object-cover" />
               </div>
-              <div className="flex flex-col gap-[8px] text-center sm:text-left">
-                <h3 className="font-archivo text-[24px] text-[#333333]">Kuldip Sorathiya</h3>
+              <div className="flex flex-col gap-[8px] text-center sm:text-left w-full">
+                <div className="flex items-center justify-center sm:justify-start gap-[11px]">
+                  <h3 className="font-archivo text-[24px] leading-[1.4] text-primary">Kuldip Sorathiya</h3>
+                  <Image src="/assets/blog-detail/author-icon-linkedin.svg" alt="LinkedIn" width={16} height={16} />
+                  <Image src="/assets/blog-detail/author-icon-website.svg" alt="Website" width={16} height={16} />
+                </div>
                 <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">
-                  Kuldip Sorathiya is a Senior Electrical Engineer at Ksquare Energy, specialising in AC and DC surge protection, MCBs and fuse solutions for solar and industrial installations. He leads Ksquare&apos;s engineering effort to deliver safer, more reliable power protection systems across every project.
+                  Kuldip Sorathiya is a Senior Electrical Engineer at Ksquare Energy, specialising in AC and DC surge protection, MCBs and fuse solutions for solar, industrial and electrical infrastructure. With a vision to make electrical protection stronger and more reliable, Kuldip leads Ksquare&apos;s mission of safer, smarter power systems across every project.
                 </p>
               </div>
             </div>
 
             {/* FAQ */}
-            <div id="faqs" className="flex flex-col gap-[24px] scroll-mt-[110px]">
+            <div id="faqs" className="flex flex-col gap-[48px] scroll-mt-[110px]">
               <div className="flex flex-col gap-[8px]">
-                <h2 className="font-jost text-[32px] lg:text-[48px] leading-[1.15] text-primary font-normal">
-                  Frequently Asked <span className="font-recia italic font-medium">Questions</span>
+                <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-primary">
+                  <span className="font-normal">Frequently Asked </span>
+                  <span className="font-recia italic font-medium">Questions11</span>
                 </h2>
                 <p className="font-archivo text-[17px] leading-[26px] text-[#666666] max-w-[700px]">
                   Common questions about solar inverters, sizing and savings.
                 </p>
               </div>
-              <div className="flex flex-col gap-[16px]">
+              <div className="flex flex-col gap-[40px]">
                 {faqs.map((item, index) => (
-                  <details key={item.q} className="group border-b border-[#DDDDDD] pb-[16px]" open={index === 0}>
+                  <details key={item.q} className="group border-b-[1.78px] border-[#9DBCF3] pb-[20px]" open={index === 0}>
                     <summary className="flex items-start justify-between gap-[24px] cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                      <span className="font-archivo text-[18px] lg:text-[24px] leading-[1.3] text-[#333333]">
+                      <span className="font-archivo text-[18px] lg:text-[24px] leading-[1.3] lg:leading-[32px] text-[#333333]">
                         {item.q}
                       </span>
                       <span className="font-archivo text-[24px] text-[#333333] shrink-0 group-open:hidden">+</span>
@@ -235,46 +249,49 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
                 ))}
               </div>
             </div>
+
+            {/* Get bulk pricing CTA — embedded, column-scaled per Figma (not the global full-width Footer CTA) */}
+            <div className="relative w-full overflow-hidden">
+              <Image
+                src="/assets/common/cta_bg_pattern.png"
+                alt=""
+                fill
+                className="object-cover pointer-events-none"
+                aria-hidden="true"
+              />
+              <div className="hidden lg:block absolute right-[3%] top-[6%] w-[36%] max-w-[505px] aspect-[694/430] pointer-events-none">
+                <Image
+                  src="/assets/common/cta_illustration.png"
+                  alt=""
+                  fill
+                  className="object-contain"
+                  aria-hidden="true"
+                />
+              </div>
+              <div className="relative z-10 flex flex-col gap-[33px] p-[24px] lg:p-[33px]">
+                <div className="flex flex-col gap-[4px] max-w-[560px]">
+                  <h2 className="font-jost text-[24px] lg:text-[28px] leading-[1.15] text-white font-normal">
+                    Get bulk pricing on <span className="font-recia italic font-medium">Solar BOS Components</span>
+                  </h2>
+                  <p className="font-archivo text-[13px] leading-[1.4] text-[#EDF3FF]">
+                    Whether you need certified solar components, OEM manufacturing, or complete rooftop solar solutions, our team is ready to help.
+                  </p>
+                </div>
+                <div className="flex flex-wrap items-center gap-[12px]">
+                  <Button variant="outline" href="/contact" showDot className="!px-[12px] !py-[8px]">
+                    Request a Quote
+                  </Button>
+                  <Button variant="outline" href="/contact" showDot className="!px-[12px] !py-[8px]">
+                    Talk to Our Experts
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </Container>
 
       <SectionSpacer size={150} />
-
-      {/* CTA Banner */}
-      <section className="relative w-full overflow-hidden">
-        <div className="absolute inset-0 bg-primary" />
-        <div className="hidden xl:flex absolute right-[80px] top-0 bottom-0 items-center opacity-90 pointer-events-none">
-          <Image
-            src="/assets/download-resources/cta_graphic.svg"
-            alt=""
-            width={505}
-            height={312}
-            className="object-contain"
-            aria-hidden="true"
-          />
-        </div>
-        <Container maxWidth="1600" className="relative z-10 py-[80px] lg:py-[110px]">
-          <div className="flex flex-col gap-[24px] max-w-[1025px]">
-            <div className="flex flex-col gap-[8px]">
-              <h2 className="font-jost text-[36px] lg:text-[60px] leading-[1.15] text-white font-normal">
-                Get bulk pricing on <span className="font-recia italic font-medium">Solar BOS Components</span>
-              </h2>
-              <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#EDF3FF] max-w-[700px]">
-                Whether you need certified solar components, OEM manufacturing, or complete rooftop solar solutions, our team is ready to help.
-              </p>
-            </div>
-            <div className="flex flex-wrap items-center gap-[16px]">
-              <Button variant="outline" href="/contact" showDot>
-                Request a Quote
-              </Button>
-              <Button variant="outline" href="/contact" showDot>
-                Talk to Our Experts
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </section>
     </main>
   );
 }

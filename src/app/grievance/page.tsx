@@ -126,23 +126,24 @@ export default function GrievancePage() {
           </div>
         </Container>
 
-        {/* Hero Image */}
+        {/* Hero Image — exact layered composition from Figma: background photo + transparent-cutout overlay figure */}
         <Container maxWidth="1800" className="mt-[50px] lg:mt-[80px]">
-          <div className="w-full relative aspect-[1804/500] rounded-[24px] overflow-hidden">
-            <Image
-              src="/assets/grievance/hero_banner_bg-6c650f.png"
-              alt="Grievance Redressal at Ksquare Energy"
-              fill
-              className="object-cover"
-              priority
-            />
-            {/* Overlapping accent image (decorative, approximated from Figma's layered hero composition) */}
-            <div className="hidden md:block absolute -bottom-[24px] -right-[24px] w-[42%] max-w-[420px] aspect-[1456/658] rounded-[16px] overflow-hidden border-[6px] border-white shadow-lg">
+          <div className="w-full relative aspect-[1850/658]">
+            <div className="absolute left-0 top-[24.01%] w-full h-[75.99%] rounded-[24px] overflow-hidden">
+              <Image
+                src="/assets/grievance/hero_main-6c650f.png"
+                alt="Grievance Redressal at Ksquare Energy"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div className="absolute left-[21.30%] top-0 w-[78.70%] h-full">
               <Image
                 src="/assets/grievance/hero_overlay-2d7b00.png"
                 alt="Ksquare Energy team resolving customer concerns"
                 fill
-                className="object-cover"
+                className="object-contain object-bottom"
               />
             </div>
           </div>
@@ -338,7 +339,7 @@ export default function GrievancePage() {
             {/* Info Column */}
             <div className="w-full lg:w-[560px] shrink-0 flex flex-col gap-[24px]">
               <div className="flex flex-col gap-[12px]">
-                <h3 className="font-dm text-[36px] lg:text-[50px] leading-[1.15] text-primary font-normal">
+                <h3 className="font-dm text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[70px] text-primary font-medium">
                   Corporate Office
                 </h3>
                 <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666]">
@@ -350,7 +351,7 @@ export default function GrievancePage() {
                 {/* Card 1 */}
                 <div className="flex gap-[20px] items-start p-[24px] bg-white border border-[#E8E4E0]">
                   <div className="w-[48px] h-[48px] bg-[rgba(74,90,181,0.1)] rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B398B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <Image src="/assets/grievance/icon_phone.svg" alt="" width={24} height={24} />
                   </div>
                   <div className="flex flex-col gap-[4px]">
                     <h4 className="font-archivo text-[17px] text-[#333333]">Call Us Directly</h4>
@@ -362,7 +363,7 @@ export default function GrievancePage() {
                 {/* Card 2 */}
                 <div className="flex gap-[20px] items-start p-[24px] bg-white border border-[#E8E4E0]">
                   <div className="w-[48px] h-[48px] bg-[rgba(74,90,181,0.1)] rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B398B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <Image src="/assets/grievance/icon_email.svg" alt="" width={18} height={14} />
                   </div>
                   <div className="flex flex-col gap-[4px]">
                     <h4 className="font-archivo text-[17px] text-[#333333]">Email Support</h4>
@@ -374,7 +375,7 @@ export default function GrievancePage() {
                 {/* Card 3 */}
                 <div className="flex gap-[20px] items-start p-[24px] bg-white border border-[#E8E4E0]">
                   <div className="w-[48px] h-[48px] bg-[rgba(74,90,181,0.1)] rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B398B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <Image src="/assets/grievance/icon_map_pin.svg" alt="" width={24} height={24} />
                   </div>
                   <div className="flex flex-col gap-[4px]">
                     <h4 className="font-archivo text-[17px] text-[#333333]">Ahmedabad Branch Office</h4>
@@ -392,31 +393,89 @@ export default function GrievancePage() {
 
       {/* 5. What Happens After You Submit? */}
       <section className="w-full">
-        <Container maxWidth="1600">
-          <div className="flex flex-col items-center gap-[60px]">
-            <h2 className="font-recia text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal text-center">
-              What Happens <span className="italic font-bold">After You Submit?</span>
+        {/* Desktop: pixel-exact zigzag timeline per Figma (same pattern as /our-infrastructure) */}
+        <div className="hidden xl:block relative w-[1600px] max-w-full mx-auto h-[681px]">
+          {/* Heading */}
+          <div className="absolute left-0 right-0 top-[36px] flex justify-center">
+            <h2 className="font-recia text-[60px] leading-[70px] text-primary font-normal text-center">
+              What Happens <span className="italic font-medium">After You Submit?</span>
             </h2>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-[40px] gap-y-[48px] w-full">
-              {processSteps.map((step, i) => (
-                <div key={step.title} className="flex flex-col items-center text-center gap-[16px]">
-                  <div className="w-[64px] h-[64px] rounded-full bg-[#EFF0F6] flex items-center justify-center">
-                    <span className="font-archivo text-[24px] font-medium text-primary">{i + 1}</span>
-                  </div>
-                  <div className="flex flex-col gap-[12px]">
-                    <h3 className="font-archivo text-[22px] lg:text-[24px] leading-[26px] text-[#333333] font-medium">
-                      {step.title}
-                    </h3>
-                    <p className="font-archivo text-[17px] leading-[26px] text-[#666666] max-w-[290px]">
-                      {step.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
+          {/* Row 1 labels (above the connector graphic) */}
+          <div className="absolute left-[3.39px] top-[169.9px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
+            <h3 className="font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[0].title}</h3>
+            <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[0].desc}</p>
+          </div>
+          <div className="absolute left-[521.49px] top-[169.9px] w-[332px] flex flex-col items-center text-center gap-[12px]">
+            <h3 className="font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[1].title}</h3>
+            <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[1].desc}</p>
+          </div>
+          <div className="absolute left-[1053.13px] top-[169.9px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
+            <h3 className="font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[2].title}</h3>
+            <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[2].desc}</p>
+          </div>
+
+          {/* Connector graphic (circles + zigzag dotted line) with 4 overlaid icons */}
+          <div className="absolute left-0 top-[274.95px] w-[1600px] h-[302.82px]">
+            <Image src="/assets/grievance/process_connectors.png" alt="" fill className="object-contain" aria-hidden="true" />
+            <div className="absolute w-[128px] h-[128px]" style={{ left: 71.6, top: 76.55 }}>
+              <Image src="/assets/grievance/process_icon_1.svg" alt="" fill />
+            </div>
+            <div className="absolute w-[128px] h-[128px]" style={{ left: 337.6, top: 105.55 }}>
+              <Image src="/assets/grievance/process_icon_2.svg" alt="" fill />
+            </div>
+            <div className="absolute w-[128px] h-[128px]" style={{ left: 602.6, top: 76.55 }}>
+              <Image src="/assets/grievance/process_icon_3.svg" alt="" fill />
+            </div>
+            <div className="absolute w-[128px] h-[128px]" style={{ left: 1401.6, top: 101.55 }}>
+              <Image src="/assets/grievance/process_icon_6.svg" alt="" fill />
             </div>
           </div>
-        </Container>
+
+          {/* Row 2 labels (below the connector graphic) */}
+          <div className="absolute left-[256px] top-[590.77px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
+            <h3 className="font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[3].title}</h3>
+            <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[3].desc}</p>
+          </div>
+          <div className="absolute left-[789.82px] top-[590.77px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
+            <h3 className="font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[4].title}</h3>
+            <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[4].desc}</p>
+          </div>
+          <div className="absolute left-[1309.16px] top-[590.77px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
+            <h3 className="font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[5].title}</h3>
+            <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[5].desc}</p>
+          </div>
+        </div>
+
+        {/* Mobile/tablet fallback (Figma provides no separate mobile frame) */}
+        <div className="xl:hidden">
+          <Container maxWidth="1600">
+            <div className="flex flex-col items-center gap-[60px]">
+              <h2 className="font-recia text-[36px] leading-[1.15] text-primary font-normal text-center">
+                What Happens <span className="italic font-medium">After You Submit?</span>
+              </h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[40px] gap-y-[48px] w-full">
+                {processSteps.map((step, i) => (
+                  <div key={step.title} className="flex flex-col items-center text-center gap-[16px]">
+                    <div className="w-[64px] h-[64px] rounded-full bg-[#EFF0F6] flex items-center justify-center">
+                      <span className="font-archivo text-[24px] font-medium text-primary">{i + 1}</span>
+                    </div>
+                    <div className="flex flex-col gap-[12px]">
+                      <h3 className="font-archivo text-[22px] leading-[26px] text-[#333333] font-medium">
+                        {step.title}
+                      </h3>
+                      <p className="font-archivo text-[17px] leading-[26px] text-[#666666] max-w-[290px]">
+                        {step.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </div>
       </section>
 
       <SectionSpacer size={120} />

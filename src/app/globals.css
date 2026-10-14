@@ -39,6 +39,7 @@
   
   --font-sans: var(--font-archivo);
   --font-jost: var(--font-jost);
+  --font-inter: var(--font-inter);
   --font-dm: var(--font-dm-sans);
   --font-recia: var(--font-recia);
   --font-archivo: var(--font-archivo);
@@ -84,3 +85,14 @@ html, body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+/* Carousel slide animation (projects page) */
+@keyframes slide-from-right {
+  from { opacity: 0; transform: translateX(48px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slide-from-left {
+  from { opacity: 0; transform: translateX(-48px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.slide-next { animation: slide-from-right 0.45s ease-out; }
+.slide-prev { animation: slide-from-left 0.45s ease-out; }

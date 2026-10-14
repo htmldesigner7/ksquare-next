@@ -85,9 +85,9 @@ export default function BlogPage() {
               </div>
 
               {/* Title */}
-              <h1 className="font-jost text-[42px] lg:text-[68px] leading-[1.1] lg:leading-[78px] text-[#333333] font-normal">
-                Solar Insights, Industry Trends<br />
-                <span className="font-recia italic font-semibold text-primary">&amp; Technical Knowledge.</span>
+              <h1 className="font-recia text-[42px] lg:text-[68px] leading-[1.1] lg:leading-[78px] text-primary font-normal">
+                Solar Insights, <br />
+                <span className="italic font-semibold">&amp; Technical Knowledge.</span>
               </h1>
             </div>
 
@@ -112,24 +112,14 @@ export default function BlogPage() {
 
         {/* Hero Banner Image */}
         <Container maxWidth="1800" className="mt-[50px] lg:mt-[80px]">
-          <div className="relative w-full">
-            <div className="w-full relative aspect-[1800/661] rounded-[24px] overflow-hidden">
-              <Image
-                src="/assets/blog/hero_bg_2.png"
-                alt="Ksquare Energy solar manufacturing"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-            <div className="hidden xl:block absolute -bottom-[40px] left-[40px] w-[300px] aspect-[738/205] rounded-[16px] overflow-hidden shadow-lg border-4 border-white">
-              <Image
-                src="/assets/blog/hero_bg_1.png"
-                alt="Ksquare Energy team"
-                fill
-                className="object-cover"
-              />
-            </div>
+          <div className="w-full relative aspect-[1800/661]">
+            <Image
+              src="/assets/blog/hero_banner_group.png"
+              alt="Ksquare Energy solar manufacturing"
+              fill
+              className="object-contain"
+              priority
+            />
           </div>
         </Container>
       </section>
@@ -161,10 +151,9 @@ export default function BlogPage() {
                       <span className="w-px h-[16px] bg-[#333333]" />
                       <span className="font-archivo text-[17px] text-[#333333]">{post.date}</span>
                     </div>
-                    <Link href={`/blog/${post.slug}`} className="flex items-center gap-[16px] group shrink-0">
-                      <span className="font-archivo text-[17px] leading-[26px] text-primary">Read More</span>
-                      <span className="w-[8px] h-[8px] rounded-full bg-primary shrink-0 transition-transform group-hover:scale-110" />
-                    </Link>
+                    <Button variant="outline-primary" href={`/blog/${post.slug}`} showDot className="!px-[16px] !py-[12px] shrink-0">
+                      Read More
+                    </Button>
                   </div>
                 </div>
               </article>

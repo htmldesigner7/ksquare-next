@@ -34,10 +34,10 @@ export default function Solutions() {
     <section className="relative w-full bg-[#FFFFFF] overflow-hidden">
       
       {/* Desktop Wrapper */}
-      <div className="w-[1920px] max-w-full mx-auto relative h-[710px] max-xl:h-auto max-xl:px-6 max-xl:py-12">
+      <div className="w-[1920px] max-w-full mx-auto relative xl:pb-[60px] max-xl:h-auto max-xl:px-6 max-xl:py-12">
         
         {/* Desktop Layout (Frame 2147224485) */}
-        <div className="hidden xl:block absolute left-[160px] top-0 w-[1600px] h-[710px]">
+        <div className="hidden xl:block relative ml-[160px] w-[1600px] pt-[159px]">
           
           {/* Header (Frame 23) */}
           <div className="absolute left-0 top-0 w-[1600px] h-[112px]">
@@ -50,10 +50,10 @@ export default function Solutions() {
           </div>
 
           {/* Content (Frame 2147224484) */}
-          <div className="absolute left-0 top-[159px] w-[1600px] h-[550px]">
+          <div className="relative w-[1600px] min-h-[550px]">
             
             {/* Left Accordion (Interactive Desktop) */}
-            <div className="absolute left-0 top-0 w-[800px] h-[550px] flex flex-col">
+            <div className="relative w-[800px] min-h-[550px] flex flex-col">
               {solutions.map((item, idx) => {
                 const isActive = activeIdx === idx;
                 return (
@@ -105,7 +105,7 @@ export default function Solutions() {
             </div>
 
             {/* Right Image (Rectangle 170) */}
-            <div className="absolute left-[850px] top-0 w-[750px] h-[550px]">
+            <div className="absolute left-[850px] top-0 bottom-0 w-[750px] min-h-[550px]">
               <Image 
                 src="/assets/img_solutions.png" 
                 alt="Solar Solutions" 

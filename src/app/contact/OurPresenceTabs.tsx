@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
+import Button from "@/components/common/Button";
 
 const westZoneLocations = [
   {
@@ -11,7 +11,7 @@ const westZoneLocations = [
   },
   {
     id: "factory",
-    name: "Ksqaure Factory",
+    name: "Ksquare Factory",
     address: "Maha Gujarat Industrial Estate, Intas Pharma, 56, Sarkhej-Bavla Rd, B/h, Gujarat 382213",
   },
   {
@@ -36,16 +36,16 @@ export default function OurPresenceTabs() {
         <button
           type="button"
           onClick={() => setZone("west")}
-          className={`font-archivo text-[20px] leading-[26px] px-[28px] py-[16px] rounded-t-[12px] transition-colors ${
+          className={`font-archivo text-[24px] leading-[26px] px-[28px] py-[16px] rounded-t-[12px] transition-colors ${
             zone === "west" ? "text-primary border-b border-primary" : "text-[#333333]"
           }`}
         >
-          West Zone
+          west zone
         </button>
         <button
           type="button"
           onClick={() => setZone("east")}
-          className={`font-archivo text-[20px] leading-[26px] px-[28px] py-[16px] rounded-t-[12px] transition-colors ${
+          className={`font-archivo text-[24px] leading-[26px] px-[28px] py-[16px] rounded-t-[12px] transition-colors ${
             zone === "east" ? "text-primary border-b border-primary" : "text-[#333333]"
           }`}
         >
@@ -59,7 +59,7 @@ export default function OurPresenceTabs() {
           {westZoneLocations.map((loc) => (
             <div
               key={loc.id}
-              className="w-full bg-[#F0F5FE] p-[24px] flex flex-col lg:flex-row justify-between items-start lg:items-center gap-[16px] lg:gap-[24px] border-b border-[#9DBCF3] min-h-[100px]"
+              className="w-full bg-[#F0F5FE] p-[24px] pb-[0] flex flex-col lg:flex-row justify-between items-start lg:items-center gap-[16px] lg:gap-[24px] border-b border-[#9DBCF3] min-h-[100px]"
             >
               <div className="w-full lg:w-[264px] shrink-0">
                 <h3
@@ -77,13 +77,9 @@ export default function OurPresenceTabs() {
               </div>
               <div className="hidden lg:block w-[1px] self-stretch bg-[#9DBCF3]"></div>
               <div className="flex items-center gap-[10px] shrink-0">
-                <Link
-                  href="#"
-                  className="flex items-center gap-[16px] font-archivo text-[16px] lg:text-[17px] leading-[26px] text-primary group"
-                >
-                  <span>Get Direction</span>
-                  <span className="w-[8px] h-[8px] rounded-full bg-primary shrink-0 transition-transform group-hover:scale-110"></span>
-                </Link>
+                <Button variant="outline-primary" href="#" showDot className="!px-[16px] !py-[12px]">
+                  Get Direction
+                </Button>
               </div>
             </div>
           ))}

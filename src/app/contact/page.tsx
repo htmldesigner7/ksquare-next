@@ -216,7 +216,7 @@ export default function ContactPage() {
           <div className="flex flex-col items-center gap-[40px] w-full">
             {/* Header */}
             <div className="flex flex-col items-center gap-[14px] text-center max-w-[1368px]">
-              <h2 className="font-jost text-[40px] md:text-[60px] leading-[1.1] text-primary font-medium">
+              <h2 className="font-jost text-[40px] md:text-[60px] leading-[1.1] text-primary font-normal">
                 Our <span className="font-recia italic font-medium">Presence</span>
               </h2>
               <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666] text-center">
@@ -239,73 +239,31 @@ export default function ContactPage() {
             {/* Header */}
             <div className="flex flex-col items-center gap-[14px] text-center w-full">
               <h2 className="font-archivo text-[40px] md:text-[60px] leading-[1.1] text-primary font-normal">
-                Ahmedabad Branch <span className="font-recia italic">Office</span>
+                Ahmedabad Branch <span className="font-recia italic font-medium">Office</span>
               </h2>
               <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666]">
                 Strategically located offices and manufacturing facilities to serve you better with quick support and seamless operations.
               </p>
             </div>
 
-            {/* Map Layout */}
-            <div className="flex flex-col xl:flex-row gap-[20px] w-full">
-              {/* Main Map */}
-              <div className="relative w-full xl:flex-1 aspect-[1800/474] xl:aspect-auto xl:h-[474px] overflow-hidden">
-                <Image
-                  src="/assets/contact/campus_map_main.png"
-                  alt="Ksquare Energy Campus Map"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute left-[24px] bottom-[24px] md:left-[38px] md:bottom-[24px] bg-white p-[24px] flex flex-col gap-[20px] max-w-[calc(100%-48px)] md:max-w-[540px]">
-                  <div className="flex flex-col gap-[10px]">
-                    <h4 className="font-archivo text-[20px] lg:text-[24px] leading-[26px] text-primary">Get Direction</h4>
-                    <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666]">
-                      Click on the location or use the map to get directions to our campus
-                    </p>
-                  </div>
-                  <Link href="#" className="flex items-center gap-[16px] font-archivo text-[16px] lg:text-[17px] leading-[26px] text-primary group w-fit">
-                    <span>View On Larger Map</span>
-                    <span className="w-[8px] h-[8px] rounded-full bg-primary shrink-0 transition-transform group-hover:scale-110"></span>
-                  </Link>
+            {/* Map — single full-width map per Figma, no side thumbnails (those were mis-cropped UI icons, not real photos) */}
+            <div className="relative w-full aspect-[1800/474] overflow-hidden">
+              <Image
+                src="/assets/contact/campus_map_main.png"
+                alt="Ksquare Energy Campus Map"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute left-[24px] top-[24px] md:left-[38px] md:top-[168px] bg-white p-[24px] flex flex-col gap-[20px] max-w-[calc(100%-48px)] md:max-w-[300px]">
+                <div className="flex flex-col gap-[10px]">
+                  <h4 className="font-archivo text-[20px] lg:text-[24px] leading-[26px] text-primary">Get Direction</h4>
+                  <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666]">
+                    Click on the location or  use the map to get directions to our campus
+                  </p>
                 </div>
-              </div>
-
-              {/* Side Thumbnails */}
-              <div className="flex flex-row xl:flex-col gap-[20px] w-full xl:w-[280px] xl:shrink-0">
-                <div className="relative w-full h-[140px] xl:h-[227px] overflow-hidden">
-                  <Image
-                    src="/assets/contact/campus_map_small1-31cab0.png"
-                    alt="Ksquare Energy Campus"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/10 flex items-end p-[16px]">
-                    <div className="bg-white p-[16px] flex flex-col gap-[8px] w-full">
-                      <h4 className="font-archivo text-[16px] leading-[22px] text-primary">Get Direction</h4>
-                      <Link href="#" className="flex items-center gap-[10px] font-archivo text-[13px] leading-[18px] text-primary group w-fit">
-                        <span>View On Larger Map</span>
-                        <span className="w-[6px] h-[6px] rounded-full bg-primary shrink-0 transition-transform group-hover:scale-110"></span>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-                <div className="relative w-full h-[140px] xl:h-[227px] overflow-hidden">
-                  <Image
-                    src="/assets/contact/campus_map_small2-407ecc.png"
-                    alt="Ksquare Energy Campus"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/10 flex items-end p-[16px]">
-                    <div className="bg-white p-[16px] flex flex-col gap-[8px] w-full">
-                      <h4 className="font-archivo text-[16px] leading-[22px] text-primary">Get Direction</h4>
-                      <Link href="#" className="flex items-center gap-[10px] font-archivo text-[13px] leading-[18px] text-primary group w-fit">
-                        <span>View On Larger Map</span>
-                        <span className="w-[6px] h-[6px] rounded-full bg-primary shrink-0 transition-transform group-hover:scale-110"></span>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+                <Button variant="outline-primary" href="#" showDot className="!px-[16px] !py-[12px] w-fit">
+                  View On Larger Map
+                </Button>
               </div>
             </div>
           </div>

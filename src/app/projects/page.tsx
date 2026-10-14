@@ -2,10 +2,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
-import Container from "@/components/common/Container";
-import Button from "@/components/common/Button";
-import SectionSpacer from "@/components/common/SectionSpacer";
 import ProjectsFilter from "./ProjectsFilter";
+import FaqList from "./FaqList";
 
 export const metadata: Metadata = {
   title: "Our Projects | Ksquare Energy",
@@ -13,42 +11,11 @@ export const metadata: Metadata = {
     "From individual rooftops to large industrial installations, Ksquare Energy has delivered 9,000+ solar projects across residential, commercial, industrial and government applications.",
 };
 
-const glanceItems = [
-  { label: "Residential Rooftop", img: "/assets/projects/glance_1.png", className: "md:w-[62%]" },
-  { label: "Commercial Installation", img: "/assets/projects/glance_2.png", className: "md:flex-1" },
-  { label: "Industrial Plant", img: "/assets/projects/glance_3.png", className: "md:w-[37.5%]" },
-  { label: "Government Project", img: "/assets/projects/glance_4.png", className: "md:flex-1" },
-];
-
 const tableRows = [
-  {
-    profile: "Surat Textile Processing Mill Installation",
-    capacity: "480 kW",
-    generation: "7.1 Lakh Units",
-    type: "Heavy Industrial",
-    location: "Surat, GJ",
-  },
-  {
-    profile: "Apex Multispeciality Corporate Hospital",
-    capacity: "80 kW",
-    generation: "1.2 Lakh Units",
-    type: "Commercial Roof",
-    location: "Vadodara, GJ",
-  },
-  {
-    profile: "PM Surya Ghar Model Schools Batch 1",
-    capacity: "15 kW",
-    generation: "22,500 Units",
-    type: "Govt. Institution",
-    location: "Mehsana, GJ",
-  },
-  {
-    profile: "Dholera SIR Activation Zone Carport",
-    capacity: "110 kW",
-    generation: "1.6 Lakh Units",
-    type: "Commercial Ground-mount",
-    location: "Dholera, GJ",
-  },
+  { profile: "Surat Textile processing mill installation", capacity: "480 kW", generation: "7.1 Lakh Units", type: "Heavy Industrial", location: "Surat, GJ" },
+  { profile: "Apex Multispeciality Corporate Hospital", capacity: "80 kW", generation: "1.2 Lakh Units", type: "Commercial Roof", location: "Vadodara, GJ" },
+  { profile: "PM Surya Ghar Model Schools Batch 1", capacity: "15 kW", generation: "22,500 Units", type: "Govt. Institution", location: "Mehsana, GJ" },
+  { profile: "Dholera SIR Activation Zone Carport", capacity: "110 kW", generation: "1.6 Lakh Units", type: "Commercial Ground-mount", location: "Dholera, GJ" },
 ];
 
 const processSteps = [
@@ -88,303 +55,291 @@ const faqs = [
   },
 ];
 
+const inputClass =
+  "w-full border border-[#DDDDDD] bg-white px-[16px] py-[12px] font-archivo text-[18px] leading-[1.55em] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors";
+const labelClass = "font-archivo text-[17px] leading-[27px] text-[#333333]";
+
+function OutlineButton({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className="group inline-flex items-center justify-center gap-[16px] px-[16px] py-[12px] border border-primary text-primary hover:bg-primary hover:text-white transition-colors font-archivo text-[17px] leading-[26px]"
+    >
+      <span>{children}</span>
+      <span className="w-[8px] h-[8px] rounded-full bg-primary group-hover:bg-white transition-colors" />
+    </Link>
+  );
+}
+
+function SelectArrow() {
+  return (
+    <div className="absolute inset-y-0 right-[16px] flex items-center pointer-events-none">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 10l5 5 5-5H7z" fill="#2B398B" />
+      </svg>
+    </div>
+  );
+}
+
+function Step({ index, className }: { index: number; className: string }) {
+  return (
+    <div className={`absolute w-[290.85px] flex flex-col items-center text-center gap-[12px] ${className}`}>
+      <h3 className="m-0 font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[index].title}</h3>
+      <p className="m-0 font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[index].desc}</p>
+    </div>
+  );
+}
+
 export default function ProjectsPage() {
   return (
-    <main className="w-full bg-white font-archivo">
-      {/* 1. Hero Section & Breadcrumbs */}
-      <section className="w-full pt-[90px] lg:pt-[130px] flex flex-col items-center">
-        <Container maxWidth="1800">
-          <div className="flex flex-col lg:flex-row justify-between items-start gap-[40px] w-full">
-            {/* Left: Breadcrumbs & Title */}
-            <div className="flex flex-col gap-[12px] w-full lg:max-w-[900px]">
-              {/* Breadcrumb */}
-              <div className="flex items-center gap-[10px]">
-                <Link href="/" className="font-archivo text-[16px] lg:text-[20px] text-[#333333] hover:text-primary leading-[28px] transition-colors">
-                  Home
-                </Link>
-                <svg width="5" height="10" viewBox="0 0 5 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 1L4 5L1 9" stroke="#333333" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                <span className="font-archivo text-[16px] lg:text-[20px] text-primary leading-[26px]">
-                  Our Projects
-                </span>
-              </div>
-
-              {/* Title */}
-              <h1 className="font-jost text-[42px] lg:text-[68px] leading-[1.1] lg:leading-[78px] text-primary font-normal">
-                Solar Projects <span className="font-recia italic font-semibold">Built to Perform.</span>
-              </h1>
+    <main className="w-full bg-white font-archivo overflow-x-clip">
+      {/* Hero */}
+      <section className="w-full pt-[90px] xl:pt-[130px]">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-0 pt-[40px] xl:pt-0 flex flex-col xl:flex-row xl:justify-between gap-[32px]">
+          <div className="flex flex-col gap-[14px] xl:w-[900px]">
+            <div className="flex items-center gap-[10px] font-archivo text-[20px] leading-[28px] text-[#333333]">
+              <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+              <svg width="5" height="10" viewBox="0 0 5 10" fill="none" aria-hidden="true">
+                <path d="M1 1L4 5L1 9" stroke="#333333" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span className="text-primary leading-[26px]">Our Projects</span>
             </div>
-
-            {/* Right: Text & Buttons */}
-            <div className="flex flex-col gap-[32px] w-full lg:max-w-[760px] pt-[10px]">
-              <p className="font-archivo text-[18px] lg:text-[24px] leading-[1.5] text-[#333333]">
-                From individual rooftops to large industrial installations, Ksquare Energy has delivered 9,000+ solar projects across residential, commercial, industrial and government applications.
-              </p>
-
-              {/* Buttons */}
-              <div className="flex flex-col sm:flex-row items-center gap-[16px]">
-                <Button variant="outline-primary" href="#enquiry-form" showDot>
-                  Enquire Now
-                </Button>
-                <Button variant="outline-primary" href="#project-data" showDot>
-                  View Case Studies
-                </Button>
-              </div>
+            <h1 className="m-0 font-recia font-normal text-primary text-[44px] leading-[52px] lg:text-[68px] lg:leading-[78px]">
+              Solar Projects
+              <br />
+              <span className="italic font-semibold">Built to Perform.</span>
+            </h1>
+          </div>
+          <div className="flex flex-col gap-[32px] xl:w-[816px]">
+            <p className="m-0 font-archivo text-[20px] lg:text-[24px] leading-[30px] lg:leading-[36px] text-[#333333]">
+              From individual rooftops to large industrial installations, Ksquare Energy has delivered 9,000+ solar projects across residential, commercial, industrial and government applications.
+            </p>
+            <div className="flex flex-wrap items-center gap-[16px]">
+              <OutlineButton href="#enquiry-form">Enquire Now</OutlineButton>
+              <OutlineButton href="#project-data">View Case Studies</OutlineButton>
             </div>
           </div>
-        </Container>
+        </div>
 
-        {/* Hero Banner Image */}
-        <Container maxWidth="1800" className="mt-[50px] lg:mt-[80px]">
-          <div className="w-full relative aspect-[1800/541] overflow-hidden rounded-[24px]">
-            <Image
-              src="/assets/projects/hero_banner.png"
-              alt="Ksquare Energy solar project"
-              fill
-              className="object-cover"
-              priority
-            />
+        {/* Hero banner: photo clipped to 1800x500, cut-out of the two people overlaps upwards */}
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-0 mt-[40px] xl:mt-[205px]">
+          <div className="relative w-full h-[280px] md:h-[400px] xl:h-[500px]">
+            <div className="absolute inset-0 overflow-hidden">
+              <Image
+                src="/assets/projects/figma/hero_a.png"
+                alt="Ksquare Energy solar project"
+                fill
+                sizes="1800px"
+                className="object-cover xl:hidden"
+                priority
+              />
+              <div className="hidden xl:block absolute left-[-45.21px] top-[-255px] w-[1845.21px] h-[1029.89px]">
+                <Image src="/assets/projects/figma/hero_a.png" alt="" fill sizes="1846px" className="object-cover" priority />
+              </div>
+            </div>
+            <div className="hidden xl:block absolute left-[-45.21px] top-[-255px] w-[1845.21px] h-[733.75px] pointer-events-none">
+              <Image src="/assets/projects/figma/hero_b-12819a.png" alt="" fill sizes="1846px" className="object-fill" priority />
+            </div>
           </div>
-        </Container>
+        </div>
       </section>
 
-      <SectionSpacer size={100} />
+      <div className="mt-[60px] xl:mt-[81px] flex flex-col gap-[60px] xl:gap-[100px] pb-[100px]">
+        <ProjectsFilter />
 
-      {/* 2. Our Work at a Glance */}
-      <section className="w-full">
-        <Container maxWidth="1600">
-          <div className="flex flex-col items-stretch gap-[24px]">
-            <div className="flex flex-col items-center text-center gap-[8px] max-w-[800px] mx-auto">
-              <h2 className="font-jost text-[32px] lg:text-[48px] leading-[1.15] text-primary font-normal">
-                Our Work <span className="font-recia italic font-medium">at a Glance</span>
-              </h2>
-            </div>
-            <div className="flex flex-col md:flex-row gap-[20px] w-full">
-              {glanceItems.slice(0, 2).map((item) => (
-                <div key={item.label} className={`relative w-full ${item.className} aspect-[16/9] md:aspect-auto md:h-[360px] overflow-hidden`}>
-                  <Image src={item.img} alt={item.label} fill className="object-cover" />
-                </div>
-              ))}
-            </div>
-            <div className="flex flex-col md:flex-row gap-[20px] w-full">
-              {glanceItems.slice(2).map((item) => (
-                <div key={item.label} className={`relative w-full ${item.className} aspect-[4/3] md:aspect-auto md:h-[280px] overflow-hidden`}>
-                  <Image src={item.img} alt={item.label} fill className="object-cover" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <SectionSpacer size={100} />
-
-      {/* 3. Filterable Category Sections */}
-      <ProjectsFilter />
-
-      <SectionSpacer size={120} />
-
-      {/* 4. Beyond the Photograph: Project Data Table */}
-      <section id="project-data" className="w-full scroll-mt-[110px]">
-        <Container maxWidth="1600">
-          <div className="flex flex-col gap-[48px]">
-            <div className="flex flex-col gap-[8px]">
-              <span className="font-archivo text-[15px] lg:text-[17px] font-semibold uppercase tracking-wide text-primary">
-                Beyond the Photograph
-              </span>
-              <h2 className="font-archivo text-[32px] lg:text-[44px] leading-[1.2] text-[#333333]">
-                Every Project Has a Story <span className="font-recia italic font-semibold text-primary">Behind the Numbers</span>
+        {/* Beyond the Photograph: data table */}
+        <section id="project-data" className="w-full scroll-mt-[110px]">
+          <div className="mx-auto w-full max-w-[1920px] px-4 lg:px-8 xl:px-[160px] flex flex-col gap-[48px]">
+            <div className="flex flex-col gap-[12px]">
+              <span className="font-archivo text-[17px] font-semibold uppercase text-primary">Beyond the Photograph</span>
+              <h2 className="m-0 font-archivo font-normal text-[32px] lg:text-[44px] leading-[1.2] xl:leading-[52px] text-[#333333]">
+                Every Project Has a Story <span className="font-recia italic font-semibold">Behind the Numbers</span>
               </h2>
             </div>
 
-            <div className="w-full overflow-x-auto">
-              <table className="w-full min-w-[900px] border-collapse">
-                <thead>
-                  <tr className="bg-[#F0F5FE]">
-                    {["Project Profile", "System Capacity", "Annual Generation", "Project Type", "Project Location"].map((h) => (
-                      <th key={h} className="text-left font-archivo text-[15px] font-semibold text-primary p-[20px]">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {tableRows.map((row) => (
-                    <tr key={row.profile} className="border-b border-[#DDDDEC]">
-                      <td className="font-archivo text-[16px] text-[#333333] p-[24px]">{row.profile}</td>
-                      <td className="font-archivo text-[16px] text-[#666666] p-[24px]">{row.capacity}</td>
-                      <td className="font-archivo text-[16px] text-[#666666] p-[24px]">{row.generation}</td>
-                      <td className="font-archivo text-[16px] text-[#666666] p-[24px]">{row.type}</td>
-                      <td className="font-archivo text-[16px] text-[#666666] p-[24px]">{row.location}</td>
-                    </tr>
+            <div className="w-full overflow-x-auto border border-[#DDDDDD]">
+              <div className="min-w-[1100px] flex flex-col">
+                <div className="flex items-start gap-[24px] p-[20px] bg-[#F0F5FE]">
+                  <span className="flex-1 font-archivo text-[24px] font-medium text-primary">Project Profile</span>
+                  {["System Capacity", "Annual Generation", "Project Type", "Project Location"].map((h) => (
+                    <span key={h} className="w-[240px] shrink-0 font-archivo text-[24px] font-medium text-primary">{h}</span>
                   ))}
-                </tbody>
-              </table>
+                </div>
+                {tableRows.map((row) => (
+                  <div key={row.profile} className="flex items-center gap-[24px] p-[24px] border-b border-[#DDDDEC] last:border-b-0">
+                    <span className="flex-1 font-archivo text-[17px] font-semibold text-[#333333]">{row.profile}</span>
+                    <span className="w-[240px] shrink-0 font-archivo text-[17px] text-[#333333]">{row.capacity}</span>
+                    <span className="w-[240px] shrink-0 font-archivo text-[17px] text-[#666666]">{row.generation}</span>
+                    <span className="w-[240px] shrink-0 font-archivo text-[17px] text-[#666666]">{row.type}</span>
+                    <span className="w-[240px] shrink-0 font-archivo text-[17px] font-semibold text-primary">{row.location}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </Container>
-      </section>
+        </section>
 
-      <SectionSpacer size={150} />
+        {/* How a Ksquare project actually runs */}
+        <section className="w-full">
+          {/* Desktop: pixel-exact zigzag timeline per Figma (same pattern as /grievance) */}
+          <div className="hidden xl:block relative w-[1600px] max-w-full mx-auto h-[681px]">
+            <div className="absolute left-0 right-0 top-[36px] flex justify-center">
+              <h2 className="m-0 font-recia text-[60px] leading-[70px] text-primary font-normal text-center capitalize">
+                How a Ksquare <span className="italic font-medium">project actually runs</span>
+              </h2>
+            </div>
 
-      {/* 5. How a Ksquare project actually runs */}
-      <section className="w-full">
-        <Container maxWidth="1600">
-          <div className="flex flex-col items-center gap-[60px]">
-            <h2 className="font-recia text-[32px] lg:text-[60px] leading-[1.15] text-primary font-normal text-center">
-              How a Ksquare <span className="italic font-semibold">Project Actually Runs</span>
+            <Step index={0} className="left-[3.39px] top-[169.9px]" />
+            <Step index={1} className="left-[521.49px] top-[169.9px]" />
+            <Step index={2} className="left-[1053.13px] top-[169.9px]" />
+
+            <div className="absolute left-0 top-[274.95px] w-[1600px] h-[302.82px]">
+              <Image src="/assets/grievance/process_connectors.png" alt="" fill className="object-contain" aria-hidden="true" />
+              <div className="absolute w-[128px] h-[128px]" style={{ left: 71.6, top: 76.55 }}>
+                <Image src="/assets/grievance/process_icon_1.svg" alt="" fill />
+              </div>
+              <div className="absolute w-[128px] h-[128px]" style={{ left: 337.6, top: 105.55 }}>
+                <Image src="/assets/grievance/process_icon_2.svg" alt="" fill />
+              </div>
+              <div className="absolute w-[128px] h-[128px]" style={{ left: 602.6, top: 76.55 }}>
+                <Image src="/assets/grievance/process_icon_3.svg" alt="" fill />
+              </div>
+              <div className="absolute w-[128px] h-[128px]" style={{ left: 1401.6, top: 101.55 }}>
+                <Image src="/assets/grievance/process_icon_6.svg" alt="" fill />
+              </div>
+            </div>
+
+            <Step index={3} className="left-[256px] top-[590.77px]" />
+            <Step index={4} className="left-[789.82px] top-[590.77px]" />
+            <Step index={5} className="left-[1309.16px] top-[590.77px]" />
+          </div>
+
+          {/* Mobile/tablet fallback */}
+          <div className="xl:hidden mx-auto w-full max-w-[1600px] px-4 lg:px-8 flex flex-col items-center gap-[48px]">
+            <h2 className="m-0 font-recia text-[36px] leading-[1.15] text-primary font-normal text-center capitalize">
+              How a Ksquare <span className="italic font-medium">project actually runs</span>
             </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-[40px] gap-y-[48px] w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[40px] gap-y-[48px] w-full">
               {processSteps.map((step, i) => (
                 <div key={step.title} className="flex flex-col items-center text-center gap-[16px]">
                   <div className="w-[64px] h-[64px] rounded-full bg-[#EFF0F6] flex items-center justify-center">
                     <span className="font-archivo text-[24px] font-medium text-primary">{i + 1}</span>
                   </div>
                   <div className="flex flex-col gap-[12px]">
-                    <h3 className="font-archivo text-[22px] lg:text-[24px] leading-[26px] text-[#333333] font-medium">
-                      {step.title}
-                    </h3>
-                    <p className="font-archivo text-[17px] leading-[26px] text-[#666666] max-w-[290px]">
-                      {step.desc}
-                    </p>
+                    <h3 className="m-0 font-archivo text-[22px] leading-[26px] text-[#333333] font-medium">{step.title}</h3>
+                    <p className="m-0 font-archivo text-[17px] leading-[26px] text-[#666666] max-w-[290px]">{step.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-        </Container>
-      </section>
+        </section>
 
-      <SectionSpacer size={150} />
-
-      {/* 6. FAQ Accordion */}
-      <section className="w-full">
-        <Container maxWidth="1600">
-          <div className="flex flex-col items-center gap-[48px]">
-            <h2 className="font-archivo text-[32px] lg:text-[48px] leading-[1.2] text-[#333333] font-normal text-center">
-              Frequently Asked <span className="font-recia italic font-semibold text-primary">Questions</span>
+        {/* FAQ */}
+        <section className="w-full">
+          <div className="mx-auto w-full max-w-[1920px] px-4 lg:px-8 xl:px-[160px] flex flex-col items-center gap-[64px]">
+            <h2 className="m-0 font-archivo font-normal text-[36px] lg:text-[60px] leading-[1.25] text-primary text-center">
+              Frequently Asked <span className="font-recia italic font-medium">Questions</span>
             </h2>
-
-            <div className="w-full flex flex-col">
-              {faqs.map((item, index) => (
-                <details key={item.question} className="group bg-[#F0F5FE] border-b border-[#DDDDDD] px-[24px] py-[20px]" open={index === 0} name="project-faq">
-                  <summary className="flex items-start justify-between gap-[24px] cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                    <span className="font-archivo text-[18px] lg:text-[20px] leading-[28px] text-[#333333]">
-                      {item.question}
-                    </span>
-                    <span className="font-archivo text-[24px] leading-[28px] text-primary shrink-0 group-open:hidden">+</span>
-                    <span className="font-archivo text-[24px] leading-[28px] text-primary shrink-0 hidden group-open:block">-</span>
-                  </summary>
-                  <p className="font-archivo text-[16px] leading-[26px] text-[#666666] mt-[16px]">
-                    {item.answer}
-                  </p>
-                </details>
-              ))}
-            </div>
+            <FaqList items={faqs} />
           </div>
-        </Container>
-      </section>
+        </section>
 
-      <SectionSpacer size={150} />
-
-      {/* 7. Send an Enquiry Form */}
-      <section id="enquiry-form" className="w-full scroll-mt-[110px]">
-        <Container maxWidth="1600">
-          <div className="w-full bg-white border border-[#DDDDDD] p-[24px] md:p-[48px] flex flex-col gap-[32px]">
-            <div className="flex flex-col gap-[12px]">
-              <h2 className="font-dm text-[36px] md:text-[50px] lg:text-[60px] leading-[1.1] text-primary font-medium">
-                Send an <span className="font-recia italic">Enquiry</span>
-              </h2>
-              <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666] text-justify">
-                Please fill out the form below, and our relationship manager will get back to you within 2 hours.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-[20px]">
-              <div className="flex flex-col sm:flex-row gap-[20px]">
-                <div className="flex flex-col gap-[8px] w-full">
-                  <label className="font-archivo text-[16px] lg:text-[17px] leading-[27px] text-[#333333]">Full Name</label>
-                  <input type="text" placeholder="Enter your full name" className="w-full border border-[#DDDDDD] bg-white rounded-[8px] px-[16px] py-[12px] font-archivo text-[16px] lg:text-[18px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors" />
-                </div>
-                <div className="flex flex-col gap-[8px] w-full">
-                  <label className="font-archivo text-[16px] lg:text-[17px] leading-[27px] text-[#333333]">Email Address</label>
-                  <input type="email" placeholder="name@domain.com" className="w-full border border-[#DDDDDD] bg-white rounded-[8px] px-[16px] py-[12px] font-archivo text-[16px] lg:text-[18px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors" />
-                </div>
+        {/* Send an Enquiry */}
+        <section id="enquiry-form" className="w-full scroll-mt-[110px]">
+          <div className="mx-auto w-full max-w-[1600px] px-4 lg:px-8 xl:px-0">
+            <div className="w-full bg-white border border-[#DDDDDD] p-[20px] md:p-[32px] flex flex-col gap-[32px]">
+              <div className="flex flex-col gap-[12px]">
+                <h2 className="m-0 font-dm font-medium text-[40px] md:text-[60px] leading-[1.17] text-primary">
+                  Send an <span className="font-recia italic">Enquiry</span>
+                </h2>
+                <p className="m-0 font-archivo text-[17px] leading-[26px] text-[#666666] text-justify">
+                  Please fill out the form below, and our relationship manager will get back to you within 2 hours.
+                </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-[20px]">
-                <div className="flex flex-col gap-[8px] w-full">
-                  <label className="font-archivo text-[16px] lg:text-[17px] leading-[27px] text-[#333333]">Phone Number</label>
-                  <input type="text" placeholder="+91 XXXXX XXXXX" className="w-full border border-[#DDDDDD] bg-white rounded-[8px] px-[16px] py-[12px] font-archivo text-[16px] lg:text-[18px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors" />
+              <div className="flex flex-col gap-[20px]">
+                <div className="flex flex-col sm:flex-row gap-[20px]">
+                  <div className="flex flex-col gap-[8px] w-full">
+                    <label className={labelClass}>Full Name</label>
+                    <input type="text" placeholder="Enter your full name" className={inputClass} />
+                  </div>
+                  <div className="flex flex-col gap-[8px] w-full">
+                    <label className={labelClass}>Email Address</label>
+                    <input type="email" placeholder="name@domain.com" className={inputClass} />
+                  </div>
                 </div>
-                <div className="flex flex-col gap-[8px] w-full">
-                  <label className="font-archivo text-[16px] lg:text-[17px] leading-[27px] text-[#333333]">State</label>
-                  <div className="relative">
-                    <select className="w-full border border-[#DDDDDD] bg-white rounded-[8px] px-[16px] py-[12px] font-archivo text-[16px] lg:text-[18px] text-[#666666] focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer">
-                      <option>Select State</option>
-                    </select>
-                    <div className="absolute inset-y-0 right-[16px] flex items-center pointer-events-none">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5H7z" fill="#2B398B" /></svg>
+
+                <div className="flex flex-col sm:flex-row gap-[20px]">
+                  <div className="flex flex-col gap-[8px] w-full">
+                    <label className={labelClass}>Phone Number</label>
+                    <input type="text" placeholder="+91 XXXXX XXXXX" className={inputClass} />
+                  </div>
+                  <div className="flex flex-col gap-[8px] w-full">
+                    <label className={labelClass}>States</label>
+                    <div className="relative">
+                      <select defaultValue="" className={`${inputClass} appearance-none cursor-pointer text-[#666666]`}>
+                        <option value="" disabled>Select budget range.</option>
+                      </select>
+                      <SelectArrow />
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="flex flex-col sm:flex-row gap-[20px]">
-                <div className="flex flex-col gap-[8px] w-full">
-                  <label className="font-archivo text-[16px] lg:text-[17px] leading-[27px] text-[#333333]">City</label>
-                  <input type="text" placeholder="Enter City" className="w-full border border-[#DDDDDD] bg-white rounded-[8px] px-[16px] py-[12px] font-archivo text-[16px] lg:text-[18px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors" />
-                </div>
-                <div className="flex flex-col gap-[8px] w-full">
-                  <label className="font-archivo text-[16px] lg:text-[17px] leading-[27px] text-[#333333]">Pincode</label>
-                  <input type="text" placeholder="Enter Pincode" className="w-full border border-[#DDDDDD] bg-white rounded-[8px] px-[16px] py-[12px] font-archivo text-[16px] lg:text-[18px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors" />
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-[20px]">
-                <div className="flex flex-col gap-[8px] w-full">
-                  <label className="font-archivo text-[16px] lg:text-[17px] leading-[27px] text-[#333333]">Project Category*</label>
-                  <div className="relative">
-                    <select className="w-full border border-[#DDDDDD] bg-white rounded-[8px] px-[16px] py-[12px] font-archivo text-[16px] lg:text-[18px] text-[#666666] focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer">
-                      <option>Residential Solar</option>
-                      <option>Commercial Solar</option>
-                      <option>Industrial Solar Plant</option>
-                      <option>Government / Institutional</option>
-                    </select>
-                    <div className="absolute inset-y-0 right-[16px] flex items-center pointer-events-none">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5H7z" fill="#2B398B" /></svg>
-                    </div>
+                <div className="flex flex-col sm:flex-row gap-[20px]">
+                  <div className="flex flex-col gap-[8px] w-full">
+                    <label className={labelClass}>City</label>
+                    <input type="text" placeholder="Enter City" className={inputClass} />
+                  </div>
+                  <div className="flex flex-col gap-[8px] w-full">
+                    <label className={labelClass}>Pincode</label>
+                    <input type="text" placeholder="Enter Pincode" className={inputClass} />
                   </div>
                 </div>
-                <div className="flex flex-col gap-[8px] w-full">
-                  <label className="font-archivo text-[16px] lg:text-[17px] leading-[27px] text-[#333333]">Approximate Capacity (kW)</label>
-                  <input type="text" placeholder="e.g. 150" className="w-full border border-[#DDDDDD] bg-white rounded-[8px] px-[16px] py-[12px] font-archivo text-[16px] lg:text-[18px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors" />
+
+                <div className="flex flex-col sm:flex-row gap-[20px]">
+                  <div className="flex flex-col gap-[8px] w-full">
+                    <label className={labelClass}>Project Category *</label>
+                    <div className="relative">
+                      <select defaultValue="Industrial Solar Plant" className={`${inputClass} appearance-none cursor-pointer text-[#666666]`}>
+                        <option>Residential Solar</option>
+                        <option>Commercial Solar</option>
+                        <option>Industrial Solar Plant</option>
+                        <option>Government / Institutional</option>
+                      </select>
+                      <SelectArrow />
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-[8px] w-full">
+                    <label className={labelClass}>Approximate Capacity (kW)</label>
+                    <input type="text" placeholder="e.g. 150" className={inputClass} />
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-[8px]">
+                  <label className={labelClass}>Subject</label>
+                  <input type="text" placeholder="e.g. Project Name." className={inputClass} />
+                </div>
+
+                <div className="flex flex-col gap-[8px]">
+                  <label className={labelClass}>Project Requirements / Message</label>
+                  <textarea placeholder="Tell us about your investment goals..." className={`${inputClass} h-[120px] resize-y`} />
                 </div>
               </div>
 
-              <div className="flex flex-col gap-[8px]">
-                <label className="font-archivo text-[16px] lg:text-[17px] leading-[27px] text-[#333333]">Subject</label>
-                <input type="text" placeholder="e.g. Project Name." className="w-full border border-[#DDDDDD] bg-white rounded-[8px] px-[16px] py-[12px] font-archivo text-[16px] lg:text-[18px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors" />
-              </div>
-
-              <div className="flex flex-col gap-[8px]">
-                <label className="font-archivo text-[16px] lg:text-[17px] leading-[27px] text-[#333333]">Project Requirements / Message</label>
-                <textarea placeholder="Tell us about your project requirements..." className="w-full border border-[#DDDDDD] bg-white rounded-[8px] min-h-[120px] px-[16px] py-[12px] font-archivo text-[16px] lg:text-[18px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors resize-y"></textarea>
-              </div>
-
-              <div className="pt-[8px]">
-                <Button variant="outline-primary" showDot className="w-fit">
-                  Send Enquiry
-                </Button>
+              <div>
+                <button
+                  type="button"
+                  className="group inline-flex items-center justify-center gap-[16px] px-[16px] py-[12px] border border-primary text-primary hover:bg-primary hover:text-white transition-colors font-archivo text-[17px] leading-[26px] cursor-pointer"
+                >
+                  <span>Send Enquiry</span>
+                  <span className="w-[8px] h-[8px] rounded-full bg-primary group-hover:bg-white transition-colors" />
+                </button>
               </div>
             </div>
           </div>
-        </Container>
-      </section>
-
-      <SectionSpacer size={120} />
+        </section>
+      </div>
     </main>
   );
 }

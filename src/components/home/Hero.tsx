@@ -54,21 +54,21 @@ export default function Hero() {
             
             <div className="absolute left-0 top-[144px] w-[419px] h-[50px] flex items-center gap-[16px] mt-[34px]">
               {/* Request Bulk Quote */}
-              <Link 
+              <Link
                 href="/quote"
-                className="w-[208px] h-[50px] border border-white flex items-center justify-center gap-[16px] text-white hover:bg-white hover:text-[#0F1B5D] transition-colors"
+                className="w-[208px] h-[50px] border border-white flex items-center justify-center gap-[16px] text-white hover:bg-white hover:text-[#0F1B5D] transition-colors group"
               >
                 <span className="font-archivo font-normal text-[17px]">Request Bulk Quote</span>
-                <span className="w-[8px] h-[8px] rounded-full bg-white transition-colors duration-300"></span>
+                <span className="w-[8px] h-[8px] rounded-full bg-white group-hover:bg-[#0F1B5D] transition-colors duration-300"></span>
               </Link>
 
               {/* Download Catalog */}
-              <Link 
+              <Link
                 href="/catalog"
-                className="w-[195px] h-[50px] border border-white flex items-center justify-center gap-[16px] text-white hover:bg-white hover:text-[#0F1B5D] transition-colors"
+                className="w-[195px] h-[50px] border border-white flex items-center justify-center gap-[16px] text-white hover:bg-white hover:text-[#0F1B5D] transition-colors group"
               >
                 <span className="font-archivo font-normal text-[17px]">Download Catalog</span>
-                <span className="w-[8px] h-[8px] rounded-full bg-white transition-colors duration-300"></span>
+                <span className="w-[8px] h-[8px] rounded-full bg-white group-hover:bg-[#0F1B5D] transition-colors duration-300"></span>
               </Link>
             </div>
           </div>
@@ -103,13 +103,13 @@ export default function Hero() {
               DCDBs, ACDBs, combiner boxes, junction boxes and BOS accessories engineered, tested and shipped from our own Ahmedabad facility to EPCs, distributors and OEM partners across India.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/quote" className="px-8 h-[50px] border border-white flex items-center justify-center gap-4 text-white hover:bg-white hover:text-[#0F1B5D] transition-colors">
+              <Link href="/quote" className="px-8 h-[50px] border border-white flex items-center justify-center gap-4 text-white hover:bg-white hover:text-[#0F1B5D] transition-colors group">
                 <span className="font-archivo text-lg">Request Bulk Quote</span>
-                <span className="w-2 h-2 rounded-full bg-white"></span>
+                <span className="w-2 h-2 rounded-full bg-white group-hover:bg-[#0F1B5D] transition-colors"></span>
               </Link>
-              <Link href="/catalog" className="px-8 h-[50px] border border-white flex items-center justify-center gap-4 text-white hover:bg-white hover:text-[#0F1B5D] transition-colors">
+              <Link href="/catalog" className="px-8 h-[50px] border border-white flex items-center justify-center gap-4 text-white hover:bg-white hover:text-[#0F1B5D] transition-colors group">
                 <span className="font-archivo text-lg">Download Catalog</span>
-                <span className="w-2 h-2 rounded-full bg-white"></span>
+                <span className="w-2 h-2 rounded-full bg-white group-hover:bg-[#0F1B5D] transition-colors"></span>
               </Link>
             </div>
           </div>

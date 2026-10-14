@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo, Jost, DM_Sans, Playfair_Display } from "next/font/google";
+import { Archivo, Jost, DM_Sans, Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -11,6 +11,11 @@ const archivo = Archivo({
 
 const jost = Jost({
   variable: "--font-jost",
+  subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -37,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${archivo.variable} ${jost.variable} ${dmSans.variable} ${playfair.variable} antialiased font-sans`}
+        className={`${archivo.variable} ${jost.variable} ${dmSans.variable} ${playfair.variable} ${inter.variable} antialiased font-sans`}
       >
         <Header />
         {children}

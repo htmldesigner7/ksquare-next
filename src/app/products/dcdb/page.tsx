@@ -74,14 +74,14 @@ export default function DcdbProductListing() {
           </h1>
           <div className="flex flex-col gap-[24px] pt-[10px]">
             <p className="font-archivo text-[17px] leading-[26px] text-gray-dark max-w-[550px]">
-              Explore Expert article installation guides, products updates, industry news and technical resources from Ksquare Energy.
+              Explore our complete range of certified DC Distribution Boxes, engineered for dependable protection across every solar installation type.
             </p>
             <div className="flex items-center gap-[16px]">
-              <Link href="/articles" className="flex items-center gap-[12px] px-[24px] py-[10px] border border-primary text-primary text-[15px] font-archivo font-medium hover:bg-primary hover:text-white transition-colors group">
-                Browse Articles <span className="w-[5px] h-[5px] rounded-full bg-primary group-hover:bg-white transition-colors"></span>
+              <Link href="/contact" className="flex items-center gap-[12px] px-[24px] py-[10px] border border-primary text-primary text-[15px] font-archivo font-medium hover:bg-primary hover:text-white transition-colors group">
+                Request a Quote <span className="w-[5px] h-[5px] rounded-full bg-primary group-hover:bg-white transition-colors"></span>
               </Link>
-              <Link href="/products" className="flex items-center gap-[12px] px-[24px] py-[10px] border border-primary text-primary text-[15px] font-archivo font-medium hover:bg-primary hover:text-white transition-colors group">
-                Explore Products <span className="w-[5px] h-[5px] rounded-full bg-primary group-hover:bg-white transition-colors"></span>
+              <Link href="/download-resources" className="flex items-center gap-[12px] px-[24px] py-[10px] border border-primary text-primary text-[15px] font-archivo font-medium hover:bg-primary hover:text-white transition-colors group">
+                Download Datasheet <span className="w-[5px] h-[5px] rounded-full bg-primary group-hover:bg-white transition-colors"></span>
               </Link>
             </div>
           </div>

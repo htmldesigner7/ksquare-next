@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
+import Button from "@/components/common/Button";
 
 interface ResourceItem {
   title: string;
@@ -63,8 +64,8 @@ export default function DownloadTabs() {
             key={tab.label}
             type="button"
             onClick={() => setActiveTab(i)}
-            className={`flex items-center px-[16px] lg:px-[28px] py-[12px] lg:py-[16px] rounded-t-[12px] transition-colors ${
-              i === activeTab ? "bg-[#EFF0F6] border-b-2 border-primary" : "border-b-2 border-transparent"
+            className={`flex items-center px-[16px] lg:px-[28px] py-[12px] lg:py-[16px] rounded-t-[12px] transition-colors border-b border-transparent ${
+              i === activeTab ? "!border-primary" : ""
             }`}
           >
             <span
@@ -89,23 +90,22 @@ export default function DownloadTabs() {
 
         <div className="flex flex-col items-stretch gap-[24px] w-full">
           {tabsData[activeTab].items.map((item, i) => (
-            <div key={item.title}>
-              <div className="flex items-center gap-[24px] w-full flex-wrap">
+            <Fragment key={item.title}>
+              <div className="flex items-center gap-[24px] w-full">
                 <div className="w-[48px] h-[48px] shrink-0 bg-[#EDF3FF] rounded-[5px] flex items-center justify-center">
                   <span className="font-archivo text-[17px] text-[#333333]">{i + 1}</span>
                 </div>
-                <div className="flex items-center justify-between w-full gap-[16px] flex-wrap">
+                <div className="flex items-center justify-between flex-1 min-w-0 gap-[16px] flex-wrap">
                   <h3 className="font-archivo text-[20px] lg:text-[24px] leading-[32px] text-[#333333]">
                     {item.title}
                   </h3>
-                  <a href="#" className="flex items-center gap-[16px] group">
-                    <span className="font-archivo text-[17px] leading-[26px] text-primary">Download</span>
-                    <span className="w-[8px] h-[8px] rounded-full bg-primary shrink-0 transition-transform group-hover:scale-110" />
-                  </a>
+                  <Button variant="outline-primary" href="#" showDot className="!px-[16px] !py-[12px] shrink-0">
+                    Download
+                  </Button>
                 </div>
               </div>
               {i < tabsData[activeTab].items.length - 1 && <hr className="border-[#9DBCF3]/40" />}
-            </div>
+            </Fragment>
           ))}
         </div>
       </div>

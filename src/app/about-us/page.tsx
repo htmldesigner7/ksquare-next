@@ -1,389 +1,262 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Container from "@/components/common/Container";
-import SectionSpacer from "@/components/common/SectionSpacer";
-import Button from "@/components/common/Button";
+import Testimonials from "@/components/home/Testimonials";
+import ValuesSlider from "./ValuesSlider";
 
-const testimonials = [
-  {
-    name: "Hiren Dhameliya",
-    company: "Flame Solren Pvt Ltd",
-    quote: "We are using Thermoplastic Enclosure of Kenclozer Brand for DCDB-ACDB manufacturing and we are impressed with their delivery commitment and after sales service.",
-  },
-  {
-    name: "Vipul Trivedi",
-    company: "Lohana Tours & Travels Pvt Ltd",
-    quote: "I had installed a 10 KW rooftop system at my home and I am getting generation of 6.2 Units/KW and the Ksquare staff is just a call away.",
-  },
-  {
-    name: "Sarauivandasji Swami",
-    company: "Swaminarayan Gurukul Hyderabad",
-    quote: "We had installed the project of 80 KW at Shree Swaminarayan Gurukul Hyderabad & Mumbai. We are very satisfied with the service of Ksquare Energy Pvt Ltd and the product quality also.",
-  },
+const bars = [
+  { year: "2018", label: "Founded", h: 73, lh: "leading-[32px]" },
+  { year: "2020", label: "Energy Expansion", h: 102, lh: "leading-[32px]" },
+  { year: "2022", label: "Gain 300+ Clients", h: 142, lh: "leading-[32px]" },
+  { year: "2024", label: "New Services Launched", h: 220, lh: "leading-[27px]" },
+  { year: "2026", label: "Projects Ranges from 1 kW to 500 kW", h: 265, lh: "leading-[27px]" },
 ];
 
-export default function AboutUsPage() {
-  const [testimonialIndex, setTestimonialIndex] = React.useState(0);
+const serve = [
+  { title: "EPC Companies", icon: "serve_epc.svg" },
+  { title: "Installers", icon: "serve_installers.svg" },
+  { title: "System Integrators", icon: "serve_integrators.svg" },
+  { title: "Distributors and Dealers", icon: "serve_distributors.svg" },
+  { title: "Export Partners", icon: "serve_export.svg" },
+];
 
+const values = [
+  { chip: "Value 1", title: "Transparency & Integrity", desc: "No greenwashing, no exaggeration. We provide honest assessments, realistic timelines, and transparent reporting on all projects.", img: "/assets/about/value_transparency.png" },
+  { chip: "Value 2", title: "Continuous Innovation", desc: "The sustainability landscape evolves rapidly. We stay ahead through constant learning, technology adoption, and innovation in our methodologies.", img: "/assets/about/value_innovation.png" },
+  { chip: "Value 3", title: "Collaborative Partnership", desc: "We don't just consult—we partner. Your success is our success. We work alongside your team to build internal capacity and lasting change.", img: "/assets/about/value_partnership.png" },
+];
+
+const missionText =
+  "Ksquare Energy has a wide array of experience and expertise and robust technical know-how to cater to any kind of solar panel installation needs. The mission is to create a sustainable economy as well as global development through clean energy generation.";
+
+function OutlineButton({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <div className="w-full bg-[#FFFFFF] font-archivo">
-      
-      {/* 1. Hero Section & Breadcrumbs */}
-      <section className="w-full pt-[60px] lg:pt-[130px] flex flex-col items-center">
-        <Container maxWidth="1800">
-          <div className="flex flex-col lg:flex-row justify-between items-end gap-[40px] w-full">
-            {/* Left: Breadcrumbs & Title */}
-            <div className="flex flex-col gap-[15px] lg:max-w-[873px]">
-              {/* Breadcrumb */}
-              <div className="flex items-center gap-[10px]">
-                <Link href="/" className="font-archivo text-[16px] lg:text-[20px] text-[#666666] hover:text-[#2B398B] leading-[28px]">
-                  Home
-                </Link>
-                <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 9L5 5L1 1" stroke="#333333" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <Link href="/about-us" className="font-archivo text-[16px] lg:text-[20px] text-[#666666] hover:text-[#2B398B] leading-[28px]">
-                  About us
-                </Link>
-                <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 9L5 5L1 1" stroke="#333333" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <span className="font-archivo text-[16px] lg:text-[20px] text-[#2B398B] leading-[26px]">
-                  Company Profile
-                </span>
-              </div>
-              
-              {/* Title */}
-              <h1 className="font-jost text-[48px] lg:text-[68px] leading-[1.1] lg:leading-[78px] text-[#2B398B] font-semibold mt-[10px]">
-                Introducing Innovative <span className="italic font-semibold">Clean Energy Solutions.</span>
-              </h1>
-            </div>
+    <Link
+      href={href}
+      className="group inline-flex items-center justify-center gap-[16px] px-[16px] py-[12px] border border-[#2B398B] text-[#2B398B] hover:bg-[#2B398B] hover:text-white transition-colors font-archivo text-[17px] leading-[26px]"
+    >
+      <span>{children}</span>
+      <span className="w-[8px] h-[8px] rounded-full bg-[#2B398B] group-hover:bg-white transition-colors" />
+    </Link>
+  );
+}
 
-            {/* Right: Text & Buttons */}
-            <div className="flex flex-col gap-[32px] lg:max-w-[816px] lg:pb-[10px]">
-              <p className="font-archivo text-[18px] lg:text-[24px] leading-[1.5] lg:leading-[36px] text-[#666666]">
-                Explore Expert article installation guides, products updates, industry news and technical resources from Ksquare Energy.
-              </p>
-              
-              {/* Buttons */}
-              <div className="flex flex-col sm:flex-row items-center gap-[16px]">
-                <Button variant="outline-primary" href="#" showDot={true}>
-                  Browse Articles
-                </Button>
-                <Button variant="outline-primary" href="#" showDot={true}>
-                  Explore Products
-                </Button>
-              </div>
+function Chevron() {
+  return (
+    <svg width="5" height="10" viewBox="0 0 5 10" fill="none" aria-hidden="true">
+      <path d="M1 1L4 5L1 9" stroke="#333333" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export default function AboutUsPage() {
+  return (
+    <div className="w-full bg-[#FFFFFF] font-archivo overflow-x-clip">
+      {/* 1. Hero */}
+      <section className="w-full pt-[90px] xl:pt-[130px]">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-0 pt-[40px] xl:pt-0 flex flex-col xl:flex-row xl:items-end xl:justify-between gap-[32px]">
+          <div className="flex flex-col gap-[15px] xl:w-[873px]">
+            <div className="flex items-center gap-[10px] font-archivo text-[20px] leading-[28px] text-[#333333]">
+              <Link href="/" className="hover:text-[#2B398B] transition-colors">Home</Link>
+              <Chevron />
+              <Link href="/about-us" className="hover:text-[#2B398B] transition-colors">About us</Link>
+              <Chevron />
+              <span className="text-[#2B398B] leading-[26px]">Company Profile</span>
+            </div>
+            <h1 className="m-0 font-recia font-normal text-[#2B398B] text-[44px] leading-[52px] lg:text-[68px] lg:leading-[78px]">
+              Introducing Innovative <span className="italic font-semibold">Clean Energy Solutions.</span>
+            </h1>
+          </div>
+
+          <div className="flex flex-col gap-[32px] xl:w-[816px]">
+            <p className="m-0 font-archivo text-[20px] lg:text-[24px] leading-[30px] lg:leading-[36px] text-[#333333]">
+              Explore Expert article installation guides, products updates, industry news and technical resources from Ksquare Energy.
+            </p>
+            <div className="flex flex-wrap items-center gap-[16px]">
+              <OutlineButton href="/blog">Browse Articles</OutlineButton>
+              <OutlineButton href="/products/dcdb">Explore Products</OutlineButton>
             </div>
           </div>
-        </Container>
+        </div>
 
-        {/* Hero Image */}
-        <Container maxWidth="1800" className="mt-[60px] lg:mt-[100px]">
-          <div className="w-full relative aspect-[1804/500] rounded-[24px] overflow-hidden">
-            <Image 
-              src="/assets/about/hero_bg-23383c.png" 
-              alt="Hero Graphic" 
-              fill 
-              className="object-cover"
-              priority
-            />
+        <div className="w-full max-w-[1804px] mx-auto px-4 lg:px-8 xl:px-0 mt-[40px]">
+          <div className="relative w-full aspect-[1804/500]">
+            <Image src="/assets/about/hero_bg-23383c.png" alt="Hero Graphic" fill sizes="1804px" className="object-cover" priority />
           </div>
-        </Container>
+        </div>
       </section>
 
-      {/* 2. Our Story: From Passion to Impact */}
-      <section className="w-full py-[80px] lg:py-[150px]">
-        <Container maxWidth="1800">
-          <div className="flex flex-col lg:flex-row justify-between items-stretch gap-[40px] xl:gap-[77px] w-full">
-            
-            {/* Left Column: Title & Image */}
-            <div className="flex flex-col gap-[20px] w-full lg:w-[711px] shrink-0 relative">
-              {/* Title */}
-              <h2 className="font-inter font-medium text-[48px] lg:text-[60px] leading-[1.1] text-[#2B398B] max-w-[532px]">
-                Our Story: From Passion to <span className="italic">Impact</span>
+      <div className="w-full mt-[60px] xl:mt-[100px] flex flex-col gap-[60px] xl:gap-[100px]">
+        {/* 2. Our Story */}
+        <section className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-0">
+          <div className="flex flex-col xl:flex-row xl:justify-between gap-[40px] xl:h-[724px]">
+            {/* Left: title + image */}
+            <div className="relative flex flex-col w-full xl:w-[711px] shrink-0">
+              <h2 className="m-0 max-w-[532px] font-archivo font-normal text-[40px] lg:text-[60px] leading-[1.1] xl:leading-[64.5px] text-[#2B398B]">
+                Our Story: From Passion to <span className="font-recia italic font-medium">Impact</span>
               </h2>
-              
-              {/* Image with Gradient Overlay */}
-              <div className="relative w-full aspect-[711/595] mt-[10px]">
-                <Image 
-                  src="/assets/about/our_story-7fc02a.png" 
-                  alt="Our Story: Passion to Impact" 
-                  fill 
-                  className="object-cover"
-                />
-                {/* Gradient fading to white on the right side */}
-                <div className="absolute top-0 right-0 w-[259px] h-full bg-gradient-to-l from-white to-transparent"></div>
+              <div className="relative w-full aspect-[711/595] xl:mt-auto">
+                <Image src="/assets/about/our_story-7fc02a.png" alt="Our Story: Passion to Impact" fill sizes="711px" className="object-cover" />
               </div>
+              <div className="hidden xl:block absolute right-0 top-0 w-[259px] h-full bg-gradient-to-l from-transparent to-white pointer-events-none" />
             </div>
-            
-            {/* Right Column: Content & Bar Chart */}
-            <div className="flex flex-col justify-between w-full lg:max-w-[1012px] pt-[10px] lg:pt-0">
-              
-              {/* Text Content */}
-              <div className="flex flex-col gap-[24px]">
-                <p className="font-archivo text-[18px] lg:text-[20px] leading-[1.6] text-[#4A4A4A]">
+
+            {/* Right: copy + timeline bars */}
+            <div className="flex flex-col w-full xl:w-[1012px] shrink-0">
+              <div className="flex flex-col gap-[24px] xl:h-[320px] font-archivo text-[18px] lg:text-[24px] leading-[28px] lg:leading-[34px] text-[#333333]">
+                <p className="m-0">
                   Ksquare Energy is a globally recognized leading solar energy solutions provider, specializing in Solar Array Junction Box manufacturing and comprehensive EPC solutions.
                 </p>
-                <ul className="flex flex-col gap-[20px] pl-[20px] list-disc marker:text-[#666666]">
-                  <li className="font-archivo text-[16px] lg:text-[18px] leading-[1.6] text-[#666666] pl-[10px]">
-                    We are manufacturing Solar ACDB, DCDB, AJB, SCB, Combiner Boxes, Solar structures and diverse range distribution box for utility-scale projects. We are also supplying all sets of materials such as Solar Panels, Inverters, cables and all type of accessories related to solar PV Systems.
-                  </li>
-                  <li className="font-archivo text-[16px] lg:text-[18px] leading-[1.6] text-[#666666] pl-[10px]">
-                    We had executed projects Ranges from 1 kW to 500 kW, with both crystallines as well as thin film module technologies.
-                  </li>
-                </ul>
-              </div>
-
-              {/* Bar Chart Container */}
-              <div className="w-full mt-[40px] flex items-end justify-between gap-[10px] lg:gap-[24px] h-[300px]">
-                
-                {/* 2018 */}
-                <div className="flex flex-col items-center justify-end w-full h-full gap-[12px] lg:gap-[16px]">
-                  <div className="w-full bg-[#2B398B] h-[20%] flex items-center justify-center text-white font-archivo text-[14px] lg:text-[18px]">2018</div>
-                  <div className="w-full text-center font-archivo font-semibold text-[#2B398B] text-[10px] lg:text-[14px] h-[32px] lg:h-[40px] flex items-start justify-center">Founded</div>
-                </div>
-
-                {/* 2020 */}
-                <div className="flex flex-col items-center justify-end w-full h-full gap-[12px] lg:gap-[16px]">
-                  <div className="w-full bg-[#2B398B] h-[40%] flex items-center justify-center text-white font-archivo text-[14px] lg:text-[18px]">2020</div>
-                  <div className="w-full text-center font-archivo font-semibold text-[#2B398B] text-[10px] lg:text-[14px] h-[32px] lg:h-[40px] flex items-start justify-center">Energy Expansion</div>
-                </div>
-
-                {/* 2022 */}
-                <div className="flex flex-col items-center justify-end w-full h-full gap-[12px] lg:gap-[16px]">
-                  <div className="w-full bg-[#2B398B] h-[60%] flex items-center justify-center text-white font-archivo text-[14px] lg:text-[18px]">2022</div>
-                  <div className="w-full text-center font-archivo font-semibold text-[#2B398B] text-[10px] lg:text-[14px] h-[32px] lg:h-[40px] flex items-start justify-center">Gain 300+ Clients</div>
-                </div>
-
-                {/* 2024 */}
-                <div className="flex flex-col items-center justify-end w-full h-full gap-[12px] lg:gap-[16px]">
-                  <div className="w-full bg-[#2B398B] h-[80%] flex items-center justify-center text-white font-archivo text-[14px] lg:text-[18px]">2024</div>
-                  <div className="w-full text-center font-archivo font-semibold text-[#2B398B] text-[10px] lg:text-[14px] h-[32px] lg:h-[40px] flex items-start justify-center">New Services Launched</div>
-                </div>
-
-                {/* 2026 */}
-                <div className="flex flex-col items-center justify-end w-full h-full gap-[12px] lg:gap-[16px]">
-                  <div className="w-full bg-[#2B398B] h-[100%] flex items-center justify-center text-white font-archivo text-[14px] lg:text-[18px]">2026</div>
-                  <div className="w-full text-center font-archivo font-semibold text-[#2B398B] text-[10px] lg:text-[14px] h-[32px] lg:h-[40px] leading-[1.3] flex items-start justify-center">Projects Ranges from<br/>1 kW to 500 kW</div>
-                </div>
-                
-              </div>
-
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* 3. Mission & Vision */}
-      <section className="w-full pb-[80px] lg:pb-[150px]">
-        <Container maxWidth="1800">
-          
-          {/* Top Intro with Title */}
-          <div className="flex flex-col items-center text-center gap-[24px] max-w-[1200px] mx-auto mb-[80px]">
-            <h2 className="font-inter font-medium text-[48px] lg:text-[60px] leading-[1.1] text-[#2B398B]">
-              Mission <span className="italic">&</span> <span className="italic">Vision</span>
-            </h2>
-            <p className="font-archivo text-[20px] lg:text-[24px] leading-[1.5] lg:leading-[34px] text-[#333333]">
-              Our mission is to help businesses grow sustainably. Our vision is a future where companies thrive while making a positive impact on the planet.
-            </p>
-          </div>
-        
-          {/* Split Layout Container */}
-          <div className="relative flex flex-col xl:flex-row justify-between w-full mx-auto gap-[40px] xl:gap-0">
-            
-            {/* Our Mission (Dark Blue) */}
-            <div className="w-full xl:w-[42.55%] bg-[#2B398B] xl:bg-transparent relative flex flex-col justify-center pt-[80px] lg:pt-[120px] xl:pt-0 pb-[120px] lg:pb-[150px] xl:pb-0 pl-[24px] pr-[24px] xl:pl-[3.1%] xl:pr-[39.3%] overflow-hidden xl:aspect-[766/672]">
-              {/* Desktop Shape Background */}
-              <div className="hidden xl:block absolute inset-0 z-0">
-                <Image src="/assets/about/mission_shape.svg" alt="Mission Shape" fill className="object-cover" />
-              </div>
-
-              <div className="relative z-10 w-full max-w-[441px] mx-auto xl:mx-0">
-                <h2 className="font-archivo font-semibold text-[32px] md:text-[40px] text-white leading-[1.2]">
-                  Our Mission
-                </h2>
-                <p className="font-archivo text-[18px] lg:text-[20px] 2xl:text-[24px] leading-[1.4] md:leading-[1.6] text-white mt-[20px] md:mt-[45px]">
-                  Ksquare Energy has a wide array of experience and expertise and robust technical know-how to cater to any kind of solar panel installation needs. The mission is to create a sustainable economy as well as global development through clean energy generation.
+                <p className="m-0 whitespace-pre-wrap">
+                  {"  - We are manufacturing Solar ACDB, DCDB, AJB, SCB, Combiner Boxes, Solar structures and diverse range distribution box for utility-scale projects. We are also supplying all sets of materials such as Solar Panels, Inverters, cables and all type of accessories related to solar PV Systems."}
+                </p>
+                <p className="m-0 whitespace-pre-wrap">
+                  {"  - We had executed projects Ranges from 1 kW to 500 kW, with both crystallines as well as thin film module technologies."}
                 </p>
               </div>
-              
-              <div className="absolute bottom-0 left-0 w-[250px] md:w-[350px] xl:w-[62.5%] aspect-[479/333] z-10">
-                <Image 
-                  src="/assets/about/mission_bg-5f03f9.png" 
-                  alt="Mission Graphic" 
-                  fill 
-                  className="object-contain object-left-bottom"
-                />
+
+              <div className="mt-[40px] xl:mt-0 xl:h-[404px] xl:pt-[20px] grid grid-cols-5 gap-[8px] xl:gap-[22.5px] items-end xl:items-stretch">
+                {bars.map((b) => (
+                  <div key={b.year} className="flex flex-col gap-[18px] min-w-0">
+                    <div className="flex flex-col justify-end h-[312px] bg-white overflow-hidden">
+                      <div className="w-full bg-[#2B398B] flex items-center justify-center" style={{ height: b.h }}>
+                        <span className="font-inter text-[15px] lg:text-[21px] leading-[30px] text-white">{b.year}</span>
+                      </div>
+                    </div>
+                    <span className={`block text-center font-archivo font-semibold text-[12px] lg:text-[17px] ${b.lh} text-[#2B398B]`}>
+                      {b.label}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
+          </div>
+        </section>
 
-            {/* Connecting Logo (Visible on XL screens) */}
-            <div className="hidden xl:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-[11%] aspect-[199/49]">
-              <Image 
-                src="/assets/about/mission_vision_arrow.svg"
-                alt="KSQUARE Logo"
-                fill
-                className="object-contain"
-              />
-            </div>
-
-            {/* Our Vision (Light Blue) */}
-            <div className="w-full xl:w-[42.55%] bg-[#EDF3FF] xl:bg-transparent relative flex flex-col justify-center pt-[80px] lg:pt-[120px] xl:pt-0 pb-[120px] lg:pb-[150px] xl:pb-0 pl-[24px] xl:pl-[39.3%] pr-[24px] xl:pr-[3.1%] overflow-hidden text-left xl:text-right xl:aspect-[766/672]">
-              {/* Desktop Shape Background */}
-              <div className="hidden xl:block absolute inset-0 z-0">
-                <Image src="/assets/about/vision_shape.svg" alt="Vision Shape" fill className="object-cover" />
+        {/* 3. Mission & Vision */}
+        <section className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-0">
+          {/* Desktop: Figma frame 1800x873, every measurement scales with the frame width (cqw) */}
+          <div className="hidden xl:block [container-type:inline-size] w-full">
+            <div className="relative w-full" style={{ aspectRatio: "1800 / 873" }}>
+              <div className="absolute" style={{ left: 0, top: "23.02%", width: "42.56%", height: "76.98%" }}>
+                <Image src="/assets/about/mission_shape.svg" alt="" fill className="object-cover" />
+              </div>
+              <div className="absolute" style={{ left: "57.44%", top: "23.02%", width: "42.56%", height: "76.98%" }}>
+                <Image src="/assets/about/vision_shape.svg" alt="" fill className="object-cover" />
               </div>
 
-              <div className="relative z-10 w-full max-w-[441px] mx-auto xl:mx-0 ml-auto">
-                <h2 className="font-archivo font-semibold text-[32px] md:text-[40px] text-[#2B398B] leading-[1.2]">
-                  Our Vision
+              {/* Header 1800x153 */}
+              <div className="absolute left-0 top-0 w-full h-[17.53%] flex flex-col items-center justify-center gap-[1.3333cqw] text-center">
+                <h2 className="m-0 font-archivo font-normal text-[3.3333cqw] leading-[2.3333cqw] text-[#2B398B]">
+                  Mission <span className="font-recia italic font-medium">&amp; Vision</span>
                 </h2>
-                <p className="font-archivo text-[18px] lg:text-[20px] 2xl:text-[24px] leading-[1.4] md:leading-[1.6] text-[#666666] mt-[20px] md:mt-[45px]">
-                  Ksquare Energy has a wide array of experience and expertise and robust technical know-how to cater to any kind of solar panel installation needs. The mission is to create a sustainable economy as well as global development through clean energy generation.
+                <p className="m-0 font-archivo text-[1.3333cqw] leading-[1.8889cqw] text-[#333333]">
+                  Our mission is to help businesses grow sustainably. Our vision is a future where companies thrive while making a positive impact on the planet.
                 </p>
               </div>
-              
-              <div className="absolute bottom-0 right-0 w-[280px] md:w-[400px] xl:w-[70.7%] aspect-[542/361] z-10">
-                <Image 
-                  src="/assets/about/vision_bg.png" 
-                  alt="Vision Graphic" 
-                  fill 
-                  className="object-contain object-right-bottom"
-                />
+
+              {/* Our Mission */}
+              <div className="absolute flex flex-col gap-[2.5cqw]" style={{ left: "1.3333%", top: "29.9%", width: "24.5%" }}>
+                <h3 className="m-0 font-archivo font-semibold text-[2.2222cqw] leading-[1.7778cqw] text-white">Our Mission</h3>
+                <p className="m-0 font-archivo text-[1.3333cqw] leading-[1.8889cqw] text-white">{missionText}</p>
+              </div>
+
+              {/* Our Vision */}
+              <div className="absolute flex flex-col gap-[2.5cqw] text-right" style={{ left: "74.1667%", top: "29.9%", width: "24.5%" }}>
+                <h3 className="m-0 font-archivo font-semibold text-[2.2222cqw] leading-[1.7778cqw] text-[#2B398B]">Our Vision</h3>
+                <p className="m-0 font-archivo text-[1.3333cqw] leading-[1.8889cqw] text-[#333333]">{missionText}</p>
+              </div>
+
+              <div className="absolute" style={{ left: 0, top: "65.75%", width: "26.61%", height: "38.14%" }}>
+                <Image src="/assets/about/mission_bg-5f03f9.png" alt="Mission Graphic" fill className="object-contain object-left-bottom" />
+              </div>
+              <div className="absolute" style={{ left: "69.89%", top: "61.06%", width: "30.11%", height: "41.35%" }}>
+                <Image src="/assets/about/vision_bg.png" alt="Vision Graphic" fill className="object-contain object-right-bottom" />
+              </div>
+              <div className="absolute z-20" style={{ left: "44.28%", top: "51.55%", width: "11.06%", aspectRatio: "199 / 49" }}>
+                <Image src="/assets/about/mission_vision_arrow.svg" alt="KSQUARE Logo" fill className="object-contain" />
               </div>
             </div>
-            
           </div>
-        </Container>
-      </section>
 
-      <SectionSpacer size={120} />
+          {/* Mobile/tablet fallback (Figma provides no separate mobile frame) */}
+          <div className="xl:hidden flex flex-col gap-[40px] w-full">
+            <div className="flex flex-col items-center text-center gap-[16px]">
+              <h2 className="m-0 font-archivo font-normal text-[40px] leading-[1.15] text-[#2B398B]">
+                Mission <span className="font-recia italic font-medium">&amp; Vision</span>
+              </h2>
+              <p className="m-0 font-archivo text-[18px] leading-[1.5] text-[#333333]">
+                Our mission is to help businesses grow sustainably. Our vision is a future where companies thrive while making a positive impact on the planet.
+              </p>
+            </div>
+            <div className="w-full bg-[#2B398B] flex flex-col p-[24px] pt-[48px] overflow-hidden">
+              <h3 className="m-0 font-archivo font-semibold text-[32px] leading-[1.2] text-white">Our Mission</h3>
+              <p className="mt-[20px] mb-0 font-archivo text-[18px] leading-[1.5] text-white">{missionText}</p>
+              <div className="relative mt-[40px] w-[250px] md:w-[350px] aspect-[479/333]">
+                <Image src="/assets/about/mission_bg-5f03f9.png" alt="Mission Graphic" fill className="object-contain object-left-bottom" />
+              </div>
+            </div>
+            <div className="w-full bg-[#EDF3FF] flex flex-col p-[24px] pt-[48px] overflow-hidden">
+              <h3 className="m-0 font-archivo font-semibold text-[32px] leading-[1.2] text-[#2B398B] text-right">Our Vision</h3>
+              <p className="mt-[20px] mb-0 font-archivo text-[18px] leading-[1.5] text-[#333333] text-right">{missionText}</p>
+              <div className="relative mt-[40px] w-[280px] md:w-[400px] aspect-[542/361] ml-auto">
+                <Image src="/assets/about/vision_bg.png" alt="Vision Graphic" fill className="object-contain object-right-bottom" />
+              </div>
+            </div>
+          </div>
+        </section>
 
-      {/* 4. Who We Serve */}
-      <section className="w-full">
-        <Container maxWidth="1600">
-          <div className="text-center flex flex-col items-center gap-[16px] mb-[60px]">
-            <h2 className="font-jost text-[40px] md:text-[60px] text-[#2B398B] font-medium leading-[1.1]">
-              Who <span className="italic font-bold">We Serve</span>
+        {/* 4. Who We Serve */}
+        <section className="w-full max-w-[1600px] mx-auto px-4 lg:px-8 xl:px-0 flex flex-col gap-[48px]">
+          <div className="flex flex-col items-center text-center gap-[8px]">
+            <h2 className="m-0 font-archivo font-normal text-[40px] lg:text-[60px] leading-[1.2] xl:leading-[42px] text-[#2B398B] xl:h-[57.1px] flex items-center">
+              <span>Who&nbsp;</span>
+              <span className="font-recia italic font-medium">We Serve</span>
             </h2>
-            <p className="font-archivo text-[17px] text-[#666666]">
-              Powering Every Industry with Solar Solutions
-            </p>
+            <p className="m-0 font-archivo text-[17px] leading-[26px] text-[#666666]">Powering Every Industry with Solar Solutions</p>
           </div>
 
-          {/* Grid of Industries */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]">
-            {['EPC Companies', 'Installers', 'System Integrators', 'Distributors and Dealers', 'Export Partners'].map((title, i) => (
-              <div key={i} className="bg-[#EFF0F6] p-[40px] flex flex-col items-center justify-center text-center min-h-[200px] hover:bg-[#e0e2ed] transition-colors cursor-pointer">
-                <h3 className="font-archivo text-[24px] font-semibold text-[#2B398B]">{title}</h3>
-                <p className="font-archivo text-[16px] text-[#666666] mt-[12px]">Tailored solutions and priority support for {title.toLowerCase()}.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[20px] items-center">
+            {serve.map((s) => (
+              <div key={s.title} className="bg-[#EFF0F6] px-[40px] py-[50px] flex flex-col gap-[20px]">
+                <div className="flex items-center gap-[30px]">
+                  <div className="w-[90px] h-[90px] shrink-0 bg-white rounded-[10px] flex items-center justify-center p-[10px]">
+                    <Image src={`/assets/about/${s.icon}`} alt="" width={60} height={60} className="w-[60px] h-[60px] object-contain" />
+                  </div>
+                  <h3 className="m-0 font-archivo font-normal text-[24px] leading-[32px] text-[#333333]">{s.title}</h3>
+                </div>
+                <p className="m-0 font-archivo text-[17px] leading-[26px] text-[#666666]">
+                  Lorem ipsum dolor sit amet consectetur. Gravida imperdiet aliquet cras venenatis praesent nulla aliquam. Habitant dictum condimentum odio tincidunt euismod pharetra volutpat congue.
+                </p>
               </div>
             ))}
-            <div className="bg-[#2B398B] p-[40px] flex flex-col items-center justify-center text-center min-h-[200px]">
-              <p className="font-recia italic font-medium text-[20px] lg:text-[28px] leading-[1.4] text-white">
+            <div className="bg-white border border-white p-[40px] flex flex-col justify-center">
+              <p className="m-0 font-recia italic font-medium text-[22px] lg:text-[28px] text-center text-[#333333]">
                 From manufacturing to installation, Ksquare Energy supports every stakeholder with reliable products, technical expertise, and dependable service.
               </p>
             </div>
           </div>
-        </Container>
-      </section>
+        </section>
 
-      <SectionSpacer size={120} />
-
-      {/* 5. The Values That Guide Us */}
-      <section className="w-full py-[80px] lg:py-[120px] bg-[#F8FAFF]">
-        <Container maxWidth="1600">
-          <div className="text-center flex flex-col items-center gap-[16px] mb-[60px]">
-            <h2 className="font-jost text-[40px] md:text-[60px] text-[#2B398B] font-medium leading-[1.1]">
-              The Values That <span className="italic font-bold">Guide Us</span>
-            </h2>
-            <p className="font-archivo text-[17px] text-[#666666] max-w-[800px]">
-              We are guided by integrity, sustainability, and innovation, creating positive impact for businesses and the planet.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-[40px]">
-            {[
-              { title: "Transparency & Integrity", desc: "No greenwashing, no exaggeration. We provide honest assessments, realistic timelines, and transparent reporting on all projects.", img: "/assets/about/value_transparency.png" },
-              { title: "Continuous Innovation", desc: "The sustainability landscape evolves rapidly. We stay ahead through constant learning, technology adoption, and innovation in our methodologies.", img: "/assets/about/value_innovation.png" },
-              { title: "Collaborative Partnership", desc: "We don't just consult—we partner. Your success is our success. We work alongside your team to build internal capacity and lasting change.", img: "/assets/about/value_partnership.png" }
-            ].map((val, i) => (
-              <div key={i} className="flex flex-col bg-white shadow-sm border border-[#E5E5E5] overflow-hidden">
-                <div className="relative w-full aspect-[740/415]">
-                  <Image src={val.img} alt={val.title} fill className="object-cover" />
-                </div>
-                <div className="p-[32px]">
-                  <h3 className="font-archivo text-[22px] lg:text-[24px] font-semibold text-[#333333] mb-[12px]">{val.title}</h3>
-                  <p className="font-archivo text-[16px] text-[#666666] leading-[1.5]">{val.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <SectionSpacer size={120} />
-
-      {/* 6. What Our Clients Say */}
-      <section className="w-full">
-        <Container maxWidth="1600">
-          <div className="flex flex-col lg:flex-row justify-between items-end mb-[60px]">
-            <div className="max-w-[700px]">
-              <h2 className="font-jost text-[40px] md:text-[60px] text-[#2B398B] font-medium leading-[1.1] mb-[16px]">
-                What Our <span className="italic font-bold">Clients Say</span>
+        {/* 5. The Values That Guide Us */}
+        <section className="w-full bg-[#F8FAFF] py-[60px] flex flex-col items-center gap-[40px]">
+          <div className="w-full flex flex-col items-center gap-[60px]">
+            <div className="flex flex-col items-center gap-[24px] text-center px-4">
+              <h2 className="m-0 pt-[22.5px] font-inter font-medium text-[40px] lg:text-[60px] leading-[1.2] text-[#1E3A8A]">
+                The Values That <span className="italic">Guide Us</span>
               </h2>
-              <p className="font-archivo text-[17px] text-[#666666]">
-                Hear from EPC companies, distributors, and customers who trust Ksquare Energy for quality products and dependable service.
+              <p className="m-0 font-archivo text-[18px] lg:text-[24px] leading-[28px] lg:leading-[34px] text-[#374151]">
+                We are guided by integrity, sustainability, and innovation, creating positive impact for businesses and the planet.
               </p>
             </div>
-            
-            {/* Navigation */}
-            <div className="flex items-center gap-[12px] mt-[24px] lg:mt-0">
-               <button
-                 type="button"
-                 onClick={() => setTestimonialIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-                 className="w-[48px] h-[48px] border border-[#2B398B] rounded-full flex items-center justify-center text-[#2B398B] hover:bg-[#2B398B] hover:text-white transition-colors"
-                 aria-label="Previous testimonial"
-               >
-                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-               </button>
-               <button
-                 type="button"
-                 onClick={() => setTestimonialIndex((prev) => (prev + 1) % testimonials.length)}
-                 className="w-[48px] h-[48px] border border-[#2B398B] rounded-full flex items-center justify-center text-[#2B398B] hover:bg-[#2B398B] hover:text-white transition-colors"
-                 aria-label="Next testimonial"
-               >
-                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-               </button>
-            </div>
+
+            <ValuesSlider values={values} />
           </div>
+        </section>
 
-          <div className="w-full bg-[#EFF0F6] p-[40px] md:p-[80px] relative overflow-hidden rounded-[16px]">
-            <div className="relative z-10 flex flex-col items-center text-center max-w-[900px] mx-auto">
-              {/* Quote Icon */}
-              <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-[32px] opacity-20">
-                <path d="M26.6667 34.6667H10.6667C10.6667 25.8293 17.8293 18.6667 26.6667 18.6667V8C11.9387 8 0 19.9387 0 34.6667V56H26.6667V34.6667ZM64 34.6667H48C48 25.8293 55.1707 18.6667 64 18.6667V8C49.272 8 37.3333 19.9387 37.3333 34.6667V56H64V34.6667Z" fill="#2B398B"/>
-              </svg>
-
-              <p className="font-archivo text-[20px] md:text-[28px] leading-[1.4] text-[#333333] font-medium">
-                &ldquo;{testimonials[testimonialIndex].quote}&rdquo;
-              </p>
-
-              <div className="mt-[40px]">
-                <h4 className="font-jost text-[24px] font-semibold text-[#2B398B]">{testimonials[testimonialIndex].name}</h4>
-                <p className="font-archivo text-[16px] text-[#666666]">{testimonials[testimonialIndex].company}</p>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <SectionSpacer size={120} />
-
+        {/* 6. What Our Clients Say */}
+        <Testimonials />
+      </div>
     </div>
   );
 }

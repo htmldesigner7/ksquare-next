@@ -1,10 +1,10 @@
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 import Container from "@/components/common/Container";
 import SectionSpacer from "@/components/common/SectionSpacer";
 import Button from "@/components/common/Button";
+import FaqCategoryList from "./FaqCategoryList";
 
 export const metadata: Metadata = {
   title: "FAQs | Ksquare Energy",
@@ -22,29 +22,40 @@ const categories = [
 
 const faqs = [
   {
+    category: "Solar Products",
     question: "What solar products does KSquare manufacture?",
     answer:
       "Ksquare Energy manufactures a wide range of solar components including DCDBs, ACDBs, combiner boxes, junction boxes, MC4 connectors, cable glands and complete BOS accessories for residential, commercial and utility-scale installations.",
   },
   {
-    question: "Do you provide installation services for homes?",
-    answer:
-      "Yes, through our network of certified EPC partners we offer end-to-end residential rooftop installation, from site survey and design to commissioning and after-sales support.",
-  },
-  {
+    category: "Solar Products",
     question: "Are your products certified for industrial use?",
     answer:
       "All Ksquare products are manufactured to IS/IEC standards and are tested for industrial and utility-scale deployment, with IP-rated enclosures suited for harsh outdoor environments.",
   },
   {
+    category: "Solar Solutions",
+    question: "Do you provide installation services for homes?",
+    answer:
+      "Yes, through our network of certified EPC partners we offer end-to-end residential rooftop installation, from site survey and design to commissioning and after-sales support.",
+  },
+  {
+    category: "Company",
+    question: "How can distributors and dealers partner with Ksquare?",
+    answer:
+      "We welcome distributors, dealers and export partners across India and internationally. Reach out through our B2B distributorship program and our team will guide you through onboarding, pricing tiers and regional stocking support.",
+  },
+  {
+    category: "Services & Support",
     question: "What is the typical warranty on Ksquare products?",
     answer:
       "Our distribution boxes and enclosures carry a standard manufacturer warranty, with extended warranty options available for large-scale and OEM orders. Contact our support team for product-specific terms.",
   },
   {
-    question: "How can distributors and dealers partner with Ksquare?",
+    category: "Locations",
+    question: "Where are Ksquare's manufacturing facilities located?",
     answer:
-      "We welcome distributors, dealers and export partners across India and internationally. Reach out through our B2B distributorship program and our team will guide you through onboarding, pricing tiers and regional stocking support.",
+      "Our primary manufacturing facility and head office are based in Ahmedabad, Gujarat, with branch offices supporting regional distribution and service across India.",
   },
 ];
 
@@ -78,7 +89,7 @@ export default function FaqsPage() {
 
               {/* Title */}
               <h1 className="font-jost text-[40px] lg:text-[68px] leading-[1.1] lg:leading-[78px] text-[#333333] font-normal mt-[10px]">
-                Frequently Asked <span className="font-recia italic font-semibold">Industry Trends</span>
+                Frequently Asked
                 <br />
                 <span className="font-recia italic font-semibold text-[#2B398B]">Questions</span>
               </h1>
@@ -107,7 +118,7 @@ export default function FaqsPage() {
         <Container maxWidth="1800" className="mt-[60px] lg:mt-[100px]">
           <div className="w-full relative aspect-[1800/500] rounded-[24px] overflow-hidden">
             <Image
-              src="/assets/faqs/faq_hero_banner.png"
+              src="/assets/faqs/hero_banner_photo.png"
               alt="Ksquare Energy Solar Installations"
               fill
               className="object-cover"
@@ -122,60 +133,7 @@ export default function FaqsPage() {
       {/* 2. Popular Questions: Sidebar + Accordion */}
       <section className="w-full">
         <Container maxWidth="1800">
-          <div className="flex flex-col xl:flex-row gap-[40px] xl:gap-[46px] items-start">
-            {/* Sidebar Categories */}
-            <div className="w-full xl:w-[360px] shrink-0 bg-[#EFF0F6] p-[24px] flex flex-col gap-[30px]">
-              <h3 className="font-jost text-[28px] lg:text-[32px] leading-[1.3] text-[#041632] font-semibold">
-                Popular Questions
-              </h3>
-              <div className="flex flex-col gap-[20px]">
-                {categories.map((cat, i) => (
-                  <span
-                    key={cat}
-                    className={`text-left font-archivo text-[20px] lg:text-[24px] leading-[26px] py-[4px] pl-[16px] border-l-[3px] transition-colors cursor-pointer ${
-                      i === 0
-                        ? "border-[#2B398B] text-[#2B398B] font-medium"
-                        : "border-transparent text-[#666666] hover:text-[#2B398B] hover:border-[#2B398B]"
-                    }`}
-                  >
-                    {cat}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Accordion */}
-            <div className="w-full flex-1 flex flex-col gap-[24px]">
-              <div className="flex flex-col gap-[8px]">
-                <h2 className="font-archivo text-[36px] lg:text-[48px] leading-[1.15] text-[#2B398B] font-normal">
-                  Popular Questions
-                </h2>
-                <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666] max-w-[720px]">
-                  Browse our most frequently asked questions about products, installation, warranty and partnership opportunities.
-                </p>
-              </div>
-
-              <div className="flex flex-col lg:pr-[24px]">
-                {faqs.map((item, index) => (
-                  <React.Fragment key={item.question}>
-                    <details className="group py-[20px]" open={index === 0} name="faq-accordion">
-                      <summary className="flex items-start justify-between gap-[24px] cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                        <span className="font-archivo text-[20px] lg:text-[24px] leading-[32px] text-[#333333]">
-                          {item.question}
-                        </span>
-                        <span className="font-archivo text-[24px] leading-[32px] text-[#333333] shrink-0 group-open:hidden">+</span>
-                        <span className="font-archivo text-[24px] leading-[32px] text-[#333333] shrink-0 hidden group-open:block">-</span>
-                      </summary>
-                      <p className="font-archivo text-[17px] leading-[26px] text-[#666666] mt-[16px]">
-                        {item.answer}
-                      </p>
-                    </details>
-                    {index < faqs.length - 1 && <hr className="border-[#9DBCF3]/40" />}
-                  </React.Fragment>
-                ))}
-              </div>
-            </div>
-          </div>
+          <FaqCategoryList categories={categories} faqs={faqs} />
         </Container>
       </section>
 

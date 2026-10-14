@@ -25,7 +25,7 @@ const articles = [
 
 export default function Insights() {
   return (
-    <section className="w-full bg-[#FFFFFF] py-16 xl:py-24 overflow-hidden">
+    <section className="w-full bg-[#FFFFFF] py-0 overflow-hidden">
       <div className="w-full max-w-[1920px] mx-auto px-6 xl:px-[160px] flex flex-col gap-12 xl:gap-[48px]">
         
         {/* Header Area */}
@@ -63,7 +63,7 @@ export default function Insights() {
                 className="object-cover"
               />
             </div>
-            <div className="w-full pt-[32px] xl:px-[50px] flex flex-row items-end justify-between">
+            <div className="w-full bg-[#F8F8F8] py-8 px-6 xl:py-0 xl:px-[50px] xl:h-[163.5px] flex flex-row items-center xl:items-end xl:pb-[40px] justify-between">
               <div className="flex flex-col gap-[16px] flex-1 xl:max-w-[571px]">
                 <div className="h-[32px] bg-white rounded-full flex items-center justify-center border border-[#E5E5E5] shadow-sm w-max px-[24px]">
                   <span className="font-archivo font-normal text-[14px] text-[#666666] leading-none">2026-06-19</span>

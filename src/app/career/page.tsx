@@ -4,6 +4,8 @@ import { Metadata } from "next";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import SectionSpacer from "@/components/common/SectionSpacer";
+import LifeSlider from "./LifeSlider";
+import OpenPositions from "./OpenPositions";
 
 export const metadata: Metadata = {
   title: "Careers | Ksquare Energy",
@@ -12,11 +14,11 @@ export const metadata: Metadata = {
 };
 
 const openPositions = [
-  { title: "Solar Design Engineer" },
-  { title: "Production Engineer" },
-  { title: "Quality Engineer" },
-  { title: "Sales & Business Development Executive" },
-  { title: "Project Coordinator" },
+  { title: "Solar Design Engineer", category: "Engineering" },
+  { title: "Production Engineer", category: "Manufacturing" },
+  { title: "Quality Engineer", category: "Manufacturing" },
+  { title: "Sales & Business Development Executive", category: "Sales & Marketing" },
+  { title: "Project Coordinator", category: "Operations" },
 ];
 
 const tabs = ["All Positions", "Engineering", "Manufacturing", "Sales & Marketing", "Operations"];
@@ -108,7 +110,7 @@ export default function CareerPage() {
           </div>
         </Container>
 
-        {/* Hero Banner Image */}
+        {/* Hero Banner Image — layered composite from Figma: ground/environment photo + transparent team cutout on top */}
         <Container maxWidth="1800" className="mt-[50px] lg:mt-[80px]">
           <div className="w-full relative aspect-[1804/500] rounded-[24px] overflow-hidden">
             <Image
@@ -118,6 +120,17 @@ export default function CareerPage() {
               className="object-cover"
               priority
             />
+            <div
+              className="absolute"
+              style={{ left: "-15.778%", top: "-145.114%", width: "122.870%", height: "247.430%" }}
+            >
+              <Image
+                src="/assets/career/hero_banner_alt_full.png"
+                alt="Ksquare Energy team"
+                fill
+                className="object-contain object-bottom"
+              />
+            </div>
           </div>
         </Container>
       </section>
@@ -193,14 +206,7 @@ export default function CareerPage() {
               </p>
             </div>
 
-            <div className="relative w-full aspect-[1440/604] overflow-hidden">
-              <Image
-                src="/assets/career/life_gallery.png"
-                alt="Life at Ksquare Energy"
-                fill
-                className="object-cover"
-              />
-            </div>
+            <LifeSlider />
           </div>
         </Container>
       </section>
@@ -221,59 +227,7 @@ export default function CareerPage() {
               </p>
             </div>
 
-            {/* Tabs */}
-            <div className="flex items-center gap-[10px] lg:gap-[18px] flex-wrap justify-center">
-              {tabs.map((tab, i) => (
-                <div
-                  key={tab}
-                  className={`flex items-center px-[16px] lg:px-[28px] py-[12px] lg:py-[16px] cursor-pointer transition-colors rounded-t-[12px] ${
-                    i === 1
-                      ? "bg-[#EFF0F6] border-b-2 border-primary"
-                      : "border-b-2 border-transparent"
-                  }`}
-                >
-                  <span
-                    className={`font-archivo text-[16px] lg:text-[24px] leading-[26px] ${
-                      i === 1 ? "text-primary font-semibold" : "text-[#666666]"
-                    }`}
-                  >
-                    {tab}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* Positions List */}
-            <div className="flex flex-col md:flex-row items-start gap-[24px] md:gap-[60px] w-full">
-              <div className="hidden md:flex flex-col justify-center shrink-0 w-[100px] self-stretch relative">
-                <span className="font-recia italic font-light text-[40px] lg:text-[64px] text-[#9DBCF3] leading-[1] whitespace-nowrap [writing-mode:vertical-rl] rotate-180">
-                  Open Positions
-                </span>
-              </div>
-              <div className="hidden md:block w-px self-stretch bg-[#9DBCF3]" />
-
-              <div className="flex flex-col items-stretch gap-[24px] w-full">
-                {openPositions.map((pos, i) => (
-                  <div key={pos.title}>
-                    <div className="flex items-center gap-[24px] w-full">
-                      <div className="w-[48px] h-[48px] shrink-0 bg-[#EDF3FF] rounded-[5px] flex items-center justify-center">
-                        <span className="font-archivo text-[17px] text-[#333333]">{i + 1}</span>
-                      </div>
-                      <div className="flex items-center justify-between w-full gap-[16px] flex-wrap">
-                        <h3 className="font-archivo text-[20px] lg:text-[24px] leading-[32px] text-[#333333]">
-                          {pos.title}
-                        </h3>
-                        <Link href="#connect" className="flex items-center gap-[16px] group">
-                          <span className="font-archivo text-[17px] leading-[26px] text-primary">Apply Now</span>
-                          <span className="w-[8px] h-[8px] rounded-full bg-primary shrink-0 transition-transform group-hover:scale-110" />
-                        </Link>
-                      </div>
-                    </div>
-                    {i < openPositions.length - 1 && <hr className="border-[#9DBCF3]/40 mt-[24px]" />}
-                  </div>
-                ))}
-              </div>
-            </div>
+            <OpenPositions tabs={tabs} positions={openPositions} />
           </div>
         </Container>
       </section>
@@ -315,46 +269,7 @@ export default function CareerPage() {
       </section>
 
       <SectionSpacer size={150} />
-
-      {/* 6. Don't See the Right Role? Let's Still Connect. */}
-      <section id="connect" className="relative w-full overflow-hidden scroll-mt-[110px]">
-        <div className="absolute inset-0 bg-primary">
-          <Image
-            src="/assets/career/cta_bg.png"
-            alt=""
-            fill
-            className="object-cover opacity-30"
-            aria-hidden="true"
-          />
-        </div>
-        <div className="hidden xl:flex absolute right-[80px] top-0 bottom-0 items-center opacity-90 pointer-events-none">
-          <Image
-            src="/assets/career/cta_graphic.svg"
-            alt=""
-            width={695}
-            height={431}
-            className="object-contain"
-            aria-hidden="true"
-          />
-        </div>
-        <Container maxWidth="1600" className="relative z-10 py-[80px] lg:py-[110px]">
-          <div className="flex flex-col gap-[24px] max-w-[1025px]">
-            <div className="flex flex-col gap-[8px]">
-              <h2 className="font-jost text-[36px] lg:text-[60px] leading-[1.15] text-white font-normal">
-                Don&apos;t See the Right Role? <span className="font-recia italic font-medium">Let&apos;s Still Connect.</span>
-              </h2>
-              <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#EDF3FF] max-w-[700px]">
-                We&apos;re always interested in meeting talented people who share our passion for solar energy and meaningful innovation.
-              </p>
-            </div>
-            <div>
-              <Button variant="outline" href="mailto:careers@ksquareenergy.com" showDot>
-                Submit Your Resume
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </section>
+     
     </main>
   );
 }

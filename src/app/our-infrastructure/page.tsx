@@ -43,18 +43,22 @@ const precisionCallouts = [
   {
     title: "Precision Manufacturing",
     desc: "Structured manufacturing processes help maintain consistency, accuracy and repeatability across production.",
+    left: 160, top: 497.9,
   },
   {
     title: "In-House Testing",
     desc: "Inspection and testing capabilities help verify product quality and performance at critical stages.",
+    left: 1261, top: 314,
   },
   {
     title: "Advanced Equipment",
     desc: "Purpose-built machinery and measurement systems support efficient production and precise component assembly.",
+    left: 489, top: 696.9,
   },
   {
     title: "Technical Development",
     desc: "Technical expertise supports product improvement, process refinement and evolving project requirements.",
+    left: 1311.28, top: 666.9,
   },
 ];
 
@@ -205,11 +209,11 @@ export default function OurInfrastructurePage() {
       <section className="w-full">
         <Container maxWidth="1600">
           <div className="flex flex-col items-stretch gap-[48px]">
-            <div className="flex flex-col items-center text-center gap-[8px] max-w-[900px] mx-auto">
-              <h2 className="font-jost text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal">
+            <div className="flex flex-col items-center text-center gap-[8px] w-full">
+              <h2 className="font-jost text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal w-full">
                 Built Around <span className="font-recia italic font-medium">Manufacturing Excellence</span>
               </h2>
-              <p className="font-archivo text-[17px] leading-[26px] text-[#666666] max-w-[720px]">
+              <p className="font-archivo text-[17px] leading-[26px] text-[#666666] w-full">
                 Purpose-built infrastructure supporting quality, precision and reliable solar manufacturing.
               </p>
             </div>
@@ -231,7 +235,7 @@ export default function OurInfrastructurePage() {
                 </div>
               ))}
               {/* Highlighted quote box completes the 6-tile grid */}
-              <div className="flex items-center justify-center bg-white border border-[#E5E5E5] p-[32px] lg:p-[40px]">
+              <div className="flex items-center justify-center bg-white p-[32px] lg:p-[40px]">
                 <p className="font-recia italic font-medium text-[20px] lg:text-[28px] leading-[1.4] text-[#333333] text-center">
                   From raw materials to finished products, Ksquare brings manufacturing, testing and technical expertise together to deliver reliable solar solutions with greater control and consistency.
                 </p>
@@ -244,73 +248,164 @@ export default function OurInfrastructurePage() {
       <SectionSpacer size={150} />
 
       {/* 4. Capabilities Built Around Precision (dark section) */}
-      <section className="relative w-full overflow-hidden bg-primary py-[80px] lg:py-[120px]">
-        <div className="absolute inset-0">
-          <Image
-            src="/assets/our-infrastructure/precision_bg.png"
-            alt=""
-            fill
-            className="object-cover opacity-40"
-            aria-hidden="true"
-          />
-          <div className="absolute inset-0 bg-primary/70" />
-        </div>
-        <Container maxWidth="1600" className="relative z-10">
-          <div className="flex flex-col items-center gap-[60px]">
-            <div className="flex flex-col items-center text-center gap-[14px] max-w-[1300px]">
-              <h2 className="font-jost text-[32px] lg:text-[60px] leading-[1.15] text-white font-normal">
-                Capabilities Built <span className="font-recia italic font-medium">Around Precision.</span>
-              </h2>
-              <p className="font-archivo text-[17px] leading-[26px] text-white max-w-[900px]">
-                Our manufacturing infrastructure combines production expertise, precision equipment and quality-focused processes to support dependable solar component solutions.
+      <section className="relative w-full bg-primary overflow-hidden">
+        {/* Desktop: pixel-exact scattered layout per Figma (1920x920 canvas) */}
+        <div className="hidden xl:block w-[1920px] max-w-full mx-auto relative h-[920px]">
+          {/* Background bleed illustration */}
+          <div className="absolute left-[-21.8px] top-[314.18px] w-[1944px] h-[659.48px]">
+            <Image
+              src="/assets/our-infrastructure/precision_bg-4b6413.png"
+              alt=""
+              fill
+              className="object-cover"
+              aria-hidden="true"
+            />
+          </div>
+
+          {/* Heading */}
+          <div className="absolute left-[310px] top-[56px] w-[1300px] flex flex-col items-center gap-[24px] text-center">
+            <h2 className="font-jost text-[60px] leading-[66px] text-white font-normal">
+              Capabilities Built <span className="font-recia italic font-medium">Around Precision.</span>
+            </h2>
+            <p className="font-archivo text-[17px] leading-[26px] text-white">
+              Our manufacturing infrastructure combines production expertise, precision equipment and quality-focused processes to support dependable solar component solutions.
+            </p>
+          </div>
+
+          {/* Scattered callout cards */}
+          {precisionCallouts.map((item, i) => (
+            <div
+              key={item.title}
+              className="absolute w-[401px] bg-[#EDF3FF] p-[24px] flex flex-col gap-[10px]"
+              style={{ left: `${item.left}px`, top: `${item.top}px` }}
+            >
+              <h3 className="font-archivo font-medium text-[18px] leading-[24px] tracking-[0.02em] text-[#2E338F]">
+                {i + 1}. {item.title}
+              </h3>
+              <p className="font-archivo text-[18px] leading-[24px] tracking-[0.02em] text-[#2E338F]">
+                {item.desc}
               </p>
             </div>
+          ))}
+        </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-[24px] w-full">
-              {precisionCallouts.map((item) => (
-                <div key={item.title} className="bg-[#EDF3FF] p-[24px] flex flex-col gap-[8px]">
-                  <h3 className="font-archivo font-medium text-[18px] leading-[24px] text-[#2E338F]">
-                    {item.title}
-                  </h3>
-                  <p className="font-archivo text-[18px] leading-[24px] text-[#2E338F]">
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
+        {/* Mobile/tablet fallback (Figma provides no separate mobile frame) */}
+        <div className="xl:hidden py-[80px] px-6">
+          <Container maxWidth="1600">
+            <div className="flex flex-col items-center gap-[60px]">
+              <div className="flex flex-col items-center text-center gap-[14px] max-w-[900px]">
+                <h2 className="font-jost text-[32px] leading-[1.15] text-white font-normal">
+                  Capabilities Built <span className="font-recia italic font-medium">Around Precision.</span>
+                </h2>
+                <p className="font-archivo text-[17px] leading-[26px] text-white">
+                  Our manufacturing infrastructure combines production expertise, precision equipment and quality-focused processes to support dependable solar component solutions.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-[24px] w-full">
+                {precisionCallouts.map((item, i) => (
+                  <div key={item.title} className="bg-[#EDF3FF] p-[24px] flex flex-col gap-[8px]">
+                    <h3 className="font-archivo font-medium text-[18px] leading-[24px] text-[#2E338F]">
+                      {i + 1}. {item.title}
+                    </h3>
+                    <p className="font-archivo text-[18px] leading-[24px] text-[#2E338F]">
+                      {item.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </Container>
+          </Container>
+        </div>
       </section>
 
       <SectionSpacer size={150} />
 
       {/* 5. From Production to Quality Assurance */}
       <section className="w-full">
-        <Container maxWidth="1600">
-          <div className="flex flex-col items-center gap-[60px]">
-            <h2 className="font-jost text-[32px] lg:text-[60px] leading-[1.15] text-primary font-normal text-center">
+        {/* Desktop: pixel-exact zigzag timeline per Figma */}
+        <div className="hidden xl:block relative w-[1600px] max-w-full mx-auto h-[681px]">
+          {/* Heading */}
+          <div className="absolute left-0 right-0 top-[36px] flex justify-center">
+            <h2 className="font-jost text-[60px] leading-[70px] text-primary font-normal text-center">
               From Production <span className="font-recia italic font-medium">to Quality Assurance.</span>
             </h2>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-[40px] gap-y-[48px] w-full">
-              {processSteps.map((step, i) => (
-                <div key={step.title} className="flex flex-col items-center text-center gap-[16px]">
-                  <div className="w-[64px] h-[64px] rounded-full bg-[#EFF0F6] flex items-center justify-center">
-                    <span className="font-archivo text-[24px] font-medium text-primary">{i + 1}</span>
-                  </div>
-                  <div className="flex flex-col gap-[12px]">
-                    <h3 className="font-archivo text-[22px] lg:text-[24px] leading-[26px] text-[#333333] font-medium">
-                      {step.title}
-                    </h3>
-                    <p className="font-archivo text-[17px] leading-[26px] text-[#666666] max-w-[290px]">
-                      {step.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
+          {/* Row 1 labels (above the connector graphic) */}
+          <div className="absolute left-[3.39px] top-[169.9px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
+            <h3 className="font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[0].title}</h3>
+            <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[0].desc}</p>
+          </div>
+          <div className="absolute left-[521.49px] top-[169.9px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
+            <h3 className="font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[1].title}</h3>
+            <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[1].desc}</p>
+          </div>
+          <div className="absolute left-[1053.13px] top-[169.9px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
+            <h3 className="font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[2].title}</h3>
+            <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[2].desc}</p>
+          </div>
+
+          {/* Connector graphic (circles + zigzag dotted line) with 4 overlaid icons */}
+          <div className="absolute left-0 top-[274.95px] w-[1600px] h-[302.82px]">
+            <Image src="/assets/our-infrastructure/process_connectors.png" alt="" fill className="object-contain" aria-hidden="true" />
+            <div className="absolute w-[128px] h-[128px]" style={{ left: 71.6, top: 76.55 }}>
+              <Image src="/assets/our-infrastructure/process_icon_1.svg" alt="" fill />
+            </div>
+            <div className="absolute w-[128px] h-[128px]" style={{ left: 337.6, top: 105.55 }}>
+              <Image src="/assets/our-infrastructure/process_icon_2.svg" alt="" fill />
+            </div>
+            <div className="absolute w-[128px] h-[128px]" style={{ left: 602.6, top: 76.55 }}>
+              <Image src="/assets/our-infrastructure/process_icon_3.svg" alt="" fill />
+            </div>
+            <div className="absolute w-[128px] h-[128px]" style={{ left: 1401.6, top: 101.55 }}>
+              <Image src="/assets/our-infrastructure/process_icon_6.svg" alt="" fill />
             </div>
           </div>
-        </Container>
+
+          {/* Row 2 labels (below the connector graphic) */}
+          <div className="absolute left-[256px] top-[590.77px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
+            <h3 className="font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[3].title}</h3>
+            <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[3].desc}</p>
+          </div>
+          <div className="absolute left-[789.82px] top-[590.77px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
+            <h3 className="font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[4].title}</h3>
+            <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[4].desc}</p>
+          </div>
+          <div className="absolute left-[1309.15px] top-[590.77px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
+            <h3 className="font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[5].title}</h3>
+            <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[5].desc}</p>
+          </div>
+        </div>
+
+        {/* Mobile/tablet fallback (Figma provides no separate mobile frame) */}
+        <div className="xl:hidden">
+          <Container maxWidth="1600">
+            <div className="flex flex-col items-center gap-[60px]">
+              <h2 className="font-jost text-[32px] leading-[1.15] text-primary font-normal text-center">
+                From Production <span className="font-recia italic font-medium">to Quality Assurance.</span>
+              </h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[40px] gap-y-[48px] w-full">
+                {processSteps.map((step, i) => (
+                  <div key={step.title} className="flex flex-col items-center text-center gap-[16px]">
+                    <div className="w-[64px] h-[64px] rounded-full bg-[#EFF0F6] flex items-center justify-center">
+                      <span className="font-archivo text-[24px] font-medium text-primary">{i + 1}</span>
+                    </div>
+                    <div className="flex flex-col gap-[12px]">
+                      <h3 className="font-archivo text-[22px] leading-[26px] text-[#333333] font-medium">
+                        {step.title}
+                      </h3>
+                      <p className="font-archivo text-[17px] leading-[26px] text-[#666666] max-w-[290px]">
+                        {step.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </div>
       </section>
 
       <SectionSpacer size={150} />
@@ -344,49 +439,6 @@ export default function OurInfrastructurePage() {
       </section>
 
       <SectionSpacer size={150} />
-
-      {/* 7. Get bulk pricing on Solar BOS Components (CTA) */}
-      <section className="relative w-full overflow-hidden">
-        <div className="absolute inset-0 bg-primary">
-          <Image
-            src="/assets/our-infrastructure/cta_bg.png"
-            alt=""
-            fill
-            className="object-cover opacity-30"
-            aria-hidden="true"
-          />
-        </div>
-        <div className="hidden xl:flex absolute right-[80px] top-0 bottom-0 items-center opacity-90 pointer-events-none">
-          <Image
-            src="/assets/our-infrastructure/cta_graphic.svg"
-            alt=""
-            width={695}
-            height={431}
-            className="object-contain"
-            aria-hidden="true"
-          />
-        </div>
-        <Container maxWidth="1600" className="relative z-10 py-[80px] lg:py-[110px]">
-          <div className="flex flex-col gap-[24px] max-w-[1025px]">
-            <div className="flex flex-col gap-[8px]">
-              <h2 className="font-jost text-[32px] lg:text-[60px] leading-[1.15] text-white font-normal">
-                Get bulk pricing on <span className="font-recia italic font-medium">Solar BOS Components</span>
-              </h2>
-              <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#EDF3FF] max-w-[700px]">
-                Whether you need certified solar components, OEM manufacturing, or complete rooftop solar solutions, our team is ready to help.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row items-center gap-[24px]">
-              <Button variant="outline" href="/contact" showDot>
-                Request a Quote
-              </Button>
-              <Button variant="outline" href="/contact" showDot>
-                Talk to Our Experts
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </section>
     </main>
   );
 }
