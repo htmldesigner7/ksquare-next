@@ -40,10 +40,10 @@ export default function Industries() {
     <section className="relative w-full bg-[#FFFFFF] overflow-hidden">
       
       {/* Desktop Wrapper */}
-      <div className="w-[1920px] max-w-full mx-auto relative h-[787px] max-xl:h-auto max-xl:px-6 max-xl:py-12">
+      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative h-[787px] max-canvas:h-auto max-canvas:px-6 max-canvas:py-12">
         
         {/* Main Content Container */}
-        <div className="hidden xl:block absolute left-[160px] top-0 w-[1600px] h-[787px]">
+        <div className="hidden canvas:block absolute left-[160px] top-0 w-[1600px] h-[787px]">
           
           {/* Header (Frame 23) */}
           <div className="absolute left-0 top-0 w-[1600px] h-[91px] flex flex-col items-center">
@@ -61,7 +61,7 @@ export default function Industries() {
             {industries.map((ind, idx) => (
               <div 
                 key={idx}
-                className="absolute w-[520px] h-[314px] bg-[#EFF0F6]"
+                className="card-lift absolute w-[520px] h-[314px] bg-[#EFF0F6]"
                 style={{ left: `${ind.left}px`, top: `${ind.top}px` }}
               >
                 {/* Frame 109 */}
@@ -97,7 +97,7 @@ export default function Industries() {
         </div>
 
         {/* Responsive layout (< 1280px) */}
-        <div className="xl:hidden flex flex-col gap-12 w-full max-w-[1200px] mx-auto">
+        <div className="canvas:hidden flex flex-col gap-12 w-full max-w-[1200px] mx-auto">
           <div className="flex flex-col gap-4 text-center sm:text-left">
             <h2 className="font-jost font-normal text-[48px] sm:text-[60px] text-[#2B398B] leading-none m-0 p-0">
               Who We Serve
@@ -109,7 +109,7 @@ export default function Industries() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {industries.map((ind, idx) => (
-              <div key={idx} className="w-full bg-[#EFF0F6] p-[40px] flex flex-col gap-6">
+              <div key={idx} className="card-lift w-full bg-[#EFF0F6] p-[40px] flex flex-col gap-6">
                 <div className="flex items-center gap-6">
                   <div className="w-[90px] h-[90px] bg-[#FFFFFF] flex items-center justify-center rounded-[10px] shrink-0">
                     <Image src={ind.icon} alt={ind.title} width={75} height={75} />

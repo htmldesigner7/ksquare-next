@@ -51,11 +51,11 @@ function Chevron() {
 
 export default function AboutUsPage() {
   return (
-    <div className="w-full bg-[#FFFFFF] font-archivo overflow-x-clip">
+    <main className="w-full bg-[#FFFFFF] font-archivo overflow-x-clip">
       {/* 1. Hero */}
-      <section className="w-full pt-[90px] xl:pt-[130px]">
-        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-0 pt-[40px] xl:pt-0 flex flex-col xl:flex-row xl:items-end xl:justify-between gap-[32px]">
-          <div className="flex flex-col gap-[15px] xl:w-[873px]">
+      <section className="w-full pt-[90px] canvas:pt-[130px]">
+        <div className="canvas-zoom canvas:w-[1800px] w-full max-w-[1800px] mx-auto px-4 lg:px-8 g1864:px-0 pt-[40px] canvas:pt-0 flex flex-col canvas:flex-row canvas:items-end canvas:justify-between gap-[32px]">
+          <div className="flex flex-col gap-[15px] canvas:w-[873px]">
             <div className="flex items-center gap-[10px] font-archivo text-[20px] leading-[28px] text-[#333333]">
               <Link href="/" className="hover:text-[#2B398B] transition-colors">Home</Link>
               <Chevron />
@@ -68,7 +68,7 @@ export default function AboutUsPage() {
             </h1>
           </div>
 
-          <div className="flex flex-col gap-[32px] xl:w-[816px]">
+          <div className="flex flex-col gap-[32px] canvas:w-[816px]">
             <p className="m-0 font-archivo text-[20px] lg:text-[24px] leading-[30px] lg:leading-[36px] text-[#333333]">
               Explore Expert article installation guides, products updates, industry news and technical resources from Ksquare Energy.
             </p>
@@ -79,31 +79,31 @@ export default function AboutUsPage() {
           </div>
         </div>
 
-        <div className="w-full max-w-[1804px] mx-auto px-4 lg:px-8 xl:px-0 mt-[40px]">
+        <div className="w-full max-w-[1804px] mx-auto px-4 lg:px-8 g1868:px-0 mt-[40px]">
           <div className="relative w-full aspect-[1804/500]">
             <Image src="/assets/about/hero_bg-23383c.png" alt="Hero Graphic" fill sizes="1804px" className="object-cover" priority />
           </div>
         </div>
       </section>
 
-      <div className="w-full mt-[60px] xl:mt-[100px] flex flex-col gap-[60px] xl:gap-[100px]">
+      <div className="w-full mt-[60px] canvas:mt-[100px] flex flex-col gap-[60px] canvas:gap-[100px]">
         {/* 2. Our Story */}
-        <section className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-0">
-          <div className="flex flex-col xl:flex-row xl:justify-between gap-[40px] xl:h-[724px]">
+        <section className="canvas-zoom canvas:w-[1800px] w-full max-w-[1800px] mx-auto px-4 lg:px-8 g1864:px-0">
+          <div className="flex flex-col canvas:flex-row canvas:justify-between gap-[40px] canvas:h-[724px]">
             {/* Left: title + image */}
-            <div className="relative flex flex-col w-full xl:w-[711px] shrink-0">
-              <h2 className="m-0 max-w-[532px] font-archivo font-normal text-[40px] lg:text-[60px] leading-[1.1] xl:leading-[64.5px] text-[#2B398B]">
+            <div className="relative flex flex-col w-full canvas:w-[711px] shrink-0">
+              <h2 className="relative z-10 m-0 max-w-[532px] font-archivo font-normal text-[40px] lg:text-[60px] leading-[1.1] canvas:leading-[64.5px] text-[#2B398B]">
                 Our Story: From Passion to <span className="font-recia italic font-medium">Impact</span>
               </h2>
-              <div className="relative w-full aspect-[711/595] xl:mt-auto">
+              <div className="relative w-full aspect-[711/595] canvas:mt-auto">
                 <Image src="/assets/about/our_story-7fc02a.png" alt="Our Story: Passion to Impact" fill sizes="711px" className="object-cover" />
               </div>
-              <div className="hidden xl:block absolute right-0 top-0 w-[259px] h-full bg-gradient-to-l from-transparent to-white pointer-events-none" />
+              <div className="hidden canvas:block absolute right-0 top-0 w-[259px] h-full bg-gradient-to-l from-transparent to-white pointer-events-none" />
             </div>
 
             {/* Right: copy + timeline bars */}
-            <div className="flex flex-col w-full xl:w-[1012px] shrink-0">
-              <div className="flex flex-col gap-[24px] xl:h-[320px] font-archivo text-[18px] lg:text-[24px] leading-[28px] lg:leading-[34px] text-[#333333]">
+            <div className="flex flex-col w-full canvas:w-[1012px] shrink-0">
+              <div className="flex flex-col gap-[24px] canvas:h-[320px] font-archivo text-[18px] lg:text-[24px] leading-[28px] lg:leading-[34px] text-[#333333]">
                 <p className="m-0">
                   Ksquare Energy is a globally recognized leading solar energy solutions provider, specializing in Solar Array Junction Box manufacturing and comprehensive EPC solutions.
                 </p>
@@ -115,7 +115,7 @@ export default function AboutUsPage() {
                 </p>
               </div>
 
-              <div className="mt-[40px] xl:mt-0 xl:h-[404px] xl:pt-[20px] grid grid-cols-5 gap-[8px] xl:gap-[22.5px] items-end xl:items-stretch">
+              <div className="mt-[40px] canvas:mt-0 canvas:h-[404px] canvas:pt-[20px] grid grid-cols-5 gap-[8px] canvas:gap-[22.5px] items-end canvas:items-stretch">
                 {bars.map((b) => (
                   <div key={b.year} className="flex flex-col gap-[18px] min-w-0">
                     <div className="flex flex-col justify-end h-[312px] bg-white overflow-hidden">
@@ -134,9 +134,9 @@ export default function AboutUsPage() {
         </section>
 
         {/* 3. Mission & Vision */}
-        <section className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-0">
+        <section className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 g1864:px-0">
           {/* Desktop: Figma frame 1800x873, every measurement scales with the frame width (cqw) */}
-          <div className="hidden xl:block [container-type:inline-size] w-full">
+          <div className="hidden canvas:block [container-type:inline-size] w-full">
             <div className="relative w-full" style={{ aspectRatio: "1800 / 873" }}>
               <div className="absolute" style={{ left: 0, top: "23.02%", width: "42.56%", height: "76.98%" }}>
                 <Image src="/assets/about/mission_shape.svg" alt="" fill className="object-cover" />
@@ -180,7 +180,7 @@ export default function AboutUsPage() {
           </div>
 
           {/* Mobile/tablet fallback (Figma provides no separate mobile frame) */}
-          <div className="xl:hidden flex flex-col gap-[40px] w-full">
+          <div className="canvas:hidden flex flex-col gap-[40px] w-full">
             <div className="flex flex-col items-center text-center gap-[16px]">
               <h2 className="m-0 font-archivo font-normal text-[40px] leading-[1.15] text-[#2B398B]">
                 Mission <span className="font-recia italic font-medium">&amp; Vision</span>
@@ -207,18 +207,18 @@ export default function AboutUsPage() {
         </section>
 
         {/* 4. Who We Serve */}
-        <section className="w-full max-w-[1600px] mx-auto px-4 lg:px-8 xl:px-0 flex flex-col gap-[48px]">
+        <section className="w-full max-w-[1600px] mx-auto px-4 lg:px-8 g1664:px-0 flex flex-col gap-[48px]">
           <div className="flex flex-col items-center text-center gap-[8px]">
-            <h2 className="m-0 font-archivo font-normal text-[40px] lg:text-[60px] leading-[1.2] xl:leading-[42px] text-[#2B398B] xl:h-[57.1px] flex items-center">
+            <h2 className="m-0 font-archivo font-normal text-[40px] lg:text-[60px] leading-[1.2] canvas:leading-[42px] text-[#2B398B] canvas:h-[57.1px] flex items-center">
               <span>Who&nbsp;</span>
               <span className="font-recia italic font-medium">We Serve</span>
             </h2>
             <p className="m-0 font-archivo text-[17px] leading-[26px] text-[#666666]">Powering Every Industry with Solar Solutions</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[20px] items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 canvas:grid-cols-3 gap-[20px] items-center">
             {serve.map((s) => (
-              <div key={s.title} className="bg-[#EFF0F6] px-[40px] py-[50px] flex flex-col gap-[20px]">
+              <div key={s.title} className="card-lift bg-[#EFF0F6] px-[40px] py-[50px] flex flex-col gap-[20px]">
                 <div className="flex items-center gap-[30px]">
                   <div className="w-[90px] h-[90px] shrink-0 bg-white rounded-[10px] flex items-center justify-center p-[10px]">
                     <Image src={`/assets/about/${s.icon}`} alt="" width={60} height={60} className="w-[60px] h-[60px] object-contain" />
@@ -257,6 +257,6 @@ export default function AboutUsPage() {
         {/* 6. What Our Clients Say */}
         <Testimonials />
       </div>
-    </div>
+    </main>
   );
 }

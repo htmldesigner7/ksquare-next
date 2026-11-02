@@ -94,9 +94,9 @@ export default function ProjectsPage() {
   return (
     <main className="w-full bg-white font-archivo overflow-x-clip">
       {/* Hero */}
-      <section className="w-full pt-[90px] xl:pt-[130px]">
-        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-0 pt-[40px] xl:pt-0 flex flex-col xl:flex-row xl:justify-between gap-[32px]">
-          <div className="flex flex-col gap-[14px] xl:w-[900px]">
+      <section className="w-full pt-[90px] canvas:pt-[130px]">
+        <div className="canvas-zoom canvas:w-[1800px] w-full max-w-[1800px] mx-auto px-4 lg:px-8 g1864:px-0 pt-[40px] canvas:pt-0 flex flex-col canvas:flex-row canvas:justify-between gap-[32px]">
+          <div className="flex flex-col gap-[14px] canvas:w-[900px]">
             <div className="flex items-center gap-[10px] font-archivo text-[20px] leading-[28px] text-[#333333]">
               <Link href="/" className="hover:text-primary transition-colors">Home</Link>
               <svg width="5" height="10" viewBox="0 0 5 10" fill="none" aria-hidden="true">
@@ -110,7 +110,7 @@ export default function ProjectsPage() {
               <span className="italic font-semibold">Built to Perform.</span>
             </h1>
           </div>
-          <div className="flex flex-col gap-[32px] xl:w-[816px]">
+          <div className="flex flex-col gap-[32px] canvas:w-[816px]">
             <p className="m-0 font-archivo text-[20px] lg:text-[24px] leading-[30px] lg:leading-[36px] text-[#333333]">
               From individual rooftops to large industrial installations, Ksquare Energy has delivered 9,000+ solar projects across residential, commercial, industrial and government applications.
             </p>
@@ -122,37 +122,37 @@ export default function ProjectsPage() {
         </div>
 
         {/* Hero banner: photo clipped to 1800x500, cut-out of the two people overlaps upwards */}
-        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-0 mt-[40px] xl:mt-[205px]">
-          <div className="relative w-full h-[280px] md:h-[400px] xl:h-[500px]">
+        <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 g1864:px-0 mt-[40px] canvas:mt-[205px]">
+          <div className="canvas-zoom relative w-full canvas:w-[1800px] mx-auto h-[280px] md:h-[400px] canvas:h-[500px]">
             <div className="absolute inset-0 overflow-hidden">
               <Image
                 src="/assets/projects/figma/hero_a.png"
                 alt="Ksquare Energy solar project"
                 fill
                 sizes="1800px"
-                className="object-cover xl:hidden"
+                className="object-cover canvas:hidden"
                 priority
               />
-              <div className="hidden xl:block absolute left-[-45.21px] top-[-255px] w-[1845.21px] h-[1029.89px]">
+              <div className="hidden canvas:block absolute left-[-45.21px] top-[-255px] w-[1845.21px] h-[1029.89px]">
                 <Image src="/assets/projects/figma/hero_a.png" alt="" fill sizes="1846px" className="object-cover" priority />
               </div>
             </div>
-            <div className="hidden xl:block absolute left-[-45.21px] top-[-255px] w-[1845.21px] h-[733.75px] pointer-events-none">
+            <div className="hidden canvas:block absolute left-[-45.21px] top-[-255px] w-[1845.21px] h-[733.75px] pointer-events-none">
               <Image src="/assets/projects/figma/hero_b-12819a.png" alt="" fill sizes="1846px" className="object-fill" priority />
             </div>
           </div>
         </div>
       </section>
 
-      <div className="mt-[60px] xl:mt-[81px] flex flex-col gap-[60px] xl:gap-[100px] pb-[100px]">
+      <div className="mt-[60px] canvas:mt-[81px] flex flex-col gap-[60px] canvas:gap-[100px] pb-[100px]">
         <ProjectsFilter />
 
         {/* Beyond the Photograph: data table */}
         <section id="project-data" className="w-full scroll-mt-[110px]">
-          <div className="mx-auto w-full max-w-[1920px] px-4 lg:px-8 xl:px-[160px] flex flex-col gap-[48px]">
+          <div className="mx-auto w-full max-w-[1920px] px-4 lg:px-8 canvas:px-[160px] flex flex-col gap-[48px]">
             <div className="flex flex-col gap-[12px]">
               <span className="font-archivo text-[17px] font-semibold uppercase text-primary">Beyond the Photograph</span>
-              <h2 className="m-0 font-archivo font-normal text-[32px] lg:text-[44px] leading-[1.2] xl:leading-[52px] text-[#333333]">
+              <h2 className="m-0 font-archivo font-normal text-[32px] lg:text-[44px] leading-[1.2] canvas:leading-[52px] text-[#333333]">
                 Every Project Has a Story <span className="font-recia italic font-semibold">Behind the Numbers</span>
               </h2>
             </div>
@@ -182,7 +182,7 @@ export default function ProjectsPage() {
         {/* How a Ksquare project actually runs */}
         <section className="w-full">
           {/* Desktop: pixel-exact zigzag timeline per Figma (same pattern as /grievance) */}
-          <div className="hidden xl:block relative w-[1600px] max-w-full mx-auto h-[681px]">
+          <div className="canvas-zoom hidden canvas:block relative w-[1600px] mx-auto h-[681px]">
             <div className="absolute left-0 right-0 top-[36px] flex justify-center">
               <h2 className="m-0 font-recia text-[60px] leading-[70px] text-primary font-normal text-center capitalize">
                 How a Ksquare <span className="italic font-medium">project actually runs</span>
@@ -215,7 +215,7 @@ export default function ProjectsPage() {
           </div>
 
           {/* Mobile/tablet fallback */}
-          <div className="xl:hidden mx-auto w-full max-w-[1600px] px-4 lg:px-8 flex flex-col items-center gap-[48px]">
+          <div className="canvas:hidden mx-auto w-full max-w-[1600px] px-4 lg:px-8 flex flex-col items-center gap-[48px]">
             <h2 className="m-0 font-recia text-[36px] leading-[1.15] text-primary font-normal text-center capitalize">
               How a Ksquare <span className="italic font-medium">project actually runs</span>
             </h2>
@@ -237,7 +237,7 @@ export default function ProjectsPage() {
 
         {/* FAQ */}
         <section className="w-full">
-          <div className="mx-auto w-full max-w-[1920px] px-4 lg:px-8 xl:px-[160px] flex flex-col items-center gap-[64px]">
+          <div className="mx-auto w-full max-w-[1920px] px-4 lg:px-8 canvas:px-[160px] flex flex-col items-center gap-[64px]">
             <h2 className="m-0 font-archivo font-normal text-[36px] lg:text-[60px] leading-[1.25] text-primary text-center">
               Frequently Asked <span className="font-recia italic font-medium">Questions</span>
             </h2>
@@ -247,7 +247,7 @@ export default function ProjectsPage() {
 
         {/* Send an Enquiry */}
         <section id="enquiry-form" className="w-full scroll-mt-[110px]">
-          <div className="mx-auto w-full max-w-[1600px] px-4 lg:px-8 xl:px-0">
+          <div className="mx-auto w-full max-w-[1600px] px-4 lg:px-8 g1664:px-0">
             <div className="w-full bg-white border border-[#DDDDDD] p-[20px] md:p-[32px] flex flex-col gap-[32px]">
               <div className="flex flex-col gap-[12px]">
                 <h2 className="m-0 font-dm font-medium text-[40px] md:text-[60px] leading-[1.17] text-primary">

@@ -131,8 +131,8 @@ export default function BlogPage() {
         <Container maxWidth="1600">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[24px]">
             {posts.map((post) => (
-              <article key={post.slug} className="flex flex-col bg-[#EFF0F6] border border-[#E2E8F0] shadow-[0px_4px_16px_0px_rgba(0,0,0,0.02)]">
-                <div className="relative w-full aspect-[580/396]">
+              <article key={post.slug} className="card-lift flex flex-col bg-[#EFF0F6] border border-[#E2E8F0] shadow-[0px_4px_16px_0px_rgba(0,0,0,0.02)]">
+                <div className="img-hover-zoom relative w-full aspect-[580/396]">
                   <Image src={post.image} alt={post.title} fill className="object-cover" />
                 </div>
                 <div className="flex flex-col gap-[12px] px-[12px] pb-[24px] pt-[16px]">

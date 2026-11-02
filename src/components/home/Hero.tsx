@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden bg-[#0F1B5D]">
       {/* Desktop Wrapper (Scales down on smaller screens) */}
-      <div className="w-[1920px] max-w-full mx-auto relative h-[920px] max-lg:h-auto max-lg:pb-32">
+      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative max-canvas:h-auto max-canvas:pb-32 canvas:h-[920px]">
         
         {/* Background Image (Rectangle 168) */}
         <div className="absolute inset-0 z-0">
@@ -20,7 +20,7 @@ export default function Hero() {
         </div>
 
         {/* Content Container (Frame 2085663116) */}
-        <div className="relative z-10 hidden xl:block mx-auto w-[1602px] h-[621px] top-[165px]">
+        <div className="relative z-10 hidden canvas:block mx-auto w-[1602px] h-[621px] top-[165px]">
           
           {/* Main Product Image (Combo Ksquare 1) */}
           <div className="absolute left-[0px] top-[19px] w-[1117px] h-[602px]">
@@ -55,7 +55,7 @@ export default function Hero() {
             <div className="absolute left-0 top-[144px] w-[419px] h-[50px] flex items-center gap-[16px] mt-[34px]">
               {/* Request Bulk Quote */}
               <Link
-                href="/quote"
+                href="/contact"
                 className="w-[208px] h-[50px] border border-white flex items-center justify-center gap-[16px] text-white hover:bg-white hover:text-[#0F1B5D] transition-colors group"
               >
                 <span className="font-archivo font-normal text-[17px]">Request Bulk Quote</span>
@@ -64,7 +64,7 @@ export default function Hero() {
 
               {/* Download Catalog */}
               <Link
-                href="/catalog"
+                href="/download-resources"
                 className="w-[195px] h-[50px] border border-white flex items-center justify-center gap-[16px] text-white hover:bg-white hover:text-[#0F1B5D] transition-colors group"
               >
                 <span className="font-archivo font-normal text-[17px]">Download Catalog</span>
@@ -74,8 +74,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Responsive layout for smaller screens (< 1280px) since Figma doesn't provide specific mobile views */}
-        <div className="relative z-10 xl:hidden pt-[140px] px-6 pb-12 flex flex-col gap-8 items-center text-center">
+        {/* Responsive layout for smaller screens (< 1440px) since Figma doesn't provide specific mobile views */}
+        <div className="relative z-10 canvas:hidden pt-[140px] px-6 pb-12 flex flex-col gap-8 items-center text-center">
           <div className="flex flex-col gap-2">
             <h1 className="font-jost font-normal text-4xl sm:text-5xl">
               <span className="text-[#C6CCED]">India&apos;s Trusted </span>
@@ -103,11 +103,11 @@ export default function Hero() {
               DCDBs, ACDBs, combiner boxes, junction boxes and BOS accessories engineered, tested and shipped from our own Ahmedabad facility to EPCs, distributors and OEM partners across India.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/quote" className="px-8 h-[50px] border border-white flex items-center justify-center gap-4 text-white hover:bg-white hover:text-[#0F1B5D] transition-colors group">
+              <Link href="/contact" className="px-8 h-[50px] border border-white flex items-center justify-center gap-4 text-white hover:bg-white hover:text-[#0F1B5D] transition-colors group">
                 <span className="font-archivo text-lg">Request Bulk Quote</span>
                 <span className="w-2 h-2 rounded-full bg-white group-hover:bg-[#0F1B5D] transition-colors"></span>
               </Link>
-              <Link href="/catalog" className="px-8 h-[50px] border border-white flex items-center justify-center gap-4 text-white hover:bg-white hover:text-[#0F1B5D] transition-colors group">
+              <Link href="/download-resources" className="px-8 h-[50px] border border-white flex items-center justify-center gap-4 text-white hover:bg-white hover:text-[#0F1B5D] transition-colors group">
                 <span className="font-archivo text-lg">Download Catalog</span>
                 <span className="w-2 h-2 rounded-full bg-white group-hover:bg-[#0F1B5D] transition-colors"></span>
               </Link>
@@ -116,7 +116,7 @@ export default function Hero() {
         </div>
 
         {/* Bottom Info Bar (Frame 2085663113) */}
-        <div className="hidden xl:flex absolute left-0 top-[846px] w-[1920px] h-[74px] items-center justify-center bg-transparent border-t border-white/20">
+        <div className="hidden canvas:flex absolute left-0 top-[846px] w-[1920px] h-[74px] items-center justify-center bg-transparent border-t border-white/20">
           <div className="w-[1400px] h-[28px] flex items-center justify-between text-white font-archivo font-normal text-[20px]">
             <span>• ISO certified facility</span>
             <span>• CE Marked</span>
@@ -127,7 +127,7 @@ export default function Hero() {
         </div>
 
         {/* Responsive Bottom Info Bar */}
-        <div className="xl:hidden w-full border-t border-white/20 py-6 px-6 mt-12 bg-transparent absolute bottom-0 left-0">
+        <div className="canvas:hidden w-full border-t border-white/20 py-6 px-6 mt-12 bg-transparent absolute bottom-0 left-0">
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-white font-archivo text-base">
             <span>• ISO certified facility</span>
             <span>• CE Marked</span>

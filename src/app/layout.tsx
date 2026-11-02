@@ -44,6 +44,10 @@ export default function RootLayout({
       <body
         className={`${archivo.variable} ${jost.variable} ${dmSans.variable} ${playfair.variable} ${inter.variable} antialiased font-sans`}
       >
+        <noscript>
+          {/* Scroll-reveal animations start hidden; without JS they would never show. */}
+          <style>{`[style*="opacity: 0"]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
         <Header />
         {children}
         <Footer />

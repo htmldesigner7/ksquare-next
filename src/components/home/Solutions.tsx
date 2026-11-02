@@ -8,22 +8,22 @@ const solutions = [
   {
     title: "Residential Rooftop Solar",
     desc: "A home solar system must provide enough electric energy to fulfil all the power requirements of home. Here, you can save and earn from your idle rooftop space.",
-    link: "/residential"
+    link: "/solutions/residential-solar"
   },
   {
     title: "Industrial Solar Plants",
     desc: "Large scale solar installations to offset heavy machinery loads and reduce operational costs for manufacturing and processing industries.",
-    link: "/industrial"
+    link: "/solutions/epc-solutions"
   },
   {
     title: "Trust/Institutional Solar Plants",
     desc: "Solar setups specifically designed for educational institutions, hospitals, and trusts to ensure reliable power and energy independence.",
-    link: "/institutional"
+    link: "/solutions/solar-consultation"
   },
   {
     title: "Commercial Solar Plants",
     desc: "Optimized solar energy systems for commercial complexes, malls, and offices aiming for sustainable and green building certifications.",
-    link: "/commercial"
+    link: "/solutions/rooftop-solar"
   }
 ];
 
@@ -34,10 +34,10 @@ export default function Solutions() {
     <section className="relative w-full bg-[#FFFFFF] overflow-hidden">
       
       {/* Desktop Wrapper */}
-      <div className="w-[1920px] max-w-full mx-auto relative xl:pb-[60px] max-xl:h-auto max-xl:px-6 max-xl:py-12">
+      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative canvas:pb-[60px] max-canvas:h-auto max-canvas:px-6 max-canvas:py-12">
         
         {/* Desktop Layout (Frame 2147224485) */}
-        <div className="hidden xl:block relative ml-[160px] w-[1600px] pt-[159px]">
+        <div className="hidden canvas:block relative ml-[160px] w-[1600px] pt-[159px]">
           
           {/* Header (Frame 23) */}
           <div className="absolute left-0 top-0 w-[1600px] h-[112px]">
@@ -117,7 +117,7 @@ export default function Solutions() {
         </div>
 
         {/* Responsive layout (< 1280px) */}
-        <div className="xl:hidden flex flex-col gap-12 w-full max-w-[1200px] mx-auto">
+        <div className="canvas:hidden flex flex-col gap-12 w-full max-w-[1200px] mx-auto">
           <div className="flex flex-col gap-4 text-center sm:text-left">
             <h2 className="font-jost font-normal text-[48px] sm:text-[60px] text-[#2B398B] leading-none m-0 p-0 text-center">
               End-to-End Solar Solutions
@@ -128,7 +128,7 @@ export default function Solutions() {
           </div>
           
           <div className="flex flex-col lg:flex-row gap-12 items-start">
-            <div className="w-full flex flex-col gap-6">
+            <div className="w-full lg:flex-1 lg:min-w-0 flex flex-col gap-6">
               {solutions.map((item, idx) => {
                 const isActive = activeIdx === idx;
                 return (
@@ -178,7 +178,7 @@ export default function Solutions() {
               })}
             </div>
             
-            <div className="w-full aspect-video sm:aspect-[4/3] lg:aspect-auto lg:h-[550px] relative overflow-hidden shrink-0">
+            <div className="w-full lg:w-[45%] aspect-video sm:aspect-[4/3] lg:aspect-auto lg:h-[550px] relative overflow-hidden shrink-0">
               <Image 
                 src="/assets/img_solutions.png" 
                 alt="Solar Solutions" 

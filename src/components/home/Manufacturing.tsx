@@ -17,10 +17,10 @@ export default function Manufacturing() {
       </div>
       
       {/* Desktop Wrapper */}
-      <div className="w-[1920px] max-w-full mx-auto relative h-[920px] max-xl:h-auto max-xl:px-6 max-xl:py-12">
+      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative h-[920px] max-canvas:h-auto max-canvas:px-6 max-canvas:py-12">
         
         {/* Main Content Container (Frame 2147224486) */}
-        <div className="hidden xl:block absolute left-[160px] top-[109px] w-[1600px] h-[701px]">
+        <div className="hidden canvas:block absolute left-[160px] top-[109px] w-[1600px] h-[701px]">
           
           {/* Header (Frame 23) */}
           <div className="absolute left-[454px] top-0 w-[692px] h-[103px] text-center">
@@ -109,7 +109,7 @@ export default function Manufacturing() {
         </div>
 
         {/* Responsive layout (< 1280px) */}
-        <div className="xl:hidden relative z-10 flex flex-col gap-12 items-center">
+        <div className="canvas:hidden relative z-10 flex flex-col gap-12 items-center">
           <div className="flex flex-col gap-4 text-center">
             <h2 className="font-jost font-normal text-4xl sm:text-5xl text-white">
               Manufacturing Excellence

@@ -108,7 +108,7 @@ export default function ProductGallery({ image, alt, description, patternSrc }: 
       </div>
 
       {/* Inquiry Now / View Datasheet */}
-      <div className="absolute z-20 flex items-center gap-[16px]" style={{ left: `${BUTTONS.left}%`, top: `${BUTTONS.top}%` }}>
+      <div className="absolute z-20 flex items-center gap-[16px]" style={{ right: 0, top: `${BUTTONS.top}%` }}>
         <button
           type="button"
           className="group inline-flex items-center justify-center gap-[16px] px-[24px] py-[12px] bg-primary text-white hover:bg-primary-dark transition-colors font-archivo text-[17px] leading-[26px] whitespace-nowrap cursor-pointer"

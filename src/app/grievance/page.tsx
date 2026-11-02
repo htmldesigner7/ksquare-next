@@ -155,9 +155,9 @@ export default function GrievancePage() {
       {/* 2. Your Concern Deserves a Place to Grow */}
       <section className="w-full">
         <Container maxWidth="1600">
-          <div className="flex flex-col xl:flex-row items-center gap-[60px] xl:gap-[100px]">
+          <div className="flex flex-col xl:flex-row items-center gap-[60px] xl:gap-[clamp(40px,5.2vw,100px)]">
             {/* Left: Text & Stats */}
-            <div className="flex flex-col gap-[48px] w-full xl:max-w-[750px] shrink-0">
+            <div className="flex flex-col gap-[48px] w-full xl:flex-1 xl:min-w-0 xl:max-w-[750px]">
               <div className="flex flex-col gap-[24px]">
                 <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-[#333333]">
                   Your Concern Deserves a{' '}
@@ -194,7 +194,7 @@ export default function GrievancePage() {
             </div>
 
             {/* Right: Image */}
-            <div className="relative w-full xl:w-[750px] aspect-[750/507] shrink-0">
+            <div className="relative w-full xl:flex-1 xl:min-w-0 xl:max-w-[750px] aspect-[750/507]">
               <Image
                 src="/assets/grievance/team_photo.png"
                 alt="Ksquare Energy team culture"
@@ -223,7 +223,7 @@ export default function GrievancePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[24px]">
               {reportCategories.map((cat) => (
-                <div key={cat.title} className="flex flex-col gap-[20px] bg-[#EFF0F6] p-[32px] lg:p-[40px]">
+                <div key={cat.title} className="card-lift flex flex-col gap-[20px] bg-[#EFF0F6] p-[32px] lg:p-[40px]">
                   <div className="flex items-center gap-[24px] lg:gap-[30px]">
                     <div className="w-[90px] h-[90px] p-[10px] bg-white rounded-[10px] flex items-center justify-center shrink-0">
                       <Image src={cat.icon} width={60} height={60} alt={cat.title} className="w-[60px] h-[60px] object-contain" />
@@ -394,7 +394,7 @@ export default function GrievancePage() {
       {/* 5. What Happens After You Submit? */}
       <section className="w-full">
         {/* Desktop: pixel-exact zigzag timeline per Figma (same pattern as /our-infrastructure) */}
-        <div className="hidden xl:block relative w-[1600px] max-w-full mx-auto h-[681px]">
+        <div className="canvas-zoom hidden canvas:block relative w-[1600px] mx-auto h-[681px]">
           {/* Heading */}
           <div className="absolute left-0 right-0 top-[36px] flex justify-center">
             <h2 className="font-recia text-[60px] leading-[70px] text-primary font-normal text-center">
@@ -449,7 +449,7 @@ export default function GrievancePage() {
         </div>
 
         {/* Mobile/tablet fallback (Figma provides no separate mobile frame) */}
-        <div className="xl:hidden">
+        <div className="canvas:hidden">
           <Container maxWidth="1600">
             <div className="flex flex-col items-center gap-[60px]">
               <h2 className="font-recia text-[36px] leading-[1.15] text-primary font-normal text-center">

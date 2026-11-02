@@ -41,12 +41,12 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   const product = getDcdbProduct(slug);
 
   return (
-    <main className="w-full bg-white min-h-screen pt-[90px] font-archivo">
+    <main className="w-full bg-white min-h-screen pt-[90px] font-archivo overflow-x-clip">
       {/* Header: breadcrumb + title. On mobile/tablet the CTAs render here since
           ProductGallery (which places them at their exact Figma position) is
           desktop-only. */}
       <Container maxWidth="1800" className="pt-[40px]">
-        <div className="flex flex-col gap-[12px] xl:max-w-[832px]">
+        <div className="flex flex-col gap-[12px] canvas:max-w-[832px]">
           <div className="flex items-center flex-wrap gap-[10px] font-archivo text-[16px] lg:text-[20px] text-[#333333] leading-[28px]">
             <Link href="/" className="hover:text-primary transition-colors">Home</Link>
             <Chevron />
@@ -61,7 +61,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           </h1>
         </div>
 
-        <div className="xl:hidden flex flex-wrap items-center gap-[16px] mt-[24px]">
+        <div className="canvas:hidden flex flex-wrap items-center gap-[16px] mt-[24px]">
           <button
             type="button"
             className="group inline-flex items-center justify-center gap-[16px] px-[24px] py-[12px] bg-primary text-white hover:bg-primary-dark transition-colors font-archivo text-[17px] leading-[26px] cursor-pointer"
@@ -74,19 +74,18 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       </Container>
 
       {/* Hero visual: navy panel + floating product photo, badges below on white */}
-      <Container maxWidth="1800" className="mt-[40px] xl:mt-[60px]">
+      <Container maxWidth="1800" className="mt-[40px] canvas:mt-[60px]">
         {/* Desktop */}
-        <div className="hidden xl:block">
+        <div className="canvas-zoom hidden canvas:block w-[1800px] mx-auto">
           <ProductGallery
             image={product.image}
             alt={`${product.title} ${product.highlight}`}
             description={product.description}
             patternSrc={`${A}/hero_bg-3930d9.png`}
           />
-        </div>
 
         {/* Badges row — below the panel, on white, left-aligned to the Figma x-offset */}
-        <div className="hidden xl:flex flex-wrap items-center gap-x-[48px] gap-y-[16px] mt-[36px] pl-[24.06%]">
+        <div className="flex flex-wrap items-center gap-x-[48px] gap-y-[16px] mt-[36px] pl-[24.06%]">
           {badges.map((badge) => (
             <div key={badge.label} className="flex items-center gap-[12px]">
               <div className="relative w-[28px] h-[28px] shrink-0">
@@ -96,9 +95,10 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             </div>
           ))}
         </div>
+        </div>
 
         {/* Mobile / tablet fallback */}
-        <div className="xl:hidden flex flex-col gap-[24px]">
+        <div className="canvas:hidden flex flex-col gap-[24px]">
           <div className="relative w-full rounded-[24px] overflow-hidden">
             <Image src={`${A}/hero_bg-3930d9.png`} alt="" fill className="object-cover" />
             <div className="relative z-10 flex flex-col gap-[24px] p-[24px] sm:p-[40px]">
@@ -192,13 +192,13 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               { icon: `${A}/icon_mail.svg`, iconSize: 22, title: "Email Support", value: "info@ksquareenergy.com", desc: "For pricing, datasheets, and technical documentation" },
               { icon: `${A}/icon_pin.svg`, iconSize: 28, title: "Ahmedabad Branch Office", value: "Dholera SIR, Activation Zone, Gujarat – 382460, India", desc: "Visit our manufacturing facility by appointment" },
             ].map((card) => (
-              <div key={card.title} className="flex-1 flex flex-row items-start gap-[24px] py-[24px] sm:px-[24px] border-t sm:border-t-0 sm:border-l border-[#E8E4E0] first:border-t-0 first:sm:border-l-0">
+              <div key={card.title} className="flex-1 min-w-0 flex flex-row items-start gap-[24px] py-[24px] sm:px-[24px] border-t sm:border-t-0 sm:border-l border-[#E8E4E0] first:border-t-0 first:sm:border-l-0">
                 <div className="w-[72px] h-[72px] shrink-0 rounded-full bg-[#EDEEF8] flex items-center justify-center">
                   <div className="relative" style={{ width: card.iconSize, height: card.iconSize }}>
                     <Image src={card.icon} alt="" fill className="object-contain" />
                   </div>
                 </div>
-                <div className="flex flex-col gap-[4px]">
+                <div className="flex flex-col gap-[4px] min-w-0 break-words">
                   <span className="font-archivo text-[16px] lg:text-[17px] leading-[27px] text-[#333333]">{card.title}</span>
                   <span className="font-dm text-[16px] font-medium text-[#111111]">{card.value}</span>
                   <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">{card.desc}</span>

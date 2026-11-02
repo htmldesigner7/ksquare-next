@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Container from "@/components/common/Container";
+import CtaBanner from "@/components/page-kit/CtaBanner";
+import { footerHref, OWN_CTA_PREFIXES } from "@/content/routes";
 
 interface FooterSection {
   subtitle: string | null;
@@ -16,53 +18,35 @@ const footerLinks: { title: string; sections: FooterSection[] }[] = [
   {
     title: "Products",
     sections: [
-      {
-        subtitle: "Core Products",
-        links: ["DCDB", "ACDB", "Combiner Box", "Junction Box", "Zero Export Device", "Solar Cables", "MC4 Connectors"]
-      },
-      {
-        subtitle: "Enclosures",
-        links: ["Kenclozer", "Custom Enclosures"]
-      }
-    ]
+      { subtitle: "Core Products", links: ["DCDB", "ACDB", "Combiner Box", "Junction Box", "MC4 Connectors", "Cable Glands", "LT Panels", "ACDB / LT Panels", "Earthing Kits", "BOS Accessories"] },
+      { subtitle: "Our Brands Product", links: ["Ksquare Panel", "Ksquare Inverter", "Solsquare", "Kenclozer", "Solplast"] },
+    ],
   },
   {
     title: "Solutions",
     sections: [
-      {
-        subtitle: "Segment Solutions",
-        links: ["Residential Solar", "Commercial Solar", "Industrial Solar"]
-      },
-      {
-        subtitle: "Government Solutions",
-        links: ["PM Surya Ghar", "Net Metering Support", "Subsidy Assistance"]
-      },
-      {
-        subtitle: "Business Solution",
-        links: ["EPC Solutions", "OEM Solution", "Export Solutions"]
-      },
-      {
-        subtitle: "Services",
-        links: ["Solar Consultation", "Remote Monitoring", "Annual Maintenance"]
-      }
-    ]
+      { subtitle: "Solar Solutions", links: ["Residential Solar", "Commercial Solar", "Industrial Solar", "Rooftop Solar", "Rooftop Solar for Flats"] },
+      { subtitle: "Government Solutions", links: ["PM Surya Ghar", "Net Metering Support", "Subsidy Assistance"] },
+      { subtitle: "Business Solution", links: ["EPC Solutions", "OEM Solution", "Export Solutions"] },
+      { subtitle: "Services", links: ["Solar Consultation", "Remote Monitoring", "Annual Maintenance"] },
+    ],
   },
   {
     title: "Resources",
     sections: [
-      { subtitle: null, links: ["Blogs", "Case Studies", "Videos", "FAQs"] },
+      { subtitle: null, links: ["Blogs", "Case Studies", "Videos", "Downloads", "FAQs"] },
       { subtitle: "Projects", links: ["Residential Project", "Commercial Project", "Industrial Project", "Government Project"], isTitle: true },
-      { subtitle: "Partners", links: ["Become a Partner", "OEM Partnership", "Export Business"], isTitle: true },
-      { subtitle: "Manufacturing", links: ["Private Label Manufacturing", "Custom Product Development"], isTitle: true }
-    ]
+      { subtitle: "Partners", links: ["Become a Partner", "OEM Partnership"], isTitle: true },
+      { subtitle: "Manufacturing", links: ["Private Label Manufacturing", "Custom Product Development"], isTitle: true },
+    ],
   },
   {
     title: "About Us",
     sections: [
       { subtitle: null, links: ["Company Profile", "Leadership Team", "Infrastructure", "Quality & Certifications", "Awards & Recognition", "News & Events", "CSR", "Grievance", "Press Releases", "Our Presence"] },
-      { subtitle: "Quick Links", links: ["Careers", "Contact", "Track Solar Status", "Calculator"], isTitle: true }
-    ]
-  }
+      { subtitle: "Quick Links", links: ["Careers", "Contact", "Track Solar Status", "Calculator"], isTitle: true },
+    ],
+  },
 ];
 
 export default function Footer() {
@@ -77,68 +61,32 @@ export default function Footer() {
     pathname !== "/products/dcdb" &&
     !pathname.startsWith("/blog/") &&
     pathname !== "/faqs" &&
-    pathname !== "/grievance";
+    pathname !== "/grievance" &&
+    !OWN_CTA_PREFIXES.some((prefix) => pathname.startsWith(prefix));
 
   return (
     <footer className="w-full bg-[#FFFFFF] font-archivo">
       
       {/* CTA Section */}
       {hasCTA && (
-        <div className="relative w-full bg-[#2B398B] overflow-hidden py-[80px] lg:py-0 lg:h-[480px]">
-          <Image
-            src="/assets/common/cta_bg_pattern.png"
-            alt=""
-            fill
-            quality={100}
-            sizes="100vw"
-            className="object-cover pointer-events-none"
-            aria-hidden="true"
-          />
-          <div className="hidden lg:block absolute right-0 top-[31.34px] w-[36.2%] max-w-[694.46px] aspect-[694.46/430.18] pointer-events-none">
-            <Image
-              src="/assets/common/cta_illustration_figma.svg"
-              alt=""
-              fill
-              className="object-contain"
-              aria-hidden="true"
-            />
-          </div>
-          <Container maxWidth="1600" className="relative z-10 lg:pt-[94.93px]">
-            <div className="flex flex-col gap-[40px] lg:gap-[64px]">
-              <div className="flex flex-col gap-[8px] max-w-[1025px]">
-                <h2 className="m-0 font-jost font-normal text-[40px] md:text-[60px] leading-[1.15] md:leading-[68px] text-[#FFFFFF]">
-                  Get bulk pricing on <span className="font-recia italic font-medium">Solar BOS Components</span>
-                </h2>
-                <p className="m-0 font-normal text-[17px] leading-[26px] text-[#FFFFFF]">
-                  Whether you need certified solar components, OEM manufacturing, or complete rooftop solar solutions, our team is ready to help.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-[24px]">
-                {["Request a Quote", "Talk to Our Experts"].map((label) => (
-                  <Link
-                    key={label}
-                    href="/contact"
-                    className="group inline-flex items-center justify-center gap-[16px] px-[24px] py-[16px] border border-[#FFFFFF] text-[#FFFFFF] hover:bg-[#FFFFFF] hover:text-[#2B398B] transition-colors"
-                  >
-                    <span className="font-normal text-[17px] leading-[26px]">{label}</span>
-                    <span className="w-[8px] h-[8px] rounded-full bg-[#FFFFFF] group-hover:bg-[#2B398B] transition-colors" />
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </Container>
-        </div>
+        <CtaBanner
+          title="Get bulk pricing on *Solar BOS Components*"
+          desc="Whether you need certified solar components, OEM manufacturing, or complete rooftop solar solutions, our team is ready to help."
+          ctas={[
+            { label: "Request a Quote", href: "/contact" },
+            { label: "Talk to Our Experts", href: "/contact" },
+          ]}
+        />
       )}
 
       {/* Main Footer Links */}
-      <div className="w-full py-[60px] lg:py-[100px]">
-        <Container maxWidth="1600">
-          <div className="flex flex-col xl:flex-row justify-between gap-[60px]">
+      <div className="w-full bg-[#EDF3FF] pt-[48px] lg:pt-[60px] pb-[48px] lg:pb-[0px]">
+        <Container maxWidth="1800">
+          <div className="flex flex-col canvas:flex-row justify-between gap-[48px] canvas:gap-0 canvas:pb-[0px]">
             
             {/* Left Column: Company Info */}
-            <div className="flex flex-col gap-[32px] xl:w-[450px] shrink-0">
-              <div className="relative w-[300px] h-[75px]">
+            <div className="flex flex-col gap-[32px] canvas:w-[617px] canvas:pb-[28px] canvas:border-b canvas:border-[#C6CCED] canvas:self-start shrink-0">
+              <div className="relative w-[260px] h-[65px] canvas:w-[367px] canvas:h-[91px]">
                 <Image 
                   src="/assets/logo.svg" 
                   alt="Ksquare Energy Logo" 
@@ -182,28 +130,28 @@ export default function Footer() {
             </div>
 
             {/* Vertical Divider (Desktop Only) */}
-            <div className="hidden xl:block w-[1px] bg-[#E5E5E5] self-stretch mx-[20px]"></div>
+            <div className="hidden canvas:block w-[1px] bg-[#C6CCED] self-stretch mx-[30px]"></div>
 
             {/* Right Columns: Links */}
-            <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[40px] xl:gap-[20px] 2xl:gap-[40px]">
+            <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 w1100:grid-cols-4 gap-[40px] canvas:flex canvas:justify-between canvas:gap-[24px] canvas:pb-[32px]">
               {footerLinks.map((col, idx) => (
-                <div key={idx} className="flex flex-col gap-[24px]">
-                  <h4 className="font-semibold text-[18px] text-[#2B398B]">
+                <div key={idx} className="flex flex-col gap-[16px] min-w-0">
+                  <h4 className="font-semibold text-[18px] leading-[26px] text-[#2B398B] m-0">
                     {col.title}
                   </h4>
-                  <div className="flex flex-col gap-[28px]">
+                  <div className="flex flex-col gap-[16px]">
                     {col.sections.map((sec, sIdx) => (
-                      <div key={sIdx} className="flex flex-col gap-[16px]">
+                      <div key={sIdx} className="flex flex-col gap-[10px]">
                         {sec.subtitle && (
                           <h5 className={sec.isTitle ? 'font-semibold text-[18px] text-[#2B398B]' : 'font-medium text-[16px] text-[#333333]'}>
                             {sec.subtitle}
                           </h5>
                         )}
-                        <ul className="flex flex-col gap-[12px]">
+                        <ul className="flex flex-col gap-[6px] m-0 p-0 list-none">
                           {sec.links.map((link, lIdx) => (
                             <li key={lIdx}>
-                              <Link href="#" className="font-normal text-[15px] text-[#666666] hover:text-[#2B398B] flex items-center gap-[8px] group transition-colors">
-                                <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#E5E5E5] group-hover:text-[#2B398B] transition-colors shrink-0">
+                              <Link href={footerHref(link)} className="font-normal text-[15px] text-[#666666] hover:text-[#2B398B] flex items-center gap-[8px] group transition-all duration-200 hover:translate-x-[3px]">
+                                <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#2B398B] shrink-0">
                                   <path d="M0 0L10 6L0 12L3.5 6L0 0Z" fill="currentColor"/>
                                 </svg>
                                 {link}
@@ -223,7 +171,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="w-full border-t border-[#E5E5E5]">
+      <div className="w-full border-t border-[#C6CCED] bg-[#EDF3FF]">
         <Container maxWidth="1600">
           <div className="w-full py-[24px] flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-[16px] font-normal text-[14px] md:text-[15px] text-[#666666]">
             <span>© 2026 Ksquare Energy India. All rights reserved.</span>

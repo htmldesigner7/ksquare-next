@@ -47,7 +47,7 @@ export default function ValuesSlider({ values }: { values: Value[] }) {
       {/* Same static row as the Figma design — order slides when a dot is clicked */}
       <div
         key={tick}
-        className="w-full max-w-[1900px] px-4 lg:px-8 xl:px-0 flex flex-col xl:flex-row xl:justify-between gap-[24px] slide-next"
+        className="w-full max-w-[1900px] px-4 lg:px-8 g1964:px-0 flex flex-col xl:flex-row xl:justify-between gap-[24px] slide-next"
       >
         {ordered.map((v) => (
           <Card key={v.title} v={v} />

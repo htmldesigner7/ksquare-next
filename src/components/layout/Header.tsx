@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import { NAV, ROUTES } from "@/content/routes";
 
 const LANGUAGES = [
   { code: 'af', label: 'Afrikaans', short: 'AF', flagCode: 'za' },
@@ -118,6 +119,8 @@ export default function Header() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileSection, setMobileSection] = useState<string | null>(null);
   const [currentLang, setCurrentLang] = useState(LANGUAGES[0]);
 
   useEffect(() => {
@@ -158,7 +161,20 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isTransparent = isHome && !scrolled;
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMobileOpen(false);
+    setMobileSection(null);
+  }, [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  const isTransparent = isHome && !scrolled && !mobileOpen;
 
   const handleLanguageChange = (lang: typeof LANGUAGES[0]) => {
     setCurrentLang(lang);
@@ -179,7 +195,7 @@ export default function Header() {
         "h-[90px] w-full flex items-center transition-colors duration-300 border-b",
         isTransparent ? "bg-transparent border-[#9BA5E0]" : "bg-white border-[#E5E5E5] shadow-sm"
       )}>
-        <div className="w-[1800px] max-w-full mx-auto px-4 xl:px-0 flex items-center justify-between h-full">
+        <div className="w-[1800px] max-w-full mx-auto px-4 lg:px-8 g1864:px-0 flex items-center justify-between h-full">
           
           {/* Logo */}
           <Link href="/" className="flex items-center">
@@ -194,40 +210,53 @@ export default function Header() {
           </Link>
 
           {/* Center Navigation */}
-          <nav className="hidden lg:flex items-center gap-[40px] h-full">
-            {["Products", "Solutions", "Manufacturing", "Projects", "Resources", "About us", "Contact"].map((item) => {
-              const hasDropdown = ["Products", "Solutions", "Resources", "About us"].includes(item);
+          <nav className="hidden hnav:flex items-center gap-[40px] h-full" aria-label="Primary">
+            {NAV.map((item) => {
+              const active = pathname === item.href || (item.groups?.some((g) => g.links.some((l) => l.href === pathname)) ?? false);
               return (
-                <div key={item} className="relative h-full flex items-center group">
-                  <Link 
-                    href={`/${item.toLowerCase().replace(' ', '-')}`}
+                <div key={item.label} className="relative h-full flex items-center group">
+                  <Link
+                    href={item.href}
                     className={clsx(
-                      "font-archivo text-[15px] flex items-center gap-[8px] transition-colors h-full",
-                      isTransparent ? "text-primary-soft hover:text-white" : "text-[#4F4F4F] hover:text-primary font-medium"
+                      "font-archivo text-[15px] flex items-center gap-[8px] transition-colors h-full relative",
+                      isTransparent ? "text-primary-soft hover:text-white" : "text-[#4F4F4F] hover:text-primary font-medium",
+                      active && !isTransparent && "text-primary"
                     )}
                   >
-                    {item}
-                    {hasDropdown && (
+                    {item.label}
+                    {item.groups && (
                       <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-300 group-hover:-rotate-180">
                         <path d="M0 4.72368L9.38506 0L8.52058 10L6.25505 4.99875L0 4.72368Z" fill="currentColor"/>
                       </svg>
                     )}
+                    <span className={clsx("absolute left-0 bottom-0 h-[2px] bg-primary transition-all duration-300", active && !isTransparent ? "w-full" : "w-0 group-hover:w-full")} />
                   </Link>
 
                   {/* Dropdown Menu */}
-                  {hasDropdown && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-[260px] bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border-t-2 border-primary translate-y-4 group-hover:translate-y-0 rounded-b-lg overflow-hidden">
-                      <div className="flex flex-col">
-                        {[1, 2, 3].map((subItem) => (
-                          <Link 
-                            key={subItem} 
-                            href={`/${item.toLowerCase().replace(' ', '-')}/item-${subItem}`}
-                            className="px-6 py-4 text-gray-dark hover:text-primary hover:bg-gray-50/50 font-archivo text-[15px] font-normal transition-colors border-b border-gray-100 last:border-0"
-                          >
-                            {item} Category {subItem}
-                          </Link>
-                        ))}
-                      </div>
+                  {item.groups && (
+                    <div
+                      className={clsx(
+                        "absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-300 border-t-2 border-primary translate-y-4 group-hover:translate-y-0 group-focus-within:translate-y-0 rounded-b-lg overflow-hidden",
+                        item.groups.length > 2 ? "w-[760px] grid grid-cols-2 gap-x-6 p-6" : item.groups.length === 2 ? "w-[520px] grid grid-cols-2 gap-x-6 p-6" : "w-[300px] p-6"
+                      )}
+                    >
+                      {item.groups.map((group) => (
+                        <div key={group.title} className="flex flex-col mb-4 last:mb-0">
+                          <span className="font-archivo text-[13px] font-semibold uppercase tracking-wider text-primary mb-2">{group.title}</span>
+                          {group.links.map((link) => (
+                            <Link
+                              key={link.label}
+                              href={link.href}
+                              className={clsx(
+                                "py-[7px] text-[15px] font-archivo transition-all duration-200 hover:text-primary hover:translate-x-1",
+                                pathname === link.href ? "text-primary font-medium" : "text-[#4F4F4F]"
+                              )}
+                            >
+                              {link.label}
+                            </Link>
+                          ))}
+                        </div>
+                      ))}
                     </div>
                   )}
                 </div>
@@ -236,7 +265,7 @@ export default function Header() {
           </nav>
 
           {/* Right Actions */}
-          <div className="hidden lg:flex items-center gap-[12px] h-[44px] my-auto">
+          <div className="hidden hnav:flex items-center gap-[12px] h-[44px] my-auto">
             {/* Language Selector */}
             <div className="relative h-full group flex items-center">
               <button className={clsx(
@@ -275,7 +304,7 @@ export default function Header() {
             
             {/* Request a Quote Button */}
             <Link 
-              href="/quote"
+              href={ROUTES.contact}
               className={clsx(
                 "h-full px-[20px] border flex items-center justify-center gap-[12px] font-archivo text-[14px] font-medium transition-colors group",
                 isTransparent ? "border-white text-white hover:bg-white hover:text-primary" : "border-[#D1D1D1] text-[#4F4F4F] hover:border-[#4F4F4F]"
@@ -287,14 +316,87 @@ export default function Header() {
           </div>
           
           {/* Mobile Menu Toggle */}
-          <button className={clsx("lg:hidden transition-colors", isTransparent ? "text-white hover:text-primary-soft" : "text-[#4F4F4F] hover:text-primary")}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
+          <button
+            type="button"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((v) => !v)}
+            className={clsx("hnav:hidden transition-colors cursor-pointer", isTransparent ? "text-white hover:text-primary-soft" : "text-[#4F4F4F] hover:text-primary")}
+          >
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              {mobileOpen ? (
+                <>
+                  <line x1="5" y1="5" x2="19" y2="19"></line>
+                  <line x1="19" y1="5" x2="5" y2="19"></line>
+                </>
+              ) : (
+                <>
+                  <line x1="3" y1="12" x2="21" y2="12"></line>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <line x1="3" y1="18" x2="21" y2="18"></line>
+                </>
+              )}
             </svg>
           </button>
         </div>
+      </div>
+      {/* Mobile drawer */}
+      <div
+        className={clsx(
+          "hnav:hidden fixed inset-x-0 top-[90px] bottom-0 bg-white overflow-y-auto transition-all duration-300",
+          mobileOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-3"
+        )}
+      >
+        <nav className="flex flex-col px-6 py-4" aria-label="Mobile">
+          {NAV.map((item) => {
+            const expanded = mobileSection === item.label;
+            return (
+              <div key={item.label} className="border-b border-[#E5E5E5]">
+                <div className="flex items-center justify-between">
+                  <Link href={item.href} className="flex-1 py-4 font-archivo text-[18px] text-[#333333] hover:text-primary transition-colors">
+                    {item.label}
+                  </Link>
+                  {item.groups && (
+                    <button
+                      type="button"
+                      aria-label={"Toggle " + item.label + " menu"}
+                      aria-expanded={expanded}
+                      onClick={() => setMobileSection(expanded ? null : item.label)}
+                      className="p-3 text-[#4F4F4F] cursor-pointer"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={clsx("transition-transform duration-300", expanded && "rotate-180")}>
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                    </button>
+                  )}
+                </div>
+                {item.groups && (
+                  <div className={clsx("grid transition-all duration-300", expanded ? "grid-rows-[1fr] pb-4" : "grid-rows-[0fr]")}>
+                    <div className="overflow-hidden">
+                      {item.groups.map((group) => (
+                        <div key={group.title} className="mb-3">
+                          <span className="block font-archivo text-[12px] font-semibold uppercase tracking-wider text-primary mb-1">{group.title}</span>
+                          {group.links.map((link) => (
+                            <Link key={link.label} href={link.href} className="block py-2 pl-3 font-archivo text-[16px] text-[#666666] hover:text-primary transition-colors">
+                              {link.label}
+                            </Link>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+          <Link
+            href={ROUTES.contact}
+            className="mt-6 mb-8 h-[48px] border border-primary text-primary flex items-center justify-center gap-3 font-archivo text-[16px] hover:bg-primary hover:text-white transition-colors"
+          >
+            Request a Quote
+            <span className="w-[6px] h-[6px] rounded-full bg-current" />
+          </Link>
+        </nav>
       </div>
     </header>
     </>

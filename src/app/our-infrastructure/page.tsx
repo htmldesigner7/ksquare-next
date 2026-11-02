@@ -152,9 +152,9 @@ export default function OurInfrastructurePage() {
       {/* 2. Inside Ksquare's Manufacturing Facility */}
       <section className="w-full">
         <Container maxWidth="1600">
-          <div className="flex flex-col xl:flex-row items-center gap-[60px] xl:gap-[100px]">
+          <div className="flex flex-col xl:flex-row items-center gap-[60px] xl:gap-[clamp(40px,5.2vw,100px)]">
             {/* Left: Text & Stats */}
-            <div className="flex flex-col gap-[48px] w-full xl:max-w-[750px] shrink-0">
+            <div className="flex flex-col gap-[48px] w-full xl:flex-1 xl:min-w-0 xl:max-w-[750px]">
               <div className="flex flex-col gap-[14px]">
                 <h2 className="font-jost text-[36px] lg:text-[60px] leading-[1.15] text-[#333333] font-normal">
                   Inside Ksquare&apos;s<br />
@@ -191,7 +191,7 @@ export default function OurInfrastructurePage() {
             </div>
 
             {/* Right: Image */}
-            <div className="relative w-full xl:w-[750px] aspect-[750/507] shrink-0">
+            <div className="relative w-full xl:flex-1 xl:min-w-0 xl:max-w-[750px] aspect-[750/507]">
               <Image
                 src="/assets/our-infrastructure/facility_interior.png"
                 alt="Ksquare Energy manufacturing facility interior"
@@ -220,7 +220,7 @@ export default function OurInfrastructurePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[20px] lg:gap-[24px]">
               {excellenceCards.map((card) => (
-                <div key={card.title} className="flex flex-col gap-[24px] bg-[#EFF0F6] p-[32px] lg:p-[50px_40px]">
+                <div key={card.title} className="card-lift flex flex-col gap-[24px] bg-[#EFF0F6] p-[32px] lg:p-[50px_40px]">
                   <div className="flex items-center gap-[24px] lg:gap-[30px]">
                     <div className="w-[70px] h-[70px] lg:w-[90px] lg:h-[90px] bg-white rounded-[10px] flex items-center justify-center shrink-0 p-[10px]">
                       <Image src={card.icon} width={60} height={60} alt={card.title} className="w-[45px] h-[45px] lg:w-[60px] lg:h-[60px] object-contain" />
@@ -250,7 +250,7 @@ export default function OurInfrastructurePage() {
       {/* 4. Capabilities Built Around Precision (dark section) */}
       <section className="relative w-full bg-primary overflow-hidden">
         {/* Desktop: pixel-exact scattered layout per Figma (1920x920 canvas) */}
-        <div className="hidden xl:block w-[1920px] max-w-full mx-auto relative h-[920px]">
+        <div className="canvas-zoom hidden canvas:block w-[1920px] mx-auto relative h-[920px]">
           {/* Background bleed illustration */}
           <div className="absolute left-[-21.8px] top-[314.18px] w-[1944px] h-[659.48px]">
             <Image
@@ -290,7 +290,7 @@ export default function OurInfrastructurePage() {
         </div>
 
         {/* Mobile/tablet fallback (Figma provides no separate mobile frame) */}
-        <div className="xl:hidden py-[80px] px-6">
+        <div className="canvas:hidden py-[80px] px-6">
           <Container maxWidth="1600">
             <div className="flex flex-col items-center gap-[60px]">
               <div className="flex flex-col items-center text-center gap-[14px] max-w-[900px]">
@@ -324,7 +324,7 @@ export default function OurInfrastructurePage() {
       {/* 5. From Production to Quality Assurance */}
       <section className="w-full">
         {/* Desktop: pixel-exact zigzag timeline per Figma */}
-        <div className="hidden xl:block relative w-[1600px] max-w-full mx-auto h-[681px]">
+        <div className="canvas-zoom hidden canvas:block relative w-[1600px] mx-auto h-[681px]">
           {/* Heading */}
           <div className="absolute left-0 right-0 top-[36px] flex justify-center">
             <h2 className="font-jost text-[60px] leading-[70px] text-primary font-normal text-center">
@@ -379,7 +379,7 @@ export default function OurInfrastructurePage() {
         </div>
 
         {/* Mobile/tablet fallback (Figma provides no separate mobile frame) */}
-        <div className="xl:hidden">
+        <div className="canvas:hidden">
           <Container maxWidth="1600">
             <div className="flex flex-col items-center gap-[60px]">
               <h2 className="font-jost text-[32px] leading-[1.15] text-primary font-normal text-center">
@@ -416,7 +416,7 @@ export default function OurInfrastructurePage() {
           <div className="flex flex-col items-stretch gap-[24px]">
             <div className="flex flex-col md:flex-row gap-[24px] w-full">
               {gallery.slice(0, 2).map((item) => (
-                <div key={item.label} className={`relative w-full ${item.className} aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden`}>
+                <div key={item.label} className={`img-hover-zoom relative w-full ${item.className} aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden`}>
                   <Image src={item.img} alt={item.label} fill className="object-cover" />
                   <span className="absolute top-[16px] right-[16px] md:right-auto md:left-1/2 md:-translate-x-1/2 bg-primary text-white font-archivo text-[12px] uppercase tracking-wide px-[16px] py-[8px]">
                     {item.label}

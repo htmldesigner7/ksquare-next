@@ -34,7 +34,7 @@ export default function LifeSlider() {
         type="button"
         onClick={prev}
         aria-label="Previous slide"
-        className="absolute left-[-27px] top-1/2 -translate-y-1/2 w-[55px] h-[58px] rotate-180"
+        className="absolute left-[8px] lg:left-[-27px] z-10 top-1/2 -translate-y-1/2 w-[55px] h-[58px] rotate-180"
       >
         <Image src="/assets/career/slider_arrow.svg" alt="" fill />
       </button>
@@ -42,7 +42,7 @@ export default function LifeSlider() {
         type="button"
         onClick={next}
         aria-label="Next slide"
-        className="absolute right-[-27px] top-1/2 -translate-y-1/2 w-[55px] h-[58px]"
+        className="absolute right-[8px] lg:right-[-27px] z-10 top-1/2 -translate-y-1/2 w-[55px] h-[58px]"
       >
         <Image src="/assets/career/slider_arrow.svg" alt="" fill />
       </button>

@@ -140,9 +140,9 @@ export default function CareerPage() {
       {/* 2. More Than a Job. A Place to Grow. */}
       <section className="w-full">
         <Container maxWidth="1600">
-          <div className="flex flex-col xl:flex-row items-center gap-[60px] xl:gap-[100px]">
+          <div className="flex flex-col xl:flex-row items-center gap-[60px] xl:gap-[clamp(40px,5.2vw,100px)]">
             {/* Left: Text & Stats */}
-            <div className="flex flex-col gap-[48px] w-full xl:max-w-[750px] shrink-0">
+            <div className="flex flex-col gap-[48px] w-full xl:flex-1 xl:min-w-0 xl:max-w-[750px]">
               <div className="flex flex-col gap-[14px]">
                 <h2 className="font-jost text-[36px] lg:text-[60px] leading-[1.15] text-[#333333] font-normal">
                   More Than a Job.<br />
@@ -179,7 +179,7 @@ export default function CareerPage() {
             </div>
 
             {/* Right: Image */}
-            <div className="relative w-full xl:w-[750px] aspect-[750/507] shrink-0">
+            <div className="relative w-full xl:flex-1 xl:min-w-0 xl:max-w-[750px] aspect-[750/507]">
               <Image
                 src="/assets/career/team_culture.png"
                 alt="Ksquare Energy team culture"
@@ -249,7 +249,7 @@ export default function CareerPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[20px] lg:gap-[24px]">
               {industries.map((ind) => (
-                <div key={ind.title} className="flex flex-col gap-[24px] bg-[#EFF0F6] p-[32px] lg:p-[50px_40px]">
+                <div key={ind.title} className="card-lift flex flex-col gap-[24px] bg-[#EFF0F6] p-[32px] lg:p-[50px_40px]">
                   <div className="flex items-center gap-[24px] lg:gap-[30px]">
                     <div className="w-[70px] h-[70px] lg:w-[90px] lg:h-[90px] bg-white rounded-[10px] flex items-center justify-center shrink-0 p-[10px]">
                       <Image src={ind.icon} width={60} height={60} alt={ind.title} className="w-[45px] h-[45px] lg:w-[60px] lg:h-[60px] object-contain" />

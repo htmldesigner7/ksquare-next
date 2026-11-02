@@ -57,7 +57,7 @@ export default function DcdbProductListing() {
           <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L4 5L1 9" stroke="#333333" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <Link href="/products" className="text-gray-dark font-archivo text-[15px] hover:text-primary transition-colors">
+          <Link href="/products/dcdb" className="text-gray-dark font-archivo text-[15px] hover:text-primary transition-colors">
             Products
           </Link>
           <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -121,7 +121,7 @@ export default function DcdbProductListing() {
                 {/* Image Container */}
                 <Link
                   href={product.href}
-                  className="w-full h-[400px] bg-[#EFF0F6] flex items-center justify-center py-[30px] px-[72px]"
+                  className="img-hover-zoom w-full h-[400px] bg-[#EFF0F6] flex items-center justify-center py-[30px] px-[72px]"
                 >
                   <div className="relative w-full h-full flex justify-center items-center">
                     <Image
@@ -165,7 +165,7 @@ export default function DcdbProductListing() {
       {/* DCDB Configuration Section */}
       <Container maxWidth="1600" className="pb-[120px]">
         {/* Mobile / Tablet Fallback Layout */}
-        <div className="lg:hidden flex flex-col gap-[40px]">
+        <div className="canvas:hidden flex flex-col gap-[40px]">
           <div className="flex flex-col gap-[8px] text-center items-center mb-[20px]">
             <h2 className="font-jost text-[40px] leading-[48px] text-primary font-normal">
               DCDB Configuration
@@ -174,7 +174,7 @@ export default function DcdbProductListing() {
               A DCDB for Every Solar Requirement.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-[40px] gap-y-[40px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-[40px] gap-y-[40px]">
             {[
               { title: "1 In 1 Out DCDB", desc: "Single-string DC distribution for residential and small rooftop installations.", icon: "/assets/dcdb/icon_1_1.svg" },
               { title: "2 In 2 Out DCDB", desc: "Dual-string configurations for higher capacity commercial and industrial systems.", icon: "/assets/dcdb/icon_1_2.svg" },
@@ -199,7 +199,7 @@ export default function DcdbProductListing() {
         </div>
 
         {/* Desktop Proper Honeycomb Layout */}
-        <div className="hidden lg:flex flex-col items-center mt-[100px]">
+        <div className="hidden canvas:flex flex-col items-center mt-[100px]">
           {/* Section Title */}
           <div className="flex flex-col items-center text-center w-full">
             <h2 className="font-jost text-[60px] leading-[57px] text-primary font-normal mb-[8px]">
@@ -210,7 +210,7 @@ export default function DcdbProductListing() {
             </p>
           </div>
 
-          <div className="relative w-full max-w-[1651px] mx-auto aspect-[1651/764] overflow-visible">
+          <div className="canvas-zoom relative w-[1651px] shrink-0 aspect-[1651/764] overflow-visible">
             {/* Connecting Circles */}
             {[
               { left: "15.32%", top: "32.72%" },
@@ -340,7 +340,7 @@ export default function DcdbProductListing() {
               </div>
 
               {/* Image */}
-              <div className="w-full lg:w-[750px] flex-shrink-0">
+              <div className="w-full lg:flex-1 lg:min-w-0 lg:max-w-[750px]">
                 <Image
                   src="/assets/dcdb/why_choose.png"
                   width={750}

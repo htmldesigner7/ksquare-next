@@ -125,7 +125,7 @@ export default function ProductTabs() {
       {/* Content: vertical label + divider + accordion, matching the Figma "Benefits" layout */}
       <div className="flex flex-col lg:flex-row items-start gap-[32px] lg:gap-[60px] w-full pt-[20px]">
         <div className="hidden lg:flex w-[100px] shrink-0 items-center justify-center">
-          <span className="font-recia italic font-light text-[64px] text-[#9DBCF3] leading-none">
+          <span className="font-recia italic font-light text-[56px] xl:text-[64px] text-[#9DBCF3] leading-none whitespace-nowrap [writing-mode:vertical-rl] rotate-180">
             {current.verticalLabel}
           </span>
         </div>

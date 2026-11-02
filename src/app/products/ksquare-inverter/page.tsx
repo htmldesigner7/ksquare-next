@@ -60,7 +60,7 @@ export default function KsquareInverterPage() {
   return (
     <main className="w-full bg-white pt-[90px]">
       {/* Hero */}
-      <section className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 xl:px-0 pt-[40px] flex flex-col lg:flex-row lg:items-end lg:justify-between gap-[40px]">
+      <section className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 g1864:px-0 pt-[40px] flex flex-col lg:flex-row lg:items-end lg:justify-between gap-[40px]">
         <div className="flex flex-col gap-[12px] lg:w-[792px]">
           <div className="flex items-center gap-[10px] font-archivo text-[20px] leading-[28px] text-[#333333]">
             <Link href="/" className="hover:text-[#2B398B]">Home</Link>
@@ -86,7 +86,7 @@ export default function KsquareInverterPage() {
       </section>
 
       {/* Hero image group */}
-      <section className="w-full max-w-[1804px] mx-auto px-4 lg:px-8 xl:px-0 mt-[40px] xl:mt-[139px]">
+      <section className="w-full max-w-[1804px] mx-auto px-4 lg:px-8 g1868:px-0 mt-[40px] xl:mt-[139px]">
         <div className="relative w-full aspect-[1804/731]">
           <div className="absolute left-0 right-0 bottom-0 h-[68.4%]">
             <Image src={`${A}/hero_image.png`} alt="" fill className="object-cover" priority />
@@ -98,10 +98,10 @@ export default function KsquareInverterPage() {
       </section>
 
       {/* About + products + features + FAQ */}
-      <div className="w-full max-w-[1600px] mx-auto px-4 lg:px-8 xl:px-0 mt-[60px] xl:mt-[100px] flex flex-col gap-[100px] pb-[100px]">
+      <div className="w-full max-w-[1600px] mx-auto px-4 lg:px-8 g1664:px-0 mt-[60px] xl:mt-[100px] flex flex-col gap-[100px] pb-[100px]">
         {/* About */}
-        <section className="flex flex-col lg:flex-row lg:items-center gap-[48px] xl:gap-[100px]">
-          <div className="flex flex-col gap-[24px] lg:w-[750px] shrink-0">
+        <section className="flex flex-col lg:flex-row lg:items-center gap-[48px] xl:gap-[clamp(40px,5.2vw,100px)]">
+          <div className="flex flex-col gap-[24px] lg:flex-1 lg:min-w-0 lg:max-w-[750px]">
             <h2 className="m-0 font-jost font-normal text-[48px] lg:text-[60px] leading-[1.15] text-[#333333]">
               About <span className="font-recia italic font-medium">Ksquare Inverters</span>
             </h2>
@@ -115,7 +115,7 @@ export default function KsquareInverterPage() {
               <OutlineButton href="/download-resources">Download Brochures</OutlineButton>
             </div>
           </div>
-          <div className="relative w-full lg:w-[750px] aspect-[750/500] shrink-0">
+          <div className="relative w-full lg:flex-1 lg:min-w-0 lg:max-w-[750px] aspect-[750/500]">
             <Image src={`${A}/about.png`} alt="About Ksquare Inverters" fill className="object-cover" />
           </div>
         </section>
@@ -133,7 +133,7 @@ export default function KsquareInverterPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-[24px] xl:gap-[27px] justify-items-center">
             {products.map((p, i) => (
               <div key={i} className="flex flex-col w-full max-w-[380px] gap-[24px]">
-                <div className="w-full h-[400px] bg-[#EFF0F6] flex items-center justify-center py-[30px] px-[72px]">
+                <div className="img-hover-zoom w-full h-[400px] bg-[#EFF0F6] flex items-center justify-center py-[30px] px-[72px]">
                   <div className="relative w-full h-full">
                     <Image src={p.img} alt={p.title} fill className="object-contain mix-blend-multiply" />
                   </div>
@@ -162,7 +162,7 @@ export default function KsquareInverterPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[20px]">
             {features.map((f) => (
-              <div key={f.title} className="bg-[#EFF0F6] px-[40px] py-[50px] flex flex-col gap-[20px]">
+              <div key={f.title} className="card-lift bg-[#EFF0F6] px-[40px] py-[50px] flex flex-col gap-[20px]">
                 <div className="flex items-center gap-[30px]">
                   <div className="w-[90px] h-[90px] shrink-0 bg-white rounded-[10px] flex items-center justify-center p-[10px]">
                     <Image src={`${A}/${f.icon}`} alt="" width={60} height={60} className="w-[60px] h-[60px] object-contain" />

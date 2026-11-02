@@ -133,7 +133,7 @@ function ArrowButtons({ onPrev, onNext }: { onPrev: () => void; onNext: () => vo
 
 function GalleryTile({ label, img, className }: { label: string; img: string; className: string }) {
   return (
-    <div className={`relative w-full h-[260px] md:h-[320px] xl:h-full ${className}`}>
+    <div className={`img-hover-zoom relative w-full h-[260px] md:h-[320px] xl:h-full overflow-hidden ${className}`}>
       <Image src={img} alt={label} fill className="object-cover" sizes="(min-width: 1280px) 1000px, 100vw" />
       <div className="absolute right-0 top-0 w-[141px] px-[34px] py-[10px] bg-primary flex justify-center">
         <span className="font-archivo text-[12px] uppercase text-white">{label}</span>
@@ -145,7 +145,7 @@ function GalleryTile({ label, img, className }: { label: string; img: string; cl
 function ProjectCard({ project, chipBg }: { project: Project; chipBg: string }) {
   return (
     <div className="flex flex-col gap-[20px] w-full flex-1">
-      <div className={`relative w-full h-[240px] lg:h-[320px] overflow-hidden shrink-0 ${project.roundedImage ? "rounded-[12px]" : ""}`}>
+      <div className={`img-hover-zoom relative w-full h-[240px] lg:h-[320px] overflow-hidden shrink-0 ${project.roundedImage ? "rounded-[12px]" : ""}`}>
         <Image src={project.img} alt={project.title} fill className="object-cover" />
       </div>
       <div className="flex flex-col gap-[12px]">
@@ -245,7 +245,7 @@ export default function ProjectsFilter() {
             Your monthly electricity bill is a useful starting point, but final system sizing depends on consumption, sanctioned load, roof orientation, shadow-free area, and other technical factors.
           </p>
         </div>
-        <div className="flex flex-col items-center gap-[24px] w-full px-4 xl:px-0">
+        <div className="flex flex-col items-center gap-[24px] w-full px-4 lg:px-8 g1664:px-0">
           <div key={g.tick} className={`flex flex-col gap-[24px] w-full max-w-[1600px] xl:h-[744px] ${g.animClass}`}>
             <div className="flex flex-col xl:flex-row gap-[24px] xl:h-[400px]">
               {items.slice(0, 2).map((it, i) => (

@@ -1,0 +1,73 @@
+import React from "react";
+import {
+  LuActivity,
+  LuAward,
+  LuBadgeCheck,
+  LuBatteryCharging,
+  LuBuilding2,
+  LuCalculator,
+  LuClipboardCheck,
+  LuClock,
+  LuCpu,
+  LuFactory,
+  LuFileText,
+  LuGlobe,
+  LuHandshake,
+  LuHeadset,
+  LuHouse,
+  LuIndianRupee,
+  LuLayers,
+  LuLeaf,
+  LuMapPin,
+  LuMonitorSmartphone,
+  LuPackage,
+  LuRuler,
+  LuSearch,
+  LuSettings,
+  LuShieldCheck,
+  LuSun,
+  LuTruck,
+  LuUsers,
+  LuWrench,
+  LuZap,
+} from "react-icons/lu";
+
+const ICONS = {
+  activity: LuActivity,
+  award: LuAward,
+  badge: LuBadgeCheck,
+  battery: LuBatteryCharging,
+  building: LuBuilding2,
+  calculator: LuCalculator,
+  clipboard: LuClipboardCheck,
+  clock: LuClock,
+  cpu: LuCpu,
+  factory: LuFactory,
+  file: LuFileText,
+  globe: LuGlobe,
+  handshake: LuHandshake,
+  headset: LuHeadset,
+  home: LuHouse,
+  rupee: LuIndianRupee,
+  layers: LuLayers,
+  leaf: LuLeaf,
+  pin: LuMapPin,
+  monitor: LuMonitorSmartphone,
+  package: LuPackage,
+  ruler: LuRuler,
+  search: LuSearch,
+  settings: LuSettings,
+  shield: LuShieldCheck,
+  sun: LuSun,
+  truck: LuTruck,
+  users: LuUsers,
+  wrench: LuWrench,
+  zap: LuZap,
+} as const;
+
+export type IconKey = keyof typeof ICONS;
+
+export function Icon({ name, className }: { name: IconKey; className?: string }) {
+  const Cmp = ICONS[name];
+  return <Cmp className={className} aria-hidden="true" />;
+}

@@ -57,10 +57,10 @@ export default function CoreProducts() {
   return (
     <section className="relative w-full bg-[#FFFFFF] overflow-hidden">
       {/* Desktop Wrapper */}
-      <div className="w-[1920px] max-w-full mx-auto relative h-[1369px] max-xl:h-auto max-xl:px-6 max-xl:py-12">
+      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative h-[1369px] max-canvas:h-auto max-canvas:px-6 max-canvas:py-12">
         
         {/* Header (Frame 26) */}
-        <div className="hidden xl:block absolute left-[160px] top-0 w-[1600px] h-[105px]">
+        <div className="hidden canvas:block absolute left-[160px] top-0 w-[1600px] h-[105px]">
           <h2 className="absolute left-0 top-0 font-jost font-normal text-[60px] text-[#333333] leading-none m-0 p-0">
             Core Products
           </h2>
@@ -70,7 +70,7 @@ export default function CoreProducts() {
         </div>
         
         {/* Products Grid Container (Frame 2147224481) */}
-        <div className="hidden xl:block absolute left-[160px] top-[153px] w-[1600px] h-[1216px]">
+        <div className="hidden canvas:block absolute left-[160px] top-[153px] w-[1600px] h-[1216px]">
           {products.map((product, idx) => (
             <div 
               key={idx} 
@@ -78,7 +78,7 @@ export default function CoreProducts() {
               style={{ left: `${product.left}px`, top: `${product.top}px` }}
             >
               {/* Image Frame (Frame 89) */}
-              <div className="absolute left-0 top-0 w-[380px] h-[400px] bg-[#EFF0F6]">
+              <div className="img-hover-zoom absolute left-0 top-0 w-[380px] h-[400px] bg-[#EFF0F6]">
                 <div className="absolute inset-[30px]">
                   <Image 
                     src={product.img} 
@@ -100,7 +100,7 @@ export default function CoreProducts() {
                 
                 {/* View Product Button */}
                 <Link 
-                  href={`/products/${product.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+                  href="/products/dcdb"
                   className="absolute left-0 top-[114px] w-[156px] h-[50px] border border-[#2B398B] group hover:bg-[#2B398B] transition-colors flex items-center"
                 >
                   <span className="absolute left-[16px] font-archivo font-normal text-[17px] text-[#2B398B] group-hover:text-white transition-colors">
@@ -114,7 +114,7 @@ export default function CoreProducts() {
         </div>
 
         {/* Responsive layout (< 1280px) */}
-        <div className="xl:hidden flex flex-col gap-12 w-full max-w-[1200px] mx-auto">
+        <div className="canvas:hidden flex flex-col gap-12 w-full max-w-[1200px] mx-auto">
           <div className="flex flex-col gap-6 text-center sm:text-left">
             <h2 className="font-jost font-normal text-[48px] sm:text-[60px] text-[#333333] leading-none m-0 p-0">
               Core Products
@@ -127,7 +127,7 @@ export default function CoreProducts() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12">
             {products.map((product, idx) => (
               <div key={idx} className="flex flex-col w-full group">
-                <div className="w-full aspect-square bg-[#EFF0F6] relative mb-6">
+                <div className="img-hover-zoom w-full aspect-square bg-[#EFF0F6] relative mb-6">
                   <div className="absolute inset-[30px]">
                     <Image 
                       src={product.img} 
@@ -144,7 +144,7 @@ export default function CoreProducts() {
                   {product.desc}
                 </p>
                 <Link 
-                  href={`/products/${product.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+                  href="/products/dcdb"
                   className="w-[156px] h-[50px] border border-[#2B398B] group-hover:bg-[#2B398B] transition-colors flex items-center relative self-start"
                 >
                   <span className="absolute left-[16px] font-archivo font-normal text-[17px] text-[#2B398B] group-hover:text-white transition-colors">

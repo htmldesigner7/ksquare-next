@@ -41,12 +41,12 @@ const QuoteIcon = () => (
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const TestimonialCard = ({ item }: { item: any }) => (
-  <div className="w-[320px] sm:w-[450px] xl:w-[740px] xl:h-[300px] bg-white border border-[#E5E5E5] p-[32px] sm:p-[40px] xl:p-0 flex flex-col xl:block relative shrink-0">
-    <div className="absolute right-[32px] top-[32px] xl:left-[648px] xl:top-[20px] xl:right-auto text-[#EEEEEE]">
+  <div className="w-[320px] sm:w-[450px] canvas:w-[740px] canvas:h-[300px] bg-white border border-[#E5E5E5] p-[32px] sm:p-[40px] canvas:p-0 flex flex-col canvas:block relative shrink-0">
+    <div className="absolute right-[32px] top-[32px] canvas:left-[648px] canvas:top-[20px] canvas:right-auto text-[#EEEEEE]">
       <QuoteIcon />
     </div>
     
-    <div className="flex xl:absolute xl:left-[60px] xl:top-[40px] items-center gap-6 relative z-10">
+    <div className="flex canvas:absolute canvas:left-[60px] canvas:top-[40px] items-center gap-6 relative z-10">
       <div className="w-[60px] h-[60px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden bg-gray-200 shrink-0 relative">
         <Image src={item.img} alt={item.name} fill className="object-cover" />
       </div>
@@ -56,7 +56,7 @@ const TestimonialCard = ({ item }: { item: any }) => (
       </div>
     </div>
     
-    <p className="mt-8 xl:mt-0 xl:absolute xl:left-[60px] xl:top-[144px] xl:w-[619px] font-archivo font-normal text-[16px] sm:text-[17px] text-[#666666] leading-[1.5] m-0 p-0 relative z-10">
+    <p className="mt-8 canvas:mt-0 canvas:absolute canvas:left-[60px] canvas:top-[144px] canvas:w-[619px] font-archivo font-normal text-[16px] sm:text-[17px] text-[#666666] leading-[1.5] m-0 p-0 relative z-10">
       {item.text}
     </p>
   </div>
@@ -83,10 +83,10 @@ export default function Testimonials() {
       `}</style>
       
       {/* Desktop Wrapper */}
-      <div className="w-[1920px] max-w-full mx-auto relative h-[782px] max-xl:h-auto max-xl:py-16">
+      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative h-[782px] max-canvas:h-auto max-canvas:py-16">
         
         {/* Desktop Layout (Testimonials) */}
-        <div className="hidden xl:block absolute left-0 top-0 w-[1920px] h-[782px]">
+        <div className="hidden canvas:block absolute left-0 top-0 w-[1920px] h-[782px]">
           
           {/* Header (Frame 23) */}
           <div className="absolute left-[160px] top-0 w-[1600px] h-[91px] text-center">
@@ -123,7 +123,7 @@ export default function Testimonials() {
         </div>
 
         {/* Responsive layout (< 1280px) */}
-        <div className="xl:hidden flex flex-col gap-12 px-6 overflow-hidden">
+        <div className="canvas:hidden flex flex-col gap-12 px-6 overflow-hidden">
           <div className="flex flex-col gap-4 text-center">
             <h2 className="font-jost font-normal text-[40px] sm:text-[60px] text-[#2B398B] leading-[1.1] m-0 p-0">
               What Our <span className="font-recia italic">Clients Say</span>
