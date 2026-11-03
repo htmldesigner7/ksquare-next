@@ -12,7 +12,7 @@ export const page: PageData = {
     "Solar power generated where you already have space — your roof. Manufactured and installed end-to-end by Ksquare for RCC, metal sheet, tiled and tin shed roofs.",
   hero: {
     crumbs: [{ label: "Home", href: ROUTES.home }, { label: "Solutions" }, { label: "Solar Solution" }, { label: "Rooftop Solar System" }],
-    title: "Rooftop *Solar System*",
+    title: "Rooftop Solar *System*",
     singleLine: true,
     description: "Solar power generated where you already have space — your roof. Manufactured and installed end-to-end by Ksquare.",
     ctas: [
@@ -27,19 +27,19 @@ export const page: PageData = {
     {
       type: "table",
       variant: "plain",
-      title: "Rooftop vs. Ground-Mount *vs. Open Access*",
+      title: "Rooftop vs. Ground-Mount vs. Open Access",
       subtitle: "Understanding the core spatial and scale trade-offs helps locate the most optimal power harvesting blueprint for your estate.",
       head: ["Format", "Land Requirement", "Typical Scale", "Deployment Speed", "Best For"],
       rows: [
-        ["Rooftop Solar", "No extra land (existing roof)", "1 kW – 100 kW", "Fastest (2-4 weeks)", "Homes, business storefronts & small industrial units"],
-        ["Ground-Mount Solar", "Dedicated land area", "100 kW – 10 MW+", "Moderate (2-3 months)", "Large-scale factories, vacant rural land, utilities"],
-        ["Open Access Solar", "Shared offsite plant (none onsite)", "1 MW+", "Slowest (6+ months)", "Heavy energy-consuming corporate campuses"],
+        ["Rooftop Solar", "No extra land (Existing roof)", "1 kW – 100 kW", "Fastest (2-4 Weeks)", "Homes, business storefronts & small industrial units"],
+        ["Ground-Mount Solar", "Dedicated land area", "100 kW – 10 MW+", "Moderate (2-3 Months)", "Large scale factories, vacant rural land, utilities"],
+        ["Open Access Solar", "Shared offsite plant (None onsite)", "1 MW+", "Slowest (6+ Months)", "Heavy energy-consuming corporate campuses"],
       ],
     },
     {
       type: "cards",
       cols: 4,
-      title: "Built for *Every Roof Type*",
+      title: "Built for Every *Roof Type*",
       subtitle: "Different roofs require specialised anchoring frameworks. Ksquare designs custom mechanical mountings to securely hold systems in place for 25+ years.",
       items: [
         { title: "RCC Flat Roof", desc: "Concrete roofs offer the highest design flexibility. We install ballasted or anchored structural steel tripods to elevate and tilt panels perfectly towards the equator.", icon: "building" },
@@ -87,7 +87,7 @@ export const page: PageData = {
     },
     {
       type: "steps",
-      title: "Our Rooftop *Installation Process*",
+      title: "Our Rooftop Installation Process",
       subtitle: "From custom site evaluations to grid integration, our engineering teams manage every detail to deliver a seamless, leak-proof transition to clean energy.",
       items: [
         { title: "Site & Roof Assessment", desc: "We analyse structural integrity, load-bearing capacities, and shading issues using accurate 3D modelling tools.", icon: "search" },

@@ -1,30 +1,31 @@
 import React from "react";
 import Image from "next/image";
+import RichTitle from "@/components/common/RichTitle";
 
 const row1 = [
   {
     name: "Hiren Dhameliya",
     company: "Flame Solren Pvt Ltd",
     text: "We are Using Thermoplastic Enclosure of Kenclozer Brand For DCDB-ACDB Manufacturing and we are impressed with their delivery commitment and after sales Service.",
-    img: "/assets/img_1_350.png"
+    img: "/assets/home/testimonials/avatar-hiren.webp"
   },
   {
     name: "Nirav Dhanani",
     company: "Heaven Solar Pvt Ltd",
     text: "Ksquare Is like one stop solution for us all kind of BOS Like DCDB-ACDB,Earthing Kit,MC-4 Connector,J-Hook & All other accesories irecommeanded Ksquare For Good Quality Products At Good Pricing.",
-    img: "/assets/img_1_350.png"
+    img: "/assets/home/testimonials/avatar-nirav.webp"
   },
   {
     name: "Vipul Trivedi",
     company: "Lohana Tours & Travels Pvt Ltd",
     text: "I had installed 10 KW Rooftop System at my home and i am geting generation of 6.2 Units/KW and staff of Ksquare is just a call away.",
-    img: "/assets/img_1_350.png"
+    img: "/assets/home/testimonials/avatar-nirav.webp"
   },
   {
     name: "SARAUIVANDASJI SWAMI",
     company: "Swaminarayan Gurukul Hyderabad",
     text: "We had installed th Project of 80 KW AT Shree Swaminarayan Gurukul Hyderabad & Mumbai We are Very Satisficed With The Service Of Ksquare Energy Pvt Ltd and the product quality also.",
-    img: "/assets/img_1_350.png"
+    img: "/assets/home/testimonials/avatar-placeholder.svg"
   }
 ];
 
@@ -51,12 +52,12 @@ const TestimonialCard = ({ item }: { item: any }) => (
         <Image src={item.img} alt={item.name} fill className="object-cover" />
       </div>
       <div className="flex flex-col gap-[4px] w-[200px] sm:w-[300px]">
-        <span className="font-archivo font-semibold text-[17px] text-[#2B398B] leading-none m-0 p-0">{item.name}</span>
-        <span className="font-archivo font-normal text-[15px] text-[#666666] leading-none m-0 p-0">{item.company}</span>
+        <span className="font-archivo font-semibold text-[17px] text-[#2B398B] leading-[26px] m-0 p-0">{item.name}</span>
+        <span className="font-archivo font-normal text-[15px] text-[#666666] leading-[24px] m-0 p-0">{item.company}</span>
       </div>
     </div>
     
-    <p className="mt-8 canvas:mt-0 canvas:absolute canvas:left-[60px] canvas:top-[144px] canvas:w-[619px] font-archivo font-normal text-[16px] sm:text-[17px] text-[#666666] leading-[1.5] m-0 p-0 relative z-10">
+    <p className="mt-8 canvas:mt-0 canvas:absolute canvas:left-[60px] canvas:top-[144px] canvas:w-[619px] font-archivo font-normal text-[16px] sm:text-[17px] text-[#666666] leading-[26px] m-0 p-0 relative z-10">
       {item.text}
     </p>
   </div>
@@ -89,11 +90,9 @@ export default function Testimonials() {
         <div className="hidden canvas:block absolute left-0 top-0 w-[1920px] h-[782px]">
           
           {/* Header (Frame 23) */}
-          <div className="absolute left-[160px] top-0 w-[1600px] h-[91px] text-center">
-            <h2 className="absolute left-0 top-0 w-[1600px] font-jost font-normal text-[60px] text-[#2B398B] leading-none m-0 p-0 text-center">
-              What Our <span className="font-recia italic">Clients Say</span>
-            </h2>
-            <p className="absolute left-0 top-[65px] w-[1600px] font-archivo font-normal text-[17px] text-[#666666] m-0 p-0 text-center">
+          <div className="absolute left-[160px] top-0 w-[1600px] h-[110px] text-center">
+            <RichTitle as="h2" text="What Our *Clients Say*" className="absolute left-0 top-[9px] w-[1600px] font-archivo font-normal text-[60px] text-[#2B398B] leading-none m-0 p-0 text-center" />
+            <p className="absolute left-0 top-[84px] w-[1600px] font-archivo font-normal text-[17px] leading-[26px] text-[#666666] m-0 p-0 text-center">
               Hear from EPC companies, distributors, and customers who trust Ksquare Energy for quality products and dependable service.
             </p>
           </div>
@@ -125,9 +124,7 @@ export default function Testimonials() {
         {/* Responsive layout (< 1280px) */}
         <div className="canvas:hidden flex flex-col gap-12 px-6 overflow-hidden">
           <div className="flex flex-col gap-4 text-center">
-            <h2 className="font-jost font-normal text-[40px] sm:text-[60px] text-[#2B398B] leading-[1.1] m-0 p-0">
-              What Our <span className="font-recia italic">Clients Say</span>
-            </h2>
+            <RichTitle as="h2" text="What Our *Clients Say*" className="font-archivo font-normal text-[40px] sm:text-[60px] text-[#2B398B] leading-[1.1] m-0 p-0" />
             <p className="font-archivo font-normal text-[16px] md:text-[17px] text-[#666666] m-0 p-0">
               Hear from EPC companies, distributors, and customers who trust Ksquare Energy for quality products and dependable service.
             </p>

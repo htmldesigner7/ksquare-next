@@ -77,7 +77,7 @@ export default function OurPresenceTabs() {
               </div>
               <div className="hidden lg:block w-[1px] self-stretch bg-[#9DBCF3]"></div>
               <div className="flex items-center gap-[10px] shrink-0">
-                <Button variant="outline-primary" href="#" showDot className="!px-[16px] !py-[12px]">
+                <Button variant="outline-primary" href="#" showDot>
                   Get Direction
                 </Button>
               </div>

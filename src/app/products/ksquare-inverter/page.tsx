@@ -102,7 +102,7 @@ export default function KsquareInverterPage() {
         {/* About */}
         <section className="flex flex-col lg:flex-row lg:items-center gap-[48px] xl:gap-[clamp(40px,5.2vw,100px)]">
           <div className="flex flex-col gap-[24px] lg:flex-1 lg:min-w-0 lg:max-w-[750px]">
-            <h2 className="m-0 font-jost font-normal text-[48px] lg:text-[60px] leading-[1.15] text-[#333333]">
+            <h2 className="m-0 font-archivo font-normal text-[48px] lg:text-[60px] leading-[1.15] text-[#333333]">
               About <span className="font-recia italic font-medium">Ksquare Inverters</span>
             </h2>
             <div className="flex flex-col gap-[18px]">
@@ -123,7 +123,7 @@ export default function KsquareInverterPage() {
         {/* Solar Inverters */}
         <section id="solar-inverters" className="flex flex-col gap-[48px] scroll-mt-[110px]">
           <div className="flex flex-col items-center gap-[8px] text-center">
-            <h2 className="m-0 font-jost font-normal text-[48px] lg:text-[60px] leading-[71px] text-[#2B398B]">
+            <h2 className="m-0 font-archivo font-normal text-[48px] lg:text-[60px] leading-[71px] text-[#2B398B]">
               Solar <span className="font-recia italic font-medium">Inverters</span>
             </h2>
             <p className="m-0 font-archivo text-[17px] leading-[26px] text-[#666666]">
@@ -155,7 +155,7 @@ export default function KsquareInverterPage() {
         {/* Key features */}
         <section className="flex flex-col gap-[48px]">
           <div className="flex flex-col items-center gap-[8px] text-center">
-            <h2 className="m-0 font-jost font-normal text-[40px] lg:text-[60px] leading-[1.15] text-[#2B398B]">
+            <h2 className="m-0 font-archivo font-normal text-[40px] lg:text-[60px] leading-[1.15] text-[#2B398B]">
               Key Features of Ksquare S<span className="font-recia italic font-medium">olar Inverters</span>
             </h2>
             <p className="m-0 font-archivo text-[17px] leading-[26px] text-[#666666]">A DCDB for Every Solar Requirement.</p>
@@ -178,7 +178,7 @@ export default function KsquareInverterPage() {
         {/* FAQ */}
         <section className="flex flex-col items-center gap-[48px]">
           <div className="flex flex-col items-center gap-[8px] text-center">
-            <h2 className="m-0 font-jost font-normal text-[40px] lg:text-[60px] leading-[1.25] text-[#2B398B]">
+            <h2 className="m-0 font-archivo font-normal text-[40px] lg:text-[60px] leading-[1.25] text-[#2B398B]">
               Frequently Asked <span className="font-recia italic font-medium">Questions</span>
             </h2>
             <p className="m-0 font-archivo text-[17px] leading-[26px] text-[#666666]">

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import RichTitle from "@/components/common/RichTitle";
 
 export default function Manufacturing() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -24,9 +25,7 @@ export default function Manufacturing() {
           
           {/* Header (Frame 23) */}
           <div className="absolute left-[454px] top-0 w-[692px] h-[103px] text-center">
-            <h2 className="absolute left-0 top-0 w-[692px] h-[69px] font-jost font-normal text-[60px] text-[#FFFFFF] leading-none m-0 p-0 flex items-center justify-center">
-              Manufacturing Excellence
-            </h2>
+            <RichTitle as="h2" text="Manufacturing *Excellence*" className="absolute left-0 top-0 w-[692px] h-[69px] font-archivo font-normal text-[60px] text-[#FFFFFF] leading-[69px] m-0 p-0 text-center" />
             <p className="absolute left-0 top-[77px] w-[692px] h-[26px] font-archivo font-normal text-[17px] text-[#FFFFFF] m-0 p-0 text-center">
               Manufacturing Built on Quality, Innovation & Precision
             </p>
@@ -111,9 +110,7 @@ export default function Manufacturing() {
         {/* Responsive layout (< 1280px) */}
         <div className="canvas:hidden relative z-10 flex flex-col gap-12 items-center">
           <div className="flex flex-col gap-4 text-center">
-            <h2 className="font-jost font-normal text-4xl sm:text-5xl text-white">
-              Manufacturing Excellence
-            </h2>
+            <RichTitle as="h2" text="Manufacturing *Excellence*" className="font-archivo font-normal text-4xl sm:text-5xl text-white" />
             <p className="font-archivo font-normal text-[17px] text-white/90">
               Manufacturing Built on Quality, Innovation & Precision
             </p>

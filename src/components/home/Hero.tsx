@@ -35,12 +35,12 @@ export default function Hero() {
 
           {/* Titles (Frame 2085663114) */}
           <div className="absolute left-[509px] top-[0px] w-[1093px] h-[179px]">
-            <h1 className="absolute left-0 top-0 font-jost font-normal text-[68px] leading-tight whitespace-nowrap">
+            <h1 className="absolute left-0 top-0 font-archivo font-normal text-[68px] leading-[91px] whitespace-nowrap">
               <span className="text-[#C6CCED]">India&apos;s Trusted </span>
               <span className="font-recia italic font-semibold text-white">Manufacturer</span>
               <span className="text-[#C6CCED]"> of</span>
             </h1>
-            <h1 className="absolute left-[255px] top-[82px] text-[68px] leading-tight whitespace-nowrap">
+            <h1 className="absolute left-[255px] top-[82px] text-[68px] leading-[91px] whitespace-nowrap">
               <span className="font-recia italic font-semibold text-white">Solar Component </span>
               <span className="font-archivo text-[#C6CCED]">Systems</span>
             </h1>
@@ -48,11 +48,11 @@ export default function Hero() {
 
           {/* Description & Buttons (Frame 2085663103) */}
           <div className="absolute left-[1155px] top-[354px] w-[447px] h-[194px]">
-            <p className="font-archivo font-normal text-[20px] leading-relaxed text-[#FFFFFF] w-[447px] h-[112px]">
+            <p className="font-archivo font-normal text-[20px] leading-[28px] text-[#FFFFFF] w-[447px] h-[112px]">
               DCDBs, ACDBs, combiner boxes, junction boxes and BOS accessories engineered, tested and shipped from our own Ahmedabad facility to EPCs, distributors and OEM partners across India.
             </p>
             
-            <div className="absolute left-0 top-[144px] w-[419px] h-[50px] flex items-center gap-[16px] mt-[34px]">
+            <div className="absolute left-0 top-[144px] w-[419px] h-[50px] flex items-center gap-[16px]">
               {/* Request Bulk Quote */}
               <Link
                 href="/contact"
@@ -77,7 +77,7 @@ export default function Hero() {
         {/* Responsive layout for smaller screens (< 1440px) since Figma doesn't provide specific mobile views */}
         <div className="relative z-10 canvas:hidden pt-[140px] px-6 pb-12 flex flex-col gap-8 items-center text-center">
           <div className="flex flex-col gap-2">
-            <h1 className="font-jost font-normal text-4xl sm:text-5xl">
+            <h1 className="font-archivo font-normal text-4xl sm:text-5xl">
               <span className="text-[#C6CCED]">India&apos;s Trusted </span>
               <span className="font-recia italic font-semibold text-white">Manufacturer</span>
               <span className="text-[#C6CCED]"> of</span>
@@ -116,7 +116,7 @@ export default function Hero() {
         </div>
 
         {/* Bottom Info Bar (Frame 2085663113) */}
-        <div className="hidden canvas:flex absolute left-0 top-[846px] w-[1920px] h-[74px] items-center justify-center bg-transparent border-t border-white/20">
+        <div className="hidden canvas:flex absolute left-0 top-[846px] w-[1920px] h-[74px] items-center justify-center bg-[rgba(15,27,93,0.5)]">
           <div className="w-[1400px] h-[28px] flex items-center justify-between text-white font-archivo font-normal text-[20px]">
             <span>• ISO certified facility</span>
             <span>• CE Marked</span>
@@ -127,7 +127,7 @@ export default function Hero() {
         </div>
 
         {/* Responsive Bottom Info Bar */}
-        <div className="canvas:hidden w-full border-t border-white/20 py-6 px-6 mt-12 bg-transparent absolute bottom-0 left-0">
+        <div className="canvas:hidden w-full py-6 px-6 mt-12 bg-[rgba(15,27,93,0.5)] absolute bottom-0 left-0">
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-white font-archivo text-base">
             <span>• ISO certified facility</span>
             <span>• CE Marked</span>

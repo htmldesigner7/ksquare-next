@@ -52,7 +52,7 @@ function Block({ id, title, subtitle, input, result }: { id: string; title: stri
   return (
     <div id={id} className="scroll-mt-[110px] flex flex-col gap-[40px]">
       <Reveal className="flex flex-col items-center gap-[8px] text-center">
-        <RichTitle text={title} className="m-0 font-jost text-[34px] sm:text-[44px] lg:text-[60px] leading-[1.15] font-normal text-primary" />
+        <RichTitle text={title} className="m-0 font-archivo text-[34px] sm:text-[44px] lg:text-[60px] leading-[1.15] font-normal text-primary" />
         <p className="m-0 font-archivo text-[15px] lg:text-[17px] leading-[24px] text-[#666666]">{subtitle}</p>
       </Reveal>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-[24px] lg:gap-[40px] items-stretch">

@@ -213,7 +213,7 @@ export default function GrievancePage() {
         <Container maxWidth="1600">
           <div className="flex flex-col items-stretch gap-[48px]">
             <div className="flex flex-col items-center text-center gap-[8px]">
-              <h2 className="font-jost text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal">
+              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal">
                 What Can <span className="font-recia italic font-bold">You Report ?.</span>
               </h2>
               <p className="font-archivo text-[17px] leading-[26px] text-[#666666] max-w-[720px]">
@@ -504,7 +504,7 @@ export default function GrievancePage() {
         <Container maxWidth="1600" className="relative z-10 py-[80px] lg:py-[110px]">
           <div className="flex flex-col gap-[24px] max-w-[1025px]">
             <div className="flex flex-col gap-[8px]">
-              <h2 className="font-jost text-[36px] lg:text-[60px] leading-[1.15] text-white font-normal">
+              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-white font-normal">
                 Still Have a <span className="font-recia italic font-semibold">Concern ?</span>
               </h2>
               <p className="font-archivo text-[16px] leading-[24px] text-[#EDF3FF] max-w-[700px]">

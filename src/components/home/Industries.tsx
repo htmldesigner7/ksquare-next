@@ -34,6 +34,7 @@ const industries = [
 ];
 
 import Image from "next/image";
+import RichTitle from "@/components/common/RichTitle";
 
 export default function Industries() {
   return (
@@ -47,9 +48,7 @@ export default function Industries() {
           
           {/* Header (Frame 23) */}
           <div className="absolute left-0 top-0 w-[1600px] h-[91px] flex flex-col items-center">
-            <h2 className="font-jost font-normal text-[60px] text-[#2B398B] leading-none m-0 p-0 text-center">
-              Who We Serve
-            </h2>
+            <RichTitle as="h2" text="Who *We Serve*" className="font-archivo font-normal text-[60px] text-[#2B398B] leading-none m-0 p-0 text-center" />
             <p className="mt-[5px] font-archivo font-normal text-[17px] text-[#666666] m-0 p-0 text-center">
               Powering Every Industry with Solar Solutions
             </p>
@@ -99,9 +98,7 @@ export default function Industries() {
         {/* Responsive layout (< 1280px) */}
         <div className="canvas:hidden flex flex-col gap-12 w-full max-w-[1200px] mx-auto">
           <div className="flex flex-col gap-4 text-center sm:text-left">
-            <h2 className="font-jost font-normal text-[48px] sm:text-[60px] text-[#2B398B] leading-none m-0 p-0">
-              Who We Serve
-            </h2>
+            <RichTitle as="h2" text="Who *We Serve*" className="font-archivo font-normal text-[48px] sm:text-[60px] text-[#2B398B] leading-none m-0 p-0" />
             <p className="font-archivo font-normal text-[17px] text-[#666666] m-0 p-0">
               Powering Every Industry with Solar Solutions
             </p>

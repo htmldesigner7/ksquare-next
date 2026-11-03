@@ -238,7 +238,7 @@ export default function ProjectsFilter() {
       {/* Featured gallery */}
       <div className="w-full flex flex-col items-center gap-[40px]">
         <div className="flex flex-col items-center gap-[14px] text-center px-4">
-          <h2 className="m-0 font-jost font-normal text-[36px] lg:text-[60px] leading-[1.2] xl:leading-[42px] text-primary">
+          <h2 className="m-0 font-archivo font-normal text-[36px] lg:text-[60px] leading-[1.2] xl:leading-[42px] text-primary">
             How Much Solar Does <span className="font-recia italic font-medium">Your Home Need?</span>
           </h2>
           <p className="m-0 max-w-[791.6px] font-archivo text-[17px] leading-[26px] text-[#666666]">

@@ -88,7 +88,7 @@ export default function FaqsPage() {
               </div>
 
               {/* Title */}
-              <h1 className="font-jost text-[40px] lg:text-[68px] leading-[1.1] lg:leading-[78px] text-[#333333] font-normal mt-[10px]">
+              <h1 className="font-archivo text-[40px] lg:text-[68px] leading-[1.1] lg:leading-[78px] text-[#333333] font-normal mt-[10px]">
                 Frequently Asked
                 <br />
                 <span className="font-recia italic font-semibold text-[#2B398B]">Questions</span>

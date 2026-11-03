@@ -81,7 +81,7 @@ export default function DownloadResourcesPage() {
         <Container maxWidth="1600">
           <div className="flex flex-col items-center gap-[40px] w-full">
             <div className="flex flex-col items-center text-center gap-[14px] max-w-[900px]">
-              <h2 className="font-jost text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal">
+              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal">
                 Download <span className="font-recia italic font-medium">Resources</span>
               </h2>
               <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666] max-w-[720px]">

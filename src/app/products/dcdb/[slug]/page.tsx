@@ -125,7 +125,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       <Container maxWidth="1800" className="py-[80px] lg:py-[120px]">
         <div className="flex flex-col items-center gap-[40px] w-full">
           <div className="flex flex-col items-center text-center gap-[8px]">
-            <h2 className="m-0 font-jost text-[36px] lg:text-[60px] leading-[1.1] text-primary font-normal">
+            <h2 className="m-0 font-archivo text-[36px] lg:text-[60px] leading-[1.1] text-primary font-normal">
               Product <span className="font-recia italic">Detail</span>
             </h2>
             <p className="m-0 font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666] max-w-[700px]">
@@ -142,7 +142,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         <Container maxWidth="1600">
           <div className="flex flex-col items-center gap-[48px] w-full">
             <div className="flex flex-col items-center text-center gap-[8px]">
-              <h2 className="m-0 font-jost text-[36px] lg:text-[60px] leading-[1.1] text-primary font-normal">
+              <h2 className="m-0 font-archivo text-[36px] lg:text-[60px] leading-[1.1] text-primary font-normal">
                 Frequently Asked <span className="font-recia italic">Questions</span>
               </h2>
               <p className="m-0 font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666] max-w-[700px] text-center">

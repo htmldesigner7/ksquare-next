@@ -50,12 +50,16 @@
   --breakpoint-g1984: 124rem;
   
   --font-sans: var(--font-archivo);
-  --font-jost: var(--font-jost);
   --font-inter: var(--font-inter);
   --font-dm: var(--font-dm-sans);
   --font-recia: var(--font-playfair), Georgia, serif;
   --font-archivo: var(--font-archivo);
   --font-playfair: var(--font-playfair);
+}
+
+/* Recia (Figma) uses lining figures; Playfair defaults to old-style, so force lining. */
+.font-recia {
+  font-variant-numeric: lining-nums;
 }
 
 body {

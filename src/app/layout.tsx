@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
-import { Archivo, Jost, DM_Sans, Playfair_Display, Inter } from "next/font/google";
+import { Archivo, DM_Sans, Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
 const archivo = Archivo({
   variable: "--font-archivo",
-  subsets: ["latin"],
-});
-
-const jost = Jost({
-  variable: "--font-jost",
   subsets: ["latin"],
 });
 
@@ -42,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${archivo.variable} ${jost.variable} ${dmSans.variable} ${playfair.variable} ${inter.variable} antialiased font-sans`}
+        className={`${archivo.variable} ${dmSans.variable} ${playfair.variable} ${inter.variable} antialiased font-sans`}
       >
         <noscript>
           {/* Scroll-reveal animations start hidden; without JS they would never show. */}

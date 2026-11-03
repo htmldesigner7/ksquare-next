@@ -23,14 +23,14 @@ import AwardTimeline from "./AwardTimeline";
 import CtaBanner from "./CtaBanner";
 import type { Section } from "./types";
 
-const H2 = "font-jost text-[34px] sm:text-[44px] lg:text-[60px] leading-[1.15] text-primary font-normal m-0";
+const H2 = "font-archivo text-[34px] sm:text-[44px] lg:text-[60px] leading-[1.15] text-primary font-normal m-0";
 const LEAD = "m-0 font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666]";
 
-function Heading({ title, subtitle, align = "center", light = false, font = "jost" }: { title: string; subtitle?: string; align?: "center" | "left"; light?: boolean; font?: "jost" | "archivo" }) {
+function Heading({ title, subtitle, align = "center", light = false }: { title: string; subtitle?: string; align?: "center" | "left"; light?: boolean }) {
   return (
-    <div className={`flex flex-col gap-[10px] ${align === "center" ? "items-center text-center mx-auto" : "items-start text-left"} max-w-[1300px]`}>
-      <RichTitle text={title} className={`${H2} ${font === "archivo" ? "font-archivo!" : ""} ${light ? "text-white!" : ""}`} breakBeforeAccent={align === "left"} />
-      {subtitle && <p className={`${LEAD} max-w-[1100px] ${light ? "text-white/85!" : ""}`}>{subtitle}</p>}
+    <div className={`flex flex-col gap-[16px] ${align === "center" ? "items-center text-center mx-auto" : "items-start text-left"} max-w-[1300px]`}>
+      <RichTitle text={title} className={`${H2} ${light ? "text-white!" : ""}`} breakBeforeAccent={align === "left"} />
+      {subtitle && <p className={`${LEAD} lg:text-[18px]! lg:leading-[28px]! max-w-[1100px] ${light ? "text-white/85!" : ""}`}>{subtitle}</p>}
     </div>
   );
 }
@@ -52,10 +52,10 @@ function IconTile({ name, badge, size = 90 }: { name?: keyof typeof ILLUSTRATION
   );
 }
 
-function Wrap({ id, tone = "white", children, className = "" }: { id?: string; tone?: "white" | "soft"; children: React.ReactNode; className?: string }) {
+function Wrap({ id, tone = "white", children, className = "", width = "1600" }: { id?: string; tone?: "white" | "soft"; children: React.ReactNode; className?: string; width?: "1600" | "1800" }) {
   return (
-    <section id={id} className={`w-full scroll-mt-[110px] py-[60px] lg:py-[100px] ${tone === "soft" ? "bg-[#F0F5FE]" : "bg-white"} ${className}`}>
-      <Container maxWidth="1600">{children}</Container>
+    <section id={id} className={`w-full scroll-mt-[110px] ${tone === "soft" ? "bg-[#F0F5FE] py-[60px] lg:py-[100px]" : "bg-white py-[40px] lg:py-[80px]"} ${className}`}>
+      <Container maxWidth={width}>{children}</Container>
     </section>
   );
 }
@@ -120,13 +120,15 @@ function CardsSection({ s }: { s: Extract<Section, { type: "cards" }> }) {
   const cols = s.cols ?? 3;
   const grid = cols === 4 ? "sm:grid-cols-2 xl:grid-cols-4" : cols === 2 ? "md:grid-cols-2" : "md:grid-cols-2 xl:grid-cols-3";
   const left = s.align === "left";
+  // Figma icon cards (no photos, 4-up) are 430px wide on an 1800px row (space-between)
+  const wide = cols === 4 && !s.items.some((i) => i.image);
   return (
-    <Wrap id={s.id} tone={s.tone}>
+    <Wrap id={s.id} tone={s.tone} width={wide ? "1800" : "1600"}>
       <div className="flex flex-col gap-[48px]">
         <Reveal>
           <Heading title={s.title} subtitle={s.subtitle} align={left ? "left" : "center"} />
         </Reveal>
-        <div className={`grid grid-cols-1 ${grid} gap-[20px] lg:gap-[24px]`}>
+        <div className={wide ? "grid grid-cols-1 sm:grid-cols-2 xl:[grid-template-columns:repeat(4,minmax(0,430px))] xl:justify-between gap-[20px] xl:gap-[26.67px]" : `grid grid-cols-1 ${grid} gap-[20px] lg:gap-[24px]`}>
           {s.items.map((item, i) => (
             <Reveal key={item.title} delay={(i % 4) * 0.07} className="h-full">
               {item.image ? (
@@ -155,12 +157,12 @@ function CardsSection({ s }: { s: Extract<Section, { type: "cards" }> }) {
                   </div>
                 </article>
               ) : (
-                <article className="card-lift group flex h-full flex-col gap-[20px] bg-[#EFF0F6] p-[28px] lg:p-[40px]">
-                  <div className="flex flex-col items-start gap-[24px]">
+                <article className="card-lift group flex h-full flex-col gap-[10px] bg-[#EFF0F6] p-[28px] lg:px-[40px] lg:py-[50px]">
+                  <div className="flex flex-col items-start gap-[30px]">
                     <IconTile name={item.icon} badge={item.badge} />
-                    <h3 className="m-0 font-archivo text-[20px] lg:text-[24px] leading-[30px] font-normal text-[#333333]">{item.title}</h3>
+                    <h3 className="m-0 font-archivo text-[20px] lg:text-[24px] leading-[32px] font-normal text-[#333333]">{item.title}</h3>
                   </div>
-                  <p className="m-0 font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666]">{item.desc}</p>
+                  <p className="m-0 font-archivo text-[16px] lg:text-[18px] leading-[28px] text-[#666666]">{item.desc}</p>
                   {item.href && (
                     <Link href={item.href} className="inline-flex items-center gap-[8px] mt-auto font-archivo text-[15px] text-primary hover:gap-[14px] transition-all">
                       {item.linkLabel ?? "Learn more"} <span aria-hidden="true">→</span>
@@ -178,6 +180,9 @@ function CardsSection({ s }: { s: Extract<Section, { type: "cards" }> }) {
 
 function TableSection({ s }: { s: Extract<Section, { type: "table" }> }) {
   const plain = s.variant === "plain";
+  // Figma plain table (rooftop-solar): 26px cell padding, 46px column gaps, columns 292.67 / 311 / 245 / 246 / rest of 1600px (as %, so it scales).
+  const plainCols = s.head.length === 5 ? ["18.29%", "19.44%", "15.31%", "15.38%", undefined] : [];
+  const cellPad = (ci: number, last: boolean) => (ci === 0 ? "pl-[26px]" : "pl-[46px]") + (last ? " pr-[26px]" : " pr-0");
   return (
     <Wrap id={s.id}>
       <div className="flex flex-col gap-[40px]">
@@ -185,12 +190,19 @@ function TableSection({ s }: { s: Extract<Section, { type: "table" }> }) {
           <Heading title={s.title} subtitle={s.subtitle} />
         </Reveal>
         <Reveal>
-          <div className={`w-full overflow-x-auto ${plain ? "border border-[#E2E8F0]" : ""}`}>
-            <table className={`w-full min-w-[720px] border-collapse font-archivo ${plain ? "text-left" : "text-center"}`}>
+          <div className={`w-full overflow-x-auto ${plain ? "border border-[#DDDDDD]" : ""}`}>
+            <table className={`w-full ${plain ? "min-w-[900px] table-fixed" : "min-w-[720px]"} border-collapse font-archivo ${plain ? "text-left" : "text-center"}`}>
+              {plain && plainCols.length > 0 && (
+                <colgroup>
+                  {plainCols.map((w, i) => (
+                    <col key={i} style={w ? { width: w } : undefined} />
+                  ))}
+                </colgroup>
+              )}
               <thead>
-                <tr className={plain ? "bg-[#EFF0F6] text-primary" : "bg-primary text-white"}>
-                  {s.head.map((h) => (
-                    <th key={h} className={`px-[16px] py-[18px] text-[14px] lg:text-[15px] ${plain ? "font-normal uppercase tracking-wide" : "font-semibold lg:text-[17px]"}`}>
+                <tr className={plain ? "bg-[#EFF0F6] text-primary border-b border-[#DDE1F0]" : "bg-primary text-white"}>
+                  {s.head.map((h, ci) => (
+                    <th key={h} className={plain ? `${cellPad(ci, ci === s.head.length - 1)} py-[26px] text-[16px] lg:text-[18px] leading-[24px] font-medium uppercase` : "px-[16px] py-[18px] text-[14px] lg:text-[15px] font-semibold lg:text-[17px]"}>
                       {h}
                     </th>
                   ))}
@@ -198,9 +210,16 @@ function TableSection({ s }: { s: Extract<Section, { type: "table" }> }) {
               </thead>
               <tbody>
                 {s.rows.map((row, ri) => (
-                  <tr key={row[0]} className={`${plain ? "bg-white" : ri % 2 ? "bg-[#F0F5FE]" : "bg-white"} border-t border-[#E5E5E5] hover:bg-[#F0F5FE] transition-colors`}>
+                  <tr key={row[0]} className={`${plain ? "bg-white border-b border-[#DDE1F0] last:border-b-0" : `${ri % 2 ? "bg-[#F0F5FE]" : "bg-white"} border-t border-[#E5E5E5]`} hover:bg-[#F0F5FE] transition-colors`}>
                     {row.map((cell, ci) => (
-                      <td key={ci} className={`px-[16px] py-[20px] text-[14px] lg:text-[15px] ${plain ? (ci === 0 ? "text-primary font-medium" : "text-[#555555]") : ci === 1 ? "text-primary font-semibold lg:text-[17px]" : ci === 2 ? "text-[#10B981] font-medium lg:text-[17px]" : "text-[#555555] lg:text-[17px]"}`}>
+                      <td
+                        key={ci}
+                        className={
+                          plain
+                            ? `${cellPad(ci, ci === row.length - 1)} py-[26px] text-[15px] lg:text-[17px] leading-[26px] align-middle ${ci === 0 ? "text-primary font-medium" : ci === row.length - 1 ? "text-[#666666]" : "text-[#333333]"}`
+                            : `px-[16px] py-[20px] text-[14px] lg:text-[15px] ${ci === 1 ? "text-primary font-semibold lg:text-[17px]" : ci === 2 ? "text-[#10B981] font-medium lg:text-[17px]" : "text-[#555555] lg:text-[17px]"}`
+                        }
+                      >
                         {cell}
                       </td>
                     ))}
@@ -445,7 +464,7 @@ function EligibilitySection({ s }: { s: Extract<Section, { type: "eligibility" }
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-[24px] lg:gap-[26px] items-stretch">
         <Reveal className="h-full">
           <div className="flex h-full flex-col gap-[16px] bg-primary p-[24px] lg:p-[48px_48px]">
-            <h2 className="m-0 font-jost text-[32px] lg:text-[48px] leading-[1.15] font-normal text-white">{s.eligibleTitle.replace("?", "")}<span className="font-recia italic font-medium"> {s.eligibleTitle.includes("?") ? "?" : ""}</span></h2>
+            <RichTitle as="h2" text={s.eligibleTitle} className="m-0 font-archivo text-[32px] lg:text-[48px] leading-[1.15] font-normal text-white" />
             <p className="m-0 font-archivo text-[15px] lg:text-[17px] leading-[26px] text-white/85">{s.eligibleDesc}</p>
             <ul className="m-0 mt-[8px] p-0 list-none flex flex-col gap-[16px]">
               {s.eligible.map((e) => (
@@ -462,7 +481,7 @@ function EligibilitySection({ s }: { s: Extract<Section, { type: "eligibility" }
         </Reveal>
         <Reveal delay={0.1} className="h-full">
           <div className="flex h-full flex-col gap-[16px] p-[0px] lg:p-[0px_0px]">
-            <h2 className="m-0 font-jost text-[32px] lg:text-[48px] leading-[1.15] font-normal text-primary">{s.docsTitle}</h2>
+            <RichTitle as="h2" text={s.docsTitle} className="m-0 font-archivo text-[32px] lg:text-[48px] leading-[1.15] font-normal text-primary" />
             <p className="m-0 font-archivo text-[15px] leading-[22px] text-[#666666]">{s.docsDesc}</p>
             <ul className="m-0 mt-[8px] p-0 list-none grid grid-cols-1 sm:grid-cols-2 gap-[24px] flex-1">
               {s.docs.map((d) => (
@@ -565,7 +584,7 @@ function FormSection({ s }: { s: Extract<Section, { type: "form" }> }) {
         {s.office && (
           <Reveal delay={0.1} className="flex flex-col gap-[28px] xl:pt-[56px]">
             <div className="flex flex-col gap-[12px]">
-              <h2 className="m-0 font-jost text-[36px] lg:text-[52px] leading-[1.1] font-normal text-primary">{s.office.title}</h2>
+              <h2 className="m-0 font-archivo text-[36px] lg:text-[52px] leading-[1.1] font-normal text-primary">{s.office.title}</h2>
               <p className={LEAD}>{s.office.desc}</p>
             </div>
             <div className="flex flex-col gap-[16px]">
@@ -790,7 +809,7 @@ export function SectionRenderer({ section }: { section: Section }) {
         <Wrap id={section.id} tone={section.tone}>
           <div className="flex flex-col gap-[40px] lg:gap-[64px]">
             <Reveal>
-              <Heading title={section.title} font="archivo" />
+              <Heading title={section.title} />
             </Reveal>
             <Faq items={section.items} />
           </div>

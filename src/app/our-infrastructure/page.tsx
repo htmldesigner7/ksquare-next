@@ -156,7 +156,7 @@ export default function OurInfrastructurePage() {
             {/* Left: Text & Stats */}
             <div className="flex flex-col gap-[48px] w-full xl:flex-1 xl:min-w-0 xl:max-w-[750px]">
               <div className="flex flex-col gap-[14px]">
-                <h2 className="font-jost text-[36px] lg:text-[60px] leading-[1.15] text-[#333333] font-normal">
+                <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-[#333333] font-normal">
                   Inside Ksquare&apos;s<br />
                   <span className="font-recia italic font-medium">Manufacturing Facility</span>
                 </h2>
@@ -210,7 +210,7 @@ export default function OurInfrastructurePage() {
         <Container maxWidth="1600">
           <div className="flex flex-col items-stretch gap-[48px]">
             <div className="flex flex-col items-center text-center gap-[8px] w-full">
-              <h2 className="font-jost text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal w-full">
+              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal w-full">
                 Built Around <span className="font-recia italic font-medium">Manufacturing Excellence</span>
               </h2>
               <p className="font-archivo text-[17px] leading-[26px] text-[#666666] w-full">
@@ -264,7 +264,7 @@ export default function OurInfrastructurePage() {
 
           {/* Heading */}
           <div className="absolute left-[310px] top-[56px] w-[1300px] flex flex-col items-center gap-[24px] text-center">
-            <h2 className="font-jost text-[60px] leading-[66px] text-white font-normal">
+            <h2 className="font-archivo text-[60px] leading-[66px] text-white font-normal">
               Capabilities Built <span className="font-recia italic font-medium">Around Precision.</span>
             </h2>
             <p className="font-archivo text-[17px] leading-[26px] text-white">
@@ -294,7 +294,7 @@ export default function OurInfrastructurePage() {
           <Container maxWidth="1600">
             <div className="flex flex-col items-center gap-[60px]">
               <div className="flex flex-col items-center text-center gap-[14px] max-w-[900px]">
-                <h2 className="font-jost text-[32px] leading-[1.15] text-white font-normal">
+                <h2 className="font-archivo text-[32px] leading-[1.15] text-white font-normal">
                   Capabilities Built <span className="font-recia italic font-medium">Around Precision.</span>
                 </h2>
                 <p className="font-archivo text-[17px] leading-[26px] text-white">
@@ -327,7 +327,7 @@ export default function OurInfrastructurePage() {
         <div className="canvas-zoom hidden canvas:block relative w-[1600px] mx-auto h-[681px]">
           {/* Heading */}
           <div className="absolute left-0 right-0 top-[36px] flex justify-center">
-            <h2 className="font-jost text-[60px] leading-[70px] text-primary font-normal text-center">
+            <h2 className="font-archivo text-[60px] leading-[70px] text-primary font-normal text-center">
               From Production <span className="font-recia italic font-medium">to Quality Assurance.</span>
             </h2>
           </div>
@@ -382,7 +382,7 @@ export default function OurInfrastructurePage() {
         <div className="canvas:hidden">
           <Container maxWidth="1600">
             <div className="flex flex-col items-center gap-[60px]">
-              <h2 className="font-jost text-[32px] leading-[1.15] text-primary font-normal text-center">
+              <h2 className="font-archivo text-[32px] leading-[1.15] text-primary font-normal text-center">
                 From Production <span className="font-recia italic font-medium">to Quality Assurance.</span>
               </h2>
 

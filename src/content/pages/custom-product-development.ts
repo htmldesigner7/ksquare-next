@@ -32,7 +32,7 @@ export const page: PageData = {
     {
       type: "cards",
       cols: 4,
-      title: "Engineering Capability *Behind Every Custom Build*",
+      title: "Engineering Capability Behind *Every Custom Build*",
       subtitle: "Custom development becomes relevant when the electrical, mechanical, compliance or installation requirement falls outside an existing product configuration.",
       items: [
         { title: "In-House Design & Engineering Team", desc: "Electrical and mechanical engineers working under one roof with production.", icon: "cpu" },

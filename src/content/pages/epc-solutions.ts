@@ -40,7 +40,7 @@ export const page: PageData = {
     {
       type: "cards",
       cols: 4,
-      title: "Why Solar EPC Companies *Choose Ksquare*",
+      title: "Why Solar EPC Companies Choose *Ksquare*",
       subtitle:
         "When you're sourcing BOS components for active commercial or utility-scale projects, supplier delays or inconsistent quality directly impact your bottom line. We control the complete process, from structural raw material processing to final dispatch.",
       items: [
@@ -85,7 +85,7 @@ export const page: PageData = {
     },
     {
       type: "dark",
-      title: "Datasheets, Compliance & *BOM Support*",
+      title: "Datasheets, Compliance *& BOM Support*",
       desc: "Get the technical documents and engineering support you need to move your solar project forward, with access to detailed technical datasheets, drawings, specifications and ratings, and compliance certificates including ISO, CE and BIS.",
       bgImage: "/assets/img_partner_bg.png",
       ctas: [
@@ -96,7 +96,7 @@ export const page: PageData = {
     },
     {
       type: "tiers",
-      title: "Volume Pricing & *Dedicated Account Support*",
+      title: "Volume Pricing *& Dedicated Account Support*",
       subtitle: "Pick the tier that matches your project size. Every tier includes manufacturer-direct pricing and engineering support.",
       items: [
         {

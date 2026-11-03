@@ -30,7 +30,7 @@ export const page: PageData = {
     {
       type: "cards",
       cols: 4,
-      title: "Why Partner With Ksquare *for OEM Manufacturing*",
+      title: "Why Partner With Ksquare for *OEM Manufacturing*",
       items: [
         { title: "Manufacturer-Direct Pricing", desc: "Work directly with the factory, with no trading layers between your brand and the product.", icon: "rupee" },
         { title: "Certifications Transferable", desc: "Products are built in an ISO / CE / BIS / RoHS compliant facility, supporting your brand's own approvals.", icon: "badge" },
@@ -83,7 +83,7 @@ export const page: PageData = {
     {
       type: "split",
       reverse: true,
-      title: "Built for Brands *Without Their Own Manufacturing*",
+      title: "Built for Brands Without *Their Own Manufacturing*",
       paras: ["OEM manufacturing lets you bring a solar BOS line to market without investing in a factory of your own."],
       bullets: ["Solar Brands & Distributors", "Import Partners", "EPC Companies", "New Market Entrants"],
       image: `${IMG}/brands.webp`,
@@ -104,7 +104,7 @@ export const page: PageData = {
     },
     {
       type: "dark",
-      title: "Order Volumes & *Timelines*",
+      title: "Order Volumes *& Timelines*",
       desc: "Minimum order quantities and lead times vary by product category and level of customisation. Share your requirement and our team will confirm exact figures for your project.",
       bgImage: "/assets/img_partner_bg.png",
       ctas: [{ label: "Enquire about MOQs", href: ROUTES.contact }],

@@ -79,9 +79,13 @@ export default function AboutUsPage() {
           </div>
         </div>
 
-        <div className="w-full max-w-[1804px] mx-auto px-4 lg:px-8 g1868:px-0 mt-[40px]">
+        <div className="w-full max-w-[1804px] mx-auto px-4 lg:px-8 g1868:px-0 mt-[40px] lg:mt-[174px]">
           <div className="relative w-full aspect-[1804/500]">
             <Image src="/assets/about/hero_bg-23383c.png" alt="Hero Graphic" fill sizes="1804px" className="object-cover" priority />
+            {/* Figma cutout layer: the engineer rises 163px above the banner (1804x663, ends at the banner bottom) */}
+            <div className="hidden lg:block absolute left-0 w-full pointer-events-none" style={{ top: "-32.6%", height: "132.6%" }}>
+              <Image src="/assets/about/hero_cutout.webp" alt="" fill sizes="1804px" className="object-contain object-bottom" priority />
+            </div>
           </div>
         </div>
       </section>

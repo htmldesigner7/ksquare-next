@@ -37,7 +37,7 @@ export const page: PageData = {
     {
       type: "cards",
       cols: 3,
-      title: "What *Applies to You*",
+      title: "What Applies *to You*",
       items: [
         { title: "Residential Solar", desc: "Central and state support for home rooftop systems, with documentation and portal registration handled for you.", image: `${SCALE}/scale_home.webp`, href: ROUTES.residential, linkLabel: "Explore Residential Solar" },
         { title: "Commercial Solar", desc: "Depreciation benefits and state incentives that shorten payback for offices, hospitals, hotels and retail.", image: `${SCALE}/scale_commercial.webp`, href: ROUTES.rooftop, linkLabel: "Explore Commercial Solar" },
@@ -46,7 +46,7 @@ export const page: PageData = {
     },
     {
       type: "split",
-      title: "What's Included in Our *Subsidy Assistance*",
+      title: "What's Included in *Our Subsidy Assistance*",
       paras: [
         "Ksquare Energy operates as a fully integrated EPC. We don't just supply systems — we coordinate every structural and administrative step required to safely disburse government incentives to your account.",
       ],
@@ -74,7 +74,7 @@ export const page: PageData = {
     },
     {
       type: "steps",
-      title: "Our Subsidy *Assistance Process*",
+      title: "Our Subsidy Assistance *Process*",
       subtitle: "A clear five-step process from checking eligibility to following up on disbursement.",
       items: [
         { title: "Eligibility Assessment", desc: "We check which central and state schemes your project qualifies for.", icon: "search" },

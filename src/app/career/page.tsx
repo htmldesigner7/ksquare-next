@@ -144,7 +144,7 @@ export default function CareerPage() {
             {/* Left: Text & Stats */}
             <div className="flex flex-col gap-[48px] w-full xl:flex-1 xl:min-w-0 xl:max-w-[750px]">
               <div className="flex flex-col gap-[14px]">
-                <h2 className="font-jost text-[36px] lg:text-[60px] leading-[1.15] text-[#333333] font-normal">
+                <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-[#333333] font-normal">
                   More Than a Job.<br />
                   <span className="font-recia italic font-medium">A Place to Grow.</span>
                 </h2>
@@ -198,7 +198,7 @@ export default function CareerPage() {
         <Container maxWidth="1600">
           <div className="flex flex-col items-center gap-[40px]">
             <div className="flex flex-col items-center text-center gap-[8px] max-w-[900px]">
-              <h2 className="font-jost text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal">
+              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal">
                 Life at <span className="font-recia italic font-medium">Ksquare.</span>
               </h2>
               <p className="font-archivo text-[17px] leading-[26px] text-[#666666] max-w-[720px]">
@@ -219,7 +219,7 @@ export default function CareerPage() {
           <div className="flex flex-col items-center gap-[40px]">
             {/* Header */}
             <div className="flex flex-col items-center text-center gap-[14px] max-w-[900px]">
-              <h2 className="font-jost text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal">
+              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal">
                 Explore Career <span className="font-recia italic font-medium">Opportunities</span>
               </h2>
               <p className="font-archivo text-[17px] leading-[26px] text-[#666666] max-w-[720px]">
@@ -239,7 +239,7 @@ export default function CareerPage() {
         <Container maxWidth="1600">
           <div className="flex flex-col items-stretch gap-[48px]">
             <div className="flex flex-col items-center text-center gap-[8px] max-w-[900px] mx-auto">
-              <h2 className="font-jost text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal">
+              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal">
                 Find Where <span className="font-recia italic font-medium">You Belong.</span>
               </h2>
               <p className="font-archivo text-[17px] leading-[26px] text-[#666666] max-w-[720px]">

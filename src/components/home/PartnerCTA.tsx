@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import RichTitle from "@/components/common/RichTitle";
 import Link from "next/link";
 
 export default function PartnerCTA() {
@@ -25,9 +26,7 @@ export default function PartnerCTA() {
           
           {/* Header Container (Frame 23) */}
           <div className="absolute left-0 top-0 w-[1120px] h-[107px] text-center">
-            <h2 className="absolute left-0 top-0 w-[1120px] font-jost font-normal text-[60px] text-[#FFFFFF] leading-none m-0 p-0 text-center">
-              Become a Ksquare Distribution Partner
-            </h2>
+            <RichTitle as="h2" text="Become a Ksquare *Distribution Partner*" className="absolute left-0 top-[7px] w-[1120px] font-archivo font-normal text-[60px] text-[#FFFFFF] leading-none m-0 p-0 text-center" />
             <p className="absolute left-0 top-[81px] w-[1120px] font-archivo font-normal text-[17px] text-[#FFFFFF] m-0 p-0 text-center">
               Regional stocking programs, dealer pricing tiers and dedicated account support.
             </p>
@@ -49,9 +48,7 @@ export default function PartnerCTA() {
         {/* Responsive layout (< 1280px) */}
         <div className="canvas:hidden relative z-10 flex flex-col items-center text-center gap-8 px-6">
           <div className="flex flex-col gap-4">
-            <h2 className="font-jost font-normal text-[40px] sm:text-[50px] md:text-[60px] text-[#FFFFFF] leading-[1.1] m-0 p-0">
-              Become a Ksquare Distribution Partner
-            </h2>
+            <RichTitle as="h2" text="Become a Ksquare *Distribution Partner*" className="font-archivo font-normal text-[40px] sm:text-[50px] md:text-[60px] text-[#FFFFFF] leading-[1.1] m-0 p-0" />
             <p className="font-archivo font-normal text-[16px] md:text-[17px] text-[#FFFFFF] m-0 p-0">
               Regional stocking programs, dealer pricing tiers and dedicated account support.
             </p>

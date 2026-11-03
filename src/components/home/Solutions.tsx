@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import RichTitle from "@/components/common/RichTitle";
 
 const solutions = [
   {
@@ -34,45 +35,45 @@ export default function Solutions() {
     <section className="relative w-full bg-[#FFFFFF] overflow-hidden">
       
       {/* Desktop Wrapper */}
-      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative canvas:pb-[60px] max-canvas:h-auto max-canvas:px-6 max-canvas:py-12">
+      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative max-canvas:h-auto max-canvas:px-6 max-canvas:py-12">
         
-        {/* Desktop Layout (Frame 2147224485) */}
-        <div className="hidden canvas:block relative ml-[160px] w-[1600px] pt-[159px]">
-          
-          {/* Header (Frame 23) */}
-          <div className="absolute left-0 top-0 w-[1600px] h-[112px]">
-            <h2 className="absolute left-0 top-0 w-[1600px] h-[78px] font-jost font-normal text-[60px] text-[#2B398B] leading-none m-0 p-0 flex items-center justify-center text-center">
-              End-to-End Solar Solutions
-            </h2>
-            <p className="absolute left-0 top-[86px] w-[1600px] h-[26px] font-archivo font-normal text-[17px] text-[#666666] leading-none m-0 p-0 flex items-center justify-center text-center">
+        {/* Desktop Layout (Figma 106:352: 1600 wide, 48px gap, header 111.53, content block 550) */}
+        <div className="hidden canvas:flex flex-col gap-[48px] ml-[160px] w-[1600px]">
+
+          {/* Header */}
+          <div className="flex flex-col items-center gap-[8px] h-[111.53px]">
+            <RichTitle
+              as="h2"
+              text="End-to-End Solar *Solutions*"
+              className="m-0 w-full h-[77.53px] font-archivo font-normal text-[60px] leading-[77.53px] text-[#2B398B] text-center relative top-[0.193em]"
+              accentClassName="text-[#2B398B]"
+            />
+            <p className="m-0 w-full font-archivo font-normal text-[17px] leading-[26px] text-[#666666] text-center">
               Alongside our manufacturing business, Ksquare delivers turnkey rooftop solar for homes and businesses with subsidy assistance and long-term monitoring.
             </p>
           </div>
 
-          {/* Content (Frame 2147224484) */}
-          <div className="relative w-[1600px] min-h-[550px]">
-            
+          {/* Content Block */}
+          <div className="flex gap-[50px] items-start">
+
             {/* Left Accordion (Interactive Desktop) */}
-            <div className="relative w-[800px] min-h-[550px] flex flex-col">
+            <div className="flex flex-col items-center gap-[40px] w-[800px] shrink-0">
               {solutions.map((item, idx) => {
                 const isActive = activeIdx === idx;
                 return (
-                  <div 
-                    key={idx}
-                    className={`flex flex-col w-[800px] cursor-pointer group ${
-                      idx === 0 ? 'pt-0 pb-[40px]' : idx === solutions.length - 1 ? 'pt-[40px] pb-0' : 'py-[40px]'
-                    } ${idx !== solutions.length - 1 ? 'border-b border-[#D9D9D9]' : ''}`}
-                    onClick={() => setActiveIdx(idx)}
-                  >
-                    <div className="flex w-[739px] ml-[31px] items-start">
-                      {/* Icon */}
+                  <React.Fragment key={idx}>
+                    <div
+                      className="flex w-[739px] gap-[24px] cursor-pointer group"
+                      onClick={() => setActiveIdx(idx)}
+                    >
+                      {/* Number */}
                       <div className="w-[48px] h-[48px] flex items-center justify-center rounded-[5px] shrink-0 bg-[#EDF3FF]">
-                        <span className="font-archivo font-normal text-[17px] text-[#333333]">{idx + 1}</span>
+                        <span className="font-archivo font-normal text-[17px] leading-[26px] text-[#333333]">{idx + 1}</span>
                       </div>
-                      
+
                       {/* Content */}
-                      <div className={`ml-[24px] flex-1 flex flex-col ${isActive ? 'mt-0' : 'mt-[8px]'}`}>
-                        <div className="flex items-center justify-between h-[32px]">
+                      <div className={`flex-1 flex flex-col ${isActive ? 'mt-0' : 'mt-[8px]'}`}>
+                        <div className="flex items-start justify-between h-[32px]">
                           <h3 className={`font-archivo text-[24px] leading-[32px] m-0 p-0 ${isActive ? 'text-[#2B398B] font-semibold' : 'text-[#333333] font-normal'}`}>
                             {item.title}
                           </h3>
@@ -80,36 +81,42 @@ export default function Solutions() {
                             {isActive ? '-' : '+'}
                           </span>
                         </div>
-                        
+
                         <div className={`grid transition-all duration-500 ease-in-out ${isActive ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
                           <div className="overflow-hidden">
                             <p className="mt-[16px] w-[667px] font-archivo font-normal text-[17px] text-[#666666] leading-[26px] m-0 p-0">
                               {item.desc}
                             </p>
-                            <Link 
+                            <Link
                               href={item.link}
                               className="mt-[16px] relative block w-[156px] h-[50px] border border-[#2B398B] group/btn hover:bg-[#2B398B] transition-colors"
                             >
-                              <span className="absolute left-[16px] top-[12px] w-[100px] h-[26px] font-archivo font-normal text-[17px] text-[#2B398B] group-hover/btn:text-white transition-colors flex items-center">
+                              <span className="absolute left-[15px] top-[11px] w-[100px] h-[26px] font-archivo font-normal text-[17px] leading-[26px] text-[#2B398B] group-hover/btn:text-white transition-colors flex items-center">
                                 Read More
                               </span>
-                              <span className="absolute left-[132px] top-[21px] w-[8px] h-[8px] rounded-full bg-[#2B398B] group-hover/btn:bg-white transition-colors"></span>
+                              <span className="absolute left-[131px] top-[20px] w-[8px] h-[8px] rounded-full bg-[#2B398B] group-hover/btn:bg-white transition-colors"></span>
                             </Link>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                    {idx < solutions.length - 1 && (
+                      <div aria-hidden="true" className="relative h-0 w-full">
+                        <span className="absolute left-0 top-[-0.5px] h-px w-full bg-[#DDDDDD]" />
+                      </div>
+                    )}
+                  </React.Fragment>
                 );
               })}
             </div>
 
-            {/* Right Image (Rectangle 170) */}
-            <div className="absolute left-[850px] top-0 bottom-0 w-[750px] min-h-[550px]">
-              <Image 
-                src="/assets/img_solutions.png" 
-                alt="Solar Solutions" 
-                fill 
+            {/* Right Image (Figma 106:391, 750x550 cover) */}
+            <div className="relative w-[750px] h-[550px] shrink-0">
+              <Image
+                src="/assets/home/solutions.webp"
+                alt="Solar Solutions"
+                fill
+                sizes="750px"
                 className="object-cover"
               />
             </div>
@@ -119,9 +126,7 @@ export default function Solutions() {
         {/* Responsive layout (< 1280px) */}
         <div className="canvas:hidden flex flex-col gap-12 w-full max-w-[1200px] mx-auto">
           <div className="flex flex-col gap-4 text-center sm:text-left">
-            <h2 className="font-jost font-normal text-[48px] sm:text-[60px] text-[#2B398B] leading-none m-0 p-0 text-center">
-              End-to-End Solar Solutions
-            </h2>
+            <RichTitle as="h2" text="End-to-End Solar *Solutions*" accentClassName="text-[#2B398B]" className="font-archivo font-normal text-[40px] sm:text-[60px] text-[#2B398B] leading-[1.29] m-0 p-0 text-center" />
             <p className="font-archivo font-normal text-[17px] text-[#666666] leading-relaxed m-0 p-0 text-center">
               Alongside our manufacturing business, Ksquare delivers turnkey rooftop solar for homes and businesses with subsidy assistance and long-term monitoring.
             </p>
@@ -180,7 +185,7 @@ export default function Solutions() {
             
             <div className="w-full lg:w-[45%] aspect-video sm:aspect-[4/3] lg:aspect-auto lg:h-[550px] relative overflow-hidden shrink-0">
               <Image 
-                src="/assets/img_solutions.png" 
+                src="/assets/home/solutions.webp" 
                 alt="Solar Solutions" 
                 fill 
                 className="object-cover"

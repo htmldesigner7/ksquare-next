@@ -16,7 +16,7 @@ export const page: PageData = {
       { label: "Business Solution" },
       { label: "Export Solutions" },
     ],
-    title: "Solar Component Export Solutions *Across India*",
+    title: "Solar Component Export *Solutions Across India*",
     description: "Certified, export-ready BOS components manufactured in Ahmedabad and shipped to distributor partners worldwide.",
     ctas: [
       { label: "Become an Export Partner", href: ROUTES.exportBusiness },
@@ -30,7 +30,7 @@ export const page: PageData = {
     {
       type: "cards",
       cols: 4,
-      title: "Why Solar Partners *Source From Ksquare*",
+      title: "Why Solar Partners Source *From Ksquare*",
       subtitle:
         "Sourcing solar components from India means weighing certification, consistency, and reliability against cost advantage. Ksquare manufactures every component in-house, to internationally recognised certification standards, at India-manufacturing economics.",
       items: [
@@ -44,7 +44,7 @@ export const page: PageData = {
       type: "cards",
       cols: 4,
       fit: "contain",
-      title: "Solar BOS Components *Ready for Export*",
+      title: "Solar BOS Components Ready *for Export*",
       subtitle: "A complete range of certified balance-of-system components, packed and documented for international shipment.",
       items: [
         { title: "Solar DCDB", desc: "DC distribution boxes for string-level protection and isolation.", image: `${PRODUCTS}/p_dcdb.webp` },
@@ -108,7 +108,7 @@ export const page: PageData = {
     },
     {
       type: "split",
-      title: "Partner With Us *as a Regional Distributor*",
+      title: "Partner With Us as a *Regional Distributor*",
       paras: [
         "Ksquare is expanding its regional distributor network alongside its export program, offering long-term opportunities for businesses to represent our products in their markets. Partners benefit from regional stocking privileges, co-branded marketing support and direct access to our engineering team.",
       ],

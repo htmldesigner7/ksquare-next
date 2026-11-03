@@ -151,7 +151,7 @@ export default function BlogPage() {
                       <span className="w-px h-[16px] bg-[#333333]" />
                       <span className="font-archivo text-[17px] text-[#333333]">{post.date}</span>
                     </div>
-                    <Button variant="outline-primary" href={`/blog/${post.slug}`} showDot className="!px-[16px] !py-[12px] shrink-0">
+                    <Button variant="outline-primary" href={`/blog/${post.slug}`} showDot className="shrink-0">
                       Read More
                     </Button>
                   </div>
@@ -161,7 +161,7 @@ export default function BlogPage() {
           </div>
 
           {/* Pagination */}
-          <div className="pagination-row flex items-center justify-center gap-[8px] mt-[60px]">
+          <div className="pagination-row flex flex-wrap items-center justify-center gap-[8px] mt-[60px]">
             <button
               type="button"
               aria-label="Previous page"

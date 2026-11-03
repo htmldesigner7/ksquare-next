@@ -23,7 +23,7 @@ export const page: PageData = {
   sections: [
     {
       type: "split",
-      title: "Partnership vs. *a One-Time OEM Order*",
+      title: "Partnership vs. a *One-Time OEM Order*",
       paras: [
         "Looking for more than a one-time OEM order? Our strategic manufacturing partnerships are designed for businesses seeking a long-term relationship with dedicated production capacity, preferential pricing and ongoing engineering support.",
         "If you only need a single order, our OEM Solutions service covers it. A partnership is for brands that plan to grow with us.",
@@ -35,7 +35,7 @@ export const page: PageData = {
     {
       type: "cards",
       cols: 3,
-      title: "What's Included in *an OEM Partnership*",
+      title: "What's Included in an *OEM Partnership*",
       items: [
         { title: "Dedicated Production Allocation", desc: "Reserved capacity on our production lines for your programme.", icon: "factory" },
         { title: "Preferential Pricing Tiers", desc: "Volume-based pricing that improves as your programme grows.", icon: "rupee" },
@@ -70,7 +70,7 @@ export const page: PageData = {
     {
       type: "cards",
       cols: 3,
-      title: "Who This Partnership *Is For*",
+      title: "Who This *Partnership Is For*",
       items: [
         { title: "Solar Brands Scaling Their Product Line", desc: "Brands that want dependable manufacturing capacity as they grow.", icon: "sun" },
         { title: "Distributors Wanting an Exclusive Line", desc: "Distributors building a differentiated, branded product range.", icon: "truck" },
@@ -79,7 +79,7 @@ export const page: PageData = {
     },
     {
       type: "accordion",
-      title: "Why Partner *With Ksquare*",
+      title: "Why Partner With *Ksquare*",
       subtitle: "A manufacturing partner you can build a brand on.",
       items: [
         { title: "100% In-House Fabrication", desc: "Fabrication, assembly and testing in our own facility for consistent quality and delivery." },

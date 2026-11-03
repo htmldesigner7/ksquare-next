@@ -52,7 +52,7 @@ export const page: PageData = {
     },
     {
       type: "accordion",
-      title: "What You Can *Brand*",
+      title: "What You *Can Brand*",
       subtitle: "Every customer-facing touchpoint carries your identity, not ours.",
       items: [
         { title: "Logo & Nameplate", desc: "Your brand mark replaces ours on the product enclosure, silk-screening and laser-engraved spec plate." },
@@ -66,7 +66,7 @@ export const page: PageData = {
     {
       type: "accordion",
       reverse: true,
-      title: "Why Partner *With Ksquare*",
+      title: "Why Partner With *Ksquare*",
       items: [
         { title: "100% In-House Fabrication", desc: "Sheet metal, powder coating, wiring and assembly happen in our own facility, so quality and timelines stay in our control." },
         { title: "Certifications Transfer", desc: "Your products are built to the same certified standard as Ksquare's own range." },
@@ -89,7 +89,7 @@ export const page: PageData = {
     },
     {
       type: "steps",
-      title: "From Brand Brief *to Branded Dispatch*",
+      title: "From Brand Brief to *Branded Dispatch*",
       items: [
         { title: "Brand & Spec Discussion", desc: "Share your brand assets, product list and specifications.", icon: "clipboard" },
         { title: "Branded Sample", desc: "We produce a branded sample for your review.", icon: "package" },
@@ -100,7 +100,7 @@ export const page: PageData = {
     },
     {
       type: "dark",
-      title: "Order Volumes & *Timelines*",
+      title: "Order Volumes *& Timelines*",
       desc: "Every private-label programme is different. There is no single MOQ or production timeline across the complete private-label range. Requirements are determined by the selected products, level of customisation and your market.",
       bgImage: "/assets/img_partner_bg.png",
       ctas: [{ label: "Discuss Your Requirements", href: ROUTES.contact }],

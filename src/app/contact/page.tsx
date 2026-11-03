@@ -216,7 +216,7 @@ export default function ContactPage() {
           <div className="flex flex-col items-center gap-[40px] w-full">
             {/* Header */}
             <div className="flex flex-col items-center gap-[14px] text-center max-w-[1368px]">
-              <h2 className="font-jost text-[40px] md:text-[60px] leading-[1.1] text-primary font-normal">
+              <h2 className="font-archivo text-[40px] md:text-[60px] leading-[1.1] text-primary font-normal">
                 Our <span className="font-recia italic font-medium">Presence</span>
               </h2>
               <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666] text-center">
@@ -261,7 +261,7 @@ export default function ContactPage() {
                     Click on the location or  use the map to get directions to our campus
                   </p>
                 </div>
-                <Button variant="outline-primary" href="#" showDot className="!px-[16px] !py-[12px] w-fit">
+                <Button variant="outline-primary" href="#" showDot className="w-fit">
                   View On Larger Map
                 </Button>
               </div>

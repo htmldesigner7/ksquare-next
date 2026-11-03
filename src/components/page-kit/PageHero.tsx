@@ -14,36 +14,42 @@ const Chevron = () => (
 );
 
 export default function PageHero({ hero }: { hero: HeroData }) {
+  const crumbNav = (
+        <nav aria-label="Breadcrumb" className="flex items-center gap-[10px] flex-wrap">
+          {hero.crumbs.map((crumb, i) => {
+            const last = i === hero.crumbs.length - 1;
+            return (
+              <React.Fragment key={crumb.label}>
+                {crumb.href && !last ? (
+                  <Link href={crumb.href} className="font-archivo text-[15px] lg:text-[20px] text-[#333333] hover:text-primary leading-[28px] transition-colors">
+                    {crumb.label}
+                  </Link>
+                ) : (
+                  <span aria-current={last ? "page" : undefined} className={last ? "font-archivo text-[15px] lg:text-[20px] text-primary leading-[26px]" : "font-archivo text-[15px] lg:text-[20px] text-[#333333] leading-[28px]"}>
+                    {crumb.label}
+                  </span>
+                )}
+                {!last && <Chevron />}
+              </React.Fragment>
+            );
+          })}
+        </nav>
+  );
+
   return (
     <section className="w-full pt-[90px] lg:pt-[130px] flex flex-col items-center">
       <Container maxWidth="1800" className="relative z-10">
-        <div className="flex flex-col lg:flex-row justify-between lg:items-end gap-[32px] lg:gap-[40px] w-full pt-[24px] lg:pt-0">
+        {/* Single-line Figma variant: breadcrumb is its own row above the title + intro row */}
+        {hero.singleLine && <div className="mb-[14px]">{crumbNav}</div>}
+        <div className={`flex flex-col lg:flex-row justify-between ${hero.singleLine ? "lg:items-start" : "lg:items-end"} gap-[32px] lg:gap-[40px] w-full pt-[24px] lg:pt-0`}>
           {/* Left: breadcrumb + title (Figma title block is 179px tall even for one/two lines) */}
-          <div className="flex flex-col gap-[14px] w-full lg:flex-1 lg:min-w-0 lg:max-w-[792px]">
-            <nav aria-label="Breadcrumb" className="flex items-center gap-[10px] flex-wrap">
-              {hero.crumbs.map((crumb, i) => {
-                const last = i === hero.crumbs.length - 1;
-                return (
-                  <React.Fragment key={crumb.label}>
-                    {crumb.href && !last ? (
-                      <Link href={crumb.href} className="font-archivo text-[15px] lg:text-[20px] text-[#333333] hover:text-primary leading-[28px] transition-colors">
-                        {crumb.label}
-                      </Link>
-                    ) : (
-                      <span aria-current={last ? "page" : undefined} className={last ? "font-archivo text-[15px] lg:text-[20px] text-primary leading-[26px]" : "font-archivo text-[15px] lg:text-[20px] text-[#333333] leading-[28px]"}>
-                        {crumb.label}
-                      </span>
-                    )}
-                    {!last && <Chevron />}
-                  </React.Fragment>
-                );
-              })}
-            </nav>
-            <div className="lg:min-h-[179px]">
+          <div className={`flex flex-col ${hero.singleLine ? "gap-[14px]" : "gap-[12px]"} w-full lg:flex-1 lg:min-w-0 lg:max-w-[792px]`}>
+            {!hero.singleLine && crumbNav}
+            <div className={hero.singleLine ? "" : "lg:min-h-[179px]"}>
               <RichTitle
                 as="h1"
                 text={hero.title}
-                className="font-jost text-[38px] sm:text-[48px] lg:text-[52px] xl:text-[60px] w1536:text-[68px] leading-[1.15] w1536:leading-[78px] text-primary font-normal"
+                className="font-recia text-[38px] sm:text-[48px] lg:text-[52px] xl:text-[60px] w1536:text-[68px] leading-[1.15] w1536:leading-[78px] text-primary font-normal"
                 accentClassName="font-semibold"
                 breakBeforeAccent={!hero.singleLine}
               />
@@ -68,7 +74,7 @@ export default function PageHero({ hero }: { hero: HeroData }) {
 
       <Container
         maxWidth="1800"
-        className={`relative z-0 mt-[40px] ${hero.cutout ? "lg:mt-[181px]" : "lg:mt-[80px]"}`}
+        className={`relative z-0 mt-[40px] ${hero.cutout ? (hero.singleLine ? "lg:mt-[217px]" : "lg:mt-[181px]") : "lg:mt-[80px]"}`}
       >
         <Reveal y={20}>
           <div className="group w-full relative aspect-[4/3] sm:aspect-[16/9] lg:aspect-[1804/500]">

@@ -270,7 +270,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
               </div>
               <div className="relative z-10 flex flex-col gap-[33px] p-[24px] lg:p-[33px]">
                 <div className="flex flex-col gap-[4px] max-w-[560px]">
-                  <h2 className="font-jost text-[24px] lg:text-[28px] leading-[1.15] text-white font-normal">
+                  <h2 className="font-archivo text-[24px] lg:text-[28px] leading-[1.15] text-white font-normal">
                     Get bulk pricing on <span className="font-recia italic font-medium">Solar BOS Components</span>
                   </h2>
                   <p className="font-archivo text-[13px] leading-[1.4] text-[#EDF3FF]">

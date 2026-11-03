@@ -68,7 +68,7 @@ export default function DcdbProductListing() {
 
         {/* Title Group */}
         <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-[40px] lg:gap-[80px]">
-          <h1 className="font-jost text-[50px] lg:text-[68px] leading-[60px] lg:leading-[78px] text-primary font-normal">
+          <h1 className="font-archivo text-[50px] lg:text-[68px] leading-[60px] lg:leading-[78px] text-primary font-normal">
             DC Distribution Boxes <br className="hidden lg:block" />
             <span className="font-recia italic font-bold">Engineered to Protect .</span>
           </h1>
@@ -106,7 +106,7 @@ export default function DcdbProductListing() {
         <div className="flex flex-col gap-[48px]">
           {/* Title Section */}
           <div className="flex flex-col gap-[8px] items-center text-center">
-            <h2 className="font-jost text-[60px] leading-[71px] text-primary font-normal">
+            <h2 className="font-archivo text-[60px] leading-[71px] text-primary font-normal">
               DCDB Core <span className="font-recia italic">Products</span>
             </h2>
             <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">
@@ -167,7 +167,7 @@ export default function DcdbProductListing() {
         {/* Mobile / Tablet Fallback Layout */}
         <div className="canvas:hidden flex flex-col gap-[40px]">
           <div className="flex flex-col gap-[8px] text-center items-center mb-[20px]">
-            <h2 className="font-jost text-[40px] leading-[48px] text-primary font-normal">
+            <h2 className="font-archivo text-[40px] leading-[48px] text-primary font-normal">
               DCDB Configuration
             </h2>
             <p className="font-archivo text-[16px] leading-[24px] text-[#666666]">
@@ -202,7 +202,7 @@ export default function DcdbProductListing() {
         <div className="hidden canvas:flex flex-col items-center mt-[100px]">
           {/* Section Title */}
           <div className="flex flex-col items-center text-center w-full">
-            <h2 className="font-jost text-[60px] leading-[57px] text-primary font-normal mb-[8px]">
+            <h2 className="font-archivo text-[60px] leading-[57px] text-primary font-normal mb-[8px]">
               DCDB Configuration
             </h2>
             <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">

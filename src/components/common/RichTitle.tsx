@@ -18,7 +18,7 @@ export default function RichTitle({ text, as: Tag = "h2", className, accentClass
     <Tag className={className}>
       {parts.map((part, i) =>
         part.startsWith("*") ? (
-          <React.Fragment key={i}>{breakBeforeAccent && i > 0 && <br />}<span className={clsx("font-recia italic font-medium", accentClassName)}>
+          <React.Fragment key={i}>{breakBeforeAccent && i > 0 && <br />}<span className={clsx("font-recia italic font-medium leading-none", accentClassName)}>
             {part.slice(1, -1)}
           </span></React.Fragment>
         ) : (

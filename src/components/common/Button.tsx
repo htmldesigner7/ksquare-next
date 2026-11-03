@@ -22,9 +22,9 @@ export default function Button({
   const baseStyles = "flex items-center justify-center gap-[16px] transition-all duration-300 font-archivo group";
   
   const variants = {
-    solid: "bg-white text-primary hover:bg-gray-100 px-[24px] py-[12px] border border-transparent",
-    outline: "border border-white text-white hover:bg-white hover:text-primary px-[24px] py-[12px]",
-    "outline-primary": "border border-primary text-primary hover:bg-[#F0F5FE] px-[24px] py-[12px]",
+    solid: "bg-white text-primary hover:bg-gray-100 px-[15px] py-[11px] border border-transparent",
+    outline: "border border-white text-white hover:bg-white hover:text-primary px-[15px] py-[11px]",
+    "outline-primary": "border border-primary text-primary hover:bg-[#F0F5FE] px-[15px] py-[11px]",
     ghost: "text-[#C6CCED] hover:text-white px-[16px] py-[12px] border border-transparent hover:border-white"
   };
 
@@ -39,7 +39,7 @@ export default function Button({
 
   const inner = (
     <>
-      <span className="leading-none text-[17px] font-normal">{children}</span>
+      <span className="leading-[26px] text-[17px] font-normal">{children}</span>
       {showDot && (
         <span className={clsx("w-[8px] h-[8px] rounded-full shrink-0 transition-colors", dotStyles[variant])}></span>
       )}

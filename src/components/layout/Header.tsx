@@ -193,9 +193,9 @@ export default function Header() {
       {/* Main Navbar: Height 90px */}
       <div className={clsx(
         "h-[90px] w-full flex items-center transition-colors duration-300 border-b",
-        isTransparent ? "bg-transparent border-[#9BA5E0]" : "bg-white border-[#E5E5E5] shadow-sm"
+        isTransparent ? "bg-transparent border-[#9BA5E0]" : clsx("bg-white border-[#9BA5E0]", scrolled && "shadow-sm")
       )}>
-        <div className="w-[1800px] max-w-full mx-auto px-4 lg:px-8 g1864:px-0 flex items-center justify-between h-full">
+        <div className="w-[1800px] max-w-full mx-auto px-4 lg:px-8 canvas:px-[60px] g1864:px-0 flex items-center justify-between h-full">
           
           {/* Logo */}
           <Link href="/" className="flex items-center">
@@ -210,26 +210,26 @@ export default function Header() {
           </Link>
 
           {/* Center Navigation */}
-          <nav className="hidden hnav:flex items-center gap-[40px] h-full" aria-label="Primary">
+          <nav className="hidden hnav:flex items-center gap-[16px] canvas:gap-[22px] w1536:gap-[28px] g1664:gap-[40px] h-full" aria-label="Primary">
             {NAV.map((item) => {
-              const active = pathname === item.href || (item.groups?.some((g) => g.links.some((l) => l.href === pathname)) ?? false);
               return (
                 <div key={item.label} className="relative h-full flex items-center group">
                   <Link
                     href={item.href}
                     className={clsx(
-                      "font-archivo text-[15px] flex items-center gap-[8px] transition-colors h-full relative",
-                      isTransparent ? "text-primary-soft hover:text-white" : "text-[#4F4F4F] hover:text-primary font-medium",
-                      active && !isTransparent && "text-primary"
+                      "font-archivo text-[14px] canvas:text-[15px] w1536:text-[17px] leading-[17px] flex items-center transition-colors h-full relative",
+                      isTransparent ? "text-primary-soft hover:text-white" : "text-[#333333] hover:text-primary"
                     )}
                   >
-                    {item.label}
-                    {item.groups && (
-                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-300 group-hover:-rotate-180">
-                        <path d="M0 4.72368L9.38506 0L8.52058 10L6.25505 4.99875L0 4.72368Z" fill="currentColor"/>
-                      </svg>
-                    )}
-                    <span className={clsx("absolute left-0 bottom-0 h-[2px] bg-primary transition-all duration-300", active && !isTransparent ? "w-full" : "w-0 group-hover:w-full")} />
+                    <span className="flex items-end gap-[8px]">
+                      {item.label}
+                      {item.groups && (
+                        <svg width="9.39" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-300 group-hover:-rotate-180">
+                          <path d="M0 4.72368L9.38506 0L8.52058 10L6.25505 4.99875L0 4.72368Z" fill="currentColor"/>
+                        </svg>
+                      )}
+                    </span>
+                    <span className="absolute left-0 bottom-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full" />
                   </Link>
 
                   {/* Dropdown Menu */}
@@ -265,22 +265,22 @@ export default function Header() {
           </nav>
 
           {/* Right Actions */}
-          <div className="hidden hnav:flex items-center gap-[12px] h-[44px] my-auto">
+          <div className="hidden hnav:flex items-center gap-[10px] h-[44px] canvas:h-[50px] my-auto">
             {/* Language Selector */}
             <div className="relative h-full group flex items-center">
               <button className={clsx(
-                "h-full px-[16px] border flex items-center gap-[10px] transition-colors cursor-pointer",
-                isTransparent ? "border-white/30 text-white hover:border-white" : "border-[#D1D1D1] text-[#4F4F4F] hover:border-[#4F4F4F]"
+                "h-full px-[11px] canvas:px-[15px] border flex items-center gap-[8px] canvas:gap-[14px] transition-colors cursor-pointer",
+                isTransparent ? "border-primary-soft text-primary-soft hover:border-white hover:text-white" : "border-[#333333] text-[#333333] hover:border-primary hover:text-primary"
               )}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="2" y1="12" x2="22" y2="12"></line>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className="w-[26px] h-[26px] canvas:w-[32px] canvas:h-[32px]">
+                  <path d="M26.4573 10.1093C27.4718 11.9067 28.0033 13.9361 28 16C28 17.0373 27.868 18.044 27.6213 19.004C26.9546 21.5791 25.4515 23.8598 23.348 25.488C21.2446 27.1163 18.66 27.9998 16 28M5.54267 10.1093C4.56 11.8493 4 13.86 4 16C3.9991 17.0133 4.12633 18.0226 4.37867 19.004C5.04544 21.5791 6.54854 23.8598 8.65197 25.488C10.7554 27.1163 13.34 27.9998 16 28M16 28C19.3133 28 22 22.6267 22 16C22 9.37334 19.3133 4 16 4M16 28C12.6867 28 10 22.6267 10 16C10 9.37334 12.6867 4 16 4M27.6213 19.004C24.0656 20.9752 20.0656 22.0064 16 22C11.784 22 7.82267 20.9133 4.37867 19.004M16 4C18.1283 3.99911 20.2186 4.56448 22.0563 5.63809C23.894 6.71169 25.4129 8.25489 26.4573 10.1093M16 4C13.8717 3.99911 11.7814 4.56448 9.94375 5.63809C8.10606 6.71169 6.58708 8.25489 5.54267 10.1093M26.4573 10.1093C23.5542 12.6239 19.8407 14.0055 16 14C12.0027 14 8.34667 12.5333 5.54267 10.1093" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                <span className="font-archivo text-[14px] font-medium leading-none mt-[2px]">EN</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-[2px] mt-[2px]">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
+                <span className="flex items-center gap-[8px]">
+                  <span className="font-archivo text-[14px] canvas:text-[17px] leading-[27px]">EN</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M16.5 8.25L10.5 14.25L4.5 8.25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </span>
               </button>
 
               {/* Language Dropdown */}
@@ -306,12 +306,12 @@ export default function Header() {
             <Link 
               href={ROUTES.contact}
               className={clsx(
-                "h-full px-[20px] border flex items-center justify-center gap-[12px] font-archivo text-[14px] font-medium transition-colors group",
-                isTransparent ? "border-white text-white hover:bg-white hover:text-primary" : "border-[#D1D1D1] text-[#4F4F4F] hover:border-[#4F4F4F]"
+                "h-full px-[11px] canvas:px-[15px] border flex items-center justify-center gap-[10px] canvas:gap-[16px] font-archivo text-[14px] canvas:text-[17px] leading-[26px] transition-colors group",
+                isTransparent ? "border-white text-white hover:bg-white hover:text-primary" : "border-[#333333] text-[#333333] hover:border-primary hover:text-primary"
               )}
             >
               Request a Quote
-              <span className={clsx("w-[5px] h-[5px] rounded-full transition-colors", isTransparent ? "bg-white group-hover:bg-primary" : "bg-[#4F4F4F]")}></span>
+              <span className={clsx("w-[8px] h-[8px] rounded-full transition-colors", isTransparent ? "bg-white group-hover:bg-primary" : "bg-[#333333] group-hover:bg-primary")}></span>
             </Link>
           </div>
           

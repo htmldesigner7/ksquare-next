@@ -71,7 +71,7 @@ export const page: PageData = {
     {
       type: "eligibility",
       id: "eligibility",
-      eligibleTitle: "Who Is Eligible?",
+      eligibleTitle: "Who Is *Eligible?*",
       eligibleDesc: "Check if your household qualifies for the PM Surya Ghar subsidy before you apply.",
       eligible: [
         "Indian citizen with an independent residential connection.",
@@ -80,7 +80,7 @@ export const page: PageData = {
         "Has not previously availed any rooftop solar subsidy on the same meter.",
         "Electricity connection falls under a participating state/regional DISCOM.",
       ],
-      docsTitle: "Documents You'll Need",
+      docsTitle: "Documents *You'll Need*",
       docsDesc: "Keep these ready to complete your application and subsidy paperwork smoothly.",
       docs: [
         { title: "Recent Utility Bill", desc: "Electricity bill from past 3 months matching the applicant name." },
@@ -92,7 +92,7 @@ export const page: PageData = {
     {
       type: "dark",
       numbered: true,
-      title: "Why Homeowners *Apply Through Ksquare*",
+      title: "Why Homeowners Apply Through *Ksquare*",
       desc: "Ksquare Energy is your trusted partner for a seamless PM Surya Ghar experience — from portal registration to subsidy disbursement, we handle it all.",
       bgImage: "/assets/pages/shared/dark_bg.webp",
       items: [

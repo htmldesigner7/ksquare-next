@@ -37,7 +37,7 @@ export const page: PageData = {
     {
       type: "cards",
       cols: 4,
-      title: "What's Included in *an Export Partnership*",
+      title: "What's Included in an *Export Partnership*",
       subtitle: "A structured programme for distributors who want dependable supply from India.",
       items: [
         { title: "Regional Distribution Rights", desc: "Authorised representation of Ksquare in your region.", icon: "globe" },
@@ -49,7 +49,7 @@ export const page: PageData = {
     {
       type: "cards",
       cols: 3,
-      title: "Who This Partnership *Is For*",
+      title: "Who This *Partnership Is For*",
       items: [
         { title: "Solar Equipment Distributors", desc: "Distributors who want a dependable, certified BOS line from India.", image: `${IMG}/who_distributors.webp` },
         { title: "Importers & Trading Companies", desc: "Trading businesses sourcing certified solar components in volume.", image: `${IMG}/who_importers.webp` },

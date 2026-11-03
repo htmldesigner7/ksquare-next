@@ -99,7 +99,7 @@ export default function DownloadTabs() {
                   <h3 className="font-archivo text-[20px] lg:text-[24px] leading-[32px] text-[#333333]">
                     {item.title}
                   </h3>
-                  <Button variant="outline-primary" href="#" showDot className="!px-[16px] !py-[12px] shrink-0">
+                  <Button variant="outline-primary" href="#" showDot className="shrink-0">
                     Download
                   </Button>
                 </div>
