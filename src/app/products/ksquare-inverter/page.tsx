@@ -69,7 +69,7 @@ export default function KsquareInverterPage() {
             <Chevron />
             <span className="text-[#2B398B] leading-[26px]">Ksquare Inverter</span>
           </div>
-          <h1 className="m-0 font-recia text-[#2B398B] text-[48px] leading-[58px] lg:text-[68px] lg:leading-[78px]">
+          <h1 className="m-0 font-recia text-[#2B398B] text-[48px] leading-[58px] lg:text-[68px] lg:leading-[78px] lg:h-[179px]">
             <span className="block font-normal">Ksquare Inverters,</span>
             <span className="block font-semibold italic mt-[4px]">Built for Better Solar</span>
           </h1>
@@ -86,14 +86,11 @@ export default function KsquareInverterPage() {
       </section>
 
       {/* Hero image group */}
-      <section className="w-full max-w-[1804px] mx-auto px-4 lg:px-8 g1868:px-0 mt-[40px] xl:mt-[139px]">
+      <section className="w-full max-w-[1804px] mx-auto px-4 lg:px-8 g1868:px-0 mt-[40px] xl:mt-[50px]">
         <div className="relative w-full aspect-[1804/731]">
-          <div className="absolute left-0 right-0 bottom-0 h-[68.4%]">
-            <Image src={`${A}/hero_image.png`} alt="" fill className="object-cover" priority />
-          </div>
-          <div className="absolute left-[2.1%] top-[8.35%] w-[95.7%] h-[72.6%]">
-            <Image src={`${A}/hero_bg.png`} alt="Ksquare solar inverters" fill className="object-contain" priority />
-          </div>
+          {/* plate + inverter cut-out merged into one Figma image */}
+          <Image src={`${A}/hero_full.webp`} alt="Ksquare solar inverters" fill sizes="1804px" className="object-fill" priority />
+
         </div>
       </section>
 

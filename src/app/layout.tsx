@@ -3,6 +3,7 @@ import { Archivo, DM_Sans, Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import ScrollReveal from "@/components/common/ScrollReveal";
 
 const archivo = Archivo({
   variable: "--font-archivo",
@@ -46,6 +47,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <ScrollReveal />
       </body>
     </html>
   );

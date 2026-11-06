@@ -24,14 +24,14 @@ export default function Button({
   const variants = {
     solid: "bg-white text-primary hover:bg-gray-100 px-[15px] py-[11px] border border-transparent",
     outline: "border border-white text-white hover:bg-white hover:text-primary px-[15px] py-[11px]",
-    "outline-primary": "border border-primary text-primary hover:bg-[#F0F5FE] px-[15px] py-[11px]",
+    "outline-primary": "border border-primary text-primary hover:bg-primary hover:text-white px-[15px] py-[11px]",
     ghost: "text-[#C6CCED] hover:text-white px-[16px] py-[12px] border border-transparent hover:border-white"
   };
 
   const dotStyles = {
     solid: "bg-primary-dark group-hover:bg-primary",
     outline: "bg-white group-hover:bg-primary",
-    "outline-primary": "bg-primary transition-transform group-hover:scale-110",
+    "outline-primary": "bg-primary group-hover:bg-white",
     ghost: "bg-[#C6CCED] group-hover:bg-white"
   };
 

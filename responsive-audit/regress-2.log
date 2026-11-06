@@ -1,0 +1,40 @@
+ 1920 {"diffPixels":0,"total":17940480}
+ 1440 {"diffPixels":0,"total":10728000}
+about-us 1920 {"diffPixels":0,"total":13029120}
+about-us 1440 {"diffPixels":0,"total":8693280}
+about-us/awards 1920 {"diffPixels":0,"total":9231360}
+about-us/awards 1440 {"diffPixels":0,"total":6696000}
+about-us/certifications 1920 {"diffPixels":0,"total":10467840}
+about-us/certifications 1440 {"diffPixels":0,"total":7289280}
+about-us/leadership-team 1920 {"diffPixels":0,"total":8751360}
+about-us/leadership-team 1440 {"diffPixels":0,"total":6232320}
+about-us/news-events 1920 {"diffPixels":0,"total":7153920}
+about-us/news-events 1440 {"diffPixels":0,"total":5070240}
+about-us/our-presence 1920 {"diffPixels":0,"total":10853760}
+about-us/our-presence 1440 {"diffPixels":0,"total":7742880}
+about-us/press-releases 1920 {"diffPixels":0,"total":7342080}
+about-us/press-releases 1440 {"diffPixels":0,"total":5158080}
+blog 1920 {"diffPixels":1253139,"total":7484160}
+blog 1440 {"diffPixels":0,"total":5558400}
+blog/dcdb-vs-acdb-difference 1920 {"diffPixels":0,"total":7749120}
+blog/dcdb-vs-acdb-difference 1440 {"diffPixels":0,"total":6282720}
+node:internal/modules/run_main:122
+    triggerUncaughtException(
+    ^
+
+page.screenshot: Timeout 30000ms exceeded.
+Call log:
+[2m  - taking page screenshot[22m
+[2m  - waiting for fonts to load...[22m
+[2m  - fonts loaded[22m
+
+    at C:\Users\ADMIN\Desktop\company all project\ksQuare\responsive-audit\scripts\regress.mjs:16:11 {
+  log: [
+    '  - taking page screenshot',
+    '  - waiting for fonts to load...',
+    '  - fonts loaded'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v22.15.1

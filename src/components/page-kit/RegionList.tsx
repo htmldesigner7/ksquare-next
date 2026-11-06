@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import Collapse from "@/components/common/Collapse";
 
 interface State {
   name: string;
@@ -33,15 +33,8 @@ export default function RegionList({ states }: { states: State[] }) {
                 </span>
               )}
             </button>
-            <AnimatePresence initial={false}>
-              {isOpen && expandable && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden"
-                >
+            {expandable && (
+              <Collapse open={isOpen}>
                   <div className="flex flex-col gap-[16px] pb-[24px]">
                     {st.blurb && <p className="m-0 font-archivo text-[16px] lg:text-[17px] leading-[26px] text-white/85">{st.blurb}</p>}
                     {st.cities && (
@@ -55,9 +48,8 @@ export default function RegionList({ states }: { states: State[] }) {
                       </ul>
                     )}
                   </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+              </Collapse>
+            )}
           </div>
         );
       })}

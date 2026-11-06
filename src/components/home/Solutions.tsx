@@ -35,7 +35,7 @@ export default function Solutions() {
     <section className="relative w-full bg-[#FFFFFF] overflow-hidden">
       
       {/* Desktop Wrapper */}
-      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative max-canvas:h-auto max-canvas:px-6 max-canvas:py-12">
+      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative max-canvas:h-auto max-canvas:px-6 max-canvas:py-12 max-sm:py-8">
         
         {/* Desktop Layout (Figma 106:352: 1600 wide, 48px gap, header 111.53, content block 550) */}
         <div className="hidden canvas:flex flex-col gap-[48px] ml-[160px] w-[1600px]">
@@ -82,7 +82,7 @@ export default function Solutions() {
                           </span>
                         </div>
 
-                        <div className={`grid transition-all duration-500 ease-in-out ${isActive ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+                        <div className={`grid transition-[grid-template-rows,opacity] duration-[550ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${isActive ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
                           <div className="overflow-hidden">
                             <p className="mt-[16px] w-[667px] font-archivo font-normal text-[17px] text-[#666666] leading-[26px] m-0 p-0">
                               {item.desc}
@@ -156,7 +156,7 @@ export default function Solutions() {
                           </span>
                         </div>
                         
-                        <div className={`grid transition-all duration-500 ease-in-out ${isActive ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
+                        <div className={`grid transition-[grid-template-rows,opacity] duration-[550ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${isActive ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
                           <div className="overflow-hidden flex flex-col gap-6 pt-2">
                             <p className="font-archivo font-normal text-[17px] text-[#666666] leading-[26px]">
                               {item.desc}

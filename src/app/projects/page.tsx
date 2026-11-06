@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import ProcessTimelineArt from "@/components/page-kit/ProcessTimelineArt";
 import Link from "next/link";
 import { Metadata } from "next";
 import ProjectsFilter from "./ProjectsFilter";
@@ -124,22 +125,15 @@ export default function ProjectsPage() {
         {/* Hero banner: photo clipped to 1800x500, cut-out of the two people overlaps upwards */}
         <div className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 g1864:px-0 mt-[40px] canvas:mt-[205px]">
           <div className="canvas-zoom relative w-full canvas:w-[1800px] mx-auto h-[280px] md:h-[400px] canvas:h-[500px]">
-            <div className="absolute inset-0 overflow-hidden">
-              <Image
-                src="/assets/projects/figma/hero_a.png"
-                alt="Ksquare Energy solar project"
-                fill
-                sizes="1800px"
-                className="object-cover canvas:hidden"
-                priority
-              />
-              <div className="hidden canvas:block absolute left-[-45.21px] top-[-255px] w-[1845.21px] h-[1029.89px]">
-                <Image src="/assets/projects/figma/hero_a.png" alt="" fill sizes="1846px" className="object-cover" priority />
-              </div>
+            {/* mobile / tablet: the plain photo */}
+            <div className="absolute inset-0 overflow-hidden canvas:hidden">
+              <Image src="/assets/projects/figma/hero_a.png" alt="Ksquare Energy solar project" fill sizes="1800px" className="object-cover" priority />
             </div>
-            <div className="hidden canvas:block absolute left-[-45.21px] top-[-255px] w-[1845.21px] h-[733.75px] pointer-events-none">
-              <Image src="/assets/projects/figma/hero_b-12819a.png" alt="" fill sizes="1846px" className="object-fill" priority />
+            {/* desktop: photo + cut-out merged into one Figma image (people rise above the 1800x500 plate) */}
+            <div className="hidden canvas:block absolute left-[-45.21px] top-[-255px] w-[1845.21px] h-[755px] pointer-events-none">
+              <Image src="/assets/projects/figma/hero_full.webp" alt="Ksquare Energy solar project" fill sizes="1846px" className="object-fill" priority />
             </div>
+
           </div>
         </div>
       </section>
@@ -194,19 +188,7 @@ export default function ProjectsPage() {
             <Step index={2} className="left-[1053.13px] top-[169.9px]" />
 
             <div className="absolute left-0 top-[274.95px] w-[1600px] h-[302.82px]">
-              <Image src="/assets/grievance/process_connectors.png" alt="" fill className="object-contain" aria-hidden="true" />
-              <div className="absolute w-[128px] h-[128px]" style={{ left: 71.6, top: 76.55 }}>
-                <Image src="/assets/grievance/process_icon_1.svg" alt="" fill />
-              </div>
-              <div className="absolute w-[128px] h-[128px]" style={{ left: 337.6, top: 105.55 }}>
-                <Image src="/assets/grievance/process_icon_2.svg" alt="" fill />
-              </div>
-              <div className="absolute w-[128px] h-[128px]" style={{ left: 602.6, top: 76.55 }}>
-                <Image src="/assets/grievance/process_icon_3.svg" alt="" fill />
-              </div>
-              <div className="absolute w-[128px] h-[128px]" style={{ left: 1401.6, top: 101.55 }}>
-                <Image src="/assets/grievance/process_icon_6.svg" alt="" fill />
-              </div>
+              <ProcessTimelineArt />
             </div>
 
             <Step index={3} className="left-[256px] top-[590.77px]" />

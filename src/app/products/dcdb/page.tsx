@@ -4,8 +4,9 @@ import Link from 'next/link';
 import Container from '@/components/common/Container';
 import ProductCard from '@/components/common/ProductCard';
 import Button from '@/components/common/Button';
-import SectionSpacer from '@/components/common/SectionSpacer';
 import { Metadata } from 'next';
+import Disclosure from "@/components/common/Disclosure";
+import ContactLink from "@/components/common/ContactLink";
 
 export const metadata: Metadata = {
   title: "DC Distribution Boxes (DCDB) | Ksquare Energy",
@@ -45,7 +46,7 @@ export default function DcdbProductListing() {
   ];
 
   return (
-    <main className="w-full bg-white min-h-screen pt-[90px]">
+    <main className="w-full bg-white min-h-dvh pt-[90px] pb-[60px] lg:pb-[93px]">
 
       {/* Title & Breadcrumb Section */}
       <Container maxWidth="1800" className="pt-[40px]">
@@ -76,7 +77,7 @@ export default function DcdbProductListing() {
             <p className="font-archivo text-[17px] leading-[26px] text-gray-dark max-w-[550px]">
               Explore our complete range of certified DC Distribution Boxes, engineered for dependable protection across every solar installation type.
             </p>
-            <div className="flex items-center gap-[16px]">
+            <div className="flex flex-wrap items-center gap-[16px]">
               <Link href="/contact" className="flex items-center gap-[12px] px-[24px] py-[10px] border border-primary text-primary text-[15px] font-archivo font-medium hover:bg-primary hover:text-white transition-colors group">
                 Request a Quote <span className="w-[5px] h-[5px] rounded-full bg-primary group-hover:bg-white transition-colors"></span>
               </Link>
@@ -89,8 +90,8 @@ export default function DcdbProductListing() {
       </Container>
 
       {/* Featured Banner Image */}
-      <Container maxWidth="1800" exactWidth={false} className="mt-[50px] mb-[120px]">
-        <div className="relative w-full aspect-[16/6] md:aspect-[16/7] lg:aspect-[16/6] max-h-[700px] flex justify-center items-center overflow-hidden">
+      <Container maxWidth="1800" exactWidth={false} className="mt-[37.5px]">
+        <div className="relative w-full aspect-[16/6] md:aspect-[16/7] lg:aspect-[1800/622] flex justify-center items-center overflow-hidden">
           <Image
             src="/assets/dcdb_banner.webp"
             alt="DC Distribution Boxes Variants"
@@ -101,13 +102,14 @@ export default function DcdbProductListing() {
         </div>
       </Container>
 
-      {/* Core Products Section */}
-      <Container maxWidth="1600" className="py-[120px]">
-        <div className="flex flex-col gap-[48px]">
+      <div className="flex flex-col gap-[60px] lg:gap-[110px] mt-[60px] lg:mt-[110px]">
+      {/* Core Products Section (Figma 106:1547: header 105, 60px gap, 614px cards) */}
+      <Container maxWidth="1600">
+        <div className="flex flex-col gap-[60px]">
           {/* Title Section */}
           <div className="flex flex-col gap-[8px] items-center text-center">
             <h2 className="font-archivo text-[60px] leading-[71px] text-primary font-normal">
-              DCDB Core <span className="font-recia italic">Products</span>
+              DCDB Core <span className="font-recia italic leading-none">Products</span>
             </h2>
             <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">
               From solar protection systems to electrical panels and OEM manufacturing, explore our complete range of certified solar components designed for performance, reliability, and long-term durability.
@@ -163,7 +165,7 @@ export default function DcdbProductListing() {
       </Container>
 
       {/* DCDB Configuration Section */}
-      <Container maxWidth="1600" className="pb-[120px]">
+      <Container maxWidth="1600" className="lg:-mt-[26px]">
         {/* Mobile / Tablet Fallback Layout */}
         <div className="canvas:hidden flex flex-col gap-[40px]">
           <div className="flex flex-col gap-[8px] text-center items-center mb-[20px]">
@@ -199,7 +201,7 @@ export default function DcdbProductListing() {
         </div>
 
         {/* Desktop Proper Honeycomb Layout */}
-        <div className="hidden canvas:flex flex-col items-center mt-[100px]">
+        <div className="hidden canvas:flex flex-col items-center gap-[60px]">
           {/* Section Title */}
           <div className="flex flex-col items-center text-center w-full">
             <h2 className="font-archivo text-[60px] leading-[57px] text-primary font-normal mb-[8px]">
@@ -272,14 +274,12 @@ export default function DcdbProductListing() {
         </div>
       </Container>
 
-      <SectionSpacer size={100} />
-
       {/* Why Choose Section */}
-      <div className="w-full bg-[#F0F5FE] py-[100px]">
+      <div className="w-full bg-[#F0F5FE] py-[60px] lg:py-0 lg:h-[900px] lg:flex lg:items-center">
         <Container>
-          <div className="flex flex-col gap-[80px]">
+          <div className="flex flex-col gap-[40px] lg:gap-[60px]">
             {/* Header */}
-            <div className="flex flex-col gap-[16px] w-full text-center lg:text-left">
+            <div className="flex flex-col gap-[8px] w-full text-center">
               <h2 className="font-archivo text-[60px] leading-[77px] text-primary font-normal">
                 Why Choose a <span className="font-recia italic font-semibold">Ksquare DCDB?</span>
               </h2>
@@ -291,7 +291,7 @@ export default function DcdbProductListing() {
             {/* Content (Accordion + Image) */}
             <div className="flex flex-col lg:flex-row gap-[50px] items-start w-full">
               {/* Accordion List */}
-              <div className="flex-1 flex flex-col gap-[40px] w-full">
+              <div className="flex flex-col gap-[40px] w-full lg:flex-[800_1_0%] lg:min-w-0 lg:max-w-[800px]">
                 {[
                   {
                     title: "Superior Electrical Protection",
@@ -311,42 +311,37 @@ export default function DcdbProductListing() {
                   }
                 ].map((item, index) => (
                   <React.Fragment key={index}>
-                    <details
-                      className="group"
-                      open={index === 0}
-                      name="why-choose-accordion"
-                    >
-                      <summary className="flex items-start gap-[24px] cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                    <Disclosure defaultOpen={index === 0} group="why-choose-accordion" summaryClassName="flex items-start gap-[24px]" summary={<>
                         <div className="w-[48px] h-[48px] flex-shrink-0 flex items-center justify-center bg-[#EDF3FF] rounded-none">
                           <span className="font-archivo text-[17px] text-[#333333] font-normal">{index + 1}</span>
                         </div>
                         <div className="flex-1 flex items-center justify-between min-h-[48px]">
-                          <h3 className="font-archivo text-[20px] lg:text-[24px] text-[#333333] group-open:font-semibold transition-all">
+                          <h3 className="font-archivo text-[20px] lg:text-[24px] text-[#333333] group-data-[open=true]:font-semibold transition-all">
                             {item.title}
                           </h3>
-                          <span className="font-archivo text-[24px] text-[#333333] group-open:hidden">+</span>
-                          <span className="font-archivo text-[24px] text-[#333333] hidden group-open:block">-</span>
+                          <span className="font-archivo text-[24px] text-[#333333] group-data-[open=true]:hidden">+</span>
+                          <span className="font-archivo text-[24px] text-[#333333] hidden group-data-[open=true]:block">-</span>
                         </div>
-                      </summary>
+                      </>}>
                       <div className="pl-[72px] pt-[16px]">
                         <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">
                           {item.desc}
                         </p>
                       </div>
-                    </details>
+                    </Disclosure>
                     {index < 3 && <hr className="border-[#E8E8E8]" />}
                   </React.Fragment>
                 ))}
               </div>
 
               {/* Image */}
-              <div className="w-full lg:flex-1 lg:min-w-0 lg:max-w-[750px]">
+              <div className="w-full lg:flex-[750_1_0%] lg:min-w-0 lg:max-w-[750px]">
                 <Image
                   src="/assets/dcdb/why_choose.png"
                   width={750}
                   height={550}
                   alt="Why Choose a Ksquare DCDB?"
-                  className="w-full h-auto object-cover rounded-[16px]"
+                  className="w-full h-auto object-cover"
                 />
               </div>
             </div>
@@ -354,140 +349,129 @@ export default function DcdbProductListing() {
         </Container>
       </div>
 
-      <SectionSpacer size={100} />
-
-      {/* Request Your Custom Quote Section */}
+      {/* Request Your Custom Quote Section (Figma 106:1599: 1600 wide, 32px gap, 1210 tall) */}
       <div className="w-full">
         <Container>
-          <div className="flex flex-col gap-[48px] w-full mx-auto ">
-            
+          <div className="flex flex-col gap-[32px] w-full mx-auto">
+
             {/* Top Info Section (Title & Cards) */}
-            <div className="flex flex-col gap-[40px]">
+            <div className="flex flex-col gap-[24px]">
               {/* Header */}
               <div className="flex flex-col gap-[12px]">
-                <h2 className="font-dm text-[40px] lg:text-[50px] leading-[1.2] text-primary font-normal">
+                <h2 className="m-0 font-dm text-[40px] lg:text-[60px] leading-[1.2] lg:leading-[70px] text-primary font-medium">
                   Request Your Custom Quote
                 </h2>
-                <p className="font-archivo text-[16px] text-primary leading-[1.5]">
+                <p className="m-0 font-archivo text-[16px] lg:text-[17px] text-primary leading-[26px]">
                   Reach out to our team with your installation details, and we will get back to you with pricing, availability, and any technical guidance you need.
                 </p>
               </div>
 
-              {/* Info Cards (Horizontal Layout) */}
-              <div className="flex flex-col lg:flex-row gap-[32px] lg:gap-0 lg:items-start w-full">
-                {/* Card 1 */}
-                <div className="flex-1 flex gap-[16px] items-start pr-[24px]">
-                  <div className="w-[48px] h-[48px] bg-[#F2F4FB] rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B398B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              {/* Info Cards (Figma: row, 16px gap, 24px padding, 72px icon badge, 1px right rule) */}
+              <div className="flex flex-col lg:flex-row gap-[16px] w-full">
+                {[
+                  {
+                    label: "Call Us Directly",
+                    value: "+91 79 6969 7979",
+                    note: "Toll-free specialist helpline: Mon-Sat, 9 AM - 7 PM",
+                    icon: <svg width="24" height="24" viewBox="0 0 18 18" fill="#2B398B" aria-hidden="true"><path d="M3.62 7.79C5.06 10.62 7.38 12.93 10.21 14.38L12.41 12.18C12.68 11.91 13.08 11.82 13.43 11.94C14.56 12.31 15.76 12.51 17 12.51C17.55 12.51 18 12.96 18 13.51V17C18 17.55 17.55 18 17 18C7.61 18 0 10.39 0 1C0 0.45 0.45 0 1 0H4.5C5.05 0 5.5 0.45 5.5 1C5.5 2.24 5.7 3.44 6.07 4.57C6.18 4.92 6.1 5.31 5.82 5.59L3.62 7.79Z" /></svg>,
+                  },
+                  {
+                    label: "Email Support",
+                    value: "info@ksquareenergy.com",
+                    note: "For project portfolios, floor plans, and corporate pricing",
+                    icon: <Image src="/assets/footer/contact-mail.svg" alt="" width={29} height={22} aria-hidden="true" />,
+                  },
+                  {
+                    label: "Ahmedabad Branch Office",
+                    value: "Dholera SIR, Activation Zone Gujarat – 382460, India",
+                    note: "Strategically located inside the smart city development zone",
+                    icon: <svg width="22" height="26" viewBox="0 0 17 20" fill="#2B398B" aria-hidden="true"><path d="M8.5 0C3.8 0 0 3.8 0 8.5C0 14.9 8.5 20 8.5 20C8.5 20 17 14.9 17 8.5C17 3.8 13.2 0 8.5 0ZM8.5 11.5C6.8 11.5 5.5 10.2 5.5 8.5C5.5 6.8 6.8 5.5 8.5 5.5C10.2 5.5 11.5 6.8 11.5 8.5C11.5 10.2 10.2 11.5 8.5 11.5Z" /></svg>,
+                  },
+                ].map((card, i) => (
+                  <div key={card.label} className={`flex-1 flex items-start gap-[24px] py-[20px] ${i === 0 ? "pr-[24px]" : "lg:px-[24px]"} ${i < 2 ? "lg:border-r border-[#E8E4E0]" : ""}`}>
+                    <div className="w-[56px] h-[56px] lg:w-[72px] lg:h-[72px] bg-[#EDEEF8] rounded-full flex items-center justify-center flex-shrink-0">
+                      {card.icon}
+                    </div>
+                    <div className="flex flex-col gap-[4px] min-w-0">
+                      <h4 className="m-0 font-archivo font-normal text-[17px] leading-[27px] text-[#333333]">{card.label}</h4>
+                      <p className="m-0 font-dm text-[16px] font-medium text-[#111111]"><ContactLink text={card.value} /></p>
+                      <p className="m-0 font-archivo text-[17px] leading-[26px] text-[#666666]">{card.note}</p>
+                    </div>
                   </div>
-                  <div className="flex flex-col gap-[4px] mt-[4px]">
-                    <h4 className="font-archivo text-[14px] text-[#666666]">Call Us Directly</h4>
-                    <p className="font-dm text-[15px] font-medium text-[#111111]">+91 79 6969 7979</p>
-                    <p className="font-archivo text-[13px] text-[#999999] mt-[2px] leading-tight">Toll-free specialist helpline: Mon-Sat, 9 AM - 7 PM</p>
-                  </div>
-                </div>
-
-                {/* Card 2 */}
-                <div className="flex-1 flex gap-[16px] items-start lg:border-l border-[#E8E8E8] lg:px-[32px]">
-                  <div className="w-[48px] h-[48px] bg-[#F2F4FB] rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B398B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                  </div>
-                  <div className="flex flex-col gap-[4px] mt-[4px]">
-                    <h4 className="font-archivo text-[14px] text-[#666666]">Email Support</h4>
-                    <p className="font-dm text-[15px] font-medium text-[#111111]">info@ksquareenergy.com</p>
-                    <p className="font-archivo text-[13px] text-[#999999] mt-[2px] leading-tight">For project portfolios, floor plans, and corporate pricing</p>
-                  </div>
-                </div>
-
-                {/* Card 3 */}
-                <div className="flex-1 flex gap-[16px] items-start lg:border-l border-[#E8E8E8] lg:pl-[32px]">
-                  <div className="w-[48px] h-[48px] bg-[#F2F4FB] rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2B398B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  </div>
-                  <div className="flex flex-col gap-[4px] mt-[4px]">
-                    <h4 className="font-archivo text-[14px] text-[#666666]">Ahmedabad Branch Office</h4>
-                    <p className="font-dm text-[15px] font-medium text-[#111111]">Dholera SIR, Activation Zone Gujarat – 382460, India</p>
-                    <p className="font-archivo text-[13px] text-[#999999] mt-[2px] leading-tight">Strategically located inside the smart city development zone</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
-            {/* Form Box */}
-            <div className="w-full bg-white border border-[#E8E8E8] p-[32px] lg:p-[48px] flex flex-col gap-[40px]">
-              
+            {/* Form Box (Figma: 32px padding, 32px gap, #DDDDDD border) */}
+            <div className="w-full lg:max-w-[1576px] bg-white border border-[#DDDDDD] p-[24px] lg:p-[32px] flex flex-col gap-[32px]">
+
               {/* Form Title */}
-              <div className="flex flex-col gap-[8px]">
-                <h3 className="text-[40px] lg:text-[48px] font-normal text-primary leading-[1.1] font-dm">
+              <div className="flex flex-col gap-[12px]">
+                <h3 className="m-0 text-[40px] lg:text-[60px] font-medium text-primary leading-[1.2] lg:leading-[70px] font-dm">
                   Send an <span className="font-recia italic">Enquiry</span>
                 </h3>
-                <p className="font-archivo text-[15px] text-[#666666]">
+                <p className="m-0 font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666]">
                   Please fill out the form below, and our relationship manager will get back to you within 2 hours.
                 </p>
               </div>
 
-              {/* Form Inputs Grid */}
-              <div className="flex flex-col gap-[24px]">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-[24px]">
-                  <div className="flex flex-col gap-[8px]">
-                    <label className="font-archivo text-[14px] text-[#333333]">Full Name</label>
-                    <input type="text" placeholder="Enter your full name" className="w-full border border-[#E8E8E8] bg-white h-[48px] px-[16px] font-archivo text-[15px] text-[#333333] placeholder:text-[#999999] focus:outline-none focus:border-primary transition-colors" />
-                  </div>
-                  <div className="flex flex-col gap-[8px]">
-                    <label className="font-archivo text-[14px] text-[#333333]">Email Address</label>
-                    <input type="email" placeholder="name@domain.com" className="w-full border border-[#E8E8E8] bg-white h-[48px] px-[16px] font-archivo text-[15px] text-[#333333] placeholder:text-[#999999] focus:outline-none focus:border-primary transition-colors" />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-[24px]">
-                  <div className="flex flex-col gap-[8px]">
-                    <label className="font-archivo text-[14px] text-[#333333]">Phone Number</label>
-                    <input type="text" placeholder="+91 XXXXX XXXXX" className="w-full border border-[#E8E8E8] bg-white h-[48px] px-[16px] font-archivo text-[15px] text-[#333333] placeholder:text-[#999999] focus:outline-none focus:border-primary transition-colors" />
-                  </div>
-                  <div className="flex flex-col gap-[8px]">
-                    <label className="font-archivo text-[14px] text-[#333333]">States</label>
-                    <div className="relative">
-                      <select className="w-full border border-[#E8E8E8] bg-white h-[48px] px-[16px] font-archivo text-[15px] text-[#999999] focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer">
-                        <option>Select budget range.</option>
-                      </select>
-                      <div className="absolute inset-y-0 right-[16px] flex items-center pointer-events-none">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5H7z" fill="#2B398B" /></svg>
+              {/* Form Inputs (Figma: 20px between rows and columns, 8px label gap, 12/16 input padding) */}
+              <div className="flex flex-col gap-[20px]">
+                {[
+                  [
+                    { label: "Full Name", type: "text", ph: "Enter your full name" },
+                    { label: "Email Address", type: "email", ph: "name@domain.com" },
+                  ],
+                  [
+                    { label: "Phone Number", type: "text", ph: "+91 XXXXX XXXXX" },
+                    { label: "States", type: "select", ph: "Select budget range." },
+                  ],
+                  [
+                    { label: "City", type: "text", ph: "Enter City" },
+                    { label: "Pincode", type: "text", ph: "Enter Pincode" },
+                  ],
+                ].map((row, ri) => (
+                  <div key={ri} className="grid grid-cols-1 lg:grid-cols-2 gap-[20px]">
+                    {row.map((f) => (
+                      <div key={f.label} className="flex flex-col gap-[8px]">
+                        <label className="font-archivo text-[17px] leading-[27px] text-[#333333]">{f.label}</label>
+                        {f.type === "select" ? (
+                          <div className="relative">
+                            <select className="w-full border border-[#DDDDDD] bg-white px-[16px] py-[12px] font-archivo text-[18px] leading-[1.55em] text-[#666666] focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer">
+                              <option>{f.ph}</option>
+                            </select>
+                            <div className="absolute inset-y-0 right-[16px] flex items-center pointer-events-none">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5H7z" fill="#2B398B" /></svg>
+                            </div>
+                          </div>
+                        ) : (
+                          <input type={f.type} placeholder={f.ph} className="w-full border border-[#DDDDDD] bg-white px-[16px] py-[12px] font-archivo text-[18px] leading-[1.55em] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors" />
+                        )}
                       </div>
-                    </div>
+                    ))}
                   </div>
-                </div>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-[24px]">
-                  <div className="flex flex-col gap-[8px]">
-                    <label className="font-archivo text-[14px] text-[#333333]">City</label>
-                    <input type="text" placeholder="Enter City" className="w-full border border-[#E8E8E8] bg-white h-[48px] px-[16px] font-archivo text-[15px] text-[#333333] placeholder:text-[#999999] focus:outline-none focus:border-primary transition-colors" />
-                  </div>
-                  <div className="flex flex-col gap-[8px]">
-                    <label className="font-archivo text-[14px] text-[#333333]">Pincode</label>
-                    <input type="text" placeholder="Enter Pincode" className="w-full border border-[#E8E8E8] bg-white h-[48px] px-[16px] font-archivo text-[15px] text-[#333333] placeholder:text-[#999999] focus:outline-none focus:border-primary transition-colors" />
-                  </div>
+                ))}
+
+                <div className="flex flex-col gap-[8px]">
+                  <label className="font-archivo text-[17px] leading-[27px] text-[#333333]">Subject</label>
+                  <input type="text" placeholder="e.g. Project Name." className="w-full border border-[#DDDDDD] bg-white px-[16px] py-[12px] font-archivo text-[18px] leading-[1.55em] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors" />
                 </div>
 
                 <div className="flex flex-col gap-[8px]">
-                  <label className="font-archivo text-[14px] text-[#333333]">Subject</label>
-                  <input type="text" placeholder="e.g. Project Name." className="w-full border border-[#E8E8E8] bg-white h-[48px] px-[16px] font-archivo text-[15px] text-[#333333] placeholder:text-[#999999] focus:outline-none focus:border-primary transition-colors" />
-                </div>
-
-                <div className="flex flex-col gap-[8px]">
-                  <label className="font-archivo text-[14px] text-[#333333]">Message / Requirements</label>
-                  <textarea placeholder="Tell us about your investment goals..." className="w-full border border-[#E8E8E8] bg-white min-h-[140px] p-[16px] font-archivo text-[15px] text-[#333333] placeholder:text-[#999999] focus:outline-none focus:border-primary transition-colors resize-y"></textarea>
-                </div>
-
-                {/* Form Button */}
-                <div className="pt-[16px]">
-                  <button className="flex items-center justify-center gap-[12px] bg-white border border-[#2B398B] text-[#2B398B] px-[24px] py-[12px] hover:bg-[#F2F4FB] transition-colors duration-300 font-archivo font-medium text-[15px] w-fit group">
-                    <span>Send Enquiry</span>
-                    <span className="w-[6px] h-[6px] rounded-full bg-[#2B398B] transition-transform group-hover:scale-125"></span>
-                  </button>
+                  <label className="font-archivo text-[17px] leading-[27px] text-[#333333]">Message / Requirements</label>
+                  <textarea placeholder="Tell us about your investment goals..." className="w-full border border-[#DDDDDD] bg-white h-[105px] px-[16px] py-[12px] font-archivo text-[18px] leading-[1.55em] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors resize-y"></textarea>
                 </div>
               </div>
+
+              {/* Form Button (Figma: 12/16 padding, 17/26 text, 8px dot) */}
+              <button className="flex items-center justify-center gap-[16px] bg-white border border-[#2B398B] text-[#2B398B] px-[15px] py-[11px] hover:bg-[#2B398B] hover:text-white transition-colors duration-300 font-archivo text-[17px] leading-[26px] w-fit group">
+                <span>Send Enquiry</span>
+                <span className="w-[8px] h-[8px] rounded-full bg-[#2B398B] group-hover:bg-white transition-colors"></span>
+              </button>
             </div>
           </div>
         </Container>
+      </div>
       </div>
 
     </main>

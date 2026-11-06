@@ -10,21 +10,21 @@ export const page: PageData = {
     "Engineering-led AMC plans for residential, commercial and industrial solar systems from the manufacturer of the protection switchgear inside your array.",
   hero: {
     crumbs: [{ label: "Home", href: ROUTES.home }, { label: "Services" }, { label: "Annual Maintenance (AMC)" }],
-    title: "Annual Maintenance Contracts *(AMC) for Solar Systems*",
+    title: "Annual Maintenance Contracts (AMC) *for Solar Systems*",
     description:
-      "As the manufacturer of the critical protection switchgear inside your solar array, Ksquare delivers engineering-led upkeep that safeguards your generation yield and equipment life.",
+      "As the manufacturer of the critical protection switchgear inside your solar array, Ksquare delivers engineering-led upkeep that safeguards your generation yield and asset longevity.",
     ctas: [
       { label: "Get an AMC Quote", href: ROUTES.contact },
       { label: "Talk to Our Service Team", href: ROUTES.contact },
     ],
-    image: `${IMG}/hero_bg.webp`,
-    cutout: { image: `${IMG}/hero.webp`, x: 180, y: -190, w: 1445, h: 690 },
+    cutout: { image: `${IMG}/hero_full.webp`, x: 0, y: -190, w: 1800, h: 690 },
     imageAlt: "Technicians maintaining a rooftop solar plant",
   },
   sections: [
     {
       type: "cards",
-      cols: 4,
+      cols: 3,
+      quote: "Preventive care by the engineers who build the protection switchgear inside your array.",
       title: "What's Included *in Our AMC Plans*",
       subtitle: "Preventive care that keeps your system generating at its designed capacity year after year.",
       items: [
@@ -70,7 +70,7 @@ export const page: PageData = {
       title: "Why an AMC *Protects Your Investment*",
       subtitle: "Regular maintenance helps keep your solar system monitored, inspected and cared for over its operating life, helping identify maintenance needs before they become larger issues.",
       items: [
-        { title: "Warranty Validity Preservation", desc: "Manufacturer warranties on inverters and tier-1 panels often require documented periodic maintenance and certified torque checks. Without signed engineering logs, equipment claims can be challenged." },
+        { title: "Warranty Validity Preservation", desc: "Manufacturer warranties on inverters and tier-1 panels require documented periodic maintenance and certified torque checks. Without signed engineering logs, equipment claims are frequently rejected." },
         { title: "Peak Generation Efficiency", desc: "Cleaning, tightening and calibration recover generation lost to dust, loose connections and drift." },
         { title: "Extended Equipment Lifespan", desc: "Early detection of hotspots, corrosion and connection wear prevents damage that shortens equipment life." },
         { title: "Avoid Costly Unplanned Breakdowns", desc: "Preventive checks catch small issues before they become expensive outages." },
@@ -80,7 +80,7 @@ export const page: PageData = {
     },
     {
       type: "compare",
-      title: "AMC Scope: *What's Covered*",
+      title: "AMC Scope *What's Covered*",
       subtitle: "Crisp service boundaries ensuring zero ambiguity between routine preventive maintenance and out-of-scope major capital overhauls.",
       items: [
         {
@@ -98,7 +98,7 @@ export const page: PageData = {
     {
       type: "steps",
       title: "Engineered *Delivery Flow*",
-      subtitle: "A transparent, 5-stage roadmap from first inspection to renewal.",
+      subtitle: "A transparent, 5-stage engineering roadmap ensuring your specifications are built with repeatable industrial precision.",
       items: [
         { title: "Site Assessment", desc: "We inspect your plant and document its current condition.", icon: "search" },
         { title: "Custom AMC Plan", desc: "A visit schedule and scope matched to your system and segment.", icon: "clipboard" },
@@ -109,10 +109,11 @@ export const page: PageData = {
     },
     {
       type: "split",
+      natural: true,
       reverse: true,
-      title: "Better Together: *AMC and Remote Monitoring*",
+      title: "Better Together *AMC and Remote Monitoring*",
       paras: [
-        "When your system is paired with Ksquare IoT Remote Monitoring, our service engineers don't wait for your call. Live string-level telemetry alerts our dispatch center the instant something drifts.",
+        "When your system is paired with Ksquare IoT Remote Monitoring, our service engineers don't wait for your call. Live string-level telemetry alerts our dispatch center the instant an inverter trips, a fuse blows, or generation drops, enabling proactive technician dispatch before you even notice on your bill.",
       ],
       bullets: ["Live string-level inverter diagnostics", "Instant SMS & portal alerts on fault detection", "Performance ratio tracking & degradation warnings"],
       image: `${IMG}/together.webp`,
@@ -133,11 +134,10 @@ export const page: PageData = {
     },
     {
       type: "cta",
-      title: "Keep Your System *Performing at Its Best*",
+      title: "Protect Your System With *an AMC Plan*",
       desc: "Talk to our service team about an AMC tailored to your system size and segment.",
       ctas: [
         { label: "Get an AMC Quote", href: ROUTES.contact },
-        { label: "Talk to Our Service Team", href: ROUTES.contact },
       ],
     },
   ],

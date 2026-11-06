@@ -148,24 +148,24 @@ function ProjectCard({ project, chipBg }: { project: Project; chipBg: string }) 
       <div className={`img-hover-zoom relative w-full h-[240px] lg:h-[320px] overflow-hidden shrink-0 ${project.roundedImage ? "rounded-[12px]" : ""}`}>
         <Image src={project.img} alt={project.title} fill className="object-cover" />
       </div>
-      <div className="flex flex-col gap-[12px]">
+      <div className="flex flex-col gap-[12px] min-w-0">
         {project.tag && (
           <div className="flex items-center justify-between">
-            <span className={`${chipBg} rounded-[4px] px-[24px] py-[6px] font-archivo text-[17px] text-primary`}>{project.tag}</span>
-            {project.capacity && <span className="font-archivo text-[15px] font-semibold text-primary">{project.capacity}</span>}
+            <span className={`${chipBg} rounded-[4px] px-[24px] py-[6px] font-archivo text-[17px] leading-[1.2] text-primary`}>{project.tag}</span>
+            {project.capacity && <span className="font-archivo text-[15px] leading-[1.2] font-semibold text-primary">{project.capacity}</span>}
           </div>
         )}
         <div className="flex flex-col gap-[8px]">
-          <h3 className="m-0 font-archivo text-[20px] lg:text-[24px] font-semibold text-[#333333]">{project.title}</h3>
-          <p className="m-0 font-archivo text-[14px] text-[#666666]">{project.location}</p>
+          <h3 className="m-0 font-archivo text-[20px] lg:text-[24px] leading-[1.2] font-semibold text-[#333333]">{project.title}</h3>
+          <p className="m-0 font-archivo text-[14px] leading-[1.2] text-[#666666]">{project.location}</p>
         </div>
         {project.description && (
-          <p className="m-0 font-archivo text-[13px] italic text-[#666666]">{project.description}</p>
+          <p className="m-0 font-archivo text-[13px] leading-[1.2] italic text-[#666666]">{project.description}</p>
         )}
         {project.program && (
           <div className="flex items-center gap-[6px]">
-            <span className="font-archivo text-[17px] font-medium text-[#666666]">Prog:</span>
-            <span className="font-archivo text-[17px] font-semibold text-primary">{project.program}</span>
+            <span className="font-archivo text-[17px] leading-[1.2] font-medium text-[#666666]">Prog:</span>
+            <span className="font-archivo text-[17px] leading-[1.2] font-semibold text-primary">{project.program}</span>
           </div>
         )}
       </div>
@@ -180,7 +180,7 @@ function SectionBlock({ section }: { section: CategorySection }) {
     <section className={`w-full ${section.bg} ${section.padding}`}>
       <div className="mx-auto w-full max-w-[1920px] px-4 lg:px-8 xl:px-[160px] flex flex-col gap-[48px]">
         <div className="flex items-end justify-between gap-[24px]">
-          <div className="flex flex-col gap-[12px]">
+          <div className="flex flex-col gap-[12px] min-w-0">
             <span className="font-archivo text-[17px] font-semibold uppercase text-primary">{section.eyebrow}</span>
             <h2 className="m-0 font-archivo font-normal text-[32px] lg:text-[44px] leading-[1.2] xl:leading-[52px] text-[#333333]">
               {section.heading} <span className="font-recia italic font-semibold">{section.headingAccent}</span>

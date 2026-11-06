@@ -18,7 +18,7 @@ export default function Manufacturing() {
       </div>
       
       {/* Desktop Wrapper */}
-      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative h-[920px] max-canvas:h-auto max-canvas:px-6 max-canvas:py-12">
+      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative h-[920px] max-canvas:h-auto max-canvas:px-6 max-canvas:py-12 max-sm:py-8">
         
         {/* Main Content Container (Frame 2147224486) */}
         <div className="hidden canvas:block absolute left-[160px] top-[109px] w-[1600px] h-[701px]">

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Collapse from "@/components/common/Collapse";
 
 interface FaqItem {
   question: string;
@@ -26,10 +27,11 @@ export default function FaqList({ items }: { items: FaqItem[] }) {
         return (
           <div
             key={item.question}
-            className={`flex flex-col gap-[16px] p-[20px] md:p-[32px] border-b border-[#DDDDDD] ${isOpen ? "bg-[#F0F5FE]" : "bg-white"}`}
+            className={`flex flex-col p-[20px] md:p-[32px] border-b border-[#DDDDDD] transition-colors duration-300 ${isOpen ? "bg-[#F0F5FE]" : "bg-white"}`}
           >
             <button
               type="button"
+              aria-expanded={isOpen}
               onClick={() => setOpen(isOpen ? null : idx)}
               className="flex w-full items-center justify-between gap-[24px] text-left cursor-pointer"
             >
@@ -40,9 +42,9 @@ export default function FaqList({ items }: { items: FaqItem[] }) {
               </span>
               <Icon open={isOpen} />
             </button>
-            {isOpen && (
-              <p className="m-0 font-archivo text-[17px] leading-[28px] text-[#666666]">{item.answer}</p>
-            )}
+            <Collapse open={isOpen}>
+              <p className="m-0 pt-[16px] font-archivo text-[17px] leading-[28px] text-[#666666]">{item.answer}</p>
+            </Collapse>
           </div>
         );
       })}

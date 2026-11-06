@@ -23,13 +23,18 @@ export const page: PageData = {
       { label: "Get a Free Site Survey", href: ROUTES.consultation },
       { label: "Calculate Savings", href: ROUTES.calculators },
     ],
-    image: `${IMG}/hero_bg.webp`,
-    cutout: { image: `${IMG}/hero.webp`, x: 0, y: -157, w: 1797, h: 657 },
+    crumbRow: true,
+    bannerGap: 198,
+    afterGap: 37,
+    titleWidth: 900,
+    cutout: { image: `${IMG}/hero_full.webp`, x: 0, y: -157, w: 1800, h: 657 },
     imageAlt: "A family standing in front of their home with a rooftop solar system",
   },
+  sectionPadding: 50,
   sections: [
     {
       type: "split",
+      tight: true,
       title: "Why Homeowners *Trust Ksquare*",
       paras: [
         "No middlemen. Source directly from Ksquare's state-of-the-art manufacturing facility in Ahmedabad for maximum profitability. Co-branded marketing materials, digital collateral, and qualified regional lead sharing to accelerate your local sales pipeline.",
@@ -60,6 +65,7 @@ export const page: PageData = {
     },
     {
       type: "split",
+      tight: true,
       title: "PM Surya Ghar Yojana - *Subsidy Assistance For Your Home.*",
       paras: [
         "Under the PM Surya Ghar Muft Bijli Yojana, eligible households can receive central financial assistance on rooftop solar systems. Ksquare handles the paperwork end to end, so you can focus on the savings instead of the forms.",

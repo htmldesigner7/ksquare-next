@@ -16,24 +16,34 @@ export const page: PageData = {
       { label: "Get Net Metering Assistance", href: ROUTES.contact },
       { label: "Talk to Our Team", href: ROUTES.contact },
     ],
-    cutout: { image: `${IMG}/hero.webp`, x: 0, y: -341, w: 1800, h: 821 },
+    fitTitle: true,
+    bannerGap: 288,
+    cutout: { image: `${IMG}/hero.webp`, x: 0, y: -355, w: 1875, h: 855 },
     imageAlt: "Rooftop solar panels connected to a bidirectional net meter and the utility grid",
   },
+  sectionPadding: 50,
   sections: [
     {
       type: "split",
+      natural: true,
+      imageSize: { w: 798, h: 269 },
+      stats: [
+        { value: "100+", label: "Team Members" },
+        { value: "10+", label: "Career Opportunities" },
+        { value: "Growing", label: "Work Culture" },
+      ],
       title: "What Is Net Metering, *and Why Does It Matter*",
       paras: [
-        "Net metering allows solar system owners to export surplus electricity back to the grid through a bidirectional meter. The exported units are credited against your electricity bill, so you pay only for the net energy you use.",
-        "For most rooftop owners it is what turns daytime generation into real bill savings, and approval from the DISCOM is required before your system can be commissioned.",
+        "Net metering allows solar system owners to export surplus electricity back to the grid through a bidirectional meter. The exported units are credited against your electricity bill, effectively reducing your net energy cost.",
+        "For the system to export, your installation must have an approved net metering connection with your local DISCOM. Without this crucial approval, any power sent to the grid will not be credited, slowing down your return on investment.",
       ],
-      image: `${IMG}/what.webp`,
+      image: `${IMG}/what_diagram_white.png`,
       imageAlt: "Diagram of solar import and export through a bidirectional meter",
-      fit: "contain",
     },
     {
       type: "cards",
       cols: 3,
+      iconRow: true,
       title: "What's Included in Our *Net Metering Support*",
       items: [
         { title: "Application Filing", desc: "We prepare and submit your net metering application to the DISCOM portal.", icon: "file" },
@@ -47,20 +57,31 @@ export const page: PageData = {
     {
       type: "dark",
       numbered: true,
+      tops: [56, 479, 56, 414],
       title: "Why Net Metering Approval *Isn't Always Simple*",
       desc: "Approval involves multiple agencies, strict paperwork and timelines that differ across utilities. Here is where projects usually get stuck.",
       bgImage: "/assets/pages/shared/dark_bg.webp",
       items: [
         { title: "DISCOM-Specific Processes", desc: "Each utility maintains its own forms, web portals, technical clearance committees and internal approval workflows." },
-        { title: "Inspection Scheduling", desc: "Coordinating electrical inspectorate appointments and physical tests with utility staff requires steady follow-through." },
         { title: "Documentation Requirements", desc: "Missing, inconsistent or uncertified paperwork remains the most common cause of grid-tie processing delays." },
+        { title: "Inspection Scheduling", desc: "Coordinating electrical inspectorate appointments and physical tests with utility staff requires steady follow-through." },
         { title: "Timelines Vary by State", desc: "Regulatory SLA windows and sanctioning speed differ significantly depending on the circle where your plant is installed." },
+      ],
+    },
+    {
+      type: "cards",
+      cols: 3,
+      title: "Monitoring That Scales *With Your System*",
+      items: [
+        { title: "Residential Solar", tag: "Homeowners", meta: "5 kW", desc: "A clean, smartphone-optimized interface designed for families. Focuses on daily savings, direct environmental impact stats, and simple health indicators.", image: "/assets/pages/monitoring/scale_home.webp" },
+        { title: "Commercial Solar", tag: "Facility Managers", meta: "10 kW", desc: "Multi-site asset dashboard offering carbon accounting, consolidated portfolio reports, energy-cost offset telemetry, and maintenance workflow triggers.", image: "/assets/pages/monitoring/scale_commercial.webp" },
+        { title: "Industrial SCADA", tag: "Plant Engineers", meta: "8 kW", desc: "High-frequency SCADA integration with sub-string resolution, weather station parameters, grid export control loop parameters, and utility-grade compliance logging.", image: "/assets/pages/monitoring/scale_industrial.webp" },
       ],
     },
     {
       type: "steps",
       title: "Engineered *Delivery Flow*",
-      subtitle: "A transparent, 5-stage roadmap from eligibility check to connection activation.",
+      subtitle: "A transparent, 5-stage engineering roadmap ensuring your specifications are built with repeatable industrial precision.",
       items: [
         { title: "Eligibility Check", desc: "We confirm your connection, sanctioned load and system capacity qualify.", icon: "search" },
         { title: "Application Filing", desc: "Your application is submitted to the DISCOM with the right details.", icon: "file" },
@@ -83,11 +104,10 @@ export const page: PageData = {
     },
     {
       type: "cta",
-      title: "Let Us Handle the *Net Metering Paperwork.*",
+      title: "Let Us Handle The *Net Metering Paperwork.*",
       desc: "From the first application to the day your meter starts exporting, Ksquare manages the process so you can start saving sooner.",
       ctas: [
         { label: "Get Net Metering Assistance", href: ROUTES.contact },
-        { label: "Talk to Our Team", href: ROUTES.contact },
       ],
     },
   ],

@@ -17,38 +17,46 @@ export const page: PageData = {
       { label: "Apply for Export Partnership", href: ROUTES.contact },
       { label: "See What We Export", href: ROUTES.exportSolutions },
     ],
-    image: `${IMG}/hero_bg.webp`,
-    imagePosition: "center 40%",
-    cutout: { image: `${IMG}/hero.webp`, x: -48, y: -266, w: 1849, h: 728 },
+    crumbRow: true,
+    bannerGap: 182,
+    afterGap: 30,
+    cutout: { image: `${IMG}/hero_full.webp`, x: -48, y: -266, w: 1849, h: 766 },
     imageAlt: "Ksquare export team shaking hands with an international distributor in a warehouse",
   },
+  sectionPadding: 50,
   sections: [
     {
       type: "split",
-      title: "Partnership vs. *a One-Time Order*",
+      natural: true,
+      title: "Partnership vs. a *One-Time OEM Order*",
       paras: [
-        "Need to source or import a single order? Our Export Solutions are designed for straightforward product sourcing, fulfilment and export support without a long-term commitment.",
-        "The Export Business partnership is for companies that want to represent Ksquare in their region over the long term.",
+        "Need to source or import a single order? Our Export Solutions are designed for straightforward product sourcing, fulfillment, and export support without a long-term commitment.",
+        "This page is for businesses looking to represent Ksquare in their region through an ongoing partnership, with consistent supply, market-specific support, and long-term access to our manufacturing capabilities.",
+      ],
+      stats: [
+        { value: "100+", label: "Team Members" },
+        { value: "10+", label: "Career Opportunities" },
+        { value: "Growing", label: "Work Culture" },
       ],
       image: `${IMG}/included.webp`,
       imageAlt: "Ksquare export shipment being prepared",
-      cta: { label: "See Export Solutions", href: ROUTES.exportSolutions },
     },
     {
       type: "cards",
       cols: 4,
       title: "What's Included in an *Export Partnership*",
-      subtitle: "A structured programme for distributors who want dependable supply from India.",
+      subtitle: "A structured programme for distributors who want dependable supply from India. Every partner gets regional rights, preferential pricing, technical support and a dedicated account manager.",
       items: [
-        { title: "Regional Distribution Rights", desc: "Authorised representation of Ksquare in your region.", icon: "globe" },
-        { title: "Preferential Export Pricing", desc: "Partner pricing that improves with volume.", icon: "rupee" },
-        { title: "Marketing & Technical Support", desc: "Catalogues, datasheets and training to help you sell.", icon: "headset" },
-        { title: "Dedicated Export Account Manager", desc: "One contact for orders, documentation and logistics.", icon: "users" },
+        { title: "Regional Distribution Rights", desc: "Authorised representation of Ksquare in your region.", icon: "monitor" },
+        { title: "Preferential Export Pricing", desc: "Partner pricing that improves with volume.", icon: "wrench" },
+        { title: "Marketing & Technical Support", desc: "Catalogues, datasheets and training to help you sell.", icon: "cpu" },
+        { title: "Dedicated Export Account Manager", desc: "One contact for orders, documentation and logistics.", icon: "handshake" },
       ],
     },
     {
       type: "cards",
       cols: 3,
+      wideImage: true,
       title: "Who This *Partnership Is For*",
       items: [
         { title: "Solar Equipment Distributors", desc: "Distributors who want a dependable, certified BOS line from India.", image: `${IMG}/who_distributors.webp` },
@@ -58,6 +66,7 @@ export const page: PageData = {
     },
     {
       type: "accordion",
+      tall: true,
       title: "Why International Partners *Choose Ksquare*",
       items: [
         { title: "Internationally Recognized Certifications", desc: "ISO 9001:2015, CE, BIS and RoHS compliant production." },
@@ -93,7 +102,7 @@ export const page: PageData = {
     },
     {
       type: "cta",
-      title: "Ready to Represent *Ksquare in Your Region?*",
+      title: "Ready To Represent *Ksquare In Your Region?*",
       desc: "Apply for the export partnership. Our export desk will respond with next steps within two business days.",
       ctas: [
         { label: "Apply for Export Partnership", href: ROUTES.contact },

@@ -5,6 +5,7 @@ import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import SectionSpacer from "@/components/common/SectionSpacer";
 import OurPresenceTabs from "./OurPresenceTabs";
+import ContactLink from "@/components/common/ContactLink";
 
 export const metadata: Metadata = {
   title: "Contact Us | Ksquare Energy",
@@ -48,7 +49,7 @@ export default function ContactPage() {
               </p>
 
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row items-center gap-[16px]">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-[16px]">
                 <Button variant="outline-primary" href="#enquiry-form" showDot>
                   Get in Touch
                 </Button>
@@ -62,7 +63,7 @@ export default function ContactPage() {
 
         {/* Hero Background Image */}
         <Container maxWidth="1800" className="mt-[50px] lg:mt-[80px]">
-          <div className="w-full relative aspect-[1800/541] overflow-hidden">
+          <div className="w-full relative aspect-[4/3] sm:aspect-[16/9] lg:aspect-[1800/541] overflow-hidden">
             <Image
               src="/assets/contact/hero_bg-5ea93e.png"
               alt="Ksquare Energy Facility"
@@ -88,7 +89,7 @@ export default function ContactPage() {
                 <h2 className="font-dm text-[36px] md:text-[50px] lg:text-[60px] leading-[1.1] text-primary font-medium">
                   Send an <span className="font-recia italic">Enquiry</span>
                 </h2>
-                <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666] text-justify">
+                <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666] lg:text-justify">
                   Please fill out the form below, and our relationship manager will get back to you within 2 hours.
                 </p>
               </div>
@@ -160,7 +161,7 @@ export default function ContactPage() {
                 <h2 className="font-dm text-[36px] md:text-[50px] lg:text-[60px] leading-[1.1] text-primary font-medium">
                   Corporate Office
                 </h2>
-                <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666] text-justify">
+                <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666] lg:text-justify">
                   Visit our headquarters or get in touch through our direct business communication channels.
                 </p>
               </div>
@@ -170,12 +171,12 @@ export default function ContactPage() {
                 {/* Call Us Directly */}
                 <div className="flex gap-[20px] items-start bg-white border border-[#E8E4E0] p-[24px]">
                   <div className="w-[48px] h-[48px] rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(74, 90, 181, 0.1)" }}>
-                    <Image src="/assets/contact/icon_phone.svg" alt="" width={20} height={20} />
+                    <Image src="/assets/contact/icon_phone.svg" alt="" width={24} height={24} />
                   </div>
                   <div className="flex flex-col gap-[4px]">
                     <h4 className="font-archivo text-[17px] leading-[27px] text-[#333333]">Call Us Directly</h4>
-                    <p className="font-archivo text-[17px] leading-[27px] text-[#333333]">+91 79 6969 7979</p>
-                    <p className="font-archivo text-[16px] leading-[26px] text-[#666666] text-justify">Toll-free specialist helpline: Mon-Sat, 9 AM - 7 PM</p>
+                    <p className="font-archivo text-[17px] leading-[27px] text-[#333333]"><ContactLink text="+91 79 6969 7979" /></p>
+                    <p className="font-archivo text-[16px] leading-[26px] text-[#666666] lg:text-justify">Toll-free specialist helpline: Mon-Sat, 9 AM - 7 PM</p>
                   </div>
                 </div>
 
@@ -186,20 +187,20 @@ export default function ContactPage() {
                   </div>
                   <div className="flex flex-col gap-[4px]">
                     <h4 className="font-archivo text-[17px] leading-[27px] text-[#333333]">Email Support</h4>
-                    <p className="font-dm text-[16px] font-medium text-[#111111]">info@ksquareenergy.com</p>
-                    <p className="font-archivo text-[16px] leading-[26px] text-[#666666] text-justify">For project portfolios, floor plans, and corporate pricing</p>
+                    <p className="font-dm text-[16px] font-medium text-[#111111]"><ContactLink text="info@ksquareenergy.com" /></p>
+                    <p className="font-archivo text-[16px] leading-[26px] text-[#666666] lg:text-justify">For project portfolios, floor plans, and corporate pricing</p>
                   </div>
                 </div>
 
                 {/* Ahmedabad Branch Office */}
                 <div className="flex gap-[20px] items-start bg-white border border-[#E8E4E0] p-[24px]">
                   <div className="w-[48px] h-[48px] rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(74, 90, 181, 0.1)" }}>
-                    <Image src="/assets/contact/icon_map_pin.svg" alt="" width={20} height={20} />
+                    <Image src="/assets/contact/icon_map_pin.svg" alt="" width={24} height={24} />
                   </div>
                   <div className="flex flex-col gap-[4px]">
                     <h4 className="font-archivo text-[17px] leading-[27px] text-[#333333]">Ahmedabad Branch Office</h4>
-                    <p className="font-dm text-[16px] font-medium text-[#111111]">Dholera SIR, Activation Zone Gujarat – 382460, India</p>
-                    <p className="font-archivo text-[16px] leading-[26px] text-[#666666] text-justify">Strategically located inside the smart city development zone</p>
+                    <p className="font-dm text-[16px] font-medium text-[#111111]"><ContactLink text="Dholera SIR, Activation Zone Gujarat – 382460, India" /></p>
+                    <p className="font-archivo text-[16px] leading-[26px] text-[#666666] lg:text-justify">Strategically located inside the smart city development zone</p>
                   </div>
                 </div>
               </div>
@@ -246,25 +247,17 @@ export default function ContactPage() {
               </p>
             </div>
 
-            {/* Map — single full-width map per Figma, no side thumbnails (those were mis-cropped UI icons, not real photos) */}
-            <div className="relative w-full aspect-[1800/474] overflow-hidden">
+            {/* Map — Figma #106:4471: the Google My Maps view ("Ksquare Offices" legend) sits on top of the campus view and its Get Direction card, 1800 x 472 */}
+            <div className="w-full overflow-x-auto lg:overflow-visible">
+            <div className="relative w-full min-w-[760px] aspect-[1800/472] overflow-hidden">
               <Image
-                src="/assets/contact/campus_map_main.png"
-                alt="Ksquare Energy Campus Map"
+                src="/assets/contact/ahmedabad_map-2796b0.png"
+                alt="Ksquare Offices map: Ahmedabad, Surat and Baner locations"
                 fill
-                className="object-cover"
+                sizes="(min-width:1864px) 1800px, 100vw"
+                className="object-cover object-left"
               />
-              <div className="absolute left-[24px] top-[24px] md:left-[38px] md:top-[168px] bg-white p-[24px] flex flex-col gap-[20px] max-w-[calc(100%-48px)] md:max-w-[300px]">
-                <div className="flex flex-col gap-[10px]">
-                  <h4 className="font-archivo text-[20px] lg:text-[24px] leading-[26px] text-primary">Get Direction</h4>
-                  <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666]">
-                    Click on the location or  use the map to get directions to our campus
-                  </p>
-                </div>
-                <Button variant="outline-primary" href="#" showDot className="w-fit">
-                  View On Larger Map
-                </Button>
-              </div>
+            </div>
             </div>
           </div>
         </Container>

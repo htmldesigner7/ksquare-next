@@ -14,6 +14,8 @@ const Chevron = () => (
 );
 
 export default function PageHero({ hero }: { hero: HeroData }) {
+  // Figma variant with the breadcrumb on its own row above a top-aligned title + intro row (title may still break before the accent).
+  const crumbRow = hero.singleLine || hero.crumbRow;
   const crumbNav = (
         <nav aria-label="Breadcrumb" className="flex items-center gap-[10px] flex-wrap">
           {hero.crumbs.map((crumb, i) => {
@@ -21,7 +23,7 @@ export default function PageHero({ hero }: { hero: HeroData }) {
             return (
               <React.Fragment key={crumb.label}>
                 {crumb.href && !last ? (
-                  <Link href={crumb.href} className="font-archivo text-[15px] lg:text-[20px] text-[#333333] hover:text-primary leading-[28px] transition-colors">
+                  <Link href={crumb.href} className="font-archivo text-[15px] lg:text-[20px] text-[#333333] hover:text-primary leading-[28px] transition-colors py-[8px] -my-[8px]">
                     {crumb.label}
                   </Link>
                 ) : (
@@ -37,15 +39,15 @@ export default function PageHero({ hero }: { hero: HeroData }) {
   );
 
   return (
-    <section className="w-full pt-[90px] lg:pt-[130px] flex flex-col items-center">
+    <section className="w-full pt-[90px] lg:pt-[130px] flex flex-col items-center overflow-x-clip">
       <Container maxWidth="1800" className="relative z-10">
         {/* Single-line Figma variant: breadcrumb is its own row above the title + intro row */}
-        {hero.singleLine && <div className="mb-[14px]">{crumbNav}</div>}
-        <div className={`flex flex-col lg:flex-row justify-between ${hero.singleLine ? "lg:items-start" : "lg:items-end"} gap-[32px] lg:gap-[40px] w-full pt-[24px] lg:pt-0`}>
+        {crumbRow && <div className="mb-[14px]">{crumbNav}</div>}
+        <div className={`flex flex-col lg:flex-row justify-between ${crumbRow ? "lg:items-start" : "lg:items-end"} gap-[32px] lg:gap-[40px] w-full pt-[24px] lg:pt-0`}>
           {/* Left: breadcrumb + title (Figma title block is 179px tall even for one/two lines) */}
-          <div className={`flex flex-col ${hero.singleLine ? "gap-[14px]" : "gap-[12px]"} w-full lg:flex-1 lg:min-w-0 lg:max-w-[792px]`}>
-            {!hero.singleLine && crumbNav}
-            <div className={hero.singleLine ? "" : "lg:min-h-[179px]"}>
+          <div className={`flex flex-col ${crumbRow ? "gap-[14px]" : "gap-[12px]"} w-full lg:flex-1 lg:min-w-0 lg:max-w-[var(--hero-tw,792px)]`} style={hero.titleWidth ? ({ "--hero-tw": `${hero.titleWidth}px` } as React.CSSProperties) : undefined}>
+            {!crumbRow && crumbNav}
+            <div className={crumbRow || hero.fitTitle ? "" : "lg:min-h-[179px]"}>
               <RichTitle
                 as="h1"
                 text={hero.title}
@@ -74,7 +76,8 @@ export default function PageHero({ hero }: { hero: HeroData }) {
 
       <Container
         maxWidth="1800"
-        className={`relative z-0 mt-[40px] ${hero.cutout ? (hero.singleLine ? "lg:mt-[217px]" : "lg:mt-[181px]") : "lg:mt-[80px]"}`}
+        className={`relative z-0 mt-[40px] ${hero.afterGap ? "lg:mb-[var(--hero-after)]" : ""} ${hero.bannerGap ? "lg:mt-[var(--hero-gap)]" : hero.cutout ? (crumbRow ? "lg:mt-[217px]" : "lg:mt-[181px]") : "lg:mt-[80px]"}`}
+        style={hero.bannerGap || hero.afterGap ? ({ "--hero-gap": `${hero.bannerGap ?? 0}px`, "--hero-after": `${hero.afterGap ?? 0}px` } as React.CSSProperties) : undefined}
       >
         <Reveal y={20}>
           <div className="group w-full relative aspect-[4/3] sm:aspect-[16/9] lg:aspect-[1804/500]">

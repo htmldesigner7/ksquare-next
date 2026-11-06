@@ -11,6 +11,7 @@ export const page: PageData = {
   hero: {
     crumbs: [{ label: "Home", href: ROUTES.home }, { label: "About Us" }, { label: "Awards & Recognition" }],
     title: "Recognition That *Reflects Our Work*",
+    bannerGap: 201,
     description:
       "Explore the awards and recognition associated with Ksquare Energy. High-stakes milestones certified by the leading industrial and state authorities.",
     ctas: [

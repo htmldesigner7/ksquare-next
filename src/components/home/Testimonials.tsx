@@ -84,7 +84,7 @@ export default function Testimonials() {
       `}</style>
       
       {/* Desktop Wrapper */}
-      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative h-[782px] max-canvas:h-auto max-canvas:py-16">
+      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative h-[782px] max-canvas:h-auto max-canvas:py-16 max-sm:py-10">
         
         {/* Desktop Layout (Testimonials) */}
         <div className="hidden canvas:block absolute left-0 top-0 w-[1920px] h-[782px]">

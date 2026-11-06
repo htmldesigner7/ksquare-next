@@ -11,32 +11,35 @@ export const page: PageData = {
     "We help you identify, calculate and secure every central and state solar incentive your rooftop project qualifies for, with Ksquare handling the application process.",
   hero: {
     crumbs: [{ label: "Home", href: ROUTES.home }, { label: "Solutions" }, { label: "Government Solutions" }, { label: "Subsidy Assistance" }],
-    title: "Solar Subsidy Assistance: *Central & State Incentive Support*",
+    title: "Solar Subsidy Assistance *Central & State Incentive Support*",
     description:
-      "We help you identify, calculate, and secure every central and state solar incentive your rooftop project qualifies for — with Ksquare handling the complex application process.",
+      "We help you identify, calculate, and secure every central and state solar incentive your rooftop project qualifies for—with Ksquare handling the complex application process end-to-end.",
     ctas: [
       { label: "Check My Subsidy Eligibility", href: ROUTES.pmSuryaGhar },
       { label: "Talk to Our Team", href: ROUTES.contact },
     ],
-    image: `${IMG}/hero_bg.webp`,
-    cutout: { image: `${IMG}/hero.webp`, x: 180, y: -175, w: 1445, h: 675 },
+    crumbRow: true,
+    bannerGap: 177,
+    cutout: { image: `${IMG}/hero_full.webp`, x: 0, y: -175, w: 1800, h: 675 },
     imageAlt: "Engineers reviewing a solar project",
   },
   sections: [
     {
       type: "cards",
       cols: 4,
+      linkButtons: true,
       title: "Subsidies & Incentives *You May Qualify For*",
       items: [
-        { title: "PM Surya Ghar", desc: "Central financial assistance for residential rooftop solar.", icon: "home", href: ROUTES.pmSuryaGhar, linkLabel: "Learn more" },
-        { title: "State Government Schemes", desc: "State-level top-ups and incentives that stack with central support.", icon: "building" },
-        { title: "Accelerated Depreciation", desc: "Tax benefits that improve payback for businesses and industry.", icon: "rupee" },
-        { title: "Net Metering-Linked Savings", desc: "Bill credits for surplus power exported to the grid.", icon: "zap", href: ROUTES.netMetering, linkLabel: "Learn more" },
+        { title: "PM Surya Ghar", desc: "Central financial assistance for residential rooftop solar.", icon: "home", href: ROUTES.pmSuryaGhar, linkLabel: "Learn More" },
+        { title: "State Government Schemes", desc: "State-level top-ups and incentives that stack with central support.", icon: "building", href: ROUTES.contact, linkLabel: "Learn More" },
+        { title: "Accelerated Depreciation", desc: "Tax benefits that improve payback for businesses and industry.", icon: "rupee", href: ROUTES.contact, linkLabel: "Learn More" },
+        { title: "Net Metering-Linked Savings", desc: "Bill credits for surplus power exported to the grid.", icon: "zap", href: ROUTES.netMetering, linkLabel: "Learn More" },
       ],
     },
     {
       type: "cards",
       cols: 3,
+      wideImage: true,
       title: "What Applies *to You*",
       items: [
         { title: "Residential Solar", desc: "Central and state support for home rooftop systems, with documentation and portal registration handled for you.", image: `${SCALE}/scale_home.webp`, href: ROUTES.residential, linkLabel: "Explore Residential Solar" },
@@ -46,9 +49,11 @@ export const page: PageData = {
     },
     {
       type: "split",
+      natural: true,
+      bulletCols: 2,
       title: "What's Included in *Our Subsidy Assistance*",
       paras: [
-        "Ksquare Energy operates as a fully integrated EPC. We don't just supply systems — we coordinate every structural and administrative step required to safely disburse government incentives to your account.",
+        "Ksquare Energy operates as a fully integrated EPC. We don't just supply systems — we coordinate every structural and administrative step required to safely disburse government benefits directly to you.",
       ],
       bullets: ["Eligibility Assessment", "Documentation Preparation", "Application Filing", "Liaison with Government Bodies & DISCOMs", "Approval Status Tracking"],
       stats: [
@@ -64,11 +69,13 @@ export const page: PageData = {
       numbered: true,
       title: "Why Applications Get *Delayed or Rejected*",
       desc: "Most delays come from avoidable mistakes. Knowing them upfront keeps your application moving.",
-      bgImage: "/assets/pages/shared/dark_bg.webp",
+      bgImage: `${IMG}/dark_house.png`,
+      bgHeight: 657,
+      tops: [63, 487, 63, 423],
       items: [
         { title: "Documentation Errors", desc: "Incomplete details, mismatched names or uncertified component specs trigger immediate queries and verification." },
+        { title: "Missed Timelines", desc: "Many state-incentive pools have stringent quarterly or scheme-specific timeline windows. Delayed filing invalidates past efforts." },
         { title: "Eligibility Errors", desc: "Applying for schemes without meeting technical, capacity or location eligibility wastes valuable time." },
-        { title: "Missed Timelines", desc: "Many state-incentive pools have strict quarterly or scheme-specific windows. Delayed filing can invalidate past effort." },
         { title: "Coordination Gaps", desc: "Claiming incentives requires sync across DISCOM portal logins, nodal inspectorates and the national rooftop registry." },
       ],
     },
@@ -98,11 +105,10 @@ export const page: PageData = {
     },
     {
       type: "cta",
-      title: "Don't Leave *Incentives on the Table*",
+      title: "Don't Leave Subsidy *Money on the Table.*",
       desc: "Find out what your solar project qualifies for. Our team will check eligibility and manage the application end to end.",
       ctas: [
         { label: "Check My Subsidy Eligibility", href: ROUTES.pmSuryaGhar },
-        { label: "Talk to Our Team", href: ROUTES.contact },
       ],
     },
   ],

@@ -11,39 +11,51 @@ export const page: PageData = {
   hero: {
     crumbs: [{ label: "Home", href: ROUTES.home }, { label: "Manufacturing" }, { label: "Custom Product Development" }],
     title: "Custom Solar *Product Development*",
+    singleLine: true,
+    bannerGap: 147,
+    afterGap: 30,
+    titleWidth: 760,
     description:
-      "When a standard product doesn't fit your requirement, we engineer one that does. Turnkey balance-of-system design, rapid bench prototypes, and IEC-aligned certification support.",
-    ctas: [{ label: "Talk to Our Engineering Team", href: ROUTES.contact }],
-    image: `${IMG}/hero_bg.webp`,
-    cutout: { image: `${IMG}/hero.webp`, x: 354, y: -141, w: 1373, h: 641 },
+      "When a standard product doesn't fit your requirement, we engineer one that does. Turnkey balance-of-system design, rapid bench prototypes, and IEC aligned compliance validation.",
+    ctas: [
+      { label: "Discuss Your Custom Requirement", href: ROUTES.contact },
+      { label: "Talk to Our Engineering Team", href: ROUTES.contact },
+    ],
+    cutout: { image: `${IMG}/hero_full.webp`, x: 0, y: -141, w: 1800, h: 641 },
     imageAlt: "Engineers reviewing a custom solar enclosure design",
   },
+  sectionPadding: 50,
   sections: [
     {
       type: "split",
+      natural: true,
       title: "When Standard Solar *Products Aren't Enough*",
       paras: [
-        "Not every solar project fits a standard product. Custom development is ideal when your requirements involve non-standard electrical ratings, custom enclosure sizes or materials, special connectors, or documentation for a specific market.",
-        "Our engineers work from your requirement to a certified, production-ready product.",
+        "Not every solar project fits a standard product. Custom development is ideal when your requirements involve non-standard electrical ratings, custom enclosure sizes or materials, specific certifications, or unique mounting and form-factor needs.",
+        "If the existing product already meets your technical requirements and you only need your own branding, label, or packaging, Private Label Manufacturing may be the better option.",
       ],
       image: `${IMG}/standard.webp`,
       imageAlt: "Standard solar distribution boards",
+      cta: { label: "Explore Private Label Manufacturing", href: ROUTES.privateLabel },
     },
     {
       type: "cards",
       cols: 4,
+      compactHead: true,
       title: "Engineering Capability Behind *Every Custom Build*",
-      subtitle: "Custom development becomes relevant when the electrical, mechanical, compliance or installation requirement falls outside an existing product configuration.",
+      subtitle: "Not every solar project fits a standard catalogue configuration. Custom development becomes relevant when the electrical, mechanical, compliance or installation requirement falls outside an existing product configuration.",
       items: [
-        { title: "In-House Design & Engineering Team", desc: "Electrical and mechanical engineers working under one roof with production.", icon: "cpu" },
-        { title: "Prototyping Capability", desc: "Rapid CAD models and working bench prototypes.", icon: "settings" },
-        { title: "Testing & Certification Support", desc: "Lab testing aligned to IEC standards and market requirements.", icon: "shield" },
-        { title: "Small-Batch Pilot Runs", desc: "Validate in the field before committing to full production.", icon: "layers" },
+        { title: "In-House Design & Engineering Team", desc: "Electrical and mechanical engineers working under one roof with production.", icon: "monitor" },
+        { title: "Prototyping Capability", desc: "Rapid CAD models and working bench prototypes.", icon: "wrench" },
+        { title: "Testing & Certification Support", desc: "Lab testing aligned to IEC standards and market requirements.", icon: "clipboard" },
+        { title: "Small-Batch Pilot Runs Before Full Production", desc: "Validate in the field before committing to full production.", icon: "cpu" },
       ],
     },
     {
       type: "accordion",
+      tall: true,
       title: "What Can Be *Customized*",
+      subtitle: "Every element of a Ksquare product can be adapted to match your project requirement.",
       items: [
         { title: "Electrical Specifications & Ratings", desc: "Voltage, current, number of strings, protection devices and surge protection tailored to your design." },
         { title: "Enclosure Size, Material & IP Rating", desc: "Metal or thermoplastic enclosures sized to your layout, with the ingress protection your site demands." },
@@ -60,15 +72,28 @@ export const page: PageData = {
       desc: "Custom development supports teams whose projects, brands or markets need something specific.",
       bgImage: "/assets/pages/shared/dark_bg.webp",
       numbered: true,
+      tops: [56, 479, 56, 414],
       items: [
         { title: "EPC Companies", desc: "Project-specific distribution boards and combiners matched to your design." },
-        { title: "Industrial Clients", desc: "Custom BOS for captive plants and unusual site conditions." },
         { title: "OEM Brands", desc: "Differentiated products built exclusively for your brand." },
+        { title: "Industrial Clients", desc: "Custom BOS for captive plants and unusual site conditions." },
         { title: "Export Partners", desc: "Market-specific designs and documentation for your region." },
       ],
     },
     {
+      type: "cards",
+      cols: 4,
+      title: "Built for Brands That *Don't Manufacture*",
+      items: [
+        { title: "Solar Distributors", desc: "Add a house brand to your portfolio with better margins.", icon: "monitor" },
+        { title: "Retailers & E-Commerce", desc: "Sell branded BOS products through your own channels.", icon: "wrench" },
+        { title: "Regional Installers", desc: "Standardise on your own branded BOS for every installation.", icon: "cpu" },
+        { title: "International Importers", desc: "Build an Indian-manufactured line under your name.", icon: "cpu" },
+      ],
+    },
+    {
       type: "steps",
+      zigzag: true,
       title: "Our Custom *Development Process*",
       items: [
         { title: "Requirements & Feasibility", desc: "We log your request and assess technical feasibility.", icon: "clipboard" },
@@ -81,26 +106,31 @@ export const page: PageData = {
     },
     {
       type: "compare",
+      panel: true,
       title: "Not Sure *Which You Need?*",
       subtitle: "Understanding the distinction between Private Labeling and Custom Product Development ensures the fastest route to market and optimized tooling budgets.",
       items: [
         {
           title: "Private Label Manufacturing",
           desc: "Your brand applied to an existing standard Ksquare catalogue product with full white-glove packaging.",
-          points: [
-            "Best when you want your brand on a proven, certified product",
-            "Advantage: fastest lead times, zero tooling capex and pre-certified enclosures",
-            "Deliverables: custom silk-screen graphics, branded rating plates, user manual and packaging",
+          points: [],
+          blocks: [
+            { label: "Best when:", text: "The standard catalogue specification already satisfies your electrical and physical requirements." },
+            { label: "Primary advantage:", text: "Fastest lead times, zero tooling capex, and instant adoption of pre-certified enclosures." },
+            { label: "Deliverables:", text: "Custom silk-screen brand graphics, branded rating plates, custom user manual, custom packaging." },
           ],
+          cta: { label: "Explore Private Label Manufacturing", href: ROUTES.privateLabel },
         },
         {
           title: "Custom Product Development",
           desc: "A bespoke balance-of-system hardware platform engineered from the ground up around your exact electrical and spatial specifications.",
-          points: [
-            "Best when standard products cannot meet your voltage, amp ratings, multi-string grouping or mounting space",
-            "Advantage: a product designed exactly around your requirement",
-            "Deliverables: 3D CAD design, custom tooling / stamping, working bench prototype, third-party lab testing dossier",
+          points: [],
+          blocks: [
+            { label: "Best when:", text: "Standard products cannot meet your voltage, amp ratings, multi-string grouping, or mounting alcove." },
+            { label: "Primary advantage:", text: "A product designed exactly around your requirement." },
+            { label: "Deliverables:", text: "3D CAD design, custom tooling / stamping, working bench prototype, third-party lab testing dossier." },
           ],
+          cta: { label: "Discuss Your Custom Requirement", href: ROUTES.contact },
         },
       ],
     },
@@ -118,10 +148,10 @@ export const page: PageData = {
     },
     {
       type: "cta",
-      title: "Have a Requirement *That Needs Engineering?*",
+      title: "Have a Requirement That Doesn't *Fit the Standard Catalog?*",
       desc: "Describe your requirement and our engineers will assess feasibility and propose the fastest path to a certified product.",
       ctas: [
-        { label: "Talk to Our Engineering Team", href: ROUTES.contact },
+        { label: "Discuss Your Custom Requirement", href: ROUTES.contact },
       ],
     },
   ],

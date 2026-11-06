@@ -8,8 +8,8 @@ const bars = [
   { year: "2018", label: "Founded", h: 73, lh: "leading-[32px]" },
   { year: "2020", label: "Energy Expansion", h: 102, lh: "leading-[32px]" },
   { year: "2022", label: "Gain 300+ Clients", h: 142, lh: "leading-[32px]" },
-  { year: "2024", label: "New Services Launched", h: 220, lh: "leading-[27px]" },
-  { year: "2026", label: "Projects Ranges from 1 kW to 500 kW", h: 265, lh: "leading-[27px]" },
+  { year: "2024", label: "New Services Launched", h: 220, lh: "leading-[27px]", nowrap: true },
+  { year: "2026", label: "Projects Ranges from 1 kW to 500 kW", h: 265, lh: "leading-[27px]", narrow: true },
 ];
 
 const serve = [
@@ -80,29 +80,32 @@ export default function AboutUsPage() {
         </div>
 
         <div className="w-full max-w-[1804px] mx-auto px-4 lg:px-8 g1868:px-0 mt-[40px] lg:mt-[174px]">
-          <div className="relative w-full aspect-[1804/500]">
-            <Image src="/assets/about/hero_bg-23383c.png" alt="Hero Graphic" fill sizes="1804px" className="object-cover" priority />
-            {/* Figma cutout layer: the engineer rises 163px above the banner (1804x663, ends at the banner bottom) */}
+          <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:aspect-[1804/500]">
+            {/* mobile / tablet: banner only */}
+            <Image src="/assets/about/hero_bg-23383c.png" alt="Hero Graphic" fill sizes="1804px" className="object-cover lg:hidden" priority />
+            {/* desktop: banner + engineer cut-out merged into one Figma image (rises 163px above the plate) */}
             <div className="hidden lg:block absolute left-0 w-full pointer-events-none" style={{ top: "-32.6%", height: "132.6%" }}>
-              <Image src="/assets/about/hero_cutout.webp" alt="" fill sizes="1804px" className="object-contain object-bottom" priority />
+              <Image src="/assets/about/hero_full.webp" alt="Hero Graphic" fill sizes="1804px" className="object-fill" priority />
             </div>
           </div>
         </div>
       </section>
 
-      <div className="w-full mt-[60px] canvas:mt-[100px] flex flex-col gap-[60px] canvas:gap-[100px]">
+      {/* Figma: banner ends at 1002, Our Story starts at 1101; testimonial rows end 17px above the CTA band */}
+      <div className="w-full mt-[60px] canvas:mt-[99px] flex flex-col gap-[60px] canvas:gap-[100px] pb-[16px] canvas:pb-[17px]">
         {/* 2. Our Story */}
         <section className="canvas-zoom canvas:w-[1800px] w-full max-w-[1800px] mx-auto px-4 lg:px-8 g1864:px-0">
           <div className="flex flex-col canvas:flex-row canvas:justify-between gap-[40px] canvas:h-[724px]">
             {/* Left: title + image */}
             <div className="relative flex flex-col w-full canvas:w-[711px] shrink-0">
-              <h2 className="relative z-10 m-0 max-w-[532px] font-archivo font-normal text-[40px] lg:text-[60px] leading-[1.1] canvas:leading-[64.5px] text-[#2B398B]">
+              <h2 className="relative z-10 m-0 max-w-[532px] font-archivo font-normal text-[40px] lg:text-[60px] leading-[1.1] canvas:leading-[70px] canvas:-mt-[14px] text-[#2B398B]">
                 Our Story: From Passion to <span className="font-recia italic font-medium">Impact</span>
               </h2>
               <div className="relative w-full aspect-[711/595] canvas:mt-auto">
                 <Image src="/assets/about/our_story-7fc02a.png" alt="Our Story: Passion to Impact" fill sizes="711px" className="object-cover" />
               </div>
-              <div className="hidden canvas:block absolute right-0 top-0 w-[259px] h-full bg-gradient-to-l from-transparent to-white pointer-events-none" />
+              {/* Figma: the illustration dissolves into white over its right-hand 259px (x452 to x711) */}
+              <div className="hidden canvas:block absolute right-0 top-0 w-[259px] h-full bg-gradient-to-r from-transparent to-white pointer-events-none" />
             </div>
 
             {/* Right: copy + timeline bars */}
@@ -111,12 +114,15 @@ export default function AboutUsPage() {
                 <p className="m-0">
                   Ksquare Energy is a globally recognized leading solar energy solutions provider, specializing in Solar Array Junction Box manufacturing and comprehensive EPC solutions.
                 </p>
-                <p className="m-0 whitespace-pre-wrap">
-                  {"  - We are manufacturing Solar ACDB, DCDB, AJB, SCB, Combiner Boxes, Solar structures and diverse range distribution box for utility-scale projects. We are also supplying all sets of materials such as Solar Panels, Inverters, cables and all type of accessories related to solar PV Systems."}
-                </p>
-                <p className="m-0 whitespace-pre-wrap">
-                  {"  - We had executed projects Ranges from 1 kW to 500 kW, with both crystallines as well as thin film module technologies."}
-                </p>
+                {/* Figma renders these as real bullets with a 36px hanging indent */}
+                {[
+                  "We are manufacturing Solar ACDB, DCDB, AJB, SCB, Combiner Boxes, Solar structures and diverse range distribution box for utility-scale projects. We are also supplying all sets of materials such as Solar Panels, Inverters, cables and all type of accessories related to solar PV Systems.",
+                  "We had executed projects Ranges from 1 kW to 500 kW, with both crystallines as well as thin film module technologies.",
+                ].map((t) => (
+                  <p key={t} className="relative m-0 pl-[24px] canvas:pl-[36px] before:content-['•'] before:absolute before:left-[8px] canvas:before:left-[12px] before:top-0">
+                    {t}
+                  </p>
+                ))}
               </div>
 
               <div className="mt-[40px] canvas:mt-0 canvas:h-[404px] canvas:pt-[20px] grid grid-cols-5 gap-[8px] canvas:gap-[22.5px] items-end canvas:items-stretch">
@@ -127,7 +133,7 @@ export default function AboutUsPage() {
                         <span className="font-inter text-[15px] lg:text-[21px] leading-[30px] text-white">{b.year}</span>
                       </div>
                     </div>
-                    <span className={`block text-center font-archivo font-semibold text-[12px] lg:text-[17px] ${b.lh} text-[#2B398B]`}>
+                    <span className={`block text-center font-archivo font-semibold text-[12px] lg:text-[17px] ${b.lh} text-[#2B398B] ${b.nowrap ? "lg:whitespace-nowrap" : ""} ${b.narrow ? "lg:px-[6px]" : ""}`}>
                       {b.label}
                     </span>
                   </div>
@@ -172,7 +178,7 @@ export default function AboutUsPage() {
               </div>
 
               <div className="absolute" style={{ left: 0, top: "65.75%", width: "26.61%", height: "38.14%" }}>
-                <Image src="/assets/about/mission_bg-5f03f9.png" alt="Mission Graphic" fill className="object-contain object-left-bottom" />
+                <Image src="/assets/about/mission_bg_render.png" alt="Mission Graphic" fill className="object-contain object-left-bottom" />
               </div>
               <div className="absolute" style={{ left: "69.89%", top: "61.06%", width: "30.11%", height: "41.35%" }}>
                 <Image src="/assets/about/vision_bg.png" alt="Vision Graphic" fill className="object-contain object-right-bottom" />
@@ -197,7 +203,7 @@ export default function AboutUsPage() {
               <h3 className="m-0 font-archivo font-semibold text-[32px] leading-[1.2] text-white">Our Mission</h3>
               <p className="mt-[20px] mb-0 font-archivo text-[18px] leading-[1.5] text-white">{missionText}</p>
               <div className="relative mt-[40px] w-[250px] md:w-[350px] aspect-[479/333]">
-                <Image src="/assets/about/mission_bg-5f03f9.png" alt="Mission Graphic" fill className="object-contain object-left-bottom" />
+                <Image src="/assets/about/mission_bg_render.png" alt="Mission Graphic" fill className="object-contain object-left-bottom" />
               </div>
             </div>
             <div className="w-full bg-[#EDF3FF] flex flex-col p-[24px] pt-[48px] overflow-hidden">
@@ -243,7 +249,7 @@ export default function AboutUsPage() {
         </section>
 
         {/* 5. The Values That Guide Us */}
-        <section className="w-full bg-[#F8FAFF] py-[60px] flex flex-col items-center gap-[40px]">
+        <section className="w-full bg-[#F8FAFF] py-[60px] canvas:h-[920px] canvas:py-0 flex flex-col items-center justify-center gap-[40px]">
           <div className="w-full flex flex-col items-center gap-[60px]">
             <div className="flex flex-col items-center gap-[24px] text-center px-4">
               <h2 className="m-0 pt-[22.5px] font-inter font-medium text-[40px] lg:text-[60px] leading-[1.2] text-[#1E3A8A]">

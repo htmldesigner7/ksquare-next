@@ -2,6 +2,7 @@
 
 import React from "react";
 import Button from "@/components/common/Button";
+import ContactLink from "@/components/common/ContactLink";
 
 const westZoneLocations = [
   {
@@ -72,7 +73,7 @@ export default function OurPresenceTabs() {
               <div className="hidden lg:block w-[1px] self-stretch bg-[#9DBCF3]"></div>
               <div className="w-full lg:max-w-[744px]">
                 <p className="font-archivo text-[16px] lg:text-[18px] leading-[26px] text-[#666666]">
-                  {loc.address}
+                  <ContactLink text={loc.address} />
                 </p>
               </div>
               <div className="hidden lg:block w-[1px] self-stretch bg-[#9DBCF3]"></div>

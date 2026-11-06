@@ -13,11 +13,11 @@ export const page: PageData = {
     title: "Ksquare Energy *Payment Details*",
     description: "Official payment options for Ksquare Energy Pvt. Ltd. — pay via UPI or bank transfer, and confirm your payment below.",
     ctas: [{ label: "Talk To Our Team", href: ROUTES.contact }],
-    image: `${IMG}/hero_bg.webp`,
-    imagePosition: "center 65%",
-    cutout: { image: `${IMG}/hero.webp`, x: 0, y: -205, w: 1800, h: 705 },
+    crumbRow: true,
+    cutout: { image: `${IMG}/hero_full.webp`, x: 0, y: -205, w: 1800, h: 705 },
     imageAlt: "Ksquare team member checking a payment on a phone beside a rooftop solar plant",
   },
+  sectionPadding: 50,
   sections: [
     {
       type: "payment",
@@ -47,7 +47,7 @@ export const page: PageData = {
     {
       type: "numbered",
       title: "How to Confirm *Your Payment*",
-      subtitle: "Complete these steps for immediate transaction reconciliation and official GST receipt dispatch.",
+      subtitle: "Complete these three steps for immediate transaction reconciliation and official GST receipt dispatch.",
       items: [
         { title: "Make the Payment", desc: "Execute your transfer through the official UPI QR / ID or electronic bank account specified above." },
         { title: "Take a Screenshot", desc: "Ensure the UTR number, transaction reference ID, transferred amount and date are clearly readable." },
@@ -57,13 +57,14 @@ export const page: PageData = {
     },
     {
       type: "split",
+      natural: true,
       title: "Important Payment *Information*",
-      paras: ["Corporate security & transaction guidelines:"],
+      paras: ["Corporate Security & Transaction Guidelines:"],
       bullets: [
-        "Verify details before transferring: double-check the account number, IFSC code or UPI ID against this official page before authorizing any transaction.",
-        "Use only the official details on this page: Ksquare Energy never requests fund transfers to personal accounts, unauthorized third-party gateways or unverified mobile numbers.",
-        "Contact Ksquare if in doubt: if you receive any banking change request or suspect communication discrepancies, halt payment immediately and call our registered office.",
-        "Quote your reference: mention your quotation or invoice number in the payment remarks to avoid delays in receipt generation.",
+        "Verify details before transferring: Double-check the account number, IFSC code, or UPI ID against this official page before authorizing any transaction.",
+        "Use only the official details on this page: Ksquare Energy never requests fund transfers to personal accounts, unauthorized third-party gateways, or unverified mobile numbers.",
+        "Contact Ksquare if in doubt: If you receive any banking change request or suspect communication discrepancies, halt payment immediately and call our registered office.",
+        "Quote your reference: Mention your quotation or invoice number in the payment remarks to avoid administrative delays in formal receipt generation.",
       ],
       image: `${IMG}/info.webp`,
       imageAlt: "Ksquare accounts team verifying a payment",
@@ -71,12 +72,13 @@ export const page: PageData = {
     {
       type: "cards",
       cols: 3,
+      contact: true,
       title: "Need Help With *Your Payment?*",
       subtitle: "Direct assistance from our corporate accounts and billing reconciliation desk.",
       items: [
-        { title: "Call Us Directly", desc: "+91 79 6969 7979 · Mon-Sat, 9 AM - 7 PM", icon: "headset" },
-        { title: "Email Support", desc: "info@ksquareenergy.com · For project portfolios, floor plans and corporate pricing", icon: "file" },
-        { title: "Ahmedabad Office", desc: "B-403/404 Signature - 2 Sarkhej Sanand Road, Sarkhej, Ahmedabad - 382210.", icon: "pin" },
+        { title: "Call Us Directly", meta: "+91 79 6969 7979", desc: "Toll-free specialist helpline: Mon-Sat, 9 AM - 7 PM", icon: "headset" },
+        { title: "Email Support", meta: "info@ksquareenergy.com", desc: "For project portfolios, floor plans, and corporate pricing", icon: "file" },
+        { title: "Ahmedabad Branch Office", meta: "Dholera SIR, Activation Zone Gujarat – 382460, India", desc: "Strategically located inside the smart city development zone", icon: "pin" },
       ],
     },
     {
@@ -85,13 +87,14 @@ export const page: PageData = {
       items: [
         { q: "What is the official Ksquare Energy UPI ID?", a: "The official UPI ID is ksquareenergyprivatelimited@sbi. Please verify it against this page before paying." },
         { q: "What are Ksquare Energy's bank details?", a: "Bank: State Bank Of India, Sarkhej branch. Account type: CC Account. Account No.: 44281940207. IFSC: SBIN0005146. Account name: Ksquare Energy Private Limited." },
+        { q: "How can I make a payment to Ksquare Energy?", a: "You can pay by scanning the UPI QR code or by direct bank transfer (NEFT / RTGS / IMPS) using only the official details on this page." },
         { q: "How do I confirm my payment?", a: "After paying, take a screenshot showing the UTR/reference number, amount and date, and send it to us via WhatsApp or email along with your quotation or invoice number." },
         { q: "Where should I send my payment screenshot?", a: "Email info@ksquareenergy.com or send it on WhatsApp to +91 79 6969 7979." },
       ],
     },
     {
       type: "cta",
-      title: "Have a Question *Before You Pay?*",
+      title: "Have A Question *Before You Pay?*",
       desc: "Our accounts team is happy to confirm payment details before you transfer. Reach out and we'll help.",
       ctas: [{ label: "Contact Ksquare Energy", href: ROUTES.contact }],
     },

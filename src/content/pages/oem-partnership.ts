@@ -16,8 +16,7 @@ export const page: PageData = {
       { label: "Apply for OEM Partnership", href: ROUTES.contact },
       { label: "See What We Manufacture", href: ROUTES.oem },
     ],
-    image: `${IMG}/hero_bg.webp`,
-    cutout: { image: `${IMG}/hero.webp`, x: 354, y: -213, w: 1373, h: 641 },
+    cutout: { image: `${IMG}/hero_full.webp`, x: 0, y: -213, w: 1800, h: 713 },
     imageAlt: "Ksquare manufacturing partners reviewing a product line",
   },
   sections: [

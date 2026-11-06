@@ -38,9 +38,13 @@
   --color-accent: var(--accent);
 
   /* Extra breakpoints, declared in the theme so Tailwind orders them correctly against sm/md/lg/xl. */
+  /* xl moves down to 1199.84px (just under canvas) so layouts that switch to their desktop form at xl do so at 1200px, in step with the scaled canvas sections. */
+  --breakpoint-xl: 74.99rem;
   --breakpoint-w1100: 68.75rem;
   --breakpoint-hnav: 73.75rem;
-  --breakpoint-canvas: 90rem;
+  --breakpoint-canvas: 75rem;
+  /* 1440px: where the non-scaled chrome (header, footer) switches to its 1920px-artboard sizing; canvas (1200px) is where the scaled sections start. */
+  --breakpoint-desk: 90rem;
   --breakpoint-g1464: 91.5rem;
   --breakpoint-w1536: 96rem;
   --breakpoint-g1664: 104rem;
@@ -143,16 +147,22 @@ html {
 }
 
 /*
- * Pixel-canvas sections (designed on a 1920px artboard) are scaled to fit between 1440px and 1920px
- * instead of overflowing. Below 1440px those sections use their stacked, fluid layouts.
+ * Pixel-canvas sections (designed on a 1920px artboard) are scaled to fit between 1200px and 1920px
+ * instead of overflowing. Below 1200px those sections use their stacked, fluid layouts.
  * --z steps in 40px increments and is computed from (viewport - 20px) so a classic scrollbar
  * can never push the scaled canvas past the screen edge.
  */
-@media (min-width: 1440px) {
+@media (min-width: 1200px) {
   .canvas-zoom {
     zoom: var(--z, 1);
   }
 }
+@media (min-width: 1200px) and (max-width: 1239.98px) { :root { --z: 0.615; } }
+@media (min-width: 1240px) and (max-width: 1279.98px) { :root { --z: 0.635; } }
+@media (min-width: 1280px) and (max-width: 1319.98px) { :root { --z: 0.656; } }
+@media (min-width: 1320px) and (max-width: 1359.98px) { :root { --z: 0.677; } }
+@media (min-width: 1360px) and (max-width: 1399.98px) { :root { --z: 0.698; } }
+@media (min-width: 1400px) and (max-width: 1439.98px) { :root { --z: 0.719; } }
 @media (min-width: 1440px) and (max-width: 1479.98px) { :root { --z: 0.739; } }
 @media (min-width: 1480px) and (max-width: 1519.98px) { :root { --z: 0.76; } }
 @media (min-width: 1520px) and (max-width: 1559.98px) { :root { --z: 0.781; } }
@@ -165,6 +175,20 @@ html {
 @media (min-width: 1800px) and (max-width: 1839.98px) { :root { --z: 0.927; } }
 @media (min-width: 1840px) and (max-width: 1879.98px) { :root { --z: 0.947; } }
 @media (min-width: 1880px) and (max-width: 1919.98px) { :root { --z: 0.968; } }
+
+/* 1600px Figma canvases that must not fall back to a stacked layout between 1100px and 1439px: scale in 40px steps (width - 64px gutters) / 1600 */
+@media (min-width: 1100px) and (max-width: 1439.98px) {
+  .zoom-1600 { zoom: var(--zp, 0.645); }
+}
+@media (min-width: 1100px) and (max-width: 1139.98px) { :root { --zp: 0.645; } }
+@media (min-width: 1140px) and (max-width: 1179.98px) { :root { --zp: 0.67; } }
+@media (min-width: 1180px) and (max-width: 1219.98px) { :root { --zp: 0.695; } }
+@media (min-width: 1220px) and (max-width: 1259.98px) { :root { --zp: 0.72; } }
+@media (min-width: 1260px) and (max-width: 1299.98px) { :root { --zp: 0.745; } }
+@media (min-width: 1300px) and (max-width: 1339.98px) { :root { --zp: 0.77; } }
+@media (min-width: 1340px) and (max-width: 1379.98px) { :root { --zp: 0.795; } }
+@media (min-width: 1380px) and (max-width: 1419.98px) { :root { --zp: 0.82; } }
+@media (min-width: 1420px) and (max-width: 1439.98px) { :root { --zp: 0.845; } }
 
 /* ---- Motion (existing pages) ---- */
 .card-lift {
@@ -187,27 +211,48 @@ html {
   }
 }
 
-/*
- * Scroll reveal for the hand-built pages: each top-level section eases in as it enters the viewport.
- * Pure CSS (scroll-driven animation), so there is no flash before hydration and browsers without
- * support simply show the content. Pages built from the kit use <Reveal> instead (main[data-kit]).
- */
-@keyframes section-in {
-  from {
-    opacity: 0.2;
-    transform: translateY(28px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
+
+/* Content swap used by tabs (same easing as every other motion on the site) */
+@keyframes tab-in {
+  from { opacity: 0; translate: 0 14px; }
+  to { opacity: 1; translate: 0 0; }
+}
+.animate-tab-in {
+  animation: tab-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Scroll reveal (see ScrollReveal.tsx): same easing as every other motion on the site */
+[data-reveal] {
+  opacity: 0;
+  translate: 0 32px;
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), translate 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, translate;
+}
+[data-reveal="in"] {
+  opacity: 1;
+  translate: 0 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; translate: none; transition: none; }
+}
+
+/* Responsive safety net */
+/* iOS Safari zooms the page when a focused field is under 16px — keep fields at 16px on touch/small screens. */
+@media (max-width: 1023px), (pointer: coarse) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="hidden"]),
+  select,
+  textarea {
+    font-size: 16px;
   }
 }
-@supports (animation-timeline: view()) {
-  @media screen and (prefers-reduced-motion: no-preference) {
-    main:not([data-kit]) section:not(section section) {
-      animation: section-in linear both;
-      animation-timeline: view();
-      animation-range: entry 0px entry 220px;
-    }
-  }
+/* Long words, emails and URLs wrap instead of pushing the page wider than the viewport. */
+:where(h1, h2, h3, h4, h5, h6, p, li, dd, dt, td, th, a, label, span) {
+  overflow-wrap: break-word;
+}
+
+/* One hover timing for every bordered button (colour-fill swap), regardless of which component renders it. */
+:where(a, button)[class*="border"][class*="hover:bg-"] {
+  transition-duration: 300ms;
+  transition-timing-function: ease;
 }

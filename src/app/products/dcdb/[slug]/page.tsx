@@ -4,16 +4,18 @@ import Link from "next/link";
 import Button from "@/components/common/Button";
 import Container from "@/components/common/Container";
 import ProductTabs from "./ProductTabs";
-import ProductGallery from "./ProductGallery";
+import ProductGallery, { ProductGalleryMobile } from "./ProductGallery";
 import { getDcdbProduct } from "./products-data";
+import Disclosure from "@/components/common/Disclosure";
+import ContactLink from "@/components/common/ContactLink";
 
 const A = "/assets/product-detail";
 
 const badges = [
-  { icon: `${A}/icon_certified.svg`, label: "IEC Certified" },
-  { icon: `${A}/icon_delivery.svg`, label: "Fast Delivery" },
-  { icon: `${A}/made_in_india-3edbf2.png`, label: "Made in India" },
-  { icon: `${A}/icon_warranty.svg`, label: "Warranty Support" },
+  { icon: `${A}/icon_certified.svg`, label: "IEC Certified", w: 42, h: 42 },
+  { icon: `${A}/icon_delivery.svg`, label: "Fast Delivery", w: 40, h: 40 },
+  { icon: `${A}/made_in_india-3edbf2.png`, label: "Made in India", w: 81, h: 41 },
+  { icon: `${A}/icon_warranty.svg`, label: "Warranty Support", w: 40, h: 40 },
 ];
 
 const faqs = [
@@ -41,11 +43,11 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   const product = getDcdbProduct(slug);
 
   return (
-    <main className="w-full bg-white min-h-screen pt-[90px] font-archivo overflow-x-clip">
+    <main className="w-full bg-white min-h-dvh pt-[90px] font-archivo overflow-x-clip">
       {/* Header: breadcrumb + title. On mobile/tablet the CTAs render here since
           ProductGallery (which places them at their exact Figma position) is
           desktop-only. */}
-      <Container maxWidth="1800" className="pt-[40px]">
+      <Container maxWidth="1800" className="pt-[40px] canvas:pt-[55px]">
         <div className="flex flex-col gap-[12px] canvas:max-w-[832px]">
           <div className="flex items-center flex-wrap gap-[10px] font-archivo text-[16px] lg:text-[20px] text-[#333333] leading-[28px]">
             <Link href="/" className="hover:text-primary transition-colors">Home</Link>
@@ -56,7 +58,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             <Chevron />
             <span className="text-primary leading-[26px] truncate max-w-[300px]">{product.breadcrumb}</span>
           </div>
-          <h1 className="m-0 font-archivo text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[72px] text-primary font-semibold">
+          <h1 className="m-0 font-archivo text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[72px] text-primary font-normal">
             {product.title} <span className="font-recia italic font-semibold">{product.highlight}</span>
           </h1>
         </div>
@@ -64,34 +66,34 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         <div className="canvas:hidden flex flex-wrap items-center gap-[16px] mt-[24px]">
           <button
             type="button"
-            className="group inline-flex items-center justify-center gap-[16px] px-[24px] py-[12px] bg-primary text-white hover:bg-primary-dark transition-colors font-archivo text-[17px] leading-[26px] cursor-pointer"
+            className="inline-flex items-center justify-center gap-[16px] px-[15px] py-[11px] group border border-[#2B398B] bg-primary text-white hover:bg-white hover:text-[#2B398B] transition-colors font-archivo text-[17px] leading-[26px] cursor-pointer"
           >
             <span>Inquiry Now</span>
-            <span className="w-[8px] h-[8px] rounded-full bg-white" />
+            <span className="w-[8px] h-[8px] rounded-full bg-white group-hover:bg-[#2B398B] transition-colors" />
           </button>
           <Button variant="outline-primary" showDot>View Datasheet</Button>
         </div>
       </Container>
 
       {/* Hero visual: navy panel + floating product photo, badges below on white */}
-      <Container maxWidth="1800" className="mt-[40px] canvas:mt-[60px]">
+      <Container maxWidth="1800" className="mt-[40px] canvas:-mt-[150px]">
         {/* Desktop */}
         <div className="canvas-zoom hidden canvas:block w-[1800px] mx-auto">
           <ProductGallery
             image={product.image}
             alt={`${product.title} ${product.highlight}`}
             description={product.description}
-            patternSrc={`${A}/hero_bg-3930d9.png`}
+            patternSrc="/assets/dcdb/gallery/hero-banner.webp"
           />
 
         {/* Badges row — below the panel, on white, left-aligned to the Figma x-offset */}
         <div className="flex flex-wrap items-center gap-x-[48px] gap-y-[16px] mt-[36px] pl-[24.06%]">
           {badges.map((badge) => (
-            <div key={badge.label} className="flex items-center gap-[12px]">
-              <div className="relative w-[28px] h-[28px] shrink-0">
+            <div key={badge.label} className="flex items-center gap-[8px]">
+              <div className="relative shrink-0" style={{ width: badge.w, height: badge.h }}>
                 <Image src={badge.icon} alt="" fill className="object-contain" />
               </div>
-              <span className="font-archivo text-[18px] text-[#333333] whitespace-nowrap">{badge.label}</span>
+              <span className="font-archivo text-[24px] leading-[26px] text-[#666666] whitespace-nowrap">{badge.label}</span>
             </div>
           ))}
         </div>
@@ -99,15 +101,12 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
         {/* Mobile / tablet fallback */}
         <div className="canvas:hidden flex flex-col gap-[24px]">
-          <div className="relative w-full rounded-[24px] overflow-hidden">
-            <Image src={`${A}/hero_bg-3930d9.png`} alt="" fill className="object-cover" />
-            <div className="relative z-10 flex flex-col gap-[24px] p-[24px] sm:p-[40px]">
-              <div className="relative w-full aspect-[396/300]">
-                <Image src={product.image} alt={`${product.title} ${product.highlight}`} fill className="object-contain" priority />
-              </div>
-              <p className="m-0 font-archivo text-[16px] leading-[1.5] text-[#F0F5FE]">{product.description}</p>
-            </div>
-          </div>
+          <ProductGalleryMobile
+            image={product.image}
+            alt={`${product.title} ${product.highlight}`}
+            description={product.description}
+            patternSrc="/assets/dcdb/gallery/hero-banner.webp"
+          />
           <div className="flex flex-wrap items-center gap-x-[32px] gap-y-[16px]">
             {badges.map((badge) => (
               <div key={badge.label} className="flex items-center gap-[12px]">
@@ -122,7 +121,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       </Container>
 
       {/* Product Detail (tabbed) */}
-      <Container maxWidth="1800" className="py-[80px] lg:py-[120px]">
+      <Container maxWidth="1800" className="py-[80px] lg:pt-[96px] lg:pb-[102px]">
         <div className="flex flex-col items-center gap-[40px] w-full">
           <div className="flex flex-col items-center text-center gap-[8px]">
             <h2 className="m-0 font-archivo text-[36px] lg:text-[60px] leading-[1.1] text-primary font-normal">
@@ -138,7 +137,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       </Container>
 
       {/* FAQ */}
-      <div className="w-full bg-[#F0F5FE] py-[80px] lg:py-[100px]">
+      <div className="w-full bg-[#F0F5FE] py-[80px] lg:py-[98px] lg:min-h-[800px]">
         <Container maxWidth="1600">
           <div className="flex flex-col items-center gap-[48px] w-full">
             <div className="flex flex-col items-center text-center gap-[8px]">
@@ -153,18 +152,17 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             <div className="flex flex-col gap-[24px] w-full">
               {faqs.map((item, index) => (
                 <React.Fragment key={item.q}>
-                  <details className="group" open={index === 0}>
-                    <summary className="flex items-center justify-between gap-[24px] cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                      <h3 className="m-0 font-archivo text-[18px] lg:text-[24px] text-[#333333] group-open:font-semibold transition-all">
+                  <Disclosure defaultOpen={index === 0} summaryClassName="flex items-center justify-between gap-[24px]" summary={<>
+                      <h3 className="m-0 font-archivo text-[18px] lg:text-[24px] text-[#333333] group-data-[open=true]:font-semibold transition-all">
                         {item.q}
                       </h3>
-                      <span className="font-archivo text-[24px] text-[#333333] shrink-0 group-open:hidden">+</span>
-                      <span className="font-archivo text-[24px] text-[#333333] shrink-0 hidden group-open:block">-</span>
-                    </summary>
+                      <span className="font-archivo text-[24px] text-[#333333] shrink-0 group-data-[open=true]:hidden">+</span>
+                      <span className="font-archivo text-[24px] text-[#333333] shrink-0 hidden group-data-[open=true]:block">-</span>
+                    </>}>
                     <div className="pt-[16px]">
                       <p className="m-0 font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666]">{item.a}</p>
                     </div>
-                  </details>
+                  </Disclosure>
                   {index < faqs.length - 1 && <hr className="border-[#DDDDDD]" />}
                 </React.Fragment>
               ))}
@@ -174,7 +172,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       </div>
 
       {/* Request Your Custom Quote */}
-      <Container maxWidth="1600" className="py-[80px] lg:py-[120px]">
+      <Container maxWidth="1600" className="py-[80px] lg:pt-[104px] lg:pb-[75px]">
         <div className="flex flex-col gap-[32px]">
           <div className="flex flex-col gap-[24px]">
             <h2 className="m-0 font-dm text-[36px] lg:text-[60px] leading-[1.17] text-primary font-medium">
@@ -200,7 +198,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                 </div>
                 <div className="flex flex-col gap-[4px] min-w-0 break-words">
                   <span className="font-archivo text-[16px] lg:text-[17px] leading-[27px] text-[#333333]">{card.title}</span>
-                  <span className="font-dm text-[16px] font-medium text-[#111111]">{card.value}</span>
+                  <span className="font-dm text-[16px] font-medium text-[#111111]"><ContactLink text={card.value} /></span>
                   <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">{card.desc}</span>
                 </div>
               </div>

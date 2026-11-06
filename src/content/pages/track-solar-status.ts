@@ -1,6 +1,5 @@
 import type { PageData } from "@/components/page-kit/types";
 import { ROUTES } from "@/content/routes";
-import { OFFICE } from "@/content/offices";
 
 const IMG = "/assets/pages/track";
 
@@ -17,19 +16,24 @@ export const page: PageData = {
       { label: "Track My Project", href: "#track" },
       { label: "Contact Support", href: ROUTES.contact },
     ],
-    image: `${IMG}/hero_bg.webp`,
-    cutout: { image: `${IMG}/hero.webp`, x: 197, y: -174, w: 731, h: 674 },
+    crumbRow: true,
+    afterGap: 40,
+    cutout: { image: `${IMG}/hero_full.webp`, x: 0, y: -174, w: 1800, h: 674 },
     imageAlt: "Ksquare project engineer reviewing an installation",
   },
+  sectionPadding: 50,
+  faqBottom: 100,
   sections: [
     {
-      type: "form",
+      type: "tracker",
       id: "track",
-      kind: "track",
       title: "Track Your *Solar Project Status*",
-      subtitle:
-        "Enter your tracking ID or reference number and registered mobile. Your tracking ID was sent via SMS and email after your enquiry or site visit.",
-      office: OFFICE,
+      subtitle: "Check real-time updates on your installation, net metering approval and subsidy status — all in one place.",
+      placeholder: "Enter your Tracking ID or Reference Number",
+      button: "Track Status",
+      note: "Your tracking ID was sent via SMS and email after your enquiry or site visit.",
+      link: { label: "Or look up by registered phone number", href: ROUTES.contact },
+      success: "We've received your request. Our support team will share the latest status of your installation on your registered mobile number shortly.",
     },
     {
       type: "cards",
@@ -38,11 +42,11 @@ export const page: PageData = {
       title: "What You Can *Track Here*",
       subtitle: "Follow each stage of your project, from the first site survey to ongoing maintenance.",
       items: [
-        { title: "Site Survey & Consultation", desc: "Track your site assessment, structural roof checks and design consultation scheduling.", icon: "search" },
+        { title: "Site Survey & Consultation", desc: "Track your site assessment, structural roof checks and design consultation scheduling.", icon: "monitor" },
         { title: "Installation Progress", desc: "Monitor your solar system assembly from component dispatch to structural installation.", icon: "wrench" },
-        { title: "Net Metering Application", desc: "Check the submission, engineering inspection and DISCOM net-metering approvals.", icon: "zap" },
-        { title: "Subsidy Application", desc: "Track central and state subsidy progress, including PM Surya Ghar.", icon: "rupee" },
-        { title: "AMC Service Request", desc: "View scheduling and progress on ongoing maintenance, testing or AMC visits.", icon: "settings" },
+        { title: "Net Metering Application", desc: "Check the submission, engineering inspection and DISCOM net-metering approvals.", icon: "settings" },
+        { title: "Subsidy Application", desc: "Track central and state subsidy progress, including PM Surya Ghar.", icon: "layers" },
+        { title: "AMC Service Request", desc: "View scheduling and progress on ongoing maintenance, testing or AMC visits.", icon: "globe" },
       ],
     },
     {

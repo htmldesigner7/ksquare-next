@@ -17,14 +17,17 @@ export const page: PageData = {
       { label: "Book a Free Consultation", href: ROUTES.contact },
       { label: "Talk to a Solar Expert", href: ROUTES.contact },
     ],
-    image: `${IMG}/hero_bg.webp`,
-    cutout: { image: `${IMG}/hero.webp`, x: 143, y: -237, w: 1629, h: 739 },
+    crumbRow: true,
+    bannerGap: 261,
+    cutout: { image: `${IMG}/hero_full.webp`, x: 0, y: -237, w: 1800, h: 739 },
     imageAlt: "Solar engineer reviewing a rooftop design with a client",
   },
   sections: [
     {
       type: "cards",
-      cols: 4,
+      cols: 3,
+      stacked: true,
+      quote: "Every recommendation is engineered around your roof, your load and your goals, not a one-size-fits-all quote.",
       title: "What's Included in a *Ksquare Solar Consultation*",
       subtitle: "A structured engineering review that tells you exactly what to build, what it will cost and what you will save.",
       items: [
@@ -37,13 +40,13 @@ export const page: PageData = {
     },
     {
       type: "cards",
-      cols: 4,
+      cols: 2,
       title: "Consultation Engineered *for Every Scale*",
       items: [
-        { title: "Homeowners", desc: "For homeowners ready to bring a monthly bill close to zero. Between the central PM Surya Ghar subsidy and Gujarat's own state top-up, a well-sized home can claim close to ₹98,000 in combined support.", image: `${IMG}/scale_home.webp`, href: ROUTES.residential, linkLabel: "Explore Home Solutions" },
-        { title: "Businesses", desc: "For offices, hospitals, hotels, and retail spaces paying commercial power tariffs. Most commercial installations here pay for themselves in three to four years.", image: `${IMG}/scale_business.webp`, href: ROUTES.rooftop, linkLabel: "Explore Commercial Solutions" },
-        { title: "Industrial Facilities", desc: "For factories and manufacturing units with large shed roofs and heavy daytime load. Engineered for accelerated depreciation and CEIG-approved grid integration.", image: `${IMG}/scale_factory.webp`, href: ROUTES.epc, linkLabel: "Explore Industrial Solutions" },
-        { title: "EPC & OEMs", desc: "For apartment owners, housing societies, EPC firms and OEM brands working out how to share space, approvals and supply. We help navigate approvals, common-area systems and partnerships.", image: `${IMG}/scale_flat.webp`, href: ROUTES.rooftopFlats, linkLabel: "Explore Partner Programs" },
+        { title: "Homeowners", tag: "01 / HOME", desc: "For homeowners ready to bring a monthly bill close to zero. Between the central PM Surya Ghar subsidy and Gujarat's own state top-up, a well-sized home can claim close to ₹98,000 in combined support.", image: `${IMG}/scale_home.webp`, href: ROUTES.residential, linkLabel: "Explore Home Solutions" },
+        { title: "Businesses", tag: "02 / BUSINESS", desc: "For offices, hospitals, hotels, and retail spaces paying commercial power tariffs. Most commercial installations here pay for themselves in three to four years.", image: `${IMG}/scale_business.webp`, href: ROUTES.rooftop, linkLabel: "Explore Commercial Solutions" },
+        { title: "Industrial Facilities", tag: "03 / FACTORY", desc: "For factories and manufacturing units with large shed roofs and heavy daytime load. Engineered for accelerated depreciation and CEIG-approved grid integration.", image: `${IMG}/scale_factory.webp`, href: ROUTES.epc, linkLabel: "Explore Industrial Solutions" },
+        { title: "EPC & OEMs", tag: "04 / FLAT", desc: "For apartment owners and housing societies working out how to share a single terrace. We help RWAs navigate approvals, common-area systems, and individual metering.", image: `${IMG}/scale_flat.webp`, href: ROUTES.rooftopFlats, linkLabel: "Explore Partner Programs" },
       ],
     },
     {
@@ -59,13 +62,13 @@ export const page: PageData = {
     },
     {
       type: "steps",
-      title: "How a Ksquare Consultation *Actually Runs*",
+      title: "How a Ksquare Rooftop *Project Actually Runs*",
+      variant: "circles",
       items: [
         { title: "Digital Enquiry", desc: "Share your bills, roof details and goals online.", icon: "headset" },
         { title: "Technical Feasibility Site Visit", desc: "An engineer inspects your site in person.", icon: "search" },
         { title: "Engineering Sizing Report", desc: "We size the system and model generation and savings.", icon: "ruler" },
         { title: "BOS Sourcing Proposal", desc: "A bill of materials and commercial proposal you can compare.", icon: "package" },
-        { title: "Decision, on Your Timeline", desc: "Proceed with Ksquare or keep the report; there's no obligation.", icon: "handshake" },
       ],
     },
     {

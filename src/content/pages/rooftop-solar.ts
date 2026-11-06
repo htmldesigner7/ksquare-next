@@ -19,10 +19,11 @@ export const page: PageData = {
       { label: "Book a Free Site Assessment", href: ROUTES.consultation },
       { label: "Get a Free Consultation", href: ROUTES.consultation },
     ],
-    image: `${IMG}/hero_bg.webp`,
-    cutout: { image: `${IMG}/hero.webp`, x: 21, y: -306, w: 1758, h: 806 },
+    afterGap: 42,
+    cutout: { image: `${IMG}/hero_full.webp`, x: 0, y: -306, w: 1800, h: 806 },
     imageAlt: "Engineers installing a rooftop solar system",
   },
+  sectionPadding: 50,
   sections: [
     {
       type: "table",
@@ -39,6 +40,7 @@ export const page: PageData = {
     {
       type: "cards",
       cols: 4,
+      compactHead: true,
       title: "Built for Every *Roof Type*",
       subtitle: "Different roofs require specialised anchoring frameworks. Ksquare designs custom mechanical mountings to securely hold systems in place for 25+ years.",
       items: [
@@ -56,13 +58,15 @@ export const page: PageData = {
       bgImage: "/assets/pages/shared/dark_bg.webp",
       items: [
         { title: "No Additional Land Requirement", desc: "Unlike vast utility-scale ground stations, rooftop systems leverage dead space, saving valuable plot land for other purposes." },
-        { title: "Uses Space You Already Own", desc: "Turn your idle concrete slab or industrial warehouse tin roof into an active, income-generating energy harvester." },
-        { title: "Ideal for Urban Settings", desc: "Compact, localised power generation directly matches urban commercial and industrial zone demands." },
-        { title: "Net Metering & Subsidy Eligible", desc: "Export surplus power through net metering and, for homes, claim eligible government subsidies." },
+        { title: "Ideal for Urban Settings", desc: "High visual clearance and compact, localized power generation directly matches urban commercial & industrial zone demands." },
+        { title: "Uses Space You Already Own", desc: "Turn your idle concrete slab or industrial warehouse tin roof into an active income-generating energy harvester." },
+        { title: "Net Metering & Subsidy Eligible", desc: "Our relationship doesn't end at installation. Enjoy ongoing monitoring, maintenance support, and warranty service for complete peace of mind." },
       ],
     },
     {
       type: "accordion",
+      tall: true,
+      imageHeight: 422,
       title: "What We Check Before *Installing on Your Roof*",
       subtitle: "Every Ksquare setup begins with a comprehensive, professional site study to guarantee structure longevity and system harvesting efficiency.",
       items: [
@@ -79,10 +83,10 @@ export const page: PageData = {
       title: "Designed Around *the Way You Live*",
       subtitle: "Rooftop solar suits most homes, businesses and small-to-mid industrial facilities with adequate roof space. Larger industrial sites may combine rooftop with open access or ground-mount for additional capacity.",
       items: [
-        { title: "Residential Solar", desc: "Lower monthly bills and build a sustainable home setup designed to run for 25+ years with state-supported subsidy assistance.", image: `${CARDS}/card_dcdb.webp`, href: ROUTES.residential, linkLabel: "Learn more" },
-        { title: "Commercial Solar", desc: "Protect your business storefront, hotel, office, or hospital from rising grid tariffs with reliable on-grid components.", image: `${CARDS}/card_acdb.webp`, href: ROUTES.epc, linkLabel: "Learn more" },
-        { title: "Industrial Solar", desc: "Transform unused warehouse sheds into high-efficiency power generation and drive down production overheads.", image: `${CARDS}/card_row_houses.webp`, href: ROUTES.epc, linkLabel: "Learn more" },
-        { title: "Rooftop For Flats", desc: "Empower apartment buildings and housing societies with shared common meters and seamless regulatory approvals.", image: `${CARDS}/card_societies.webp`, href: ROUTES.rooftopFlats, linkLabel: "Learn more" },
+        { title: "Residential Solar", desc: "Lower monthly bills and build a sustainable home setup designed to run for 25+ years with state-supported subsidy assistance.", image: `${CARDS}/card_dcdb.webp`, href: ROUTES.residential, linkLabel: "See Pricing" },
+        { title: "Commercial Solar", desc: "Protect your business storefront, hotel, office, or hospital from rising grid tariffs with reliable on-grid components.", image: `${CARDS}/card_acdb.webp`, href: ROUTES.epc, linkLabel: "See Pricing" },
+        { title: "Industrial Solar", desc: "Transform unused warehouse sheds into high-efficiency power generation and drive down production overheads.", image: `${CARDS}/card_row_houses.webp`, href: ROUTES.epc, linkLabel: "See Pricing" },
+        { title: "Rooftop For Flats", desc: "Empower apartment buildings and housing societies with shared common meters and seamless regulatory approvals.", image: `${CARDS}/card_societies.webp`, href: ROUTES.rooftopFlats, linkLabel: "See Pricing" },
       ],
     },
     {
@@ -97,7 +101,6 @@ export const page: PageData = {
         { title: "Monitoring & AMC", desc: "Immediate access to a performance dashboard, covered by comprehensive support packages.", icon: "monitor" },
       ],
     },
-    { type: "testimonials" },
     { type: "faq", title: "Frequently Asked *Questions*", items: FAQ_HOME_SOLAR },
     {
       type: "cta",

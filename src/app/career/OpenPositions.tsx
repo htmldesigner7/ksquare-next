@@ -44,7 +44,7 @@ export default function OpenPositions({
       </div>
 
       {/* Positions List */}
-      <div className="flex flex-col md:flex-row items-start gap-[24px] md:gap-[60px] w-full">
+      <div className="flex flex-col md:flex-row items-start md:items-center md:min-h-[554px] gap-[24px] md:gap-[60px] w-full">
         <div className="hidden md:flex flex-col justify-center shrink-0 w-[100px] self-stretch relative">
           <span className="font-recia italic font-light text-[40px] lg:text-[64px] text-[#9DBCF3] leading-[1] whitespace-nowrap [writing-mode:vertical-rl] rotate-180">
             Open Positions

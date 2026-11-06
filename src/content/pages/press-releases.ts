@@ -32,8 +32,7 @@ export const page: PageData = {
       { label: "Get a Free Site Survey", href: ROUTES.consultation },
       { label: "Calculate Savings", href: ROUTES.calculators },
     ],
-    image: `${IMG}/hero_bg.webp`,
-    cutout: { image: `${IMG}/hero.webp`, x: 0, y: -199, w: 1800, h: 699 },
+    cutout: { image: `${IMG}/hero_full.webp`, x: 0, y: -199, w: 1800, h: 699 },
     imageAlt: "Ksquare Energy team with media",
   },
   sections: [

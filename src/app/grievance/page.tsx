@@ -4,7 +4,11 @@ import Link from 'next/link';
 import Container from '@/components/common/Container';
 import Button from '@/components/common/Button';
 import SectionSpacer from '@/components/common/SectionSpacer';
+import AnimatedCounter from '@/components/common/AnimatedCounter';
 import { Metadata } from 'next';
+import ContactLink from "@/components/common/ContactLink";
+import CtaBanner from "@/components/page-kit/CtaBanner";
+import ProcessTimelineArt from "@/components/page-kit/ProcessTimelineArt";
 
 export const metadata: Metadata = {
   title: "Grievance Redressal | Ksquare Energy",
@@ -73,14 +77,14 @@ const processSteps = [
 
 export default function GrievancePage() {
   return (
-    <main className="w-full bg-white min-h-screen pt-[90px] font-archivo">
+    <main className="w-full bg-white min-h-dvh pt-[90px] font-archivo overflow-x-clip">
 
       {/* 1. Hero Section & Breadcrumbs */}
-      <section className="w-full pt-[40px] lg:pt-[60px] flex flex-col items-center">
+      <section className="w-full pt-[40px] flex flex-col items-center">
         <Container maxWidth="1800">
           <div className="flex flex-col lg:flex-row justify-between items-end gap-[40px] w-full">
             {/* Left: Breadcrumbs & Title */}
-            <div className="flex flex-col gap-[15px] lg:max-w-[792px]">
+            <div className="flex flex-col gap-[12px] lg:max-w-[792px]">
               {/* Breadcrumb */}
               <div className="flex items-center gap-[10px] flex-wrap">
                 <Link href="/" className="font-archivo text-[16px] lg:text-[20px] text-[#666666] hover:text-primary leading-[28px]">
@@ -101,20 +105,20 @@ export default function GrievancePage() {
               </div>
 
               {/* Title */}
-              <h1 className="font-recia text-[48px] lg:text-[68px] leading-[1.1] lg:leading-[78px] text-primary font-normal mt-[10px]">
+              <h1 className="font-recia text-[48px] lg:text-[68px] leading-[1.1] lg:leading-[78px] lg:h-[160px] text-primary font-normal">
                 Grievance <br className="hidden lg:block" />
                 <span className="italic font-semibold">Redressal</span>
               </h1>
             </div>
 
             {/* Right: Text & Buttons */}
-            <div className="flex flex-col gap-[32px] lg:max-w-[899px] lg:pb-[10px]">
+            <div className="flex flex-col gap-[32px] lg:max-w-[899px]">
               <p className="font-archivo text-[18px] lg:text-[24px] leading-[1.4] lg:leading-[36px] text-[#333333]">
                 Something didn&apos;t go as planned? Tell us what happened. We know that issues can arise during installation, product use, billing, warranty service or project coordination. This is a direct channel to raise your concern and understand how Ksquare handles it.
               </p>
 
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row items-center gap-[16px]">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-[16px]">
                 <Button variant="outline-primary" href="#grievance-form" showDot={true}>
                   Raise a Grievance
                 </Button>
@@ -126,31 +130,26 @@ export default function GrievancePage() {
           </div>
         </Container>
 
-        {/* Hero Image — exact layered composition from Figma: background photo + transparent-cutout overlay figure */}
-        <Container maxWidth="1800" className="mt-[50px] lg:mt-[80px]">
-          <div className="w-full relative aspect-[1850/658]">
-            <div className="absolute left-0 top-[24.01%] w-full h-[75.99%] rounded-[24px] overflow-hidden">
+        {/* Hero image group (Figma #124:4530 + cutout #124:4533, 1804 x 658): 500px photo plate with the transparent cut-out rising above it */}
+        <div className="w-full max-w-[1804px] mx-auto px-4 lg:px-8 g1868:px-0 mt-[40px] lg:mt-[27px]">
+          <div className="relative w-full aspect-[1804/658]">
+            {/* photo plate + team cut-out merged into one Figma image (cut-out runs 46px past the plate on the right) */}
+            <div className="absolute left-0 top-0 h-full pointer-events-none" style={{ width: "102.55%" }}>
               <Image
-                src="/assets/grievance/hero_main-6c650f.png"
+                src="/assets/grievance/hero_full.webp"
                 alt="Grievance Redressal at Ksquare Energy"
                 fill
-                className="object-cover"
+                sizes="1850px"
+                className="object-fill"
                 priority
               />
             </div>
-            <div className="absolute left-[21.30%] top-0 w-[78.70%] h-full">
-              <Image
-                src="/assets/grievance/hero_overlay-2d7b00.png"
-                alt="Ksquare Energy team resolving customer concerns"
-                fill
-                className="object-contain object-bottom"
-              />
-            </div>
+
           </div>
-        </Container>
+        </div>
       </section>
 
-      <SectionSpacer size={150} />
+      <SectionSpacer size={100} className="lg:h-[215px]" />
 
       {/* 2. Your Concern Deserves a Place to Grow */}
       <section className="w-full">
@@ -158,9 +157,9 @@ export default function GrievancePage() {
           <div className="flex flex-col xl:flex-row items-center gap-[60px] xl:gap-[clamp(40px,5.2vw,100px)]">
             {/* Left: Text & Stats */}
             <div className="flex flex-col gap-[48px] w-full xl:flex-1 xl:min-w-0 xl:max-w-[750px]">
-              <div className="flex flex-col gap-[24px]">
-                <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-[#333333]">
-                  Your Concern Deserves a{' '}
+              <div className="flex flex-col gap-[24px] xl:h-[359px]">
+                <h2 className="font-archivo text-[36px] lg:text-[48px] canvas:text-[56px] min-[1600px]:text-[60px] leading-[1.15] lg:leading-[70px] text-[#333333]">
+                  Your Concern Deserves a<br />
                   <span className="font-recia italic font-medium">A Place to Grow.</span>
                 </h2>
                 <div className="flex flex-col gap-[14px]">
@@ -175,18 +174,18 @@ export default function GrievancePage() {
 
               {/* Stats */}
               <div className="flex flex-col gap-[32px] w-full">
-                <div className="w-full h-px bg-[#C6CCED]" />
-                <div className="flex items-center gap-[24px] w-full">
-                  <div className="flex flex-col gap-[16px] flex-1">
-                    <span className="font-archivo text-[32px] lg:text-[40px] leading-[1] text-primary">100+</span>
+                <div className="w-full h-px -mb-px bg-[#C6CCED]" />
+                <div className="flex flex-wrap items-start sm:items-center gap-[16px] sm:gap-[24px] w-full">
+                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px]">
+                    <AnimatedCounter end={100} suffix="+" className="font-archivo text-[32px] lg:text-[40px] leading-[26px] text-primary" />
                     <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">Team Members</span>
                   </div>
-                  <div className="flex flex-col gap-[16px] flex-1">
-                    <span className="font-archivo text-[32px] lg:text-[40px] leading-[1] text-primary">10+</span>
+                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px]">
+                    <AnimatedCounter end={10} suffix="+" className="font-archivo text-[32px] lg:text-[40px] leading-[26px] text-primary" />
                     <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">Career Opportunities</span>
                   </div>
-                  <div className="flex flex-col gap-[16px] flex-1">
-                    <span className="font-archivo text-[32px] lg:text-[40px] leading-[1] text-primary">Growing</span>
+                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px]">
+                    <span className="font-archivo text-[32px] lg:text-[40px] leading-[26px] text-primary">Growing</span>
                     <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">Work Culture</span>
                   </div>
                 </div>
@@ -206,24 +205,24 @@ export default function GrievancePage() {
         </Container>
       </section>
 
-      <SectionSpacer size={150} />
+      <SectionSpacer size={100} className="lg:h-[100px]" />
 
       {/* 3. What Can You Report? */}
       <section className="w-full">
         <Container maxWidth="1600">
           <div className="flex flex-col items-stretch gap-[48px]">
             <div className="flex flex-col items-center text-center gap-[8px]">
-              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal">
-                What Can <span className="font-recia italic font-bold">You Report ?.</span>
+              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[70px] lg:h-[57px] text-primary font-normal">
+                What Can <span className="font-recia italic font-medium">You Report ?.</span>
               </h2>
-              <p className="font-archivo text-[17px] leading-[26px] text-[#666666] max-w-[720px]">
+              <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">
                 Use this channel for concerns related to your Ksquare product, project, installation or service experience.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[24px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[20px]">
               {reportCategories.map((cat) => (
-                <div key={cat.title} className="card-lift flex flex-col gap-[20px] bg-[#EFF0F6] p-[32px] lg:p-[40px]">
+                <div key={cat.title} className="card-lift flex flex-col gap-[20px] bg-[#EFF0F6] px-[32px] py-[36px] lg:px-[40px] lg:py-[50px]">
                   <div className="flex items-center gap-[24px] lg:gap-[30px]">
                     <div className="w-[90px] h-[90px] p-[10px] bg-white rounded-[10px] flex items-center justify-center shrink-0">
                       <Image src={cat.icon} width={60} height={60} alt={cat.title} className="w-[60px] h-[60px] object-contain" />
@@ -242,154 +241,7 @@ export default function GrievancePage() {
         </Container>
       </section>
 
-      <SectionSpacer size={150} />
-
-      {/* 4. Tell Us What Went Wrong (Form + Contact Info) */}
-      <section id="grievance-form" className="w-full scroll-mt-[110px]">
-        <Container maxWidth="1600">
-          <div className="flex flex-col lg:flex-row gap-[48px] lg:gap-[80px] items-start w-full">
-
-            {/* Form Column */}
-            <div className="w-full lg:flex-1 bg-white border border-[#DDDDDD] p-[32px] lg:p-[48px] flex flex-col gap-[32px]">
-              {/* Form Header */}
-              <div className="flex flex-col gap-[12px]">
-                <h3 className="font-dm text-[36px] lg:text-[50px] leading-[1.15] text-primary font-normal">
-                  Tell Us What <span className="font-recia italic">Went Wrong</span>
-                </h3>
-                <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666]">
-                  Provide as much information as possible so we can route your concern to the right team and investigate it efficiently.
-                </p>
-              </div>
-
-              {/* Form Fields */}
-              <div className="flex flex-col gap-[20px]">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
-                  <div className="flex flex-col gap-[8px]">
-                    <label className="font-archivo text-[17px] text-[#333333]">Full Name</label>
-                    <input type="text" placeholder="Enter your full name" className="w-full border border-[#DDDDDD] bg-white h-[48px] px-[16px] font-archivo text-[15px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors rounded-[8px]" />
-                  </div>
-                  <div className="flex flex-col gap-[8px]">
-                    <label className="font-archivo text-[17px] text-[#333333]">Email Address</label>
-                    <input type="email" placeholder="name@domain.com" className="w-full border border-[#DDDDDD] bg-white h-[48px] px-[16px] font-archivo text-[15px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors rounded-[8px]" />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
-                  <div className="flex flex-col gap-[8px]">
-                    <label className="font-archivo text-[17px] text-[#333333]">Phone Number</label>
-                    <input type="text" placeholder="+91 XXXXX XXXXX" className="w-full border border-[#DDDDDD] bg-white h-[48px] px-[16px] font-archivo text-[15px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors rounded-[8px]" />
-                  </div>
-                  <div className="flex flex-col gap-[8px]">
-                    <label className="font-archivo text-[17px] text-[#333333]">Customer Type</label>
-                    <div className="relative">
-                      <select className="w-full border border-[#DDDDDD] bg-white h-[48px] px-[16px] font-archivo text-[15px] text-[#666666] focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer rounded-[8px]">
-                        <option>Select customer type</option>
-                      </select>
-                      <div className="absolute inset-y-0 right-[16px] flex items-center pointer-events-none">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5H7z" fill="#2B398B" /></svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
-                  <div className="flex flex-col gap-[8px]">
-                    <label className="font-archivo text-[17px] text-[#333333]">City</label>
-                    <input type="text" placeholder="Enter City" className="w-full border border-[#DDDDDD] bg-white h-[48px] px-[16px] font-archivo text-[15px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors rounded-[8px]" />
-                  </div>
-                  <div className="flex flex-col gap-[8px]">
-                    <label className="font-archivo text-[17px] text-[#333333]">Pincode</label>
-                    <input type="text" placeholder="Enter Pincode" className="w-full border border-[#DDDDDD] bg-white h-[48px] px-[16px] font-archivo text-[15px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors rounded-[8px]" />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
-                  <div className="flex flex-col gap-[8px]">
-                    <label className="font-archivo text-[17px] text-[#333333]">Grievance Type*</label>
-                    <div className="relative">
-                      <select className="w-full border border-[#DDDDDD] bg-white h-[48px] px-[16px] font-archivo text-[15px] text-[#666666] focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer rounded-[8px]">
-                        <option>Select grievance type</option>
-                      </select>
-                      <div className="absolute inset-y-0 right-[16px] flex items-center pointer-events-none">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5H7z" fill="#2B398B" /></svg>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-col gap-[8px]">
-                    <label className="font-archivo text-[17px] text-[#333333]">Subject</label>
-                    <input type="text" placeholder="Enter Subject" className="w-full border border-[#DDDDDD] bg-white h-[48px] px-[16px] font-archivo text-[15px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors rounded-[8px]" />
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-[8px]">
-                  <label className="font-archivo text-[17px] text-[#333333]">Message / Requirements</label>
-                  <textarea placeholder="Tell us about your investment goals..." className="w-full border border-[#DDDDDD] bg-white min-h-[120px] p-[16px] font-archivo text-[15px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors resize-y rounded-[8px]"></textarea>
-                </div>
-
-                {/* Form Button */}
-                <div className="pt-[8px]">
-                  <button className="flex items-center justify-center gap-[16px] bg-white border border-primary text-primary px-[24px] py-[12px] hover:bg-[#F0F5FE] transition-colors duration-300 font-archivo text-[17px] w-fit group">
-                    <span>Submit Grievance</span>
-                    <span className="w-[8px] h-[8px] rounded-full bg-primary transition-transform group-hover:scale-125"></span>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Info Column */}
-            <div className="w-full lg:w-[560px] shrink-0 flex flex-col gap-[24px]">
-              <div className="flex flex-col gap-[12px]">
-                <h3 className="font-dm text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[70px] text-primary font-medium">
-                  Corporate Office
-                </h3>
-                <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666]">
-                  Visit our headquarters or get in touch through our direct business communication channels.
-                </p>
-              </div>
-
-              <div className="flex flex-col gap-[16px]">
-                {/* Card 1 */}
-                <div className="flex gap-[20px] items-start p-[24px] bg-white border border-[#E8E4E0]">
-                  <div className="w-[48px] h-[48px] bg-[rgba(74,90,181,0.1)] rounded-full flex items-center justify-center flex-shrink-0">
-                    <Image src="/assets/grievance/icon_phone.svg" alt="" width={24} height={24} />
-                  </div>
-                  <div className="flex flex-col gap-[4px]">
-                    <h4 className="font-archivo text-[17px] text-[#333333]">Call Us Directly</h4>
-                    <p className="font-archivo text-[17px] text-[#333333]">+91 79 6969 7979</p>
-                    <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">Toll-free specialist helpline: Mon-Sat, 9 AM - 7 PM</p>
-                  </div>
-                </div>
-
-                {/* Card 2 */}
-                <div className="flex gap-[20px] items-start p-[24px] bg-white border border-[#E8E4E0]">
-                  <div className="w-[48px] h-[48px] bg-[rgba(74,90,181,0.1)] rounded-full flex items-center justify-center flex-shrink-0">
-                    <Image src="/assets/grievance/icon_email.svg" alt="" width={18} height={14} />
-                  </div>
-                  <div className="flex flex-col gap-[4px]">
-                    <h4 className="font-archivo text-[17px] text-[#333333]">Email Support</h4>
-                    <p className="font-dm text-[16px] font-medium text-[#111111]">info@ksquareenergy.com</p>
-                    <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">For project portfolios, floor plans, and corporate pricing</p>
-                  </div>
-                </div>
-
-                {/* Card 3 */}
-                <div className="flex gap-[20px] items-start p-[24px] bg-white border border-[#E8E4E0]">
-                  <div className="w-[48px] h-[48px] bg-[rgba(74,90,181,0.1)] rounded-full flex items-center justify-center flex-shrink-0">
-                    <Image src="/assets/grievance/icon_map_pin.svg" alt="" width={24} height={24} />
-                  </div>
-                  <div className="flex flex-col gap-[4px]">
-                    <h4 className="font-archivo text-[17px] text-[#333333]">Ahmedabad Branch Office</h4>
-                    <p className="font-dm text-[16px] font-medium text-[#111111]">Dholera SIR, Activation Zone Gujarat – 382460, India</p>
-                    <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">Strategically located inside the smart city development zone</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <SectionSpacer size={150} />
+      <SectionSpacer size={100} className="lg:h-[65px]" />
 
       {/* 5. What Happens After You Submit? */}
       <section className="w-full">
@@ -397,8 +249,8 @@ export default function GrievancePage() {
         <div className="canvas-zoom hidden canvas:block relative w-[1600px] mx-auto h-[681px]">
           {/* Heading */}
           <div className="absolute left-0 right-0 top-[36px] flex justify-center">
-            <h2 className="font-recia text-[60px] leading-[70px] text-primary font-normal text-center">
-              What Happens <span className="italic font-medium">After You Submit?</span>
+            <h2 className="font-archivo text-[60px] leading-[70px] text-primary font-normal text-center">
+              What Happens <span className="font-recia italic font-medium">After You Submit?</span>
             </h2>
           </div>
 
@@ -418,19 +270,7 @@ export default function GrievancePage() {
 
           {/* Connector graphic (circles + zigzag dotted line) with 4 overlaid icons */}
           <div className="absolute left-0 top-[274.95px] w-[1600px] h-[302.82px]">
-            <Image src="/assets/grievance/process_connectors.png" alt="" fill className="object-contain" aria-hidden="true" />
-            <div className="absolute w-[128px] h-[128px]" style={{ left: 71.6, top: 76.55 }}>
-              <Image src="/assets/grievance/process_icon_1.svg" alt="" fill />
-            </div>
-            <div className="absolute w-[128px] h-[128px]" style={{ left: 337.6, top: 105.55 }}>
-              <Image src="/assets/grievance/process_icon_2.svg" alt="" fill />
-            </div>
-            <div className="absolute w-[128px] h-[128px]" style={{ left: 602.6, top: 76.55 }}>
-              <Image src="/assets/grievance/process_icon_3.svg" alt="" fill />
-            </div>
-            <div className="absolute w-[128px] h-[128px]" style={{ left: 1401.6, top: 101.55 }}>
-              <Image src="/assets/grievance/process_icon_6.svg" alt="" fill />
-            </div>
+            <ProcessTimelineArt />
           </div>
 
           {/* Row 2 labels (below the connector graphic) */}
@@ -452,8 +292,8 @@ export default function GrievancePage() {
         <div className="canvas:hidden">
           <Container maxWidth="1600">
             <div className="flex flex-col items-center gap-[60px]">
-              <h2 className="font-recia text-[36px] leading-[1.15] text-primary font-normal text-center">
-                What Happens <span className="italic font-medium">After You Submit?</span>
+              <h2 className="font-archivo text-[36px] leading-[1.15] text-primary font-normal text-center">
+                What Happens <span className="font-recia italic font-medium">After You Submit?</span>
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[40px] gap-y-[48px] w-full">
@@ -478,50 +318,163 @@ export default function GrievancePage() {
         </div>
       </section>
 
-      <SectionSpacer size={120} />
+      <SectionSpacer size={100} className="lg:h-[137px]" />
 
-      {/* 6. Still Have a Concern? CTA */}
-      <section className="w-full relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary">
-          <Image
-            src="/assets/grievance/cta_bg.png"
-            alt=""
-            fill
-            className="object-cover opacity-90"
-            aria-hidden="true"
-          />
-        </div>
-        <div className="absolute right-0 top-0 bottom-0 hidden lg:flex items-center opacity-80 pointer-events-none">
-          <Image
-            src="/assets/grievance/cta_graphic.svg"
-            alt=""
-            width={695}
-            height={431}
-            className="object-contain"
-            aria-hidden="true"
-          />
-        </div>
-        <Container maxWidth="1600" className="relative z-10 py-[80px] lg:py-[110px]">
-          <div className="flex flex-col gap-[24px] max-w-[1025px]">
-            <div className="flex flex-col gap-[8px]">
-              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-white font-normal">
-                Still Have a <span className="font-recia italic font-semibold">Concern ?</span>
-              </h2>
-              <p className="font-archivo text-[16px] leading-[24px] text-[#EDF3FF] max-w-[700px]">
-                If you haven&apos;t found the answer you&apos;re looking for, submit your grievance and our team will route it to the appropriate department.
-              </p>
+      {/* 4. Tell Us What Went Wrong (Form + Contact Info) */}
+      <section id="grievance-form" className="w-full scroll-mt-[110px]">
+        <Container maxWidth="1600">
+          <div className="flex flex-col lg:flex-row gap-[48px] lg:gap-[80px] items-start lg:items-center w-full">
+
+            {/* Form Column */}
+            <div className="w-full lg:flex-1 bg-white border border-[#DDDDDD] p-[32px] lg:p-[48px] flex flex-col gap-[32px]">
+              {/* Form Header */}
+              <div className="flex flex-col gap-[12px]">
+                <h3 className="font-dm text-[36px] lg:text-[44px] canvas:text-[48px] min-[1600px]:text-[60px] leading-[1.15] lg:leading-[70px] min-[1600px]:h-[70px] text-primary font-medium">
+                  Tell Us What <span className="font-recia italic font-medium">Went Wrong</span>
+                </h3>
+                <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666] lg:text-justify">
+                  Provide as much information as possible so we can route your concern to the right team and investigate it efficiently.
+                </p>
+              </div>
+
+              {/* Form Fields */}
+              <div className="flex flex-col gap-[20px]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
+                  <div className="flex flex-col gap-[8px]">
+                    <label className="font-archivo text-[17px] leading-[27px] text-[#333333]">Full Name</label>
+                    <input type="text" placeholder="Enter your full name" className="w-full border border-[#DDDDDD] bg-white h-[52px] px-[16px] font-archivo text-[18px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors rounded-[8px]" />
+                  </div>
+                  <div className="flex flex-col gap-[8px]">
+                    <label className="font-archivo text-[17px] leading-[27px] text-[#333333]">Email Address</label>
+                    <input type="email" placeholder="name@domain.com" className="w-full border border-[#DDDDDD] bg-white h-[52px] px-[16px] font-archivo text-[18px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors rounded-[8px]" />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
+                  <div className="flex flex-col gap-[8px]">
+                    <label className="font-archivo text-[17px] leading-[27px] text-[#333333]">Phone Number</label>
+                    <input type="text" placeholder="+91 XXXXX XXXXX" className="w-full border border-[#DDDDDD] bg-white h-[52px] px-[16px] font-archivo text-[18px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors rounded-[8px]" />
+                  </div>
+                  <div className="flex flex-col gap-[8px]">
+                    <label className="font-archivo text-[17px] leading-[27px] text-[#333333]">Customer type</label>
+                    <div className="relative">
+                      <select className="w-full border border-[#DDDDDD] bg-white h-[52px] px-[16px] font-archivo text-[18px] text-[#666666] focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer rounded-[8px]">
+                        <option>Select customer type</option>
+                      </select>
+                      <div className="absolute inset-y-0 right-[16px] flex items-center pointer-events-none">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5H7z" fill="#2B398B" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
+                  <div className="flex flex-col gap-[8px]">
+                    <label className="font-archivo text-[17px] leading-[27px] text-[#333333]">City</label>
+                    <input type="text" placeholder="Enter City" className="w-full border border-[#DDDDDD] bg-white h-[52px] px-[16px] font-archivo text-[18px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors rounded-[8px]" />
+                  </div>
+                  <div className="flex flex-col gap-[8px]">
+                    <label className="font-archivo text-[17px] leading-[27px] text-[#333333]">Pincode</label>
+                    <input type="text" placeholder="Enter Pincode" className="w-full border border-[#DDDDDD] bg-white h-[52px] px-[16px] font-archivo text-[18px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors rounded-[8px]" />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
+                  <div className="flex flex-col gap-[8px]">
+                    <label className="font-archivo text-[17px] leading-[27px] text-[#333333]">Grievance Type*</label>
+                    <div className="relative">
+                      <select className="w-full border border-[#DDDDDD] bg-white h-[52px] px-[16px] font-archivo text-[18px] text-[#666666] focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer rounded-[8px]">
+                        <option>Select grievance type</option>
+                      </select>
+                      <div className="absolute inset-y-0 right-[16px] flex items-center pointer-events-none">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5H7z" fill="#2B398B" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-[8px]">
+                    <label className="font-archivo text-[17px] leading-[27px] text-[#333333]">Subject</label>
+                    <input type="text" placeholder="Enter Subject" className="w-full border border-[#DDDDDD] bg-white h-[52px] px-[16px] font-archivo text-[18px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors rounded-[8px]" />
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-[8px]">
+                  <label className="font-archivo text-[17px] leading-[27px] text-[#333333]">Message / Requirements</label>
+                  <textarea placeholder="Tell us about your investment goals..." className="block w-full border border-[#DDDDDD] bg-white min-h-[120px] p-[16px] font-archivo text-[18px] leading-[1.55] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors resize-y rounded-[8px]"></textarea>
+                </div>
+
+                {/* Form Button */}
+                <div className="pt-[12px]">
+                  <Button variant="outline-primary" type="submit" showDot={true}>
+                    Submit Grievance
+                  </Button>
+                </div>
+              </div>
             </div>
-            <div className="flex flex-col sm:flex-row items-center gap-[24px]">
-              <Button variant="outline" href="#grievance-form" showDot={true}>
-                Raise a Grievance
-              </Button>
-              <Button variant="outline" href="/contact" showDot={true}>
-                Contact Us
-              </Button>
+
+            {/* Info Column */}
+            <div className="w-full lg:w-[560px] shrink-0 flex flex-col gap-[24px]">
+              <div className="flex flex-col gap-[12px]">
+                <h3 className="font-dm text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[70px] text-primary font-medium">
+                  Corporate Office
+                </h3>
+                <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666] lg:text-justify">
+                  Visit our headquarters or get in touch through our direct business communication channels.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-[16px]">
+                {/* Card 1 */}
+                <div className="flex gap-[20px] items-start p-[24px] bg-white border border-[#E8E4E0]">
+                  <div className="w-[48px] h-[48px] bg-[rgba(74,90,181,0.1)] rounded-full flex items-center justify-center flex-shrink-0">
+                    <Image src="/assets/grievance/icon_phone.svg" alt="" width={24} height={24} />
+                  </div>
+                  <div className="flex flex-col gap-[4px]">
+                    <h4 className="font-archivo text-[17px] leading-[27px] text-[#333333]">Call Us Directly</h4>
+                    <p className="font-archivo text-[17px] leading-[27px] text-[#333333]"><ContactLink text="+91 79 6969 7979" /></p>
+                    <p className="font-archivo text-[17px] leading-[26px] text-[#666666] lg:text-justify">Toll-free specialist helpline: Mon-Sat, 9 AM - 7 PM</p>
+                  </div>
+                </div>
+
+                {/* Card 2 */}
+                <div className="flex gap-[20px] items-start p-[24px] bg-white border border-[#E8E4E0]">
+                  <div className="w-[48px] h-[48px] bg-[rgba(74,90,181,0.1)] rounded-full flex items-center justify-center flex-shrink-0">
+                    <Image src="/assets/grievance/icon_email.svg" alt="" width={18} height={14} />
+                  </div>
+                  <div className="flex flex-col gap-[4px]">
+                    <h4 className="font-archivo text-[17px] leading-[27px] text-[#333333]">Email Support</h4>
+                    <p className="font-dm text-[16px] font-medium text-[#111111]"><ContactLink text="info@ksquareenergy.com" /></p>
+                    <p className="font-archivo text-[17px] leading-[26px] text-[#666666] lg:text-justify">For project portfolios, floor plans, and corporate pricing</p>
+                  </div>
+                </div>
+
+                {/* Card 3 */}
+                <div className="flex gap-[20px] items-start p-[24px] bg-white border border-[#E8E4E0]">
+                  <div className="w-[48px] h-[48px] bg-[rgba(74,90,181,0.1)] rounded-full flex items-center justify-center flex-shrink-0">
+                    <Image src="/assets/grievance/icon_map_pin.svg" alt="" width={24} height={24} />
+                  </div>
+                  <div className="flex flex-col gap-[4px]">
+                    <h4 className="font-archivo text-[17px] leading-[27px] text-[#333333]">Ahmedabad Branch Office</h4>
+                    <p className="font-dm text-[16px] font-medium text-[#111111]"><ContactLink text="Dholera SIR, Activation Zone Gujarat – 382460, India" /></p>
+                    <p className="font-archivo text-[17px] leading-[26px] text-[#666666] lg:text-justify">Strategically located inside the smart city development zone</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </Container>
       </section>
+
+      <SectionSpacer size={100} className="lg:h-[153px]" />
+
+      {/* 6. Still Have a Concern? — Figma renders this band as the top of the footer block, same banner as the shared footer CTA */}
+      <CtaBanner
+        title="Still Have a *Concern ?*"
+        desc="If you haven't found the answer you're looking for, submit your grievance and our team will route it to the appropriate department."
+        ctas={[
+          { label: "Raise a Grievance", href: "#grievance-form" },
+          { label: "Contact Us", href: "/contact" },
+        ]}
+      />
 
     </main>
   );

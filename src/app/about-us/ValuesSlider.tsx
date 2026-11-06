@@ -43,11 +43,11 @@ export default function ValuesSlider({ values }: { values: Value[] }) {
   const ordered = values.map((_, i) => values[(active + i) % values.length]);
 
   return (
-    <div className="w-full flex flex-col items-center gap-[24px]">
+    <div className="w-full flex flex-col items-center gap-[24px] xl:gap-[40px]">
       {/* Same static row as the Figma design — order slides when a dot is clicked */}
       <div
         key={tick}
-        className="w-full max-w-[1900px] px-4 lg:px-8 g1964:px-0 flex flex-col xl:flex-row xl:justify-between gap-[24px] slide-next"
+        className="w-full max-w-[1900px] px-4 lg:px-8 min-[1900px]:px-0 flex flex-col xl:flex-row xl:justify-between xl:items-center xl:h-[494px] gap-[24px] xl:gap-[20px] slide-next"
       >
         {ordered.map((v) => (
           <Card key={v.title} v={v} />
@@ -55,7 +55,7 @@ export default function ValuesSlider({ values }: { values: Value[] }) {
       </div>
 
       {/* Slide dots — centered, click to slide */}
-      <div className="flex items-center justify-center" role="tablist" aria-label="Values slides">
+      <div className="flex items-center justify-center xl:h-[30px]" role="tablist" aria-label="Values slides">
         {values.map((v, i) => (
           <button
             key={v.title}

@@ -17,8 +17,7 @@ export const page: PageData = {
       { label: "Get a Free Site Survey", href: ROUTES.consultation },
       { label: "Calculate Savings", href: ROUTES.calculators },
     ],
-    image: `${IMG}/hero_bg.webp`,
-    cutout: { image: `${IMG}/hero.webp`, x: 0, y: -204, w: 1798, h: 704 },
+    cutout: { image: `${IMG}/hero_full.webp`, x: 0, y: -204, w: 1800, h: 704 },
     imageAlt: "Ksquare Energy exhibition stand at a solar trade show",
   },
   sections: [

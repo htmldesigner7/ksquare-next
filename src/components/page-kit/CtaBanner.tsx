@@ -18,7 +18,7 @@ export default function CtaBanner({ title, desc, ctas }: { title: string; desc: 
       <Container maxWidth="1600" className="relative z-10">
         <Reveal className="flex flex-col gap-[32px] lg:gap-[64px]">
           <div className="flex flex-col gap-[8px] max-w-[1025px]">
-            <RichTitle text={title} className="m-0 font-archivo font-normal text-[36px] md:text-[60px] leading-[1.15] md:leading-[68px] text-white" />
+            <RichTitle text={title} className="m-0 font-archivo font-normal text-[36px] md:text-[60px] leading-[1.15] md:leading-[68px] text-white" breakBeforeAccent />
             <p className="m-0 font-normal text-[16px] lg:text-[17px] leading-[26px] text-white">{desc}</p>
           </div>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-[20px] lg:gap-[24px]">

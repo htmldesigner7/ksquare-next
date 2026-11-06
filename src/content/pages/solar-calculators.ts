@@ -17,8 +17,7 @@ export const page: PageData = {
       { label: "Choose a Calculator", href: "#calculators" },
       { label: "Book a Solar Expert", href: ROUTES.consultation },
     ],
-    image: `${IMG}/hero_bg.webp`,
-    cutout: { image: `${IMG}/hero.webp`, x: 356, y: -206, w: 1437, h: 706 },
+    cutout: { image: `${IMG}/hero_full.webp`, x: 0, y: -206, w: 1800, h: 706 },
     imageAlt: "Engineer using a tablet beside solar panels",
   },
   sections: [
@@ -30,10 +29,11 @@ export const page: PageData = {
     },
     {
       type: "split",
-      title: "Why These Estimates Are *a Good Starting Point*",
+      tight: true,
+      title: "Why These Estimates Are a *Good Starting Point*",
       paras: [
-        "Unlike generic calculators that use arbitrary averages, our logic references the specifications of Ksquare's standard offerings, including premium ACDB and DCDB enclosures and copper cabling, so the recommendations map to products we actually build.",
-        "For a design you can build from, book a site assessment and our engineers will refine these numbers against your roof, load and DISCOM rules.",
+        "Unlike generic calculators that use arbitrary averages, our logic is pre-programmed to reference active specs of Ksquare standard offerings — including premium ACDB, DCDB, copper cabling limits, and system inverters.",
+        "Please keep in mind that online math cannot substitute for a meticulous structural and shadow site analysis. These results establish highly-accurate baselines to help narrow down system scale options before our engineers perform field tests.",
       ],
       image: "/assets/pages/shared/team_award.webp",
       imageAlt: "The Ksquare Energy engineering team",

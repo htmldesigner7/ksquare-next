@@ -18,14 +18,20 @@ export const page: PageData = {
       { label: "Apply as a Partner", href: "#apply" },
       { label: "Download Brochure", href: ROUTES.downloads },
     ],
-    image: `${IMG}/hero_bg.webp`,
-    cutout: { image: `${IMG}/hero.webp`, x: 3, y: -203, w: 1371, h: 703 },
+    crumbRow: true,
+    bannerGap: 171,
+    afterGap: 50,
+    cutout: { image: `${IMG}/hero_full.webp`, x: 0, y: -203, w: 1800, h: 703 },
     imageAlt: "Ksquare partner team on a rooftop solar project",
   },
+  sectionPadding: 50,
+  faqBottom: 50,
+  endGap: 531,
   sections: [
     {
       type: "cards",
       cols: 4,
+      compactHead: true,
       title: "Choose Your *Ksquare Partnership Track*",
       subtitle: "We align with partners at every tier of the solar infrastructure supply chain. Select the model that matches your business capabilities.",
       items: [
@@ -37,6 +43,7 @@ export const page: PageData = {
     },
     {
       type: "split",
+      tight: true,
       title: "Why Businesses *Partner With Ksquare*",
       paras: [
         "No middlemen. Source directly from Ksquare's state-of-the-art manufacturing facility in Ahmedabad for maximum profitability. Co-branded marketing materials, digital collateral, and qualified regional lead sharing to accelerate your local sales pipeline.",
@@ -62,12 +69,17 @@ export const page: PageData = {
       ],
     },
     {
-      type: "split",
-      reverse: true,
+      type: "accordion",
       tone: "soft",
+      tall: true,
       title: "Who We *Partner With*",
-      paras: ["We are expanding our network across key regions in India. We look for businesses with strong local footprints and operational integrity."],
-      bullets: ["Solar & Electrical Distributors", "Hardware & Electrical Retailers", "EPC Contracting Companies", "Subsidy & Portal Assistance Providers"],
+      subtitle: "We are expanding our network across key regions in India. We look for businesses with strong local footprints and operational integrity.",
+      items: [
+        { title: "Solar & Electrical Distributors", desc: "Regional distributors with warehousing and a dealer network who can stock and supply Ksquare BOS components." },
+        { title: "Hardware & Electrical Retailers", desc: "Retail counters serving installers and electricians who want certified solar components on the shelf." },
+        { title: "EPC Contracting Companies", desc: "EPC firms that need dependable, manufacturer-direct supply for their project pipeline." },
+        { title: "Subsidy & Portal Assistance Providers", desc: "Consultants who help homeowners with subsidy applications and national portal registration." },
+      ],
       image: `${IMG}/who.webp`,
       imageAlt: "Engineers surveying a residential rooftop",
     },

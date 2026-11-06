@@ -98,7 +98,7 @@ export default function BlogPage() {
               </p>
 
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row items-center gap-[16px]">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-[16px]">
                 <Button variant="outline-primary" href="#articles" showDot>
                   Browse Articles
                 </Button>

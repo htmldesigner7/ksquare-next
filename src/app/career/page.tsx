@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import SectionSpacer from "@/components/common/SectionSpacer";
+import AnimatedCounter from "@/components/common/AnimatedCounter";
 import LifeSlider from "./LifeSlider";
 import OpenPositions from "./OpenPositions";
 
@@ -58,7 +59,7 @@ const industries = [
 
 export default function CareerPage() {
   return (
-    <main className="w-full bg-white font-archivo">
+    <main className="w-full bg-white font-archivo overflow-x-clip">
       {/* 1. Hero Section & Breadcrumbs */}
       <section className="w-full pt-[90px] lg:pt-[130px] flex flex-col items-center">
         <Container maxWidth="1800">
@@ -85,7 +86,7 @@ export default function CareerPage() {
               </div>
 
               {/* Title */}
-              <h1 className="font-recia text-[42px] lg:text-[68px] leading-[1.1] lg:leading-[78px] text-primary font-normal">
+              <h1 className="font-recia text-[42px] lg:text-[68px] leading-[1.1] lg:leading-[78px] lg:h-[179px] text-primary font-normal">
                 Build Your Career<br />
                 <span className="italic font-semibold">With the Future of Solar.</span>
               </h1>
@@ -98,7 +99,7 @@ export default function CareerPage() {
               </p>
 
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row items-center gap-[16px]">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-[16px]">
                 <Button variant="outline-primary" href="#open-positions" showDot>
                   View Open Positions
                 </Button>
@@ -110,32 +111,19 @@ export default function CareerPage() {
           </div>
         </Container>
 
-        {/* Hero Banner Image — layered composite from Figma: ground/environment photo + transparent team cutout on top */}
-        <Container maxWidth="1800" className="mt-[50px] lg:mt-[80px]">
-          <div className="w-full relative aspect-[1804/500] rounded-[24px] overflow-hidden">
-            <Image
-              src="/assets/career/hero_banner.png"
-              alt="Ksquare Energy team at work"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div
-              className="absolute"
-              style={{ left: "-15.778%", top: "-145.114%", width: "122.870%", height: "247.430%" }}
-            >
-              <Image
-                src="/assets/career/hero_banner_alt_full.png"
-                alt="Ksquare Energy team"
-                fill
-                className="object-contain object-bottom"
-              />
+        {/* Hero group (Figma #106:11044 + cut-out): the ground photo is a square 1804 x 500 plate; the team cut-out is NOT clipped, so heads rise above the plate */}
+        <div className="w-full max-w-[1804px] mx-auto px-4 lg:px-8 g1868:px-0">
+          <div className="relative w-full aspect-[1804/500] mt-[26%] sm:mt-[17%] lg:mt-[15.58%]">
+            {/* photo plate + team cut-out merged into one Figma image (heads rise above the plate) */}
+            <div className="absolute pointer-events-none" style={{ left: "-15.778%", top: "-145.114%", width: "122.870%", height: "247.430%" }}>
+              <Image src="/assets/career/hero_full.webp" alt="Ksquare Energy team" fill sizes="2217px" className="object-fill" priority />
             </div>
+
           </div>
-        </Container>
+        </div>
       </section>
 
-      <SectionSpacer size={150} />
+      <SectionSpacer size={100} />
 
       {/* 2. More Than a Job. A Place to Grow. */}
       <section className="w-full">
@@ -143,8 +131,8 @@ export default function CareerPage() {
           <div className="flex flex-col xl:flex-row items-center gap-[60px] xl:gap-[clamp(40px,5.2vw,100px)]">
             {/* Left: Text & Stats */}
             <div className="flex flex-col gap-[48px] w-full xl:flex-1 xl:min-w-0 xl:max-w-[750px]">
-              <div className="flex flex-col gap-[14px]">
-                <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-[#333333] font-normal">
+              <div className="flex flex-col gap-[14px] xl:h-[359px]">
+                <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[70px] text-[#333333] font-normal">
                   More Than a Job.<br />
                   <span className="font-recia italic font-medium">A Place to Grow.</span>
                 </h2>
@@ -161,17 +149,17 @@ export default function CareerPage() {
               {/* Stats */}
               <div className="flex flex-col gap-[32px] w-full">
                 <div className="w-full h-px bg-[#C6CCED]" />
-                <div className="flex items-center gap-[24px] w-full">
-                  <div className="flex flex-col gap-[16px] flex-1">
-                    <span className="font-archivo text-[32px] lg:text-[40px] leading-[1] text-primary">100+</span>
+                <div className="flex flex-wrap items-center gap-x-[24px] gap-y-[24px] w-full">
+                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px]">
+                    <AnimatedCounter end={100} suffix="+" className="font-archivo text-[32px] lg:text-[40px] leading-[26px] text-primary" />
                     <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">Team Members</span>
                   </div>
-                  <div className="flex flex-col gap-[16px] flex-1">
-                    <span className="font-archivo text-[32px] lg:text-[40px] leading-[1] text-primary">10+</span>
+                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px]">
+                    <AnimatedCounter end={10} suffix="+" className="font-archivo text-[32px] lg:text-[40px] leading-[26px] text-primary" />
                     <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">Career Opportunities</span>
                   </div>
-                  <div className="flex flex-col gap-[16px] flex-1">
-                    <span className="font-archivo text-[32px] lg:text-[40px] leading-[1] text-primary">Growing</span>
+                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px]">
+                    <span className="font-archivo text-[32px] lg:text-[40px] leading-[26px] text-primary">Growing</span>
                     <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">Work Culture</span>
                   </div>
                 </div>
@@ -191,14 +179,14 @@ export default function CareerPage() {
         </Container>
       </section>
 
-      <SectionSpacer size={150} />
+      <SectionSpacer size={100} />
 
       {/* 3. Life at Ksquare */}
       <section className="w-full">
         <Container maxWidth="1600">
           <div className="flex flex-col items-center gap-[40px]">
             <div className="flex flex-col items-center text-center gap-[8px] max-w-[900px]">
-              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal">
+              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[57px] text-primary font-normal">
                 Life at <span className="font-recia italic font-medium">Ksquare.</span>
               </h2>
               <p className="font-archivo text-[17px] leading-[26px] text-[#666666] max-w-[720px]">
@@ -211,35 +199,14 @@ export default function CareerPage() {
         </Container>
       </section>
 
-      <SectionSpacer size={150} />
+      <SectionSpacer size={100} />
 
-      {/* 4. Explore Career Opportunities */}
-      <section id="open-positions" className="w-full scroll-mt-[110px]">
-        <Container maxWidth="1600">
-          <div className="flex flex-col items-center gap-[40px]">
-            {/* Header */}
-            <div className="flex flex-col items-center text-center gap-[14px] max-w-[900px]">
-              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal">
-                Explore Career <span className="font-recia italic font-medium">Opportunities</span>
-              </h2>
-              <p className="font-archivo text-[17px] leading-[26px] text-[#666666] max-w-[720px]">
-                Discover opportunities to grow your skills, build meaningful experience and shape the future of solar energy with Ksquare.
-              </p>
-            </div>
-
-            <OpenPositions tabs={tabs} positions={openPositions} />
-          </div>
-        </Container>
-      </section>
-
-      <SectionSpacer size={150} />
-
-      {/* 5. Find Where You Belong */}
+      {/* 4. Find Where You Belong */}
       <section className="w-full">
         <Container maxWidth="1600">
           <div className="flex flex-col items-stretch gap-[48px]">
             <div className="flex flex-col items-center text-center gap-[8px] max-w-[900px] mx-auto">
-              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal">
+              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal lg:leading-[57px]">
                 Find Where <span className="font-recia italic font-medium">You Belong.</span>
               </h2>
               <p className="font-archivo text-[17px] leading-[26px] text-[#666666] max-w-[720px]">
@@ -247,9 +214,9 @@ export default function CareerPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[20px] lg:gap-[24px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[20px]">
               {industries.map((ind) => (
-                <div key={ind.title} className="card-lift flex flex-col gap-[24px] bg-[#EFF0F6] p-[32px] lg:p-[50px_40px]">
+                <div key={ind.title} className="card-lift flex flex-col gap-[20px] bg-[#EFF0F6] p-[32px] lg:p-[50px_40px]">
                   <div className="flex items-center gap-[24px] lg:gap-[30px]">
                     <div className="w-[70px] h-[70px] lg:w-[90px] lg:h-[90px] bg-white rounded-[10px] flex items-center justify-center shrink-0 p-[10px]">
                       <Image src={ind.icon} width={60} height={60} alt={ind.title} className="w-[45px] h-[45px] lg:w-[60px] lg:h-[60px] object-contain" />
@@ -268,8 +235,28 @@ export default function CareerPage() {
         </Container>
       </section>
 
-      <SectionSpacer size={150} />
-     
+      <SectionSpacer size={100} />
+
+      {/* 5. Explore Career Opportunities */}
+      <section id="open-positions" className="w-full scroll-mt-[110px]">
+        <Container maxWidth="1600">
+          <div className="flex flex-col items-center gap-[40px]">
+            {/* Header */}
+            <div className="flex flex-col items-center text-center gap-[14px] max-w-[1000px] lg:h-[110px]">
+              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal">
+                Explore Career <span className="font-recia italic font-medium">Opportunities</span>
+              </h2>
+              <p className="font-archivo text-[17px] leading-[26px] text-[#666666] max-w-[1000px]">
+                Discover opportunities to grow your skills, build meaningful experience and shape the future of solar energy with Ksquare.
+              </p>
+            </div>
+
+            <OpenPositions tabs={tabs} positions={openPositions} />
+          </div>
+        </Container>
+      </section>
+
+      <SectionSpacer size={100} />
     </main>
   );
 }

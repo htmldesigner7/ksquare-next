@@ -10,13 +10,15 @@ export const page: PageData = {
     "Meet the founders and leaders of Ksquare Energy: engineers who built the company from the factory floor and still run it with operational accountability and engineering precision.",
   hero: {
     crumbs: [{ label: "Home", href: ROUTES.home }, { label: "About Us" }, { label: "Leadership Team" }],
-    title: "Leadership Behind *the Journeys*",
+    title: "Leadership Behind *The Journey*",
+    bannerGap: 193,
+    afterGap: 38,
     description:
       "At KSquare Energy, leadership is defined by operational accountability and engineering precision. We build teams that translate complex solar challenges into robust, reliable manufacturing and execution.",
-    image: `${IMG}/hero_bg.webp`,
-    cutout: { image: `${IMG}/hero.webp`, x: 274, y: -153, w: 1526, h: 653 },
+    cutout: { image: `${IMG}/hero_full.webp`, x: 0, y: -153, w: 1800, h: 653 },
     imageAlt: "The Ksquare Energy leadership team",
   },
+  sectionPadding: 50,
   sections: [
     {
       type: "split",
@@ -38,9 +40,9 @@ export const page: PageData = {
       title: "The *Executive Team*",
       subtitle: "The people accountable for every product that leaves our factory.",
       members: [
-        { name: "Kuldip Sorathiya", role: "Founder & Director", image: `${IMG}/founder.webp` },
-        { name: "Kalpesh Sorathiya", role: "Co-Founder", image: `${IMG}/cofounder.webp` },
-        { name: "Prakash Dobariya", role: "Factory Head", image: `${IMG}/factory_head.webp` },
+        { name: "Kuldip Sorathiya", role: "Founder & Director", image: `${IMG}/founder.webp`, desc: "Lorem ipsum dolor sit amet consectetur. Amet velit scelerisque facilisis nisl metus mollis. At cras leo bibendum pellentesque feugiat diam dictum sit sollicitudin. Id turpis et in feugiat mollis nisl. Id sed quis nunc bibendum justo blandit." },
+        { name: "Kalpesh Sorathiya", role: "Co-Founder", image: `${IMG}/cofounder.webp`, desc: "Lorem ipsum dolor sit amet consectetur. Amet velit scelerisque facilisis nisl metus mollis. At cras leo bibendum pellentesque feugiat diam dictum sit sollicitudin. Id turpis et in feugiat mollis nisl. Id sed quis nunc bibendum justo blandit." },
+        { name: "Prakash Dobariya", role: "Factory Head", image: `${IMG}/factory_head.webp`, desc: "Lorem ipsum dolor sit amet consectetur. Amet velit scelerisque facilisis nisl metus mollis. At cras leo bibendum pellentesque feugiat diam dictum sit sollicitudin. Id turpis et in feugiat mollis nisl. Id sed quis nunc bibendum justo blandit." },
       ],
     },
     {

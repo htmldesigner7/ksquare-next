@@ -11,6 +11,8 @@ export const page: PageData = {
   hero: {
     crumbs: [{ label: "Home", href: ROUTES.home }, { label: "About Us" }, { label: "Our Presence" }],
     title: "Our Presence *Across India*",
+    bannerGap: 207,
+    ctas: [{ label: "Be a part of Ksquare", href: ROUTES.partner }],
     description:
       "Ksquare Energy has a strong presence across India, delivering reliable roof-top solar solutions for residential, commercial, and industrial clients while driving the nation towards clean, affordable, and sustainable energy.",
     cutout: { image: `${IMG}/hero.webp`, x: 0, y: -187, w: 1800, h: 702 },
@@ -21,17 +23,20 @@ export const page: PageData = {
       type: "split",
       title: "Leading Solar Company *in India*",
       paras: [
-        "Ksquare is among India's foremost solar providers, committed to making clean, affordable energy accessible to homes, businesses and communities.",
-        "With a strong national presence spanning 8 years, Ksquare has grown through dedication to quality products and timely service.",
+        "Ksquare is among India's foremost solar providers—committed to making clean, affordable energy accessible to homes, businesses, and communities.",
+        "With a strong national presence spanning 8 years, Ksquare has grown through dedication to quality, timely service, and advanced solar solutions.",
+        "Our systems empower customers across metro cities and rural regions alike—designed for optimal performance, long-term savings, and genuine energy independence.",
       ],
+      cta: { label: "Be a part of Ksquare", href: ROUTES.partner },
       image: `${IMG}/leading.webp`,
       imageAlt: "Ksquare team at an awards ceremony",
     },
     {
       type: "cards",
-      cols: 4,
+      cols: 3,
       title: "Who *We Serve*",
-      subtitle: "Powering Every Industry with Solar Solutions. From manufacturing to installation, Ksquare Energy supports every stakeholder with reliable products, technical expertise, and dependable service.",
+      subtitle: "Powering Every Industry with Solar Solutions",
+      quote: "From manufacturing to installation, Ksquare Energy supports every stakeholder with reliable products, technical expertise, and dependable service.",
       items: [
         { title: "EPC Companies", desc: "BOS components and technical support for solar EPC projects.", badge: "/assets/about/serve_epc.svg" },
         { title: "Installers", desc: "Dependable products that make installation faster and cleaner.", badge: "/assets/about/serve_installers.svg" },

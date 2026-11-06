@@ -5,6 +5,7 @@ import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import SectionSpacer from "@/components/common/SectionSpacer";
 import TocSidebar from "./TocSidebar";
+import Disclosure from "@/components/common/Disclosure";
 
 export const metadata: Metadata = {
   title: "The Ultimate Guide to Surge Protection for Utility-Scale Solar Systems | Ksquare Energy",
@@ -90,7 +91,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
       {/* Hero */}
       <Container maxWidth="1800">
         <div className="flex flex-col xl:flex-row items-stretch gap-[40px]">
-          <div className="relative w-full xl:w-[900px] aspect-[900/615] rounded-[16px] overflow-hidden shrink-0">
+          <div className="relative w-full xl:w-[900px] aspect-[900/615] rounded-[16px] overflow-hidden shrink-0 xl:shrink desk:shrink-0">
             <Image
               src="/assets/blog-detail/hero-article.png"
               alt="Utility-scale solar array with surge protection"
@@ -104,15 +105,15 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
               <h1 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[70px] font-medium text-primary">
                 The Ultimate Guide to Surge Protection for Utility-Scale Solar Systems
               </h1>
-              <p className="font-archivo text-[17px] leading-[26px] text-[#666666] text-justify">
+              <p className="font-archivo text-[17px] leading-[26px] text-[#666666] lg:text-justify">
                 As PV installations scale to utility capacities, the risk of lightning-induced surges and switching transients increases exponentially. Learn the precision engineering protocols required to safeguard high-voltage DC arrays.
               </p>
             </div>
             <div className="flex flex-col gap-[18px]">
-              <p className="font-archivo text-[17px] leading-[26px] text-[#666666] text-justify">
+              <p className="font-archivo text-[17px] leading-[26px] text-[#666666] lg:text-justify">
                 Electrical protection is an extremely important process in establishing the safety, reliability and life of the new electrical systems. Electrical devices such as protective devices help prevent electricity faults, equipment damage and even fire in the homes, offices, factories or even in solar installations.
               </p>
-              <p className="font-archivo text-[17px] leading-[26px] text-[#666666] text-justify">
+              <p className="font-archivo text-[17px] leading-[26px] text-[#666666] lg:text-justify">
                 The SPD (Surge Protecting Device) and the MCB (Miniature Circuit Breaker) are both regarded to be two of the most essential protection appliances of the contemporary world. The two are employed in different mechanisms although they are used to protect but to ensure different kind of electrical problems are addressed.
               </p>
             </div>
@@ -134,7 +135,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
           </aside>
 
           {/* Article Body */}
-          <div className="flex flex-col gap-[24px] w-full">
+          <div className="flex flex-col gap-[24px] w-full min-w-0">
             <section id="introduction" className="flex flex-col gap-[24px] scroll-mt-[110px]">
               <h2 className="font-archivo text-[28px] lg:text-[40px] leading-[1.25] lg:leading-[50px] text-[#333333]">
                 Difference Between SPD and MCB - Complete Guide
@@ -226,7 +227,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
               <div className="flex flex-col gap-[8px]">
                 <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-primary">
                   <span className="font-normal">Frequently Asked </span>
-                  <span className="font-recia italic font-medium">Questions11</span>
+                  <span className="font-recia italic font-medium">Questions</span>
                 </h2>
                 <p className="font-archivo text-[17px] leading-[26px] text-[#666666] max-w-[700px]">
                   Common questions about solar inverters, sizing and savings.
@@ -234,54 +235,43 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
               </div>
               <div className="flex flex-col gap-[40px]">
                 {faqs.map((item, index) => (
-                  <details key={item.q} className="group border-b-[1.78px] border-[#9DBCF3] pb-[20px]" open={index === 0}>
-                    <summary className="flex items-start justify-between gap-[24px] cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                  <Disclosure key={item.q} defaultOpen={index === 0} className="border-b-[1.78px] border-[#9DBCF3] pb-[20px]" summaryClassName="flex items-start justify-between gap-[24px]" summary={<>
                       <span className="font-archivo text-[18px] lg:text-[24px] leading-[1.3] lg:leading-[32px] text-[#333333]">
                         {item.q}
                       </span>
-                      <span className="font-archivo text-[24px] text-[#333333] shrink-0 group-open:hidden">+</span>
-                      <span className="font-archivo text-[24px] text-[#333333] shrink-0 hidden group-open:block">-</span>
-                    </summary>
+                      <span className="font-archivo text-[24px] leading-[32px] text-[#333333] shrink-0 group-data-[open=true]:hidden">+</span>
+                      <span className="font-archivo text-[24px] leading-[32px] text-[#333333] shrink-0 hidden group-data-[open=true]:block">-</span>
+                    </>}>
                     <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666] mt-[16px]">
                       {item.a}
                     </p>
-                  </details>
+                  </Disclosure>
                 ))}
               </div>
             </div>
 
-            {/* Get bulk pricing CTA — embedded, column-scaled per Figma (not the global full-width Footer CTA) */}
-            <div className="relative w-full overflow-hidden">
-              <Image
-                src="/assets/common/cta_bg_pattern.png"
-                alt=""
-                fill
-                className="object-cover pointer-events-none"
-                aria-hidden="true"
-              />
-              <div className="hidden lg:block absolute right-[3%] top-[6%] w-[36%] max-w-[505px] aspect-[694/430] pointer-events-none">
-                <Image
-                  src="/assets/common/cta_illustration.png"
-                  alt=""
-                  fill
-                  className="object-contain"
-                  aria-hidden="true"
-                />
+            {/* Get bulk pricing CTA: Figma #106:6167, 1394 x 348.5, every measurement scales with the column width (cqw) */}
+            <div className="relative w-full overflow-hidden bg-[#2B398B] [container-type:inline-size] xl:mt-[7px] xl:aspect-[1394/348.5]">
+              <div className="absolute inset-0 -scale-x-100 opacity-60 pointer-events-none" aria-hidden="true">
+                <Image src="/assets/common/cta_bg_pattern.png" alt="" fill quality={100} sizes="1394px" className="object-cover" />
               </div>
-              <div className="relative z-10 flex flex-col gap-[33px] p-[24px] lg:p-[33px]">
-                <div className="flex flex-col gap-[4px] max-w-[560px]">
-                  <h2 className="font-archivo text-[24px] lg:text-[28px] leading-[1.15] text-white font-normal">
+              <div className="hidden lg:block absolute right-0 top-[6.44%] w-[36.17%] aspect-[504.2/312.33] pointer-events-none">
+                <Image src="/assets/common/cta_illustration_figma.svg" alt="" fill className="object-contain" aria-hidden="true" />
+              </div>
+              <div className="relative z-10 flex flex-col gap-[32px] p-[24px] lg:p-[40px] xl:absolute xl:p-0 xl:left-[3.312%] xl:top-[21.98%] xl:w-[83.33%] xl:gap-[3.333cqw]">
+                <div className="flex flex-col gap-[8px] xl:gap-[0.4167cqw] xl:w-[56.24cqw]">
+                  <h2 className="m-0 font-archivo font-normal text-white text-[28px] leading-[1.2] xl:text-[max(26px,2.8694cqw)] xl:leading-[max(32px,3.5417cqw)] xl:whitespace-nowrap">
                     Get bulk pricing on <span className="font-recia italic font-medium">Solar BOS Components</span>
                   </h2>
-                  <p className="font-archivo text-[13px] leading-[1.4] text-[#EDF3FF]">
+                  <p className="m-0 font-archivo text-[16px] leading-[24px] text-white xl:text-[max(14px,1.2195cqw)] xl:leading-[max(20px,1.3544cqw)]">
                     Whether you need certified solar components, OEM manufacturing, or complete rooftop solar solutions, our team is ready to help.
                   </p>
                 </div>
-                <div className="flex flex-wrap items-center gap-[12px]">
-                  <Button variant="outline" href="/contact" showDot className="!px-[12px] !py-[8px]">
+                <div className="flex flex-wrap items-center gap-[16px] xl:gap-[1.25cqw]">
+                  <Button variant="outline" href="/contact" showDot className="xl:!gap-[0.8333cqw] xl:!px-[1.25cqw] xl:!py-[0.8333cqw]">
                     Request a Quote
                   </Button>
-                  <Button variant="outline" href="/contact" showDot className="!px-[12px] !py-[8px]">
+                  <Button variant="outline" href="/contact" showDot className="xl:!gap-[0.8333cqw] xl:!px-[1.25cqw] xl:!py-[0.8333cqw]">
                     Talk to Our Experts
                   </Button>
                 </div>
@@ -291,7 +281,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
         </div>
       </Container>
 
-      <SectionSpacer size={150} />
+      <SectionSpacer size={100} />
     </main>
   );
 }

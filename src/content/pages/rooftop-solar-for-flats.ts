@@ -18,10 +18,11 @@ export const page: PageData = {
       { label: "Book a Free Site Assessment", href: ROUTES.consultation },
       { label: "Get a Free Consultation", href: ROUTES.consultation },
     ],
-    image: `${IMG}/hero_bg.webp`,
-    cutout: { image: `${IMG}/hero.webp`, x: -5, y: -170, w: 1810, h: 670 },
+    afterGap: 50,
+    cutout: { image: `${IMG}/hero_full.webp`, x: -5, y: -170, w: 1810, h: 670 },
     imageAlt: "Apartment complex with rooftop solar panels",
   },
+  sectionPadding: 50,
   sections: [
     {
       type: "numbered",
@@ -73,10 +74,10 @@ export const page: PageData = {
       desc: "Deploying high-quality solar assets directly offsets long-term overheads while instantly elevating overall estate valuation.",
       bgImage: "/assets/pages/shared/dark_bg.webp",
       items: [
-        { title: "Lower Common-Area Electricity Costs", desc: "Slash common-area maintenance bills by offsetting high-tariff commercial-tier grid consumption." },
-        { title: "Increased Property & Resale Value", desc: "Green-certified residential units can command higher rental premiums and better value on secondary markets." },
-        { title: "Sustainability Credentials for the Community", desc: "Visible, measurable clean-energy generation your whole community can be proud of." },
-        { title: "Government Subsidy & Loan Eligibility", desc: "Get access to state subsidies and specialised bank solar schemes where applicable." },
+        { title: "Lower Common-Area Electricity Costs", desc: "Slash common-area maintenance bills by up to 90% by directly offsetting high-tariff commercial-tier grid consumption." },
+        { title: "Sustainability Credentials for the Community", desc: "High visual clearance and compact, localized power generation directly matches urban commercial & industrial zone demands." },
+        { title: "Increased Property & Resale Value", desc: "Green-certified residential units demand higher rental premiums and fetch far better value on active secondary markets." },
+        { title: "Government Subsidy & Loan Eligibility", desc: "Get immediate access to state subsidies, favorable capital tax exemptions, and specialized bank solar schemes." },
       ],
     },
     {

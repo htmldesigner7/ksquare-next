@@ -22,14 +22,18 @@ export const page: PageData = {
       { label: "Become an Export Partner", href: ROUTES.exportBusiness },
       { label: "Request Export Catalog", href: ROUTES.downloads },
     ],
-    image: `${IMG}/hero_bg.webp`,
-    cutout: { image: `${IMG}/hero.webp`, x: 33, y: -227, w: 1740, h: 727 },
+    crumbRow: true,
+    bannerGap: 205,
+    afterGap: 50,
+    cutout: { image: `${IMG}/hero_full.webp`, x: 0, y: -227, w: 1800, h: 727 },
     imageAlt: "Export logistics team beside containers of solar components",
   },
+  sectionPadding: 50,
   sections: [
     {
       type: "cards",
       cols: 4,
+      compactHead: true,
       title: "Why Solar Partners Source *From Ksquare*",
       subtitle:
         "Sourcing solar components from India means weighing certification, consistency, and reliability against cost advantage. Ksquare manufactures every component in-house, to internationally recognised certification standards, at India-manufacturing economics.",
@@ -43,18 +47,20 @@ export const page: PageData = {
     {
       type: "cards",
       cols: 4,
+      compactHead: true,
+      align: "left",
       fit: "contain",
       title: "Solar BOS Components Ready *for Export*",
       subtitle: "A complete range of certified balance-of-system components, packed and documented for international shipment.",
       items: [
-        { title: "Solar DCDB", desc: "DC distribution boxes for string-level protection and isolation.", image: `${PRODUCTS}/p_dcdb.webp` },
-        { title: "Solar ACDB", desc: "AC distribution with NVR protection, RYB indication available.", image: `${PRODUCTS}/p_acdb.webp` },
-        { title: "Combiner Boxes", desc: "Multi-string combiners for utility and commercial-scale arrays.", image: `${PRODUCTS}/p_combiner.webp` },
-        { title: "Junction Boxes", desc: "Array junction boxes with monitoring-ready terminal layouts.", image: `${PRODUCTS}/p_junction.webp` },
-        { title: "Solar Cables", desc: "Single-core DC cables engineered for outdoor UV exposure.", image: `${PRODUCTS}/p_cables.webp` },
-        { title: "Kenclozer Enclosures", desc: "Polycarbonate enclosures for indoor and outdoor installation.", image: `${PRODUCTS}/p_kenclozer.webp` },
-        { title: "MC4 Connectors", desc: "Locking connectors rated for continuous outdoor duty.", image: `${PRODUCTS}/p_mc4.webp` },
-        { title: "Earthing Kits", desc: "Complete grounding kits for module frames and mounting structures.", image: `${PRODUCTS}/p_earthing.webp` },
+        { title: "Solar DCDB", desc: "DC distribution boxes for string-level protection and isolation.", image: `${PRODUCTS}/p_dcdb.webp`, href: ROUTES.dcdb, linkLabel: "View Product" },
+        { title: "Solar ACDB", desc: "AC distribution with NVR protection, RYB indication available.", image: `${PRODUCTS}/p_acdb.webp`, href: ROUTES.dcdb, linkLabel: "View Product" },
+        { title: "Combiner Boxes", desc: "Multi-string combiners for utility and commercial-scale arrays.", image: `${PRODUCTS}/p_combiner.webp`, href: ROUTES.dcdb, linkLabel: "View Product" },
+        { title: "Junction Boxes", desc: "Array junction boxes with monitoring-ready terminal layouts.", image: `${PRODUCTS}/p_junction.webp`, href: ROUTES.dcdb, linkLabel: "View Product" },
+        { title: "Solar Cables", desc: "Single-core DC cables engineered for outdoor UV exposure.", image: `${PRODUCTS}/p_cables.webp`, href: ROUTES.dcdb, linkLabel: "View Product" },
+        { title: "Kenclozer Enclosures", desc: "Polycarbonate enclosures for indoor and outdoor installation.", image: `${PRODUCTS}/p_kenclozer.webp`, href: ROUTES.dcdb, linkLabel: "View Product" },
+        { title: "MC4 Connectors", desc: "Locking connectors rated for continuous outdoor duty.", image: `${PRODUCTS}/p_mc4.webp`, href: ROUTES.dcdb, linkLabel: "View Product" },
+        { title: "Earthing Kits", desc: "Complete grounding kits for module frames and mounting structures.", image: `${PRODUCTS}/p_earthing.webp`, href: ROUTES.dcdb, linkLabel: "View Product" },
       ],
     },
     {
@@ -84,6 +90,8 @@ export const page: PageData = {
     {
       type: "cards",
       cols: 4,
+      inline: true,
+      compactHead: true,
       title: "Certifications That Support *Import Compliance*",
       subtitle: "Our products adhere to international standards, simplifying testing requirements in destination countries.",
       items: [
@@ -95,6 +103,7 @@ export const page: PageData = {
     },
     {
       type: "steps",
+      variant: "hex",
       title: "How Our *Export Process* Works",
       subtitle: "A systematic roadmap ensuring maximum accuracy and precision from initial specification to site deployment.",
       items: [
@@ -108,6 +117,7 @@ export const page: PageData = {
     },
     {
       type: "split",
+      tight: true,
       title: "Partner With Us as a *Regional Distributor*",
       paras: [
         "Ksquare is expanding its regional distributor network alongside its export program, offering long-term opportunities for businesses to represent our products in their markets. Partners benefit from regional stocking privileges, co-branded marketing support and direct access to our engineering team.",

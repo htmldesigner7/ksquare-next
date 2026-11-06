@@ -8,7 +8,7 @@ export default function PartnerCTA() {
     <section className="relative w-full overflow-hidden">
       
       {/* Desktop Wrapper */}
-      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative h-[400px] max-canvas:h-auto max-canvas:py-16">
+      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative h-[400px] max-canvas:h-auto max-canvas:py-16 max-sm:py-10">
         
         {/* Background Image */}
         <div className="absolute inset-0 w-full h-full">

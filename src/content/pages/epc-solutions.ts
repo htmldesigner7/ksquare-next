@@ -22,10 +22,12 @@ export const page: PageData = {
       { label: "Request a Bulk Quote", href: ROUTES.contact },
       { label: "Download Product Catalog", href: ROUTES.downloads },
     ],
-    image: `${IMG}/hero_bg.webp`,
-    cutout: { image: `${IMG}/hero.webp`, x: 0, y: -182, w: 1800, h: 682 },
+    crumbRow: true,
+    bannerGap: 171,
+    cutout: { image: `${IMG}/hero_full.webp`, x: 0, y: -182, w: 1800, h: 682 },
     imageAlt: "EPC engineers reviewing a solar plant layout on site",
   },
+  sectionPadding: 50,
   sections: [
     {
       type: "band",
@@ -40,6 +42,7 @@ export const page: PageData = {
     {
       type: "cards",
       cols: 4,
+      compactHead: true,
       title: "Why Solar EPC Companies Choose *Ksquare*",
       subtitle:
         "When you're sourcing BOS components for active commercial or utility-scale projects, supplier delays or inconsistent quality directly impact your bottom line. We control the complete process, from structural raw material processing to final dispatch.",
@@ -53,6 +56,8 @@ export const page: PageData = {
     {
       type: "cards",
       cols: 4,
+      align: "left",
+      compactHead: true,
       fit: "contain",
       title: "Core *Products*",
       subtitle:
@@ -70,18 +75,19 @@ export const page: PageData = {
     },
     {
       type: "split",
+      tight: true,
       title: "Manufacturing Capacity *for Your Timeline*",
       paras: [
-        "Commercial solar projects depend on reliable manufacturing and on-time delivery. Our specialized in-house production capabilities cover custom sheet fabrication, powder coating, wire loom layout, thermoplastic molding, and box termination, all under one roof.",
+        "Commercial solar projects depend on reliable manufacturing and on-time delivery. Our specialized in-house production capabilities cover custom sheet fabrication, powder coating, wire loom layout, thermoplastic molding, and box terminal assembly.",
+        "With dedicated production and quality-control teams, we ensure consistent quality, predictable lead times, and prompt dispatches for critical MW-scale solar projects across India.",
       ],
       stats: [
         { value: "100%", label: "In-House Fabrication" },
-        { value: "45+", label: "Production & QC Staff" },
+        { value: "45+", label: "Production & QC Staff", w: 224 },
         { value: "Pan-India", label: "Dispatch & Logistics" },
       ],
       image: "/assets/pages/shared/team_award.webp",
       imageAlt: "The Ksquare Energy team",
-      cta: { label: "Explore Infrastructure", href: ROUTES.infrastructure },
     },
     {
       type: "dark",
@@ -96,6 +102,7 @@ export const page: PageData = {
     },
     {
       type: "tiers",
+      compactHead: true,
       title: "Volume Pricing *& Dedicated Account Support*",
       subtitle: "Pick the tier that matches your project size. Every tier includes manufacturer-direct pricing and engineering support.",
       items: [

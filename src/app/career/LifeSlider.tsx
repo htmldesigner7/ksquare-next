@@ -16,17 +16,18 @@ export default function LifeSlider() {
   const next = () => setActive((i) => (i + 1) % slides.length);
 
   return (
-    <div className="relative w-full max-w-[1440px] mx-auto">
-      <div className="relative w-full aspect-[1440/604] overflow-hidden rounded-[16px]">
+    // Figma: 1600px row, 1440 x 604 photo window (the 1440 x 735 photo is shifted up 131px inside it) with the arrows outside it
+    <div className="relative w-full max-w-[1600px] mx-auto">
+      <div className="relative w-full lg:w-[90%] mx-auto aspect-[1440/604] overflow-hidden rounded-[16px] lg:rounded-none">
         {slides.map((slide, i) => (
-          <Image
+          <div
             key={slide.src}
-            src={slide.src}
-            alt={slide.alt}
-            fill
-            className={`object-cover transition-opacity duration-500 ${i === active ? "opacity-100" : "opacity-0"}`}
-            priority={i === 0}
-          />
+            aria-hidden={i !== active}
+            className={`absolute left-0 w-full transition-opacity duration-500 ${i === active ? "opacity-100" : "opacity-0"}`}
+            style={{ top: "-21.7%", height: "121.69%" }}
+          >
+            <Image src={slide.src} alt={slide.alt} fill sizes="1440px" className="object-cover" priority={i === 0} />
+          </div>
         ))}
       </div>
 
@@ -34,7 +35,7 @@ export default function LifeSlider() {
         type="button"
         onClick={prev}
         aria-label="Previous slide"
-        className="absolute left-[8px] lg:left-[-27px] z-10 top-1/2 -translate-y-1/2 w-[55px] h-[58px] rotate-180"
+        className="absolute left-[8px] lg:left-0 z-10 top-1/2 -translate-y-1/2 w-[44px] h-[46px] lg:w-[55px] lg:h-[58px] rotate-180 transition-transform duration-300 hover:scale-110"
       >
         <Image src="/assets/career/slider_arrow.svg" alt="" fill />
       </button>
@@ -42,22 +43,10 @@ export default function LifeSlider() {
         type="button"
         onClick={next}
         aria-label="Next slide"
-        className="absolute right-[8px] lg:right-[-27px] z-10 top-1/2 -translate-y-1/2 w-[55px] h-[58px]"
+        className="absolute right-[8px] lg:right-0 z-10 top-1/2 -translate-y-1/2 w-[44px] h-[46px] lg:w-[55px] lg:h-[58px] transition-transform duration-300 hover:scale-110"
       >
         <Image src="/assets/career/slider_arrow.svg" alt="" fill />
       </button>
-
-      <div className="flex items-center justify-center gap-[8px] mt-[24px]">
-        {slides.map((slide, i) => (
-          <button
-            key={slide.src}
-            type="button"
-            onClick={() => setActive(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            className={`h-[8px] rounded-full transition-all ${i === active ? "w-[24px] bg-primary" : "w-[8px] bg-[#C6CCED]"}`}
-          />
-        ))}
-      </div>
     </div>
   );
 }

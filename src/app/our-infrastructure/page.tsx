@@ -1,9 +1,11 @@
 import Image from "next/image";
+import ProcessTimelineArt from "@/components/page-kit/ProcessTimelineArt";
 import Link from "next/link";
 import { Metadata } from "next";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import SectionSpacer from "@/components/common/SectionSpacer";
+import AnimatedCounter from "@/components/common/AnimatedCounter";
 
 export const metadata: Metadata = {
   title: "Our Infrastructure | Ksquare Energy",
@@ -81,7 +83,7 @@ const gallery = [
 
 export default function OurInfrastructurePage() {
   return (
-    <main className="w-full bg-white font-archivo">
+    <main className="w-full bg-white font-archivo overflow-x-clip">
       {/* 1. Hero Section & Breadcrumbs */}
       <section className="w-full pt-[90px] lg:pt-[130px] flex flex-col items-center">
         <Container maxWidth="1800">
@@ -108,7 +110,7 @@ export default function OurInfrastructurePage() {
               </div>
 
               {/* Title */}
-              <h1 className="font-recia text-[42px] lg:text-[68px] leading-[1.1] lg:leading-[78px] text-primary font-normal">
+              <h1 className="font-recia text-[42px] lg:text-[68px] leading-[1.1] lg:leading-[78px] lg:h-[179px] text-primary font-normal">
                 Built for Precision,<br />
                 <span className="italic font-semibold">Ready for Scale.</span>
               </h1>
@@ -121,7 +123,7 @@ export default function OurInfrastructurePage() {
               </p>
 
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row items-center gap-[16px]">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-[16px]">
                 <Button variant="outline-primary" href="#gallery" showDot>
                   Explore Our Facility
                 </Button>
@@ -133,21 +135,17 @@ export default function OurInfrastructurePage() {
           </div>
         </Container>
 
-        {/* Hero Banner Image */}
-        <Container maxWidth="1800" className="mt-[50px] lg:mt-[80px]">
-          <div className="w-full relative aspect-[1804/500] rounded-[24px] overflow-hidden">
-            <Image
-              src="/assets/our-infrastructure/hero_banner.png"
-              alt="Ksquare Energy manufacturing facility"
-              fill
-              className="object-cover"
-              priority
-            />
+        {/* Hero image group (Figma #106:7619, 1804 x 731): ground plate 500px tall, with the cut-out building rising above it */}
+        <div className="w-full max-w-[1804px] mx-auto px-4 lg:px-8 g1868:px-0 mt-[40px] xl:mt-[50px]">
+          <div className="relative w-full aspect-[1804/731] overflow-hidden">
+            {/* photo plate + building cut-out merged into one Figma image */}
+            <Image src="/assets/our-infrastructure/hero_full.webp" alt="Ksquare Energy manufacturing facility" fill sizes="1804px" className="object-fill" priority />
+
           </div>
-        </Container>
+        </div>
       </section>
 
-      <SectionSpacer size={150} />
+      <SectionSpacer size={100} />
 
       {/* 2. Inside Ksquare's Manufacturing Facility */}
       <section className="w-full">
@@ -155,8 +153,8 @@ export default function OurInfrastructurePage() {
           <div className="flex flex-col xl:flex-row items-center gap-[60px] xl:gap-[clamp(40px,5.2vw,100px)]">
             {/* Left: Text & Stats */}
             <div className="flex flex-col gap-[48px] w-full xl:flex-1 xl:min-w-0 xl:max-w-[750px]">
-              <div className="flex flex-col gap-[14px]">
-                <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-[#333333] font-normal">
+              <div className="flex flex-col gap-[14px] xl:h-[359px]">
+                <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[70px] text-[#333333] font-normal">
                   Inside Ksquare&apos;s<br />
                   <span className="font-recia italic font-medium">Manufacturing Facility</span>
                 </h2>
@@ -173,17 +171,17 @@ export default function OurInfrastructurePage() {
               {/* Stats */}
               <div className="flex flex-col gap-[32px] w-full">
                 <div className="w-full h-px bg-[#C6CCED]" />
-                <div className="flex items-center gap-[24px] w-full">
-                  <div className="flex flex-col gap-[16px] flex-1">
-                    <span className="font-archivo text-[32px] lg:text-[40px] leading-[1] text-primary">9000+</span>
+                <div className="flex flex-wrap items-center gap-x-[24px] gap-y-[24px] w-full">
+                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px]">
+                    <AnimatedCounter end={9000} suffix="+" className="font-archivo text-[32px] lg:text-[40px] leading-[26px] text-primary" />
                     <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">Sq. Ft. Facility</span>
                   </div>
-                  <div className="flex flex-col gap-[16px] flex-1">
-                    <span className="font-archivo text-[32px] lg:text-[40px] leading-[1] text-primary">8+</span>
+                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px]">
+                    <AnimatedCounter end={8} suffix="+" className="font-archivo text-[32px] lg:text-[40px] leading-[26px] text-primary" />
                     <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">Product Categories</span>
                   </div>
-                  <div className="flex flex-col gap-[16px] flex-1">
-                    <span className="font-archivo text-[32px] lg:text-[40px] leading-[1] text-primary">In-House</span>
+                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px]">
+                    <span className="font-archivo text-[32px] lg:text-[40px] leading-[26px] text-primary">In-House</span>
                     <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">Testing Capabilities</span>
                   </div>
                 </div>
@@ -203,14 +201,14 @@ export default function OurInfrastructurePage() {
         </Container>
       </section>
 
-      <SectionSpacer size={150} />
+      <SectionSpacer size={100} />
 
       {/* 3. Built Around Manufacturing Excellence */}
       <section className="w-full">
         <Container maxWidth="1600">
           <div className="flex flex-col items-stretch gap-[48px]">
             <div className="flex flex-col items-center text-center gap-[8px] w-full">
-              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal w-full">
+              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-primary font-normal w-full lg:leading-[57px]">
                 Built Around <span className="font-recia italic font-medium">Manufacturing Excellence</span>
               </h2>
               <p className="font-archivo text-[17px] leading-[26px] text-[#666666] w-full">
@@ -218,9 +216,9 @@ export default function OurInfrastructurePage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[20px] lg:gap-[24px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[20px]">
               {excellenceCards.map((card) => (
-                <div key={card.title} className="card-lift flex flex-col gap-[24px] bg-[#EFF0F6] p-[32px] lg:p-[50px_40px]">
+                <div key={card.title} className="card-lift flex flex-col gap-[20px] bg-[#EFF0F6] p-[32px] lg:p-[50px_40px]">
                   <div className="flex items-center gap-[24px] lg:gap-[30px]">
                     <div className="w-[70px] h-[70px] lg:w-[90px] lg:h-[90px] bg-white rounded-[10px] flex items-center justify-center shrink-0 p-[10px]">
                       <Image src={card.icon} width={60} height={60} alt={card.title} className="w-[45px] h-[45px] lg:w-[60px] lg:h-[60px] object-contain" />
@@ -245,7 +243,7 @@ export default function OurInfrastructurePage() {
         </Container>
       </section>
 
-      <SectionSpacer size={150} />
+      <SectionSpacer size={100} />
 
       {/* 4. Capabilities Built Around Precision (dark section) */}
       <section className="relative w-full bg-primary overflow-hidden">
@@ -319,16 +317,16 @@ export default function OurInfrastructurePage() {
         </div>
       </section>
 
-      <SectionSpacer size={150} />
+      <SectionSpacer size={100} />
 
       {/* 5. From Production to Quality Assurance */}
       <section className="w-full">
         {/* Desktop: pixel-exact zigzag timeline per Figma */}
-        <div className="canvas-zoom hidden canvas:block relative w-[1600px] mx-auto h-[681px]">
+        <div className="canvas-zoom zoom-1600 hidden w1100:block relative w-[1600px] mx-auto h-[681px]">
           {/* Heading */}
           <div className="absolute left-0 right-0 top-[36px] flex justify-center">
             <h2 className="font-archivo text-[60px] leading-[70px] text-primary font-normal text-center">
-              From Production <span className="font-recia italic font-medium">to Quality Assurance.</span>
+              From Production <span className="font-recia italic font-medium capitalize">to Quality Assurance.</span>
             </h2>
           </div>
 
@@ -348,19 +346,7 @@ export default function OurInfrastructurePage() {
 
           {/* Connector graphic (circles + zigzag dotted line) with 4 overlaid icons */}
           <div className="absolute left-0 top-[274.95px] w-[1600px] h-[302.82px]">
-            <Image src="/assets/our-infrastructure/process_connectors.png" alt="" fill className="object-contain" aria-hidden="true" />
-            <div className="absolute w-[128px] h-[128px]" style={{ left: 71.6, top: 76.55 }}>
-              <Image src="/assets/our-infrastructure/process_icon_1.svg" alt="" fill />
-            </div>
-            <div className="absolute w-[128px] h-[128px]" style={{ left: 337.6, top: 105.55 }}>
-              <Image src="/assets/our-infrastructure/process_icon_2.svg" alt="" fill />
-            </div>
-            <div className="absolute w-[128px] h-[128px]" style={{ left: 602.6, top: 76.55 }}>
-              <Image src="/assets/our-infrastructure/process_icon_3.svg" alt="" fill />
-            </div>
-            <div className="absolute w-[128px] h-[128px]" style={{ left: 1401.6, top: 101.55 }}>
-              <Image src="/assets/our-infrastructure/process_icon_6.svg" alt="" fill />
-            </div>
+            <ProcessTimelineArt />
           </div>
 
           {/* Row 2 labels (below the connector graphic) */}
@@ -379,11 +365,11 @@ export default function OurInfrastructurePage() {
         </div>
 
         {/* Mobile/tablet fallback (Figma provides no separate mobile frame) */}
-        <div className="canvas:hidden">
+        <div className="w1100:hidden">
           <Container maxWidth="1600">
             <div className="flex flex-col items-center gap-[60px]">
               <h2 className="font-archivo text-[32px] leading-[1.15] text-primary font-normal text-center">
-                From Production <span className="font-recia italic font-medium">to Quality Assurance.</span>
+                From Production <span className="font-recia italic font-medium capitalize">to Quality Assurance.</span>
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[40px] gap-y-[48px] w-full">
@@ -408,17 +394,21 @@ export default function OurInfrastructurePage() {
         </div>
       </section>
 
-      <SectionSpacer size={150} />
+      <SectionSpacer size={100} />
 
       {/* 6. Facility Gallery */}
       <section id="gallery" className="w-full scroll-mt-[110px]">
         <Container maxWidth="1600">
           <div className="flex flex-col items-stretch gap-[24px]">
+            {/* Figma: heading band is 146px tall (title top at 36px), then the two rows follow after a 24px gap */}
+            <h2 className="m-0 text-center font-archivo font-normal text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[70px] text-primary lg:pt-[36px] lg:h-[146px]">
+              From Production <span className="font-recia italic font-medium capitalize">to Quality Assurance.</span>
+            </h2>
             <div className="flex flex-col md:flex-row gap-[24px] w-full">
               {gallery.slice(0, 2).map((item) => (
                 <div key={item.label} className={`img-hover-zoom relative w-full ${item.className} aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden`}>
                   <Image src={item.img} alt={item.label} fill className="object-cover" />
-                  <span className="absolute top-[16px] right-[16px] md:right-auto md:left-1/2 md:-translate-x-1/2 bg-primary text-white font-archivo text-[12px] uppercase tracking-wide px-[16px] py-[8px]">
+                  <span className="absolute top-0 right-0 min-w-[141px] flex items-center justify-center bg-primary text-white font-archivo text-[12px] leading-[1.5] uppercase px-[34px] py-[10px] whitespace-nowrap">
                     {item.label}
                   </span>
                 </div>
@@ -426,9 +416,9 @@ export default function OurInfrastructurePage() {
             </div>
             <div className="flex flex-col md:flex-row gap-[24px] w-full">
               {gallery.slice(2).map((item) => (
-                <div key={item.label} className={`relative w-full ${item.className} aspect-[4/3] md:aspect-auto md:h-[320px] overflow-hidden`}>
+                <div key={item.label} className={`img-hover-zoom relative w-full ${item.className} aspect-[4/3] md:aspect-auto md:h-[320px] overflow-hidden`}>
                   <Image src={item.img} alt={item.label} fill className="object-cover" />
-                  <span className="absolute top-[16px] left-1/2 -translate-x-1/2 bg-primary text-white font-archivo text-[12px] uppercase tracking-wide px-[16px] py-[8px] whitespace-nowrap">
+                  <span className="absolute top-0 right-0 min-w-[141px] flex items-center justify-center bg-primary text-white font-archivo text-[12px] leading-[1.5] uppercase px-[34px] py-[10px] whitespace-nowrap">
                     {item.label}
                   </span>
                 </div>
@@ -438,7 +428,7 @@ export default function OurInfrastructurePage() {
         </Container>
       </section>
 
-      <SectionSpacer size={150} />
+      <SectionSpacer size={100} />
     </main>
   );
 }

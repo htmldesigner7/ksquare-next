@@ -11,6 +11,7 @@ export const page: PageData = {
   hero: {
     crumbs: [{ label: "Home", href: ROUTES.home }, { label: "About Us" }, { label: "Quality & Certifications" }],
     title: "Certifications & *Compliance*",
+    bannerGap: 201,
     description: "Explore Ksquare Energy's certifications, testing documentation, licenses and product compliance records.",
     ctas: [
       { label: "Get in Touch", href: ROUTES.contact },
@@ -24,6 +25,7 @@ export const page: PageData = {
       type: "gallery",
       id: "certificates",
       title: "Browse *Certifications*",
+      categories: ["All Certifications", "Earthing Kit", "Goldi Certificates", "BIS Certificate", "EWE", "Others"],
       subtitle: "Test reports, licences and approvals supporting the quality of the products we build and supply. Select a document to view it in full.",
       items: [
         { title: "Fraunhofer ISE test report", category: "Goldi Certificates", image: `${IMG}/cert_1.webp` },
@@ -40,8 +42,8 @@ export const page: PageData = {
       type: "split",
       title: "Manufacturing And *Quality*",
       paras: [
-        "Compliance is built into every step of Ksquare's production process. Ksquare Energy operates a production system equipped with automatic assembly stations, testing chambers and rigorous process audits.",
-        "Our in-house research and design team works alongside quality control so every product is tested against the standards that matter in its market.",
+        "Compliance is built into every step of Ksquare's production process. Ksquare Energy operates a world-class production system, equipped with high-tier automatic assembly stations, testing chambers, and rigorous process audits.",
+        "Our in-house research and diagnostic laboratories ensure every custom ACDB, DCDB and smart inverter component easily exceeds localized compliance guidelines before shipping out to grid operators.",
       ],
       image: `${IMG}/quality.webp`,
       imageAlt: "Quality inspection in the Ksquare factory",

@@ -66,7 +66,7 @@ export default function CoreProducts() {
   return (
     <section className="relative w-full bg-[#FFFFFF] overflow-hidden">
       {/* Desktop Wrapper */}
-      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative h-[1369px] max-canvas:h-auto max-canvas:px-6 max-canvas:py-12">
+      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative h-[1369px] max-canvas:h-auto max-canvas:px-6 max-canvas:py-12 max-sm:py-8">
         
         {/* Header (Frame 26) */}
         <div className="hidden canvas:block absolute left-[160px] top-0 w-[1600px] h-[105px]">
@@ -131,11 +131,11 @@ export default function CoreProducts() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-8 sm:gap-x-6 sm:gap-y-12">
             {products.map((product, idx) => (
               <div key={idx} className="flex flex-col w-full group">
                 <div className="img-hover-zoom w-full aspect-square bg-[#EFF0F6] relative mb-6">
-                  <div className="absolute inset-[30px]">
+                  <div className="absolute inset-[16px] sm:inset-[30px]">
                     <Image 
                       src={product.img} 
                       alt={product.title} 
@@ -144,15 +144,15 @@ export default function CoreProducts() {
                     />
                   </div>
                 </div>
-                <h3 className="font-archivo font-medium text-[24px] text-[#333333] mb-3">
+                <h3 className="font-archivo font-medium text-[18px] sm:text-[24px] leading-[1.25] text-[#333333] mb-2 sm:mb-3">
                   {product.title}
                 </h3>
-                <p className="font-archivo font-normal text-[17px] text-[#666666] mb-6 flex-grow">
+                <p className="font-archivo font-normal text-[14px] sm:text-[17px] text-[#666666] mb-4 sm:mb-6 flex-grow">
                   {product.desc}
                 </p>
                 <Link 
                   href="/products/dcdb"
-                  className="w-[156px] h-[50px] border border-[#2B398B] group-hover:bg-[#2B398B] transition-colors flex items-center relative self-start"
+                  className="w-full max-w-[156px] h-[50px] border border-[#2B398B] group-hover:bg-[#2B398B] transition-colors flex items-center relative self-start"
                 >
                   <span className="absolute left-[16px] font-archivo font-normal text-[17px] text-[#2B398B] group-hover:text-white transition-colors">
                     View Product

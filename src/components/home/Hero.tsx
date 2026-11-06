@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#0F1B5D]">
+    <section className="relative w-full overflow-hidden bg-[#2B398B]">
       {/* Desktop Wrapper (Scales down on smaller screens) */}
       <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative max-canvas:h-auto max-canvas:pb-32 canvas:h-[920px]">
         
@@ -56,19 +56,19 @@ export default function Hero() {
               {/* Request Bulk Quote */}
               <Link
                 href="/contact"
-                className="w-[208px] h-[50px] border border-white flex items-center justify-center gap-[16px] text-white hover:bg-white hover:text-[#0F1B5D] transition-colors group"
+                className="w-[208px] h-[50px] border border-white flex items-center justify-center gap-[16px] text-white hover:bg-white hover:text-[#2B398B] transition-colors group"
               >
                 <span className="font-archivo font-normal text-[17px]">Request Bulk Quote</span>
-                <span className="w-[8px] h-[8px] rounded-full bg-white group-hover:bg-[#0F1B5D] transition-colors duration-300"></span>
+                <span className="w-[8px] h-[8px] rounded-full bg-white group-hover:bg-[#2B398B] transition-colors duration-300"></span>
               </Link>
 
               {/* Download Catalog */}
               <Link
                 href="/download-resources"
-                className="w-[195px] h-[50px] border border-white flex items-center justify-center gap-[16px] text-white hover:bg-white hover:text-[#0F1B5D] transition-colors group"
+                className="w-[195px] h-[50px] border border-white flex items-center justify-center gap-[16px] text-white hover:bg-white hover:text-[#2B398B] transition-colors group"
               >
                 <span className="font-archivo font-normal text-[17px]">Download Catalog</span>
-                <span className="w-[8px] h-[8px] rounded-full bg-white group-hover:bg-[#0F1B5D] transition-colors duration-300"></span>
+                <span className="w-[8px] h-[8px] rounded-full bg-white group-hover:bg-[#2B398B] transition-colors duration-300"></span>
               </Link>
             </div>
           </div>
@@ -103,13 +103,13 @@ export default function Hero() {
               DCDBs, ACDBs, combiner boxes, junction boxes and BOS accessories engineered, tested and shipped from our own Ahmedabad facility to EPCs, distributors and OEM partners across India.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/contact" className="px-8 h-[50px] border border-white flex items-center justify-center gap-4 text-white hover:bg-white hover:text-[#0F1B5D] transition-colors group">
+              <Link href="/contact" className="px-8 h-[50px] border border-white flex items-center justify-center gap-4 text-white hover:bg-white hover:text-[#2B398B] transition-colors group">
                 <span className="font-archivo text-lg">Request Bulk Quote</span>
-                <span className="w-2 h-2 rounded-full bg-white group-hover:bg-[#0F1B5D] transition-colors"></span>
+                <span className="w-2 h-2 rounded-full bg-white group-hover:bg-[#2B398B] transition-colors"></span>
               </Link>
-              <Link href="/download-resources" className="px-8 h-[50px] border border-white flex items-center justify-center gap-4 text-white hover:bg-white hover:text-[#0F1B5D] transition-colors group">
+              <Link href="/download-resources" className="px-8 h-[50px] border border-white flex items-center justify-center gap-4 text-white hover:bg-white hover:text-[#2B398B] transition-colors group">
                 <span className="font-archivo text-lg">Download Catalog</span>
-                <span className="w-2 h-2 rounded-full bg-white group-hover:bg-[#0F1B5D] transition-colors"></span>
+                <span className="w-2 h-2 rounded-full bg-white group-hover:bg-[#2B398B] transition-colors"></span>
               </Link>
             </div>
           </div>
