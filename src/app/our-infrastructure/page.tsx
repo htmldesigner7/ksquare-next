@@ -110,7 +110,7 @@ export default function OurInfrastructurePage() {
               </div>
 
               {/* Title */}
-              <h1 className="font-recia text-[42px] lg:text-[68px] leading-[1.1] lg:leading-[78px] lg:h-[179px] text-primary font-normal">
+              <h1 className="font-recia text-[42px] lg:text-[68px] leading-[1.1] lg:leading-[78px] lg:min-h-[179px] desk:h-[179px] text-primary font-normal">
                 Built for Precision,<br />
                 <span className="italic font-semibold">Ready for Scale.</span>
               </h1>
@@ -150,10 +150,10 @@ export default function OurInfrastructurePage() {
       {/* 2. Inside Ksquare's Manufacturing Facility */}
       <section className="w-full">
         <Container maxWidth="1600">
-          <div className="flex flex-col xl:flex-row items-center gap-[60px] xl:gap-[clamp(40px,5.2vw,100px)]">
+          <div className="flex flex-col xl:flex-row items-center gap-[60px] xl:gap-[100px]">
             {/* Left: Text & Stats */}
             <div className="flex flex-col gap-[48px] w-full xl:flex-1 xl:min-w-0 xl:max-w-[750px]">
-              <div className="flex flex-col gap-[14px] xl:h-[359px]">
+              <div className="flex flex-col gap-[14px] xl:min-h-[359px] desk:h-[359px]">
                 <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[70px] text-[#333333] font-normal">
                   Inside Ksquare&apos;s<br />
                   <span className="font-recia italic font-medium">Manufacturing Facility</span>
@@ -171,16 +171,16 @@ export default function OurInfrastructurePage() {
               {/* Stats */}
               <div className="flex flex-col gap-[32px] w-full">
                 <div className="w-full h-px bg-[#C6CCED]" />
-                <div className="flex flex-wrap items-center gap-x-[24px] gap-y-[24px] w-full">
-                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px]">
+                <div className="flex flex-wrap xl:flex-nowrap items-center gap-x-[24px] gap-y-[24px] w-full">
+                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px] xl:flex-[0_1_200px] xl:w-auto xl:min-w-0">
                     <AnimatedCounter end={9000} suffix="+" className="font-archivo text-[32px] lg:text-[40px] leading-[26px] text-primary" />
                     <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">Sq. Ft. Facility</span>
                   </div>
-                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px]">
+                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px] xl:flex-[0_1_200px] xl:w-auto xl:min-w-0">
                     <AnimatedCounter end={8} suffix="+" className="font-archivo text-[32px] lg:text-[40px] leading-[26px] text-primary" />
                     <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">Product Categories</span>
                   </div>
-                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px]">
+                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px] xl:flex-[0_1_200px] xl:w-auto xl:min-w-0">
                     <span className="font-archivo text-[32px] lg:text-[40px] leading-[26px] text-primary">In-House</span>
                     <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">Testing Capabilities</span>
                   </div>
@@ -401,7 +401,7 @@ export default function OurInfrastructurePage() {
         <Container maxWidth="1600">
           <div className="flex flex-col items-stretch gap-[24px]">
             {/* Figma: heading band is 146px tall (title top at 36px), then the two rows follow after a 24px gap */}
-            <h2 className="m-0 text-center font-archivo font-normal text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[70px] text-primary lg:pt-[36px] lg:h-[146px]">
+            <h2 className="m-0 text-center font-archivo font-normal text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[70px] text-primary lg:pt-[36px] lg:min-h-[146px] desk:h-[146px]">
               From Production <span className="font-recia italic font-medium capitalize">to Quality Assurance.</span>
             </h2>
             <div className="flex flex-col md:flex-row gap-[24px] w-full">

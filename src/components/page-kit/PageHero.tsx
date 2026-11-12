@@ -80,7 +80,8 @@ export default function PageHero({ hero }: { hero: HeroData }) {
         style={hero.bannerGap || hero.afterGap ? ({ "--hero-gap": `${hero.bannerGap ?? 0}px`, "--hero-after": `${hero.afterGap ?? 0}px` } as React.CSSProperties) : undefined}
       >
         <Reveal y={20}>
-          <div className="group w-full relative aspect-[4/3] sm:aspect-[16/9] lg:aspect-[1804/500]">
+          {/* Cutout heroes (people rising out of a banner) only fill the lower part of a 4:3 box on small screens, so they get a shorter box to avoid a blank band above the photo. */}
+          <div className={`group w-full relative ${hero.cutout ? "aspect-[11/5]" : "aspect-[4/3] sm:aspect-[16/9]"} lg:aspect-[1804/500]`}>
             {hero.image && (
               <div className="absolute inset-0 overflow-hidden bg-[#EFF0F6]">
                 <Image

@@ -87,7 +87,7 @@ export default function Footer() {
           <div className="relative flex flex-col desk:flex-row desk:h-[631px] gap-[48px] desk:gap-0 py-[48px] desk:py-0">
 
             {/* Left Column: Company Info (Figma: x60 y60, 617 wide, divider lines at its edges) */}
-            <div className="relative flex flex-col gap-[48px] shrink-0 desk:w-[clamp(460px,32.14vw,617px)] desk:mt-[60px] desk:pb-[20px] desk:self-start">
+            <div className="relative flex flex-col gap-[48px] shrink-0 desk:w-[617px] desk:mt-[60px] desk:pb-[20px] desk:self-start">
               <div className="flex flex-col gap-[24px]">
                 <div className="relative w-[260px] h-[65px] desk:w-[367px] desk:h-[91px]">
                   <Image
@@ -133,7 +133,7 @@ export default function Footer() {
               </div>
 
               {/* Divider lines: horizontal one bleeds to the screen edge, vertical one spans the footer height */}
-              <span aria-hidden="true" className="hidden desk:block absolute bottom-0 right-0 h-px w-[100vw] bg-[#C6CCED]" />
+              <span aria-hidden="true" className="hidden desk:block absolute bottom-0 right-0 h-px w-[100vw] min-w-[2000px] bg-[#C6CCED]" />
               <span aria-hidden="true" className="hidden desk:block absolute right-0 top-[-60px] h-[631px] w-px bg-[#C6CCED]" />
             </div>
 

@@ -32,7 +32,7 @@ const LEAD = "m-0 font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#
 function Heading({ title, subtitle, align = "center", light = false, tight = false, wide = false, compact = false, ink = false, wideSub = false }: { title: string; subtitle?: string; align?: "center" | "left"; light?: boolean; tight?: boolean; wide?: boolean; compact?: boolean; ink?: boolean; wideSub?: boolean }) {
   return (
     <div className={`flex flex-col ${tight ? "gap-[10px]" : "gap-[16px]"} ${align === "center" ? "items-center text-center mx-auto" : "items-start text-left"} ${wide ? "max-w-[1600px]" : "max-w-[1300px]"}`}>
-      <RichTitle text={title} className={`${H2} ${light ? "text-white!" : ""} ${tight ? "lg:leading-[42px]! lg:h-[42px]" : compact ? "lg:leading-[42px]! lg:h-[42px] lg:relative lg:-top-[14px]" : ""} ${compact && (align === "left" || ink) ? "text-[#333333]!" : ""}`} accentClassName={compact && (align === "left" || ink) ? "text-[#333333]" : undefined} breakBeforeAccent={align === "left" && !compact} />
+      <RichTitle text={title} className={`${H2} ${light ? "text-white!" : ""} ${tight ? "lg:leading-[42px]! lg:min-h-[42px] desk:h-[42px]" : compact ? "lg:leading-[42px]! lg:min-h-[42px] desk:h-[42px] lg:relative lg:-top-[14px]" : ""} ${compact && (align === "left" || ink) ? "text-[#333333]!" : ""}`} accentClassName={compact && (align === "left" || ink) ? "text-[#333333]" : undefined} breakBeforeAccent={align === "left" && !compact} />
       {subtitle && <p className={`${LEAD} ${tight ? "lg:text-[17px]! lg:leading-[26px]!" : compact ? `lg:text-[17px]! lg:leading-[26px]! ${align === "left" ? "lg:max-w-[1600px]!" : "lg:max-w-[1270px]!"}` : "lg:text-[18px]! lg:leading-[28px]!"} ${wideSub ? "lg:max-w-[1300px]" : "max-w-[1100px]"} ${light ? "text-white/85!" : ""}`}>{subtitle}</p>}
     </div>
   );
@@ -74,7 +74,7 @@ function Wrap({ id, tone = "white", children, className = "", width = "1600" }: 
 function SplitSection({ s }: { s: Extract<Section, { type: "split" }> }) {
   return (
     <Wrap id={s.id} tone={s.tone}>
-      <div className={`flex flex-col ${s.reverse ? "lg:flex-row-reverse" : "lg:flex-row"} items-center justify-between gap-[40px] ${s.imageSize ? "lg:gap-[52px]" : "lg:gap-[clamp(40px,5.2vw,100px)]"}`}>
+      <div className={`flex flex-col ${s.reverse ? "lg:flex-row-reverse" : "lg:flex-row"} items-center justify-between gap-[40px] ${s.imageSize ? "lg:gap-[52px]" : "lg:gap-[100px]"}`}>
         <Reveal className={`flex flex-col gap-[32px] ${s.natural ? "xl:gap-[30px]" : s.tight ? "xl:gap-[40px]" : "xl:gap-[48px]"} w-full lg:flex-1 lg:min-w-0 lg:max-w-[750px]`}>
           <div className={`flex flex-col gap-[14px] ${s.tight || s.natural ? "" : "xl:min-h-[413px]"} ${s.natural ? "xl:gap-[30px]" : ""}`}>
             <RichTitle text={s.title} className={`${H2} text-[#333333]! ${s.tight ? "xl:whitespace-nowrap" : ""}`} accentClassName="text-[#333333]" breakBeforeAccent={!s.natural} />
@@ -416,7 +416,7 @@ function CompareSection({ s }: { s: Extract<Section, { type: "compare" }> }) {
 function BandSection({ s }: { s: Extract<Section, { type: "band" }> }) {
   // Figma keeps a 100px column gap under the bar: with a 50px page section padding the next section only supplies 50px, so top it up (0 at the default 80px).
   return (
-    <section className="w-full bg-primary lg:h-[74px] lg:flex lg:items-center lg:mb-[calc((80px-var(--wrap-py,80px))*5/3)]">
+    <section className="w-full bg-primary lg:min-h-[74px] desk:h-[74px] lg:flex lg:items-center lg:mb-[calc((80px-var(--wrap-py,80px))*5/3)]">
       <Container maxWidth="1600">
         <ul className="m-0 p-0 list-none flex flex-wrap items-center justify-center lg:justify-between gap-x-[40px] gap-y-[12px] py-[22px] lg:py-0 lg:px-[100px]">
           {s.items.map((it) => (
@@ -682,7 +682,7 @@ function AccordionSection({ s }: { s: Extract<Section, { type: "accordion" }> })
             <Heading title={s.title} subtitle={s.subtitle} compact={s.tall} />
           </Reveal>
         )}
-        <div className={`flex flex-col ${s.reverse ? "lg:flex-row-reverse" : "lg:flex-row"} items-center justify-between gap-[40px] ${s.tall ? "lg:gap-[50px]" : "lg:gap-[clamp(40px,5.2vw,100px)]"}`}>
+        <div className={`flex flex-col ${s.reverse ? "lg:flex-row-reverse" : "lg:flex-row"} items-center justify-between gap-[40px] ${s.tall ? "lg:gap-[50px]" : "lg:gap-[100px]"}`}>
           <Reveal className={`flex flex-col gap-[28px] w-full lg:flex-1 lg:min-w-0 ${s.tall ? "lg:max-w-[800px]" : "lg:max-w-[750px]"}`}>
             {!center && <Heading title={s.title} subtitle={s.subtitle} align="left" />}
             <NumberedAccordion items={s.items} large={s.tall} />
@@ -791,7 +791,7 @@ function BrandSwapSection({ s }: { s: Extract<Section, { type: "brandSwap" }> })
   const paras = s.paras;
   return (
     <Wrap id={s.id} width="1800">
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-[40px] lg:gap-[clamp(40px,6vw,115px)]">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-[40px] lg:gap-[115px]">
         <Reveal className="flex flex-col gap-[30px] w-full lg:flex-1 lg:min-w-0">
           <RichTitle text={s.title} className={`${H2} text-[#333333]! xl:whitespace-nowrap`} accentClassName="text-[#333333]" breakBeforeAccent />
           <div className="flex flex-col gap-[20px]">

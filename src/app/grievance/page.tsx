@@ -154,11 +154,11 @@ export default function GrievancePage() {
       {/* 2. Your Concern Deserves a Place to Grow */}
       <section className="w-full">
         <Container maxWidth="1600">
-          <div className="flex flex-col xl:flex-row items-center gap-[60px] xl:gap-[clamp(40px,5.2vw,100px)]">
+          <div className="flex flex-col xl:flex-row items-center gap-[60px] xl:gap-[100px]">
             {/* Left: Text & Stats */}
             <div className="flex flex-col gap-[48px] w-full xl:flex-1 xl:min-w-0 xl:max-w-[750px]">
-              <div className="flex flex-col gap-[24px] xl:h-[359px]">
-                <h2 className="font-archivo text-[36px] lg:text-[48px] canvas:text-[56px] min-[1600px]:text-[60px] leading-[1.15] lg:leading-[70px] text-[#333333]">
+              <div className="flex flex-col gap-[24px] xl:min-h-[359px] desk:h-[359px]">
+                <h2 className="font-archivo text-[36px] lg:text-[48px] canvas:text-[56px] leading-[1.15] lg:leading-[70px] text-[#333333]">
                   Your Concern Deserves a<br />
                   <span className="font-recia italic font-medium">A Place to Grow.</span>
                 </h2>
@@ -175,16 +175,16 @@ export default function GrievancePage() {
               {/* Stats */}
               <div className="flex flex-col gap-[32px] w-full">
                 <div className="w-full h-px -mb-px bg-[#C6CCED]" />
-                <div className="flex flex-wrap items-start sm:items-center gap-[16px] sm:gap-[24px] w-full">
-                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px]">
+                <div className="flex flex-wrap xl:flex-nowrap items-start sm:items-center gap-[16px] sm:gap-[24px] w-full">
+                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px] xl:flex-[0_1_200px] xl:w-auto xl:min-w-0">
                     <AnimatedCounter end={100} suffix="+" className="font-archivo text-[32px] lg:text-[40px] leading-[26px] text-primary" />
                     <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">Team Members</span>
                   </div>
-                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px]">
+                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px] xl:flex-[0_1_200px] xl:w-auto xl:min-w-0">
                     <AnimatedCounter end={10} suffix="+" className="font-archivo text-[32px] lg:text-[40px] leading-[26px] text-primary" />
                     <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">Career Opportunities</span>
                   </div>
-                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px]">
+                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px] xl:flex-[0_1_200px] xl:w-auto xl:min-w-0">
                     <span className="font-archivo text-[32px] lg:text-[40px] leading-[26px] text-primary">Growing</span>
                     <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">Work Culture</span>
                   </div>
@@ -329,7 +329,7 @@ export default function GrievancePage() {
             <div className="w-full lg:flex-1 bg-white border border-[#DDDDDD] p-[32px] lg:p-[48px] flex flex-col gap-[32px]">
               {/* Form Header */}
               <div className="flex flex-col gap-[12px]">
-                <h3 className="font-dm text-[36px] lg:text-[44px] canvas:text-[48px] min-[1600px]:text-[60px] leading-[1.15] lg:leading-[70px] min-[1600px]:h-[70px] text-primary font-medium">
+                <h3 className="font-dm text-[36px] lg:text-[44px] canvas:text-[48px] leading-[1.15] lg:leading-[70px] g1664:h-[70px] text-primary font-medium">
                   Tell Us What <span className="font-recia italic font-medium">Went Wrong</span>
                 </h3>
                 <p className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666] lg:text-justify">

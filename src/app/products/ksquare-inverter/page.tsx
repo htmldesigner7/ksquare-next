@@ -69,7 +69,7 @@ export default function KsquareInverterPage() {
             <Chevron />
             <span className="text-[#2B398B] leading-[26px]">Ksquare Inverter</span>
           </div>
-          <h1 className="m-0 font-recia text-[#2B398B] text-[48px] leading-[58px] lg:text-[68px] lg:leading-[78px] lg:h-[179px]">
+          <h1 className="m-0 font-recia text-[#2B398B] text-[48px] leading-[58px] lg:text-[68px] lg:leading-[78px] lg:min-h-[179px] desk:h-[179px]">
             <span className="block font-normal">Ksquare Inverters,</span>
             <span className="block font-semibold italic mt-[4px]">Built for Better Solar</span>
           </h1>
@@ -97,7 +97,7 @@ export default function KsquareInverterPage() {
       {/* About + products + features + FAQ */}
       <div className="w-full max-w-[1600px] mx-auto px-4 lg:px-8 g1664:px-0 mt-[60px] xl:mt-[100px] flex flex-col gap-[100px] pb-[100px]">
         {/* About */}
-        <section className="flex flex-col lg:flex-row lg:items-center gap-[48px] xl:gap-[clamp(40px,5.2vw,100px)]">
+        <section className="flex flex-col lg:flex-row lg:items-center gap-[48px] xl:gap-[100px]">
           <div className="flex flex-col gap-[24px] lg:flex-1 lg:min-w-0 lg:max-w-[750px]">
             <h2 className="m-0 font-archivo font-normal text-[48px] lg:text-[60px] leading-[1.15] text-[#333333]">
               About <span className="font-recia italic font-medium">Ksquare Inverters</span>

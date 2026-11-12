@@ -1,0 +1,4968 @@
+[
+ {
+  "route": "/",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7173
+   }
+  ]
+ },
+ {
+  "route": "/",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 13768
+   }
+  ]
+ },
+ {
+  "route": "/",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 12993
+   }
+  ]
+ },
+ {
+  "route": "/",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7471
+   }
+  ]
+ },
+ {
+  "route": "/",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7776
+   }
+  ]
+ },
+ {
+  "route": "/about-us",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 10692
+   }
+  ]
+ },
+ {
+  "route": "/",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7928
+   }
+  ]
+ },
+ {
+  "route": "/about-us",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9904
+   }
+  ]
+ },
+ {
+  "route": "/about-us",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h2.",
+    "h": 30,
+    "spill": 9,
+    "text": "Mission & Vision",
+    "y": 1401
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6444
+   }
+  ]
+ },
+ {
+  "route": "/about-us",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h2.",
+    "h": 32,
+    "spill": 9,
+    "text": "Mission & Vision",
+    "y": 1461
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6465
+   }
+  ]
+ },
+ {
+  "route": "/about-us",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "h2.",
+    "h": 34,
+    "spill": 10,
+    "text": "Mission & Vision",
+    "y": 1525
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6602
+   }
+  ]
+ },
+ {
+  "route": "/about-us",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h2.",
+    "h": 36,
+    "spill": 11,
+    "text": "Mission & Vision",
+    "y": 1566
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6625
+   }
+  ]
+ },
+ {
+  "route": "/about-us/awards",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6979
+   }
+  ]
+ },
+ {
+  "route": "/about-us/awards",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6208
+   }
+  ]
+ },
+ {
+  "route": "/about-us/awards",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5286
+   }
+  ]
+ },
+ {
+  "route": "/about-us/awards",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5284
+   }
+  ]
+ },
+ {
+  "route": "/about-us/awards",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5264
+   }
+  ]
+ },
+ {
+  "route": "/about-us/awards",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5273
+   }
+  ]
+ },
+ {
+  "route": "/about-us/certifications",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6258
+   }
+  ]
+ },
+ {
+  "route": "/about-us/certifications",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5433
+   }
+  ]
+ },
+ {
+  "route": "/about-us/certifications",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5478
+   }
+  ]
+ },
+ {
+  "route": "/about-us/certifications",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5557
+   }
+  ]
+ },
+ {
+  "route": "/about-us/certifications",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5613
+   }
+  ]
+ },
+ {
+  "route": "/about-us/certifications",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5685
+   }
+  ]
+ },
+ {
+  "route": "/about-us/leadership-team",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "The Executive Team",
+    "y": 1753
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6230
+   }
+  ]
+ },
+ {
+  "route": "/about-us/leadership-team",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "The Executive Team",
+    "y": 1792
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5432
+   }
+  ]
+ },
+ {
+  "route": "/about-us/leadership-team",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "The Executive Team",
+    "y": 1722
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5030
+   }
+  ]
+ },
+ {
+  "route": "/about-us/leadership-team",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "The Executive Team",
+    "y": 1673
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4951
+   }
+  ]
+ },
+ {
+  "route": "/about-us/leadership-team",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "The Executive Team",
+    "y": 1772
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5096
+   }
+  ]
+ },
+ {
+  "route": "/about-us/leadership-team",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "The Executive Team",
+    "y": 1724
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5004
+   }
+  ]
+ },
+ {
+  "route": "/about-us/news-events",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5735
+   }
+  ]
+ },
+ {
+  "route": "/about-us/news-events",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5043
+   }
+  ]
+ },
+ {
+  "route": "/about-us/news-events",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4068
+   }
+  ]
+ },
+ {
+  "route": "/about-us/news-events",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4070
+   }
+  ]
+ },
+ {
+  "route": "/about-us/news-events",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4115
+   }
+  ]
+ },
+ {
+  "route": "/about-us/news-events",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4144
+   }
+  ]
+ },
+ {
+  "route": "/about-us/our-presence",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "div.",
+    "h": 293,
+    "spill": 28,
+    "text": "Find Ksquare Near YouVisit our offices a",
+    "y": 5047
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7570
+   }
+  ]
+ },
+ {
+  "route": "/about-us/our-presence",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6715
+   }
+  ]
+ },
+ {
+  "route": "/about-us/our-presence",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6130
+   }
+  ]
+ },
+ {
+  "route": "/about-us/our-presence",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6036
+   }
+  ]
+ },
+ {
+  "route": "/about-us/our-presence",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6057
+   }
+  ]
+ },
+ {
+  "route": "/about-us/our-presence",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5985
+   }
+  ]
+ },
+ {
+  "route": "/about-us/press-releases",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5601
+   }
+  ]
+ },
+ {
+  "route": "/about-us/press-releases",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4888
+   }
+  ]
+ },
+ {
+  "route": "/about-us/press-releases",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4165
+   }
+  ]
+ },
+ {
+  "route": "/about-us/press-releases",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4156
+   }
+  ]
+ },
+ {
+  "route": "/about-us/press-releases",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4151
+   }
+  ]
+ },
+ {
+  "route": "/about-us/press-releases",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4204
+   }
+  ]
+ },
+ {
+  "route": "/blog",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5802
+   }
+  ]
+ },
+ {
+  "route": "/blog",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4928
+   }
+  ]
+ },
+ {
+  "route": "/blog",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4314
+   }
+  ]
+ },
+ {
+  "route": "/blog",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4380
+   }
+  ]
+ },
+ {
+  "route": "/blog",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4451
+   }
+  ]
+ },
+ {
+  "route": "/blog",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4482
+   }
+  ]
+ },
+ {
+  "route": "/blog/dcdb-vs-acdb-difference",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6151
+   }
+  ]
+ },
+ {
+  "route": "/blog/dcdb-vs-acdb-difference",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5317
+   }
+  ]
+ },
+ {
+  "route": "/blog/dcdb-vs-acdb-difference",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5261
+   }
+  ]
+ },
+ {
+  "route": "/blog/dcdb-vs-acdb-difference",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4968
+   }
+  ]
+ },
+ {
+  "route": "/blog/dcdb-vs-acdb-difference",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4772
+   }
+  ]
+ },
+ {
+  "route": "/blog/dcdb-vs-acdb-difference",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4690
+   }
+  ]
+ },
+ {
+  "route": "/career",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "h1.lg:h-[179px]",
+    "h": 179,
+    "spill": 217,
+    "text": "Build Your CareerWith the Future of Sola",
+    "y": 170
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7400
+   }
+  ]
+ },
+ {
+  "route": "/career",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h1.lg:h-[179px]",
+    "h": 179,
+    "spill": 139,
+    "text": "Build Your CareerWith the Future of Sola",
+    "y": 170
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6649
+   }
+  ]
+ },
+ {
+  "route": "/career",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h1.lg:h-[179px]",
+    "h": 179,
+    "spill": 61,
+    "text": "Build Your CareerWith the Future of Sola",
+    "y": 170
+   },
+   {
+    "box": "div.flex.flex-col.xl:h-[359px]",
+    "h": 359,
+    "spill": 84,
+    "text": "More Than a Job.A Place to Grow.At Ksqua",
+    "y": 975
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5866
+   }
+  ]
+ },
+ {
+  "route": "/career",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h1.lg:h-[179px]",
+    "h": 179,
+    "spill": 61,
+    "text": "Build Your CareerWith the Future of Sola",
+    "y": 170
+   },
+   {
+    "box": "div.flex.flex-col.xl:h-[359px]",
+    "h": 359,
+    "spill": 110,
+    "text": "More Than a Job.A Place to Grow.At Ksqua",
+    "y": 941
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5801
+   }
+  ]
+ },
+ {
+  "route": "/career",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "h1.lg:h-[179px]",
+    "h": 179,
+    "spill": 61,
+    "text": "Build Your CareerWith the Future of Sola",
+    "y": 170
+   },
+   {
+    "box": "div.flex.flex-col.xl:h-[359px]",
+    "h": 359,
+    "spill": 84,
+    "text": "More Than a Job.A Place to Grow.At Ksqua",
+    "y": 1013
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5936
+   }
+  ]
+ },
+ {
+  "route": "/career",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h1.lg:h-[179px]",
+    "h": 179,
+    "spill": 61,
+    "text": "Build Your CareerWith the Future of Sola",
+    "y": 170
+   },
+   {
+    "box": "div.flex.flex-col.xl:h-[359px]",
+    "h": 359,
+    "spill": 58,
+    "text": "More Than a Job.A Place to Grow.At Ksqua",
+    "y": 1044
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5877
+   }
+  ]
+ },
+ {
+  "route": "/contact",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6541
+   }
+  ]
+ },
+ {
+  "route": "/contact",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5772
+   }
+  ]
+ },
+ {
+  "route": "/contact",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5234
+   }
+  ]
+ },
+ {
+  "route": "/contact",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5213
+   }
+  ]
+ },
+ {
+  "route": "/contact",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5261
+   }
+  ]
+ },
+ {
+  "route": "/download-resources",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4645
+   }
+  ]
+ },
+ {
+  "route": "/download-resources",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 3785
+   }
+  ]
+ },
+ {
+  "route": "/download-resources",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 3745
+   }
+  ]
+ },
+ {
+  "route": "/contact",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5228
+   }
+  ]
+ },
+ {
+  "route": "/download-resources",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 3776
+   }
+  ]
+ },
+ {
+  "route": "/download-resources",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 3734
+   }
+  ]
+ },
+ {
+  "route": "/download-resources",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 3762
+   }
+  ]
+ },
+ {
+  "route": "/faqs",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4707
+   }
+  ]
+ },
+ {
+  "route": "/faqs",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 3916
+   }
+  ]
+ },
+ {
+  "route": "/faqs",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 3570
+   }
+  ]
+ },
+ {
+  "route": "/faqs",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 3592
+   }
+  ]
+ },
+ {
+  "route": "/faqs",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 3616
+   }
+  ]
+ },
+ {
+  "route": "/faqs",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 3612
+   }
+  ]
+ },
+ {
+  "route": "/grievance",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "h2.lg:h-[57px]",
+    "h": 57,
+    "spill": 18,
+    "text": "What Can You Report ?.",
+    "y": 2227
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8282
+   }
+  ]
+ },
+ {
+  "route": "/grievance",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h2.lg:h-[57px]",
+    "h": 57,
+    "spill": 18,
+    "text": "What Can You Report ?.",
+    "y": 2270
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7211
+   }
+  ]
+ },
+ {
+  "route": "/grievance",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "div.flex.flex-col.xl:h-[359px]",
+    "h": 359,
+    "spill": 76,
+    "text": "Your Concern Deserves aA Place to Grow.A",
+    "y": 1012
+   },
+   {
+    "box": "h2.lg:h-[57px]",
+    "h": 57,
+    "spill": 18,
+    "text": "What Can You Report ?.",
+    "y": 1711
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6080
+   }
+  ]
+ },
+ {
+  "route": "/grievance",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "div.flex.flex-col.xl:h-[359px]",
+    "h": 359,
+    "spill": 50,
+    "text": "Your Concern Deserves aA Place to Grow.A",
+    "y": 1042
+   },
+   {
+    "box": "h2.lg:h-[57px]",
+    "h": 57,
+    "spill": 18,
+    "text": "What Can You Report ?.",
+    "y": 1741
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6089
+   }
+  ]
+ },
+ {
+  "route": "/grievance",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "div.flex.flex-col.xl:h-[359px]",
+    "h": 359,
+    "spill": 50,
+    "text": "Your Concern Deserves aA Place to Grow.A",
+    "y": 1047
+   },
+   {
+    "box": "h2.lg:h-[57px]",
+    "h": 57,
+    "spill": 18,
+    "text": "What Can You Report ?.",
+    "y": 1746
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6049
+   }
+  ]
+ },
+ {
+  "route": "/grievance",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h2.lg:h-[57px]",
+    "h": 57,
+    "spill": 18,
+    "text": "What Can You Report ?.",
+    "y": 1681
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5998
+   }
+  ]
+ },
+ {
+  "route": "/manufacturing",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Partner With Ksquare",
+    "y": 5694
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 12666
+   }
+  ]
+ },
+ {
+  "route": "/manufacturing",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Partner With Ksquare",
+    "y": 5745
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 11784
+   }
+  ]
+ },
+ {
+  "route": "/manufacturing",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Partner With Ksquare",
+    "y": 3411
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8811
+   }
+  ]
+ },
+ {
+  "route": "/manufacturing",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Partner With Ksquare",
+    "y": 3463
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8895
+   }
+  ]
+ },
+ {
+  "route": "/manufacturing",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Partner With Ksquare",
+    "y": 3533
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8999
+   }
+  ]
+ },
+ {
+  "route": "/manufacturing",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Partner With Ksquare",
+    "y": 3620
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9047
+   }
+  ]
+ },
+ {
+  "route": "/manufacturing/custom-product-development",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 70,
+    "text": "Engineering Capability Behind Every Cust",
+    "y": 1642
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "What Can Be Customized",
+    "y": 2660
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Not Sure Which You Need?",
+    "y": 6412
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 10873
+   }
+  ]
+ },
+ {
+  "route": "/manufacturing/custom-product-development",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Engineering Capability Behind Every Cust",
+    "y": 1611
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "What Can Be Customized",
+    "y": 2597
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Not Sure Which You Need?",
+    "y": 6275
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9846
+   }
+  ]
+ },
+ {
+  "route": "/manufacturing/custom-product-development",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Engineering Capability Behind Every Cust",
+    "y": 1651
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "What Can Be Customized",
+    "y": 2363
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Not Sure Which You Need?",
+    "y": 5284
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8855
+   }
+  ]
+ },
+ {
+  "route": "/manufacturing/custom-product-development",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Engineering Capability Behind Every Cust",
+    "y": 1645
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "What Can Be Customized",
+    "y": 2353
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Not Sure Which You Need?",
+    "y": 5323
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8824
+   }
+  ]
+ },
+ {
+  "route": "/manufacturing/custom-product-development",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Engineering Capability Behind Every Cust",
+    "y": 1519
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "What Can Be Customized",
+    "y": 2171
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Not Sure Which You Need?",
+    "y": 5117
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8619
+   }
+  ]
+ },
+ {
+  "route": "/manufacturing/private-label-manufacturing",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Partner With Ksquare",
+    "y": 5745
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 11784
+   }
+  ]
+ },
+ {
+  "route": "/manufacturing/private-label-manufacturing",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Partner With Ksquare",
+    "y": 5694
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 12666
+   }
+  ]
+ },
+ {
+  "route": "/manufacturing/custom-product-development",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Engineering Capability Behind Every Cust",
+    "y": 1577
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "What Can Be Customized",
+    "y": 2285
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Not Sure Which You Need?",
+    "y": 5234
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8736
+   }
+  ]
+ },
+ {
+  "route": "/manufacturing/private-label-manufacturing",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Partner With Ksquare",
+    "y": 3411
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8811
+   }
+  ]
+ },
+ {
+  "route": "/manufacturing/private-label-manufacturing",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Partner With Ksquare",
+    "y": 3463
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8895
+   }
+  ]
+ },
+ {
+  "route": "/manufacturing/private-label-manufacturing",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Partner With Ksquare",
+    "y": 3533
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8999
+   }
+  ]
+ },
+ {
+  "route": "/manufacturing/private-label-manufacturing",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Partner With Ksquare",
+    "y": 3620
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9047
+   }
+  ]
+ },
+ {
+  "route": "/our-infrastructure",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "h1.lg:h-[179px]",
+    "h": 179,
+    "spill": 139,
+    "text": "Built for Precision,Ready for Scale.",
+    "y": 170
+   },
+   {
+    "box": "h2.lg:h-[146px]",
+    "h": 146,
+    "spill": 40,
+    "text": "From Production to Quality Assurance.",
+    "y": 4959
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8589
+   }
+  ]
+ },
+ {
+  "route": "/our-infrastructure",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h1.lg:h-[179px]",
+    "h": 179,
+    "spill": 61,
+    "text": "Built for Precision,Ready for Scale.",
+    "y": 170
+   },
+   {
+    "box": "h2.lg:h-[146px]",
+    "h": 146,
+    "spill": 40,
+    "text": "From Production to Quality Assurance.",
+    "y": 4774
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7593
+   }
+  ]
+ },
+ {
+  "route": "/our-infrastructure",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h1.lg:h-[179px]",
+    "h": 179,
+    "spill": 61,
+    "text": "Built for Precision,Ready for Scale.",
+    "y": 170
+   },
+   {
+    "box": "div.flex.flex-col.xl:h-[359px]",
+    "h": 359,
+    "spill": 107,
+    "text": "Inside Ksquare'sManufacturing FacilityKs",
+    "y": 959
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6767
+   }
+  ]
+ },
+ {
+  "route": "/our-infrastructure",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "div.flex.flex-col.xl:h-[359px]",
+    "h": 359,
+    "spill": 107,
+    "text": "Inside Ksquare'sManufacturing FacilityKs",
+    "y": 992
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6806
+   }
+  ]
+ },
+ {
+  "route": "/our-infrastructure",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6865
+   }
+  ]
+ },
+ {
+  "route": "/partners",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Choose Your Ksquare Partnership Track",
+    "y": 985
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Who We Partner With",
+    "y": 3769
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 10820
+   }
+  ]
+ },
+ {
+  "route": "/our-infrastructure",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "div.flex.flex-col.xl:h-[359px]",
+    "h": 359,
+    "spill": 107,
+    "text": "Inside Ksquare'sManufacturing FacilityKs",
+    "y": 1027
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6913
+   }
+  ]
+ },
+ {
+  "route": "/partners",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Choose Your Ksquare Partnership Track",
+    "y": 1006
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Who We Partner With",
+    "y": 3606
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9819
+   }
+  ]
+ },
+ {
+  "route": "/partners",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Choose Your Ksquare Partnership Track",
+    "y": 998
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Who We Partner With",
+    "y": 3112
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8432
+   }
+  ]
+ },
+ {
+  "route": "/partners",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Choose Your Ksquare Partnership Track",
+    "y": 1020
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Who We Partner With",
+    "y": 3108
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8460
+   }
+  ]
+ },
+ {
+  "route": "/partners",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Choose Your Ksquare Partnership Track",
+    "y": 1044
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Who We Partner With",
+    "y": 3012
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8396
+   }
+  ]
+ },
+ {
+  "route": "/partners",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Choose Your Ksquare Partnership Track",
+    "y": 1036
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Who We Partner With",
+    "y": 2980
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8352
+   }
+  ]
+ },
+ {
+  "route": "/partners/become-a-partner",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Choose Your Ksquare Partnership Track",
+    "y": 985
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Who We Partner With",
+    "y": 3729
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 10780
+   }
+  ]
+ },
+ {
+  "route": "/partners/become-a-partner",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Choose Your Ksquare Partnership Track",
+    "y": 1006
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Who We Partner With",
+    "y": 3606
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9819
+   }
+  ]
+ },
+ {
+  "route": "/partners/become-a-partner",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Choose Your Ksquare Partnership Track",
+    "y": 998
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Who We Partner With",
+    "y": 3112
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8432
+   }
+  ]
+ },
+ {
+  "route": "/partners/become-a-partner",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Choose Your Ksquare Partnership Track",
+    "y": 1020
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Who We Partner With",
+    "y": 3108
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8460
+   }
+  ]
+ },
+ {
+  "route": "/partners/become-a-partner",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Choose Your Ksquare Partnership Track",
+    "y": 1044
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Who We Partner With",
+    "y": 3012
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8396
+   }
+  ]
+ },
+ {
+  "route": "/partners/become-a-partner",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Choose Your Ksquare Partnership Track",
+    "y": 1036
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Who We Partner With",
+    "y": 2980
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8352
+   }
+  ]
+ },
+ {
+  "route": "/partners/export-business",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Why International Partners Choose Ksquar",
+    "y": 3829
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9133
+   }
+  ]
+ },
+ {
+  "route": "/partners/export-business",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Why International Partners Choose Ksquar",
+    "y": 3698
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8189
+   }
+  ]
+ },
+ {
+  "route": "/partners/export-business",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Why International Partners Choose Ksquar",
+    "y": 2906
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7072
+   }
+  ]
+ },
+ {
+  "route": "/partners/export-business",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why International Partners Choose Ksquar",
+    "y": 2884
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7051
+   }
+  ]
+ },
+ {
+  "route": "/partners/export-business",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why International Partners Choose Ksquar",
+    "y": 2857
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7056
+   }
+  ]
+ },
+ {
+  "route": "/partners/export-business",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why International Partners Choose Ksquar",
+    "y": 2865
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7080
+   }
+  ]
+ },
+ {
+  "route": "/partners/oem-partnership",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 10102
+   }
+  ]
+ },
+ {
+  "route": "/partners/oem-partnership",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8309
+   }
+  ]
+ },
+ {
+  "route": "/partners/oem-partnership",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9159
+   }
+  ]
+ },
+ {
+  "route": "/partners/oem-partnership",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8332
+   }
+  ]
+ },
+ {
+  "route": "/partners/oem-partnership",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8397
+   }
+  ]
+ },
+ {
+  "route": "/partners/oem-partnership",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8425
+   }
+  ]
+ },
+ {
+  "route": "/payment-details",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7518
+   }
+  ]
+ },
+ {
+  "route": "/payment-details",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6569
+   }
+  ]
+ },
+ {
+  "route": "/payment-details",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6195
+   }
+  ]
+ },
+ {
+  "route": "/payment-details",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6148
+   }
+  ]
+ },
+ {
+  "route": "/payment-details",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6073
+   }
+  ]
+ },
+ {
+  "route": "/payment-details",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6094
+   }
+  ]
+ },
+ {
+  "route": "/products",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7836
+   }
+  ]
+ },
+ {
+  "route": "/products",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7026
+   }
+  ]
+ },
+ {
+  "route": "/products",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "div.flex.flex-col.h-[116px]",
+    "h": 116,
+    "spill": 26,
+    "text": "1-3.5kW DCDB 1IN 1OUT 1MPPT FuseAC distr",
+    "y": 1660
+   },
+   {
+    "box": "div.flex.flex-col.h-[116px]",
+    "h": 116,
+    "spill": 52,
+    "text": "1-3.5kW DCDB 1IN 1OUT 1MPPT MCB TypeAC d",
+    "y": 1660
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6300
+   }
+  ]
+ },
+ {
+  "route": "/products",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6358
+   }
+  ]
+ },
+ {
+  "route": "/products",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6342
+   }
+  ]
+ },
+ {
+  "route": "/products",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6301
+   }
+  ]
+ },
+ {
+  "route": "/products/dcdb",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7836
+   }
+  ]
+ },
+ {
+  "route": "/products/dcdb",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7026
+   }
+  ]
+ },
+ {
+  "route": "/products/dcdb",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "div.flex.flex-col.h-[116px]",
+    "h": 116,
+    "spill": 26,
+    "text": "1-3.5kW DCDB 1IN 1OUT 1MPPT FuseAC distr",
+    "y": 1660
+   },
+   {
+    "box": "div.flex.flex-col.h-[116px]",
+    "h": 116,
+    "spill": 52,
+    "text": "1-3.5kW DCDB 1IN 1OUT 1MPPT MCB TypeAC d",
+    "y": 1660
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6300
+   }
+  ]
+ },
+ {
+  "route": "/products/dcdb",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6358
+   }
+  ]
+ },
+ {
+  "route": "/products/dcdb",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6342
+   }
+  ]
+ },
+ {
+  "route": "/products/dcdb",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6301
+   }
+  ]
+ },
+ {
+  "route": "/products/dcdb/1",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7298
+   }
+  ]
+ },
+ {
+  "route": "/products/dcdb/1",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6458
+   }
+  ]
+ },
+ {
+  "route": "/products/dcdb/1",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5870
+   }
+  ]
+ },
+ {
+  "route": "/products/dcdb/1",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5901
+   }
+  ]
+ },
+ {
+  "route": "/products/dcdb/1",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5846
+   }
+  ]
+ },
+ {
+  "route": "/products/dcdb/1",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5862
+   }
+  ]
+ },
+ {
+  "route": "/products/ksquare-inverter",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "h1.lg:h-[179px]",
+    "h": 179,
+    "spill": 137,
+    "text": "Ksquare Inverters,Built for Better Solar",
+    "y": 179
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7824
+   }
+  ]
+ },
+ {
+  "route": "/products/ksquare-inverter",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h1.lg:h-[179px]",
+    "h": 179,
+    "spill": 137,
+    "text": "Ksquare Inverters,Built for Better Solar",
+    "y": 179
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7016
+   }
+  ]
+ },
+ {
+  "route": "/products/ksquare-inverter",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h1.lg:h-[179px]",
+    "h": 179,
+    "spill": 137,
+    "text": "Ksquare Inverters,Built for Better Solar",
+    "y": 170
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6186
+   }
+  ]
+ },
+ {
+  "route": "/products/ksquare-inverter",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h1.lg:h-[179px]",
+    "h": 179,
+    "spill": 59,
+    "text": "Ksquare Inverters,Built for Better Solar",
+    "y": 170
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6108
+   }
+  ]
+ },
+ {
+  "route": "/products/ksquare-inverter",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6091
+   }
+  ]
+ },
+ {
+  "route": "/products/ksquare-inverter",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6095
+   }
+  ]
+ },
+ {
+  "route": "/projects",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 12373
+   }
+  ]
+ },
+ {
+  "route": "/projects",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 11496
+   }
+  ]
+ },
+ {
+  "route": "/projects",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h2.",
+    "h": 47,
+    "spill": 14,
+    "text": "How Much Solar Does Your Home Need?",
+    "y": 1004
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 10430
+   }
+  ]
+ },
+ {
+  "route": "/projects",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h2.",
+    "h": 47,
+    "spill": 14,
+    "text": "How Much Solar Does Your Home Need?",
+    "y": 1033
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 10431
+   }
+  ]
+ },
+ {
+  "route": "/projects",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "h2.",
+    "h": 47,
+    "spill": 14,
+    "text": "How Much Solar Does Your Home Need?",
+    "y": 1062
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 10460
+   }
+  ]
+ },
+ {
+  "route": "/projects",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h2.",
+    "h": 47,
+    "spill": 14,
+    "text": "How Much Solar Does Your Home Need?",
+    "y": 1077
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 10461
+   }
+  ]
+ },
+ {
+  "route": "/resources",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 3785
+   }
+  ]
+ },
+ {
+  "route": "/resources",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 4645
+   }
+  ]
+ },
+ {
+  "route": "/resources",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 3745
+   }
+  ]
+ },
+ {
+  "route": "/resources",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 3776
+   }
+  ]
+ },
+ {
+  "route": "/resources",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 3734
+   }
+  ]
+ },
+ {
+  "route": "/resources",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 3762
+   }
+  ]
+ },
+ {
+  "route": "/solar-calculators",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8715
+   }
+  ]
+ },
+ {
+  "route": "/solar-calculators",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7732
+   }
+  ]
+ },
+ {
+  "route": "/solar-calculators",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7625
+   }
+  ]
+ },
+ {
+  "route": "/solar-calculators",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "div.",
+    "h": 319,
+    "spill": 28,
+    "text": "Ready to Turn Estimates Into a Plan?Book",
+    "y": 5879
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7603
+   }
+  ]
+ },
+ {
+  "route": "/solar-calculators",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7597
+   }
+  ]
+ },
+ {
+  "route": "/solar-calculators",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7589
+   }
+  ]
+ },
+ {
+  "route": "/solutions",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "On-Grid, Off-Grid or Hybrid- Which is Ri",
+    "y": 5963
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 12137
+   }
+  ]
+ },
+ {
+  "route": "/solutions",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "On-Grid, Off-Grid or Hybrid- Which is Ri",
+    "y": 5893
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 11229
+   }
+  ]
+ },
+ {
+  "route": "/solutions",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "On-Grid, Off-Grid or Hybrid- Which is Ri",
+    "y": 4503
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9242
+   }
+  ]
+ },
+ {
+  "route": "/solutions",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "On-Grid, Off-Grid or Hybrid- Which is Ri",
+    "y": 4472
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9189
+   }
+  ]
+ },
+ {
+  "route": "/solutions",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "On-Grid, Off-Grid or Hybrid- Which is Ri",
+    "y": 4470
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9195
+   }
+  ]
+ },
+ {
+  "route": "/solutions",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "On-Grid, Off-Grid or Hybrid- Which is Ri",
+    "y": 4469
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9184
+   }
+  ]
+ },
+ {
+  "route": "/solutions/annual-maintenance",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "AMC Scope What's Covered",
+    "y": 4142
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 10386
+   }
+  ]
+ },
+ {
+  "route": "/solutions/annual-maintenance",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "AMC Scope What's Covered",
+    "y": 4067
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9377
+   }
+  ]
+ },
+ {
+  "route": "/solutions/annual-maintenance",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "AMC Scope What's Covered",
+    "y": 3816
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8815
+   }
+  ]
+ },
+ {
+  "route": "/solutions/annual-maintenance",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "AMC Scope What's Covered",
+    "y": 3729
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8761
+   }
+  ]
+ },
+ {
+  "route": "/solutions/annual-maintenance",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "AMC Scope What's Covered",
+    "y": 3753
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8684
+   }
+  ]
+ },
+ {
+  "route": "/solutions/annual-maintenance",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "AMC Scope What's Covered",
+    "y": 3736
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8720
+   }
+  ]
+ },
+ {
+  "route": "/solutions/epc-solutions",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "section.lg:h-[74px].lg:flex",
+    "h": 74,
+    "spill": 13,
+    "text": "ISO 9001:2015 Certified FacilityCE Marke",
+    "y": 973
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 70,
+    "text": "Why Solar EPC Companies Choose Ksquare",
+    "y": 1161
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Core Products",
+    "y": 2075
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Volume Pricing & Dedicated Account Suppo",
+    "y": 6519
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 12010
+   }
+  ]
+ },
+ {
+  "route": "/solutions/epc-solutions",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 70,
+    "text": "Why Solar EPC Companies Choose Ksquare",
+    "y": 1052
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Core Products",
+    "y": 1966
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Volume Pricing & Dedicated Account Suppo",
+    "y": 6446
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 11125
+   }
+  ]
+ },
+ {
+  "route": "/solutions/epc-solutions",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Solar EPC Companies Choose Ksquare",
+    "y": 1116
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Core Products",
+    "y": 1808
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Volume Pricing & Dedicated Account Suppo",
+    "y": 4218
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8503
+   }
+  ]
+ },
+ {
+  "route": "/solutions/epc-solutions",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 70,
+    "text": "Why Solar EPC Companies Choose Ksquare",
+    "y": 1094
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Core Products",
+    "y": 1818
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Volume Pricing & Dedicated Account Suppo",
+    "y": 4238
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8597
+   }
+  ]
+ },
+ {
+  "route": "/solutions/epc-solutions",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Solar EPC Companies Choose Ksquare",
+    "y": 1118
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Core Products",
+    "y": 1754
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Volume Pricing & Dedicated Account Suppo",
+    "y": 4209
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8502
+   }
+  ]
+ },
+ {
+  "route": "/solutions/epc-solutions",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Solar EPC Companies Choose Ksquare",
+    "y": 1138
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Core Products",
+    "y": 1774
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Volume Pricing & Dedicated Account Suppo",
+    "y": 4242
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8551
+   }
+  ]
+ },
+ {
+  "route": "/solutions/export-solutions",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Why Solar Partners Source From Ksquare",
+    "y": 1013
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Solar BOS Components Ready for Export",
+    "y": 1925
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Certifications That Support Import Compl",
+    "y": 6662
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 12539
+   }
+  ]
+ },
+ {
+  "route": "/solutions/export-solutions",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Why Solar Partners Source From Ksquare",
+    "y": 1006
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Solar BOS Components Ready for Export",
+    "y": 1920
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Certifications That Support Import Compl",
+    "y": 6817
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 11856
+   }
+  ]
+ },
+ {
+  "route": "/solutions/export-solutions",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Solar Partners Source From Ksquare",
+    "y": 1054
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Solar BOS Components Ready for Export",
+    "y": 1718
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Certifications That Support Import Compl",
+    "y": 4536
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8928
+   }
+  ]
+ },
+ {
+  "route": "/solutions/export-solutions",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Solar Partners Source From Ksquare",
+    "y": 1104
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Solar BOS Components Ready for Export",
+    "y": 1740
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Certifications That Support Import Compl",
+    "y": 4474
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8866
+   }
+  ]
+ },
+ {
+  "route": "/solutions/export-solutions",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Solar Partners Source From Ksquare",
+    "y": 1059
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Solar BOS Components Ready for Export",
+    "y": 1667
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Certifications That Support Import Compl",
+    "y": 4474
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8926
+   }
+  ]
+ },
+ {
+  "route": "/solutions/export-solutions",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Solar Partners Source From Ksquare",
+    "y": 1079
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Solar BOS Components Ready for Export",
+    "y": 1687
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Certifications That Support Import Compl",
+    "y": 4507
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8998
+   }
+  ]
+ },
+ {
+  "route": "/solutions/net-metering-support",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9808
+   }
+  ]
+ },
+ {
+  "route": "/solutions/net-metering-support",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9064
+   }
+  ]
+ },
+ {
+  "route": "/solutions/net-metering-support",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7600
+   }
+  ]
+ },
+ {
+  "route": "/solutions/net-metering-support",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7575
+   }
+  ]
+ },
+ {
+  "route": "/solutions/net-metering-support",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7475
+   }
+  ]
+ },
+ {
+  "route": "/solutions/net-metering-support",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7444
+   }
+  ]
+ },
+ {
+  "route": "/solutions/oem-solutions",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Why Partner With Ksquare for OEM Manufac",
+    "y": 1013
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "What We Manufacture Under OEM / White La",
+    "y": 1927
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Built for Brands Without Their Own Manuf",
+    "y": 6453
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 12362
+   }
+  ]
+ },
+ {
+  "route": "/solutions/oem-solutions",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Why Partner With Ksquare for OEM Manufac",
+    "y": 1034
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "What We Manufacture Under OEM / White La",
+    "y": 1948
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Built for Brands Without Their Own Manuf",
+    "y": 6606
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 11703
+   }
+  ]
+ },
+ {
+  "route": "/solutions/oem-solutions",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Why Partner With Ksquare for OEM Manufac",
+    "y": 1062
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "What We Manufacture Under OEM / White La",
+    "y": 1754
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Built for Brands Without Their Own Manuf",
+    "y": 4066
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8619
+   }
+  ]
+ },
+ {
+  "route": "/solutions/oem-solutions",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Why Partner With Ksquare for OEM Manufac",
+    "y": 1048
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "What We Manufacture Under OEM / White La",
+    "y": 1712
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Built for Brands Without Their Own Manuf",
+    "y": 3984
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8541
+   }
+  ]
+ },
+ {
+  "route": "/solutions/oem-solutions",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Why Partner With Ksquare for OEM Manufac",
+    "y": 1006
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "What We Manufacture Under OEM / White La",
+    "y": 1670
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Built for Brands Without Their Own Manuf",
+    "y": 3959
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8520
+   }
+  ]
+ },
+ {
+  "route": "/solutions/oem-solutions",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Why Partner With Ksquare for OEM Manufac",
+    "y": 998
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "What We Manufacture Under OEM / White La",
+    "y": 1662
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Built for Brands Without Their Own Manuf",
+    "y": 4037
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8615
+   }
+  ]
+ },
+ {
+  "route": "/solutions/pm-surya-ghar",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 10616
+   }
+  ]
+ },
+ {
+  "route": "/solutions/pm-surya-ghar",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9695
+   }
+  ]
+ },
+ {
+  "route": "/solutions/pm-surya-ghar",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8237
+   }
+  ]
+ },
+ {
+  "route": "/solutions/pm-surya-ghar",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8181
+   }
+  ]
+ },
+ {
+  "route": "/solutions/pm-surya-ghar",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8225
+   }
+  ]
+ },
+ {
+  "route": "/solutions/pm-surya-ghar",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8261
+   }
+  ]
+ },
+ {
+  "route": "/solutions/remote-monitoring",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8739
+   }
+  ]
+ },
+ {
+  "route": "/solutions/remote-monitoring",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7781
+   }
+  ]
+ },
+ {
+  "route": "/solutions/remote-monitoring",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6934
+   }
+  ]
+ },
+ {
+  "route": "/solutions/remote-monitoring",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6944
+   }
+  ]
+ },
+ {
+  "route": "/solutions/remote-monitoring",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6774
+   }
+  ]
+ },
+ {
+  "route": "/solutions/remote-monitoring",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6838
+   }
+  ]
+ },
+ {
+  "route": "/solutions/residential-solar",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "On-Grid, Off-Grid or Hybrid- Which is Ri",
+    "y": 5963
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 12137
+   }
+  ]
+ },
+ {
+  "route": "/solutions/residential-solar",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "On-Grid, Off-Grid or Hybrid- Which is Ri",
+    "y": 5893
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 11229
+   }
+  ]
+ },
+ {
+  "route": "/solutions/residential-solar",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "On-Grid, Off-Grid or Hybrid- Which is Ri",
+    "y": 4503
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9242
+   }
+  ]
+ },
+ {
+  "route": "/solutions/residential-solar",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "On-Grid, Off-Grid or Hybrid- Which is Ri",
+    "y": 4472
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9189
+   }
+  ]
+ },
+ {
+  "route": "/solutions/residential-solar",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "On-Grid, Off-Grid or Hybrid- Which is Ri",
+    "y": 4470
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9195
+   }
+  ]
+ },
+ {
+  "route": "/solutions/residential-solar",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "On-Grid, Off-Grid or Hybrid- Which is Ri",
+    "y": 4469
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9184
+   }
+  ]
+ },
+ {
+  "route": "/solutions/rooftop-solar",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Built for Every Roof Type",
+    "y": 1810
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "What We Check Before Installing on Your ",
+    "y": 3855
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 11002
+   }
+  ]
+ },
+ {
+  "route": "/solutions/rooftop-solar",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Built for Every Roof Type",
+    "y": 1749
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "What We Check Before Installing on Your ",
+    "y": 3794
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 10183
+   }
+  ]
+ },
+ {
+  "route": "/solutions/rooftop-solar",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Built for Every Roof Type",
+    "y": 1711
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "What We Check Before Installing on Your ",
+    "y": 3337
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8372
+   }
+  ]
+ },
+ {
+  "route": "/solutions/rooftop-solar",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Built for Every Roof Type",
+    "y": 1664
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "What We Check Before Installing on Your ",
+    "y": 3267
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8327
+   }
+  ]
+ },
+ {
+  "route": "/solutions/rooftop-solar",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Built for Every Roof Type",
+    "y": 1688
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "What We Check Before Installing on Your ",
+    "y": 3244
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8359
+   }
+  ]
+ },
+ {
+  "route": "/solutions/rooftop-solar",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Built for Every Roof Type",
+    "y": 1672
+   },
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "What We Check Before Installing on Your ",
+    "y": 3214
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8338
+   }
+  ]
+ },
+ {
+  "route": "/solutions/rooftop-solar-for-flats",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Two Options Engineered for Your Housing ",
+    "y": 1993
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9990
+   }
+  ]
+ },
+ {
+  "route": "/solutions/rooftop-solar-for-flats",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Two Options Engineered for Your Housing ",
+    "y": 1952
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9078
+   }
+  ]
+ },
+ {
+  "route": "/solutions/rooftop-solar-for-flats",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Two Options Engineered for Your Housing ",
+    "y": 1723
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7900
+   }
+  ]
+ },
+ {
+  "route": "/solutions/rooftop-solar-for-flats",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Two Options Engineered for Your Housing ",
+    "y": 1687
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7787
+   }
+  ]
+ },
+ {
+  "route": "/solutions/rooftop-solar-for-flats",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 88,
+    "text": "Two Options Engineered for Your Housing ",
+    "y": 1711
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7862
+   }
+  ]
+ },
+ {
+  "route": "/solutions/rooftop-solar-for-flats",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Two Options Engineered for Your Housing ",
+    "y": 1705
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7904
+   }
+  ]
+ },
+ {
+  "route": "/solutions/solar-consultation",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9279
+   }
+  ]
+ },
+ {
+  "route": "/solutions/solar-consultation",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8430
+   }
+  ]
+ },
+ {
+  "route": "/solutions/solar-consultation",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8100
+   }
+  ]
+ },
+ {
+  "route": "/solutions/solar-consultation",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8148
+   }
+  ]
+ },
+ {
+  "route": "/solutions/solar-consultation",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8104
+   }
+  ]
+ },
+ {
+  "route": "/solutions/solar-consultation",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8103
+   }
+  ]
+ },
+ {
+  "route": "/solutions/subsidy-assistance",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 9786
+   }
+  ]
+ },
+ {
+  "route": "/solutions/subsidy-assistance",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 8929
+   }
+  ]
+ },
+ {
+  "route": "/solutions/subsidy-assistance",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7457
+   }
+  ]
+ },
+ {
+  "route": "/solutions/subsidy-assistance",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7425
+   }
+  ]
+ },
+ {
+  "route": "/solutions/subsidy-assistance",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7458
+   }
+  ]
+ },
+ {
+  "route": "/solutions/subsidy-assistance",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 7400
+   }
+  ]
+ },
+ {
+  "route": "/track-solar-status",
+  "w": 1024,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Track Your Solar Project Status",
+    "y": 921
+   },
+   {
+    "box": "span",
+    "h": 40,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6812
+   }
+  ]
+ },
+ {
+  "route": "/track-solar-status",
+  "w": 1100,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Track Your Solar Project Status",
+    "y": 970
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 6021
+   }
+  ]
+ },
+ {
+  "route": "/track-solar-status",
+  "w": 1200,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Track Your Solar Project Status",
+    "y": 962
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5494
+   }
+  ]
+ },
+ {
+  "route": "/track-solar-status",
+  "w": 1280,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Track Your Solar Project Status",
+    "y": 984
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5478
+   }
+  ]
+ },
+ {
+  "route": "/track-solar-status",
+  "w": 1366,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Track Your Solar Project Status",
+    "y": 1008
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5496
+   }
+  ]
+ },
+ {
+  "route": "/track-solar-status",
+  "w": 1439,
+  "spills": [
+   {
+    "box": "h2.lg:h-[42px]",
+    "h": 42,
+    "spill": 28,
+    "text": "Track Your Solar Project Status",
+    "y": 1028
+   },
+   {
+    "box": "span",
+    "h": 20,
+    "spill": 10,
+    "text": "Design & Develop By Intelliworkz Busines",
+    "y": 5528
+   }
+  ]
+ }
+]

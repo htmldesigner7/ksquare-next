@@ -86,7 +86,7 @@ export default function CareerPage() {
               </div>
 
               {/* Title */}
-              <h1 className="font-recia text-[42px] lg:text-[68px] leading-[1.1] lg:leading-[78px] lg:h-[179px] text-primary font-normal">
+              <h1 className="font-recia text-[42px] lg:text-[68px] leading-[1.1] lg:leading-[78px] lg:min-h-[179px] desk:h-[179px] text-primary font-normal">
                 Build Your Career<br />
                 <span className="italic font-semibold">With the Future of Solar.</span>
               </h1>
@@ -128,10 +128,10 @@ export default function CareerPage() {
       {/* 2. More Than a Job. A Place to Grow. */}
       <section className="w-full">
         <Container maxWidth="1600">
-          <div className="flex flex-col xl:flex-row items-center gap-[60px] xl:gap-[clamp(40px,5.2vw,100px)]">
+          <div className="flex flex-col xl:flex-row items-center gap-[60px] xl:gap-[100px]">
             {/* Left: Text & Stats */}
             <div className="flex flex-col gap-[48px] w-full xl:flex-1 xl:min-w-0 xl:max-w-[750px]">
-              <div className="flex flex-col gap-[14px] xl:h-[359px]">
+              <div className="flex flex-col gap-[14px] xl:min-h-[359px] desk:h-[359px]">
                 <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[70px] text-[#333333] font-normal">
                   More Than a Job.<br />
                   <span className="font-recia italic font-medium">A Place to Grow.</span>
@@ -149,16 +149,16 @@ export default function CareerPage() {
               {/* Stats */}
               <div className="flex flex-col gap-[32px] w-full">
                 <div className="w-full h-px bg-[#C6CCED]" />
-                <div className="flex flex-wrap items-center gap-x-[24px] gap-y-[24px] w-full">
-                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px]">
+                <div className="flex flex-wrap xl:flex-nowrap items-center gap-x-[24px] gap-y-[24px] w-full">
+                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px] xl:flex-[0_1_200px] xl:w-auto xl:min-w-0">
                     <AnimatedCounter end={100} suffix="+" className="font-archivo text-[32px] lg:text-[40px] leading-[26px] text-primary" />
                     <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">Team Members</span>
                   </div>
-                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px]">
+                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px] xl:flex-[0_1_200px] xl:w-auto xl:min-w-0">
                     <AnimatedCounter end={10} suffix="+" className="font-archivo text-[32px] lg:text-[40px] leading-[26px] text-primary" />
                     <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">Career Opportunities</span>
                   </div>
-                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px]">
+                  <div className="flex flex-col gap-[16px] flex-1 min-w-[104px] sm:flex-none sm:w-[200px] xl:flex-[0_1_200px] xl:w-auto xl:min-w-0">
                     <span className="font-archivo text-[32px] lg:text-[40px] leading-[26px] text-primary">Growing</span>
                     <span className="font-archivo text-[17px] leading-[26px] text-[#666666]">Work Culture</span>
                   </div>

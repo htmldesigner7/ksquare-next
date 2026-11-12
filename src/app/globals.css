@@ -38,18 +38,19 @@
   --color-accent: var(--accent);
 
   /* Extra breakpoints, declared in the theme so Tailwind orders them correctly against sm/md/lg/xl. */
-  /* xl moves down to 1199.84px (just under canvas) so layouts that switch to their desktop form at xl do so at 1200px, in step with the scaled canvas sections. */
-  --breakpoint-xl: 74.99rem;
+  /* Between 1196px and 1920px the whole page is the 1920px layout scaled down uniformly (see body zoom below), so every desktop
+     breakpoint up to 1920px must already be active at 1196px. The 4px increments only keep Tailwind's variant ordering (it mis-sorts breakpoints closer than 0.25rem). */
+  --breakpoint-xl: 72.75rem;
   --breakpoint-w1100: 68.75rem;
-  --breakpoint-hnav: 73.75rem;
-  --breakpoint-canvas: 75rem;
-  /* 1440px: where the non-scaled chrome (header, footer) switches to its 1920px-artboard sizing; canvas (1200px) is where the scaled sections start. */
-  --breakpoint-desk: 90rem;
-  --breakpoint-g1464: 91.5rem;
-  --breakpoint-w1536: 96rem;
-  --breakpoint-g1664: 104rem;
-  --breakpoint-g1864: 116.5rem;
-  --breakpoint-g1868: 116.75rem;
+  --breakpoint-hnav: 72.5rem;
+  --breakpoint-canvas: 73rem;
+  --breakpoint-desk: 73.25rem;
+  --breakpoint-g1464: 73.5rem;
+  --breakpoint-w1536: 73.75rem;
+  --breakpoint-2xl: 74rem;
+  --breakpoint-g1664: 74.25rem;
+  --breakpoint-g1864: 74.5rem;
+  --breakpoint-g1868: 74.75rem;
   --breakpoint-g1964: 122.75rem;
   --breakpoint-g1984: 124rem;
   
@@ -147,37 +148,112 @@ html {
 }
 
 /*
- * Pixel-canvas sections (designed on a 1920px artboard) are scaled to fit between 1200px and 1920px
- * instead of overflowing. Below 1200px those sections use their stacked, fluid layouts.
- * --z steps in 40px increments and is computed from (viewport - 20px) so a classic scrollbar
- * can never push the scaled canvas past the screen edge.
+ * From 1196px to 1919px the entire page (header, sections, footer) keeps its 1920px layout and is scaled down uniformly,
+ * so it looks exactly like the 1920px design. Below 1196px the stacked, fluid layouts take over.
+ * --z steps in 8px increments and is computed from (viewport - 16px) so a classic scrollbar
+ * can never push the scaled page past the screen edge.
  */
-@media (min-width: 1200px) {
-  .canvas-zoom {
+@media (min-width: 1196px) and (max-width: 1919.98px) {
+  body {
     zoom: var(--z, 1);
   }
 }
-@media (min-width: 1200px) and (max-width: 1239.98px) { :root { --z: 0.615; } }
-@media (min-width: 1240px) and (max-width: 1279.98px) { :root { --z: 0.635; } }
-@media (min-width: 1280px) and (max-width: 1319.98px) { :root { --z: 0.656; } }
-@media (min-width: 1320px) and (max-width: 1359.98px) { :root { --z: 0.677; } }
-@media (min-width: 1360px) and (max-width: 1399.98px) { :root { --z: 0.698; } }
-@media (min-width: 1400px) and (max-width: 1439.98px) { :root { --z: 0.719; } }
-@media (min-width: 1440px) and (max-width: 1479.98px) { :root { --z: 0.739; } }
-@media (min-width: 1480px) and (max-width: 1519.98px) { :root { --z: 0.76; } }
-@media (min-width: 1520px) and (max-width: 1559.98px) { :root { --z: 0.781; } }
-@media (min-width: 1560px) and (max-width: 1599.98px) { :root { --z: 0.802; } }
-@media (min-width: 1600px) and (max-width: 1639.98px) { :root { --z: 0.822; } }
-@media (min-width: 1640px) and (max-width: 1679.98px) { :root { --z: 0.843; } }
-@media (min-width: 1680px) and (max-width: 1719.98px) { :root { --z: 0.864; } }
-@media (min-width: 1720px) and (max-width: 1759.98px) { :root { --z: 0.885; } }
-@media (min-width: 1760px) and (max-width: 1799.98px) { :root { --z: 0.906; } }
-@media (min-width: 1800px) and (max-width: 1839.98px) { :root { --z: 0.927; } }
-@media (min-width: 1840px) and (max-width: 1879.98px) { :root { --z: 0.947; } }
-@media (min-width: 1880px) and (max-width: 1919.98px) { :root { --z: 0.968; } }
+@media (min-width: 1196px) and (max-width: 1199.98px) { :root { --z: 0.6125; } }
+@media (min-width: 1200px) and (max-width: 1207.98px) { :root { --z: 0.6167; } }
+@media (min-width: 1208px) and (max-width: 1215.98px) { :root { --z: 0.6208; } }
+@media (min-width: 1216px) and (max-width: 1223.98px) { :root { --z: 0.6250; } }
+@media (min-width: 1224px) and (max-width: 1231.98px) { :root { --z: 0.6292; } }
+@media (min-width: 1232px) and (max-width: 1239.98px) { :root { --z: 0.6333; } }
+@media (min-width: 1240px) and (max-width: 1247.98px) { :root { --z: 0.6375; } }
+@media (min-width: 1248px) and (max-width: 1255.98px) { :root { --z: 0.6417; } }
+@media (min-width: 1256px) and (max-width: 1263.98px) { :root { --z: 0.6458; } }
+@media (min-width: 1264px) and (max-width: 1271.98px) { :root { --z: 0.6500; } }
+@media (min-width: 1272px) and (max-width: 1279.98px) { :root { --z: 0.6542; } }
+@media (min-width: 1280px) and (max-width: 1287.98px) { :root { --z: 0.6583; } }
+@media (min-width: 1288px) and (max-width: 1295.98px) { :root { --z: 0.6625; } }
+@media (min-width: 1296px) and (max-width: 1303.98px) { :root { --z: 0.6667; } }
+@media (min-width: 1304px) and (max-width: 1311.98px) { :root { --z: 0.6708; } }
+@media (min-width: 1312px) and (max-width: 1319.98px) { :root { --z: 0.6750; } }
+@media (min-width: 1320px) and (max-width: 1327.98px) { :root { --z: 0.6792; } }
+@media (min-width: 1328px) and (max-width: 1335.98px) { :root { --z: 0.6833; } }
+@media (min-width: 1336px) and (max-width: 1343.98px) { :root { --z: 0.6875; } }
+@media (min-width: 1344px) and (max-width: 1351.98px) { :root { --z: 0.6917; } }
+@media (min-width: 1352px) and (max-width: 1359.98px) { :root { --z: 0.6958; } }
+@media (min-width: 1360px) and (max-width: 1367.98px) { :root { --z: 0.7000; } }
+@media (min-width: 1368px) and (max-width: 1375.98px) { :root { --z: 0.7042; } }
+@media (min-width: 1376px) and (max-width: 1383.98px) { :root { --z: 0.7083; } }
+@media (min-width: 1384px) and (max-width: 1391.98px) { :root { --z: 0.7125; } }
+@media (min-width: 1392px) and (max-width: 1399.98px) { :root { --z: 0.7167; } }
+@media (min-width: 1400px) and (max-width: 1407.98px) { :root { --z: 0.7208; } }
+@media (min-width: 1408px) and (max-width: 1415.98px) { :root { --z: 0.7250; } }
+@media (min-width: 1416px) and (max-width: 1423.98px) { :root { --z: 0.7292; } }
+@media (min-width: 1424px) and (max-width: 1431.98px) { :root { --z: 0.7333; } }
+@media (min-width: 1432px) and (max-width: 1439.98px) { :root { --z: 0.7375; } }
+@media (min-width: 1440px) and (max-width: 1447.98px) { :root { --z: 0.7417; } }
+@media (min-width: 1448px) and (max-width: 1455.98px) { :root { --z: 0.7458; } }
+@media (min-width: 1456px) and (max-width: 1463.98px) { :root { --z: 0.7500; } }
+@media (min-width: 1464px) and (max-width: 1471.98px) { :root { --z: 0.7542; } }
+@media (min-width: 1472px) and (max-width: 1479.98px) { :root { --z: 0.7583; } }
+@media (min-width: 1480px) and (max-width: 1487.98px) { :root { --z: 0.7625; } }
+@media (min-width: 1488px) and (max-width: 1495.98px) { :root { --z: 0.7667; } }
+@media (min-width: 1496px) and (max-width: 1503.98px) { :root { --z: 0.7708; } }
+@media (min-width: 1504px) and (max-width: 1511.98px) { :root { --z: 0.7750; } }
+@media (min-width: 1512px) and (max-width: 1519.98px) { :root { --z: 0.7792; } }
+@media (min-width: 1520px) and (max-width: 1527.98px) { :root { --z: 0.7833; } }
+@media (min-width: 1528px) and (max-width: 1535.98px) { :root { --z: 0.7875; } }
+@media (min-width: 1536px) and (max-width: 1543.98px) { :root { --z: 0.7917; } }
+@media (min-width: 1544px) and (max-width: 1551.98px) { :root { --z: 0.7958; } }
+@media (min-width: 1552px) and (max-width: 1559.98px) { :root { --z: 0.8000; } }
+@media (min-width: 1560px) and (max-width: 1567.98px) { :root { --z: 0.8042; } }
+@media (min-width: 1568px) and (max-width: 1575.98px) { :root { --z: 0.8083; } }
+@media (min-width: 1576px) and (max-width: 1583.98px) { :root { --z: 0.8125; } }
+@media (min-width: 1584px) and (max-width: 1591.98px) { :root { --z: 0.8167; } }
+@media (min-width: 1592px) and (max-width: 1599.98px) { :root { --z: 0.8208; } }
+@media (min-width: 1600px) and (max-width: 1607.98px) { :root { --z: 0.8250; } }
+@media (min-width: 1608px) and (max-width: 1615.98px) { :root { --z: 0.8292; } }
+@media (min-width: 1616px) and (max-width: 1623.98px) { :root { --z: 0.8333; } }
+@media (min-width: 1624px) and (max-width: 1631.98px) { :root { --z: 0.8375; } }
+@media (min-width: 1632px) and (max-width: 1639.98px) { :root { --z: 0.8417; } }
+@media (min-width: 1640px) and (max-width: 1647.98px) { :root { --z: 0.8458; } }
+@media (min-width: 1648px) and (max-width: 1655.98px) { :root { --z: 0.8500; } }
+@media (min-width: 1656px) and (max-width: 1663.98px) { :root { --z: 0.8542; } }
+@media (min-width: 1664px) and (max-width: 1671.98px) { :root { --z: 0.8583; } }
+@media (min-width: 1672px) and (max-width: 1679.98px) { :root { --z: 0.8625; } }
+@media (min-width: 1680px) and (max-width: 1687.98px) { :root { --z: 0.8667; } }
+@media (min-width: 1688px) and (max-width: 1695.98px) { :root { --z: 0.8708; } }
+@media (min-width: 1696px) and (max-width: 1703.98px) { :root { --z: 0.8750; } }
+@media (min-width: 1704px) and (max-width: 1711.98px) { :root { --z: 0.8792; } }
+@media (min-width: 1712px) and (max-width: 1719.98px) { :root { --z: 0.8833; } }
+@media (min-width: 1720px) and (max-width: 1727.98px) { :root { --z: 0.8875; } }
+@media (min-width: 1728px) and (max-width: 1735.98px) { :root { --z: 0.8917; } }
+@media (min-width: 1736px) and (max-width: 1743.98px) { :root { --z: 0.8958; } }
+@media (min-width: 1744px) and (max-width: 1751.98px) { :root { --z: 0.9000; } }
+@media (min-width: 1752px) and (max-width: 1759.98px) { :root { --z: 0.9042; } }
+@media (min-width: 1760px) and (max-width: 1767.98px) { :root { --z: 0.9083; } }
+@media (min-width: 1768px) and (max-width: 1775.98px) { :root { --z: 0.9125; } }
+@media (min-width: 1776px) and (max-width: 1783.98px) { :root { --z: 0.9167; } }
+@media (min-width: 1784px) and (max-width: 1791.98px) { :root { --z: 0.9208; } }
+@media (min-width: 1792px) and (max-width: 1799.98px) { :root { --z: 0.9250; } }
+@media (min-width: 1800px) and (max-width: 1807.98px) { :root { --z: 0.9292; } }
+@media (min-width: 1808px) and (max-width: 1815.98px) { :root { --z: 0.9333; } }
+@media (min-width: 1816px) and (max-width: 1823.98px) { :root { --z: 0.9375; } }
+@media (min-width: 1824px) and (max-width: 1831.98px) { :root { --z: 0.9417; } }
+@media (min-width: 1832px) and (max-width: 1839.98px) { :root { --z: 0.9458; } }
+@media (min-width: 1840px) and (max-width: 1847.98px) { :root { --z: 0.9500; } }
+@media (min-width: 1848px) and (max-width: 1855.98px) { :root { --z: 0.9542; } }
+@media (min-width: 1856px) and (max-width: 1863.98px) { :root { --z: 0.9583; } }
+@media (min-width: 1864px) and (max-width: 1871.98px) { :root { --z: 0.9625; } }
+@media (min-width: 1872px) and (max-width: 1879.98px) { :root { --z: 0.9667; } }
+@media (min-width: 1880px) and (max-width: 1887.98px) { :root { --z: 0.9708; } }
+@media (min-width: 1888px) and (max-width: 1895.98px) { :root { --z: 0.9750; } }
+@media (min-width: 1896px) and (max-width: 1903.98px) { :root { --z: 0.9792; } }
+@media (min-width: 1904px) and (max-width: 1911.98px) { :root { --z: 0.9833; } }
+@media (min-width: 1912px) and (max-width: 1919.98px) { :root { --z: 0.9875; } }
 
-/* 1600px Figma canvases that must not fall back to a stacked layout between 1100px and 1439px: scale in 40px steps (width - 64px gutters) / 1600 */
-@media (min-width: 1100px) and (max-width: 1439.98px) {
+/* 1600px Figma canvases that must not fall back to a stacked layout between 1100px and 1199px: scale in 40px steps (width - 64px gutters) / 1600.
+   The base zoom:1 also stops Tailwind's own `zoom-*` utility from matching this class name (zoom-1600 = 16x) at 1200px and up. */
+.zoom-1600 { zoom: 1; }
+@media (min-width: 1100px) and (max-width: 1195.98px) {
   .zoom-1600 { zoom: var(--zp, 0.645); }
 }
 @media (min-width: 1100px) and (max-width: 1139.98px) { :root { --zp: 0.645; } }

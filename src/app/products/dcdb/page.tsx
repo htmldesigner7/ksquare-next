@@ -136,8 +136,8 @@ export default function DcdbProductListing() {
                 </Link>
 
                 {/* Content */}
-                <div className="flex flex-col h-[190px] gap-[24px]">
-                  <div className="flex flex-col gap-[12px] h-[116px]">
+                <div className="flex flex-col min-h-[190px] desk:h-[190px] gap-[24px]">
+                  <div className="flex flex-col gap-[12px] min-h-[116px] desk:h-[116px]">
                     <h3 className="font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">
                       {product.title}
                     </h3>
