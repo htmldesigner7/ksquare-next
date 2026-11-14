@@ -60,25 +60,25 @@ export default function KsquareInverterPage() {
   return (
     <main className="w-full bg-white pt-[90px]">
       {/* Hero */}
-      <section className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 g1864:px-0 pt-[40px] flex flex-col lg:flex-row lg:items-end lg:justify-between gap-[40px]">
+      <section className="w-full max-w-[1800px] mx-auto px-4 lg:px-8 g1864:px-0 pt-[40px] flex flex-col xl:flex-row xl:items-end xl:justify-between gap-[16px] xl:gap-[40px]">
         <div className="flex flex-col gap-[12px] lg:w-[792px]">
-          <div className="flex items-center gap-[10px] font-archivo text-[20px] leading-[28px] text-[#333333]">
+          <div className="flex items-center gap-[10px] font-archivo text-[15px] sm:text-[16px] lg:text-[20px] leading-[28px] text-[#333333]">
             <Link href="/" className="hover:text-[#2B398B]">Home</Link>
             <Chevron />
             <Link href="/products/dcdb" className="hover:text-[#2B398B]">Products</Link>
             <Chevron />
             <span className="text-[#2B398B] leading-[26px]">Ksquare Inverter</span>
           </div>
-          <h1 className="m-0 font-recia text-[#2B398B] text-[48px] leading-[58px] lg:text-[68px] lg:leading-[78px] lg:min-h-[179px] desk:h-[179px]">
+          <h1 className="m-0 font-recia text-[#2B398B] text-[38px] leading-[46px] sm:text-[48px] sm:leading-[58px] lg:text-[68px] lg:leading-[78px] lg:min-h-[179px] desk:h-[179px]">
             <span className="block font-normal">Ksquare Inverters,</span>
             <span className="block font-semibold italic mt-[4px]">Built for Better Solar</span>
           </h1>
         </div>
         <div className="flex flex-col gap-[32px] lg:w-[760px]">
-          <p className="m-0 font-archivo text-[20px] lg:text-[24px] leading-[30px] lg:leading-[36px] text-[#333333]">
+          <p className="m-0 font-archivo text-[18px] lg:text-[24px] leading-[28px] lg:leading-[36px] text-[#333333]">
             Discover our inverter solutions, combining intelligent technology, dependable performance and flexibility for modern solar applications.
           </p>
-          <div className="flex flex-wrap items-center gap-[16px]">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-[16px]">
             <OutlineButton href="#solar-inverters">Explore Inverters</OutlineButton>
             <OutlineButton href="/contact">Request a Quote</OutlineButton>
           </div>
@@ -99,7 +99,7 @@ export default function KsquareInverterPage() {
         {/* About */}
         <section className="flex flex-col lg:flex-row lg:items-center gap-[48px] xl:gap-[100px]">
           <div className="flex flex-col gap-[24px] lg:flex-1 lg:min-w-0 lg:max-w-[750px]">
-            <h2 className="m-0 font-archivo font-normal text-[48px] lg:text-[60px] leading-[1.15] text-[#333333]">
+            <h2 className="m-0 font-archivo font-normal text-[34px] sm:text-[40px] lg:text-[60px] leading-[1.15] text-[#333333]">
               About <span className="font-recia italic font-medium">Ksquare Inverters</span>
             </h2>
             <div className="flex flex-col gap-[18px]">
@@ -118,9 +118,9 @@ export default function KsquareInverterPage() {
         </section>
 
         {/* Solar Inverters */}
-        <section id="solar-inverters" className="flex flex-col gap-[48px] scroll-mt-[110px]">
+        <section id="solar-inverters" className="flex flex-col gap-[28px] lg:gap-[48px] scroll-mt-[110px]">
           <div className="flex flex-col items-center gap-[8px] text-center">
-            <h2 className="m-0 font-archivo font-normal text-[48px] lg:text-[60px] leading-[71px] text-[#2B398B]">
+            <h2 className="m-0 font-archivo font-normal text-[34px] sm:text-[40px] lg:text-[60px] leading-[1.2] lg:leading-[71px] text-[#2B398B]">
               Solar <span className="font-recia italic font-medium">Inverters</span>
             </h2>
             <p className="m-0 font-archivo text-[17px] leading-[26px] text-[#666666]">
@@ -129,7 +129,7 @@ export default function KsquareInverterPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-[24px] xl:gap-[27px] justify-items-center">
             {products.map((p, i) => (
-              <div key={i} className="flex flex-col w-full max-w-[380px] gap-[24px]">
+              <div key={i} className="flex flex-col w-full max-w-[380px] md:max-w-none xl:max-w-[380px] gap-[24px]">
                 <div className="img-hover-zoom w-full h-[400px] bg-[#EFF0F6] flex items-center justify-center py-[30px] px-[72px]">
                   <div className="relative w-full h-full">
                     <Image src={p.img} alt={p.title} fill className="object-contain mix-blend-multiply" />
@@ -150,9 +150,9 @@ export default function KsquareInverterPage() {
         </section>
 
         {/* Key features */}
-        <section className="flex flex-col gap-[48px]">
+        <section className="flex flex-col gap-[28px] lg:gap-[48px]">
           <div className="flex flex-col items-center gap-[8px] text-center">
-            <h2 className="m-0 font-archivo font-normal text-[40px] lg:text-[60px] leading-[1.15] text-[#2B398B]">
+            <h2 className="m-0 font-archivo font-normal text-[34px] sm:text-[40px] lg:text-[60px] leading-[1.15] text-[#2B398B]">
               Key Features of Ksquare S<span className="font-recia italic font-medium">olar Inverters</span>
             </h2>
             <p className="m-0 font-archivo text-[17px] leading-[26px] text-[#666666]">A DCDB for Every Solar Requirement.</p>
@@ -173,9 +173,9 @@ export default function KsquareInverterPage() {
         </section>
 
         {/* FAQ */}
-        <section className="flex flex-col items-center gap-[48px]">
+        <section className="flex flex-col items-center gap-[28px] lg:gap-[48px]">
           <div className="flex flex-col items-center gap-[8px] text-center">
-            <h2 className="m-0 font-archivo font-normal text-[40px] lg:text-[60px] leading-[1.25] text-[#2B398B]">
+            <h2 className="m-0 font-archivo font-normal text-[34px] sm:text-[40px] lg:text-[60px] leading-[1.25] text-[#2B398B]">
               Frequently Asked <span className="font-recia italic font-medium">Questions</span>
             </h2>
             <p className="m-0 font-archivo text-[17px] leading-[26px] text-[#666666]">

@@ -148,7 +148,7 @@ export default function Footer() {
                     {col.sections.map((sec, sIdx) => (
                       <div key={sIdx} className="flex flex-col gap-[12px]">
                         {sec.subtitle && (
-                          <h5 className={`m-0 whitespace-nowrap ${sec.isTitle ? "font-semibold text-[18px] leading-[26px] text-[#2B398B]" : "font-medium text-[16px] leading-[20px] text-[#333333]"}`}>
+                          <h5 className={`m-0 whitespace-nowrap max-sm:whitespace-normal ${sec.isTitle ? "font-semibold text-[18px] leading-[26px] text-[#2B398B]" : "font-medium text-[16px] leading-[20px] text-[#333333]"}`}>
                             {sec.subtitle}
                           </h5>
                         )}
@@ -180,12 +180,12 @@ export default function Footer() {
       {/* Bottom Bar (Figma: line at y631, text row 1800 wide, 15/20) */}
       <div className="w-full border-t border-[#C6CCED] bg-[#EDF3FF]">
         <Container maxWidth="1800">
-          <div className="w-full py-[24.5px] flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-[16px] font-normal text-[15px] leading-[20px] text-[#666666]">
+          <div className="w-full py-[24.5px] flex flex-col desk:flex-row justify-between items-center text-center desk:text-left gap-[16px] font-normal text-[15px] leading-[20px] text-[#666666]">
             <span>© 2026 Ksquare Energy India. All rights reserved.</span>
             <div className="flex items-center gap-[16px]">
-              <Link href="#" className="hover:text-[#2B398B] transition-colors">Privacy Policy</Link>
+              <Link href="#" className="inline-block py-[10px] -my-[10px] hover:text-[#2B398B] transition-colors">Privacy Policy</Link>
               <span>|</span>
-              <Link href="#" className="hover:text-[#2B398B] transition-colors">Terms of Service</Link>
+              <Link href="#" className="inline-block py-[10px] -my-[10px] hover:text-[#2B398B] transition-colors">Terms of Service</Link>
             </div>
             <span>
               Design & Develop By <Link href="#" className="inline-block py-[10px] -my-[10px] hover:text-[#2B398B] transition-colors">Intelliworkz Business Solutions Pvt. Ltd.</Link>

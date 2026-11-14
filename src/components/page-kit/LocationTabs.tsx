@@ -11,7 +11,7 @@ export default function LocationTabs({ zones }: { zones: Zone[] }) {
   return (
     <div className="flex flex-col gap-[32px] w-full">
       {zones.length > 1 && (
-        <div role="tablist" className="flex items-center justify-center gap-[8px] sm:gap-[32px] flex-wrap">
+        <div role="tablist" className="flex items-center justify-start lg:justify-center gap-[8px] sm:gap-[32px] flex-nowrap overflow-x-auto lg:flex-wrap lg:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {zones.map((z, i) => (
             <button
               key={z.label}
@@ -19,7 +19,7 @@ export default function LocationTabs({ zones }: { zones: Zone[] }) {
               type="button"
               aria-selected={i === active}
               onClick={() => setActive(i)}
-              className={`relative px-[12px] py-[10px] font-archivo text-[17px] lg:text-[20px] cursor-pointer transition-colors ${
+              className={`relative shrink-0 whitespace-nowrap px-[12px] py-[10px] font-archivo text-[17px] lg:text-[20px] cursor-pointer transition-colors ${
                 i === active ? "text-primary font-medium" : "text-[#333333] hover:text-primary"
               }`}
             >

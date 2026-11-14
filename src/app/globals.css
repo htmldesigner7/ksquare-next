@@ -332,3 +332,32 @@ html {
   transition-duration: 300ms;
   transition-timing-function: ease;
 }
+
+/* Mobile/tablet only: balance heading line breaks so a single word never sits alone on a line. */
+@media (max-width: 1195.98px) {
+  h1, h2, h3 { text-wrap: balance; }
+}
+
+/* Mobile only: slightly more compact bordered CTA buttons (desktop untouched). */
+@media (max-width: 767.98px) {
+  :where(a, button)[class*="border"][class*="hover:bg-"][class*="py-[1"] {
+    padding-block: 10px;
+  }
+  :where(a, button)[class*="border"][class*="hover:bg-"][class*="py-[1"] > span {
+    font-size: 15px;
+    line-height: 22px;
+  }
+}
+
+/* Horizontally scrollable tables: keep a visible scrollbar so people know they can swipe sideways. */
+.scroll-hint::-webkit-scrollbar {
+  -webkit-appearance: none;
+  height: 8px;
+}
+.scroll-hint::-webkit-scrollbar-track {
+  background: #e3e6f4;
+}
+.scroll-hint::-webkit-scrollbar-thumb {
+  background: #2b398b;
+  border-radius: 4px;
+}

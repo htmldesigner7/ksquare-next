@@ -35,7 +35,7 @@ export default function Solutions() {
     <section className="relative w-full bg-[#FFFFFF] overflow-hidden">
       
       {/* Desktop Wrapper */}
-      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative max-canvas:h-auto max-canvas:px-6 max-canvas:py-12 max-sm:py-8">
+      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative max-canvas:h-auto max-canvas:px-6 max-canvas:py-8 max-sm:py-0">
         
         {/* Desktop Layout (Figma 106:352: 1600 wide, 48px gap, header 111.53, content block 550) */}
         <div className="hidden canvas:flex flex-col gap-[48px] ml-[160px] w-[1600px]">
@@ -124,7 +124,7 @@ export default function Solutions() {
         </div>
 
         {/* Responsive layout (< 1280px) */}
-        <div className="canvas:hidden flex flex-col gap-12 w-full max-w-[1200px] mx-auto">
+        <div className="canvas:hidden flex flex-col gap-8 sm:gap-12 w-full max-w-[1200px] mx-auto">
           <div className="flex flex-col gap-4 text-center sm:text-left">
             <RichTitle as="h2" text="End-to-End Solar *Solutions*" accentClassName="text-[#2B398B]" className="font-archivo font-normal text-[40px] sm:text-[60px] text-[#2B398B] leading-[1.29] m-0 p-0 text-center" />
             <p className="font-archivo font-normal text-[17px] text-[#666666] leading-relaxed m-0 p-0 text-center">

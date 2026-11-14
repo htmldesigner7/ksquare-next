@@ -26,20 +26,20 @@ export default function FaqCategoryList({
     <div className="flex flex-col xl:flex-row gap-[40px] xl:gap-[46px] items-stretch">
       {/* Sidebar Categories */}
       <div className="w-full xl:w-[360px] shrink-0 bg-[#EFF0F6] xl:self-start xl:min-h-[620px]">
-        <div className="flex flex-col gap-[30px] p-[24px] xl:sticky xl:top-[110px]">
-          <h3 className="font-archivo text-[28px] lg:text-[32px] leading-[1.3] text-[#041632] font-semibold">
+        <div className="flex flex-col gap-[16px] xl:gap-[30px] p-[16px] xl:p-[24px] xl:sticky xl:top-[110px]">
+          <h3 className="font-archivo text-[22px] xl:text-[32px] leading-[1.3] text-[#041632] font-semibold">
             Popular Questions
           </h3>
-          <div className="flex flex-col gap-[20px]">
+          <div className="flex gap-[10px] overflow-x-auto xl:flex-col xl:gap-[20px] xl:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {categories.map((cat) => (
               <button
                 key={cat}
                 type="button"
                 onClick={() => setSelected(cat)}
-                className={`text-left font-archivo text-[20px] lg:text-[24px] leading-[26px] py-[4px] pl-[16px] border-l-[3px] transition-colors cursor-pointer ${
+                className={`shrink-0 whitespace-nowrap text-left font-archivo text-[15px] xl:text-[24px] leading-[22px] xl:leading-[26px] px-[16px] py-[8px] rounded-full border xl:rounded-none xl:border-0 xl:border-l-[3px] xl:px-0 xl:py-[4px] xl:pl-[16px] transition-colors cursor-pointer ${
                   activeCategory === cat
-                    ? "border-[#2B398B] text-[#2B398B] font-medium"
-                    : "border-transparent text-[#666666] hover:text-[#2B398B] hover:border-[#2B398B]"
+                    ? "border-[#2B398B] bg-[#2B398B] text-white xl:bg-transparent xl:text-[#2B398B] font-medium"
+                    : "border-[#C6CCED] bg-white text-[#666666] xl:bg-transparent xl:border-transparent hover:text-[#2B398B] hover:border-[#2B398B]"
                 }`}
               >
                 {cat}

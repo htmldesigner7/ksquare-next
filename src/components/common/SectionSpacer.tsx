@@ -21,11 +21,11 @@ export default function SectionSpacer({ size = 100, className }: SectionSpacerPr
       aria-hidden="true" 
       className={twMerge(
         'w-full',
-        size === 60 && 'h-[60px]',
-        size === 80 && 'h-[80px]',
-        size === 100 && 'h-[100px]',
-        size === 120 && 'h-[120px]',
-        size === 150 && 'h-[150px]',
+        size === 60 && 'h-[40px] canvas:h-[60px]',
+        size === 80 && 'h-[50px] canvas:h-[80px]',
+        size === 100 && 'h-[60px] canvas:h-[100px]',
+        size === 120 && 'h-[70px] canvas:h-[120px]',
+        size === 150 && 'h-[80px] canvas:h-[150px]',
         className
       )}
     />

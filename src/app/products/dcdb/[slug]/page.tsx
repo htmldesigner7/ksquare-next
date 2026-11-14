@@ -49,7 +49,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           desktop-only. */}
       <Container maxWidth="1800" className="pt-[40px] canvas:pt-[55px]">
         <div className="flex flex-col gap-[12px] canvas:max-w-[832px]">
-          <div className="flex items-center flex-wrap gap-[10px] font-archivo text-[16px] lg:text-[20px] text-[#333333] leading-[28px]">
+          <div className="flex items-center flex-wrap gap-[10px] font-archivo text-[15px] sm:text-[16px] lg:text-[20px] text-[#333333] leading-[28px]">
             <Link href="/" className="hover:text-primary transition-colors">Home</Link>
             <Chevron />
             <Link href="/products/dcdb" className="hover:text-primary transition-colors">Products</Link>
@@ -58,12 +58,12 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             <Chevron />
             <span className="text-primary leading-[26px] truncate max-w-[300px]">{product.breadcrumb}</span>
           </div>
-          <h1 className="m-0 font-archivo text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[72px] text-primary font-normal">
+          <h1 className="m-0 font-archivo text-[34px] sm:text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[72px] text-primary font-normal">
             {product.title} <span className="font-recia italic font-semibold">{product.highlight}</span>
           </h1>
         </div>
 
-        <div className="canvas:hidden flex flex-wrap items-center gap-[16px] mt-[24px]">
+        <div className="canvas:hidden flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-[16px] mt-[24px]">
           <button
             type="button"
             className="inline-flex items-center justify-center gap-[16px] px-[15px] py-[11px] group border border-[#2B398B] bg-primary text-white hover:bg-white hover:text-[#2B398B] transition-colors font-archivo text-[17px] leading-[26px] cursor-pointer"
@@ -122,7 +122,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
       {/* Product Detail (tabbed) */}
       <Container maxWidth="1800" className="py-[80px] lg:pt-[96px] lg:pb-[102px]">
-        <div className="flex flex-col items-center gap-[40px] w-full">
+        <div className="flex flex-col items-center gap-[24px] lg:gap-[40px] w-full">
           <div className="flex flex-col items-center text-center gap-[8px]">
             <h2 className="m-0 font-archivo text-[36px] lg:text-[60px] leading-[1.1] text-primary font-normal">
               Product <span className="font-recia italic">Detail</span>
@@ -139,7 +139,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       {/* FAQ */}
       <div className="w-full bg-[#F0F5FE] py-[80px] lg:py-[98px] lg:min-h-[800px]">
         <Container maxWidth="1600">
-          <div className="flex flex-col items-center gap-[48px] w-full">
+          <div className="flex flex-col items-center gap-[28px] lg:gap-[48px] w-full">
             <div className="flex flex-col items-center text-center gap-[8px]">
               <h2 className="m-0 font-archivo text-[36px] lg:text-[60px] leading-[1.1] text-primary font-normal">
                 Frequently Asked <span className="font-recia italic">Questions</span>
@@ -184,13 +184,13 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           </div>
 
           {/* Info cards */}
-          <div className="flex flex-col sm:flex-row w-full">
+          <div className="flex flex-col xl:flex-row w-full">
             {[
               { icon: `${A}/icon_phone.svg`, iconSize: 24, title: "Call Us Directly", value: "+91 79 6969 7979", desc: "Product specialists available Mon-Sat, 9 AM - 7 PM" },
               { icon: `${A}/icon_mail.svg`, iconSize: 22, title: "Email Support", value: "info@ksquareenergy.com", desc: "For pricing, datasheets, and technical documentation" },
               { icon: `${A}/icon_pin.svg`, iconSize: 28, title: "Ahmedabad Branch Office", value: "Dholera SIR, Activation Zone, Gujarat – 382460, India", desc: "Visit our manufacturing facility by appointment" },
             ].map((card) => (
-              <div key={card.title} className="flex-1 min-w-0 flex flex-row items-start gap-[24px] py-[24px] sm:px-[24px] border-t sm:border-t-0 sm:border-l border-[#E8E4E0] first:border-t-0 first:sm:border-l-0">
+              <div key={card.title} className="flex-1 min-w-0 flex flex-row items-start gap-[24px] py-[24px] xl:px-[24px] border-t xl:border-t-0 xl:border-l border-[#E8E4E0] first:border-t-0 first:xl:border-l-0">
                 <div className="w-[72px] h-[72px] shrink-0 rounded-full bg-[#EDEEF8] flex items-center justify-center">
                   <div className="relative" style={{ width: card.iconSize, height: card.iconSize }}>
                     <Image src={card.icon} alt="" fill className="object-contain" />

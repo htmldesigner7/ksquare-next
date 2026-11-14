@@ -43,7 +43,7 @@ export default function TrackerBar({
           type="text"
           placeholder={placeholder}
           aria-invalid={!!error}
-          className="h-[56px] min-w-0 flex-1 border border-[#C6CCED] bg-[#EEEFF6] px-[20px] font-archivo text-[16px] lg:h-[62px] lg:text-[17px] text-[#333333] placeholder:text-[#666666] focus:border-primary focus:outline-none"
+          className="h-[56px] min-w-0 flex-none sm:flex-1 border border-[#C6CCED] bg-[#EEEFF6] px-[20px] font-archivo text-[16px] lg:h-[62px] lg:text-[17px] text-[#333333] placeholder:text-[#666666] focus:border-primary focus:outline-none"
         />
         <button
           type="submit"

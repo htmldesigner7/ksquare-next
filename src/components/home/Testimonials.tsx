@@ -43,16 +43,16 @@ const QuoteIcon = () => (
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const TestimonialCard = ({ item }: { item: any }) => (
   <div className="w-[320px] sm:w-[450px] canvas:w-[740px] canvas:h-[300px] bg-white border border-[#E5E5E5] p-[32px] sm:p-[40px] canvas:p-0 flex flex-col canvas:block relative shrink-0">
-    <div className="absolute right-[32px] top-[32px] canvas:left-[648px] canvas:top-[20px] canvas:right-auto text-[#EEEEEE]">
+    <div className="absolute right-[14px] top-[14px] sm:right-[32px] sm:top-[32px] [&>svg]:w-[34px] [&>svg]:h-auto sm:[&>svg]:w-[75px] canvas:left-[648px] canvas:top-[20px] canvas:right-auto text-[#EEEEEE]">
       <QuoteIcon />
     </div>
     
-    <div className="flex canvas:absolute canvas:left-[60px] canvas:top-[40px] items-center gap-6 relative z-10">
+    <div className="flex canvas:absolute canvas:left-[60px] canvas:top-[40px] items-center gap-4 sm:gap-6 relative z-10">
       <div className="w-[60px] h-[60px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden bg-gray-200 shrink-0 relative">
         <Image src={item.img} alt={item.name} fill className="object-cover" />
       </div>
-      <div className="flex flex-col gap-[4px] w-[200px] sm:w-[300px]">
-        <span className="font-archivo font-semibold text-[17px] text-[#2B398B] leading-[26px] m-0 p-0">{item.name}</span>
+      <div className="flex flex-col gap-[4px] flex-1 min-w-0 pr-[16px] sm:pr-0 canvas:flex-none canvas:w-[300px]">
+        <span className="font-archivo font-semibold text-[15px] sm:text-[17px] text-[#2B398B] leading-[26px] m-0 p-0">{item.name}</span>
         <span className="font-archivo font-normal text-[15px] text-[#666666] leading-[24px] m-0 p-0">{item.company}</span>
       </div>
     </div>
@@ -84,7 +84,7 @@ export default function Testimonials() {
       `}</style>
       
       {/* Desktop Wrapper */}
-      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative h-[782px] max-canvas:h-auto max-canvas:py-16 max-sm:py-10">
+      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative h-[782px] max-canvas:h-auto max-canvas:py-10 max-sm:py-0">
         
         {/* Desktop Layout (Testimonials) */}
         <div className="hidden canvas:block absolute left-0 top-0 w-[1920px] h-[782px]">
@@ -122,7 +122,7 @@ export default function Testimonials() {
         </div>
 
         {/* Responsive layout (< 1280px) */}
-        <div className="canvas:hidden flex flex-col gap-12 px-6 overflow-hidden">
+        <div className="canvas:hidden flex flex-col gap-8 sm:gap-12 px-6 overflow-hidden">
           <div className="flex flex-col gap-4 text-center">
             <RichTitle as="h2" text="What Our *Clients Say*" className="font-archivo font-normal text-[40px] sm:text-[60px] text-[#2B398B] leading-[1.1] m-0 p-0" />
             <p className="font-archivo font-normal text-[16px] md:text-[17px] text-[#666666] m-0 p-0">

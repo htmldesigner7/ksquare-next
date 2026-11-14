@@ -145,7 +145,7 @@ export default function FaqsPage() {
                 Our engineering team is ready to assist with complex specifications and custom manufacturing requirements.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-[16px]">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-[16px]">
               <Link
                 href="/contact"
                 className="flex items-center justify-center gap-[16px] px-[24px] py-[14px] border border-white text-white hover:bg-white hover:text-[#2B398B] transition-colors group w-full sm:w-auto"

@@ -54,25 +54,25 @@ export default function AboutUsPage() {
     <main className="w-full bg-[#FFFFFF] font-archivo overflow-x-clip">
       {/* 1. Hero */}
       <section className="w-full pt-[90px] canvas:pt-[130px]">
-        <div className="canvas-zoom canvas:w-[1800px] w-full max-w-[1800px] mx-auto px-4 lg:px-8 g1864:px-0 pt-[40px] canvas:pt-0 flex flex-col canvas:flex-row canvas:items-end canvas:justify-between gap-[32px]">
+        <div className="canvas-zoom canvas:w-[1800px] w-full max-w-[1800px] mx-auto px-4 lg:px-8 g1864:px-0 pt-[40px] canvas:pt-0 flex flex-col canvas:flex-row canvas:items-end canvas:justify-between gap-[14px] canvas:gap-[32px]">
           <div className="flex flex-col gap-[15px] canvas:w-[873px]">
-            <div className="flex items-center gap-[10px] font-archivo text-[20px] leading-[28px] text-[#333333]">
+            <div className="flex items-center gap-[10px] font-archivo text-[15px] sm:text-[16px] lg:text-[20px] leading-[28px] text-[#333333]">
               <Link href="/" className="hover:text-[#2B398B] transition-colors">Home</Link>
               <Chevron />
               <Link href="/about-us" className="hover:text-[#2B398B] transition-colors">About us</Link>
               <Chevron />
               <span className="text-[#2B398B] leading-[26px]">Company Profile</span>
             </div>
-            <h1 className="m-0 font-recia font-normal text-[#2B398B] text-[44px] leading-[52px] lg:text-[68px] lg:leading-[78px]">
+            <h1 className="m-0 font-recia font-normal text-[#2B398B] text-[38px] leading-[46px] sm:text-[44px] sm:leading-[52px] lg:text-[68px] lg:leading-[78px]">
               Introducing Innovative <span className="italic font-semibold">Clean Energy Solutions.</span>
             </h1>
           </div>
 
           <div className="flex flex-col gap-[32px] canvas:w-[816px]">
-            <p className="m-0 font-archivo text-[20px] lg:text-[24px] leading-[30px] lg:leading-[36px] text-[#333333]">
+            <p className="m-0 font-archivo text-[18px] lg:text-[24px] leading-[28px] lg:leading-[36px] text-[#333333]">
               Explore Expert article installation guides, products updates, industry news and technical resources from Ksquare Energy.
             </p>
-            <div className="flex flex-wrap items-center gap-[16px]">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-[16px]">
               <OutlineButton href="/blog">Browse Articles</OutlineButton>
               <OutlineButton href="/products/dcdb">Explore Products</OutlineButton>
             </div>
@@ -82,7 +82,7 @@ export default function AboutUsPage() {
         <div className="w-full max-w-[1804px] mx-auto px-4 lg:px-8 g1868:px-0 mt-[40px] lg:mt-[174px]">
           <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:aspect-[1804/500]">
             {/* mobile / tablet: banner only */}
-            <Image src="/assets/about/hero_bg-23383c.png" alt="Hero Graphic" fill sizes="1804px" className="object-cover lg:hidden" priority />
+            <Image src="/assets/about/hero_full.webp" alt="Hero Graphic" fill sizes="1804px" className="object-cover object-[62%_center] lg:hidden" priority />
             {/* desktop: banner + engineer cut-out merged into one Figma image (rises 163px above the plate) */}
             <div className="hidden lg:block absolute left-0 w-full pointer-events-none" style={{ top: "-32.6%", height: "132.6%" }}>
               <Image src="/assets/about/hero_full.webp" alt="Hero Graphic" fill sizes="1804px" className="object-fill" priority />
@@ -202,14 +202,14 @@ export default function AboutUsPage() {
             <div className="w-full bg-[#2B398B] flex flex-col p-[24px] pt-[48px] overflow-hidden">
               <h3 className="m-0 font-archivo font-semibold text-[32px] leading-[1.2] text-white">Our Mission</h3>
               <p className="mt-[20px] mb-0 font-archivo text-[18px] leading-[1.5] text-white">{missionText}</p>
-              <div className="relative mt-[40px] w-[250px] md:w-[350px] aspect-[479/333]">
+              <div className="relative mt-[32px] -mx-[24px] -mb-[24px] w-[calc(100%+48px)] aspect-[479/333] md:mx-0 md:mb-0 md:mt-[40px] md:w-[350px]">
                 <Image src="/assets/about/mission_bg_render.png" alt="Mission Graphic" fill className="object-contain object-left-bottom" />
               </div>
             </div>
             <div className="w-full bg-[#EDF3FF] flex flex-col p-[24px] pt-[48px] overflow-hidden">
               <h3 className="m-0 font-archivo font-semibold text-[32px] leading-[1.2] text-[#2B398B] text-right">Our Vision</h3>
               <p className="mt-[20px] mb-0 font-archivo text-[18px] leading-[1.5] text-[#333333] text-right">{missionText}</p>
-              <div className="relative mt-[40px] w-[280px] md:w-[400px] aspect-[542/361] ml-auto">
+              <div className="relative mt-[32px] -mx-[24px] -mb-[24px] w-[calc(100%+48px)] aspect-[542/361] md:mx-0 md:mb-0 md:mt-[40px] md:w-[400px] md:ml-auto">
                 <Image src="/assets/about/vision_bg.png" alt="Vision Graphic" fill className="object-contain object-right-bottom" />
               </div>
             </div>
@@ -217,7 +217,7 @@ export default function AboutUsPage() {
         </section>
 
         {/* 4. Who We Serve */}
-        <section className="w-full max-w-[1600px] mx-auto px-4 lg:px-8 g1664:px-0 flex flex-col gap-[48px]">
+        <section className="w-full max-w-[1600px] mx-auto px-4 lg:px-8 g1664:px-0 flex flex-col gap-[28px] lg:gap-[48px]">
           <div className="flex flex-col items-center text-center gap-[8px]">
             <h2 className="m-0 font-archivo font-normal text-[40px] lg:text-[60px] leading-[1.2] canvas:leading-[42px] text-[#2B398B] canvas:h-[57.1px] flex items-center">
               <span>Who&nbsp;</span>
@@ -240,7 +240,7 @@ export default function AboutUsPage() {
                 </p>
               </div>
             ))}
-            <div className="bg-white border border-white p-[40px] flex flex-col justify-center">
+            <div className="bg-white border border-white px-0 py-[24px] lg:p-[40px] flex flex-col justify-center">
               <p className="m-0 font-recia italic font-medium text-[22px] lg:text-[28px] text-center text-[#333333]">
                 From manufacturing to installation, Ksquare Energy supports every stakeholder with reliable products, technical expertise, and dependable service.
               </p>
@@ -250,7 +250,7 @@ export default function AboutUsPage() {
 
         {/* 5. The Values That Guide Us */}
         <section className="w-full bg-[#F8FAFF] py-[60px] canvas:h-[920px] canvas:py-0 flex flex-col items-center justify-center gap-[40px]">
-          <div className="w-full flex flex-col items-center gap-[60px]">
+          <div className="w-full flex flex-col items-center gap-[32px] lg:gap-[60px]">
             <div className="flex flex-col items-center gap-[24px] text-center px-4">
               <h2 className="m-0 pt-[22.5px] font-inter font-medium text-[40px] lg:text-[60px] leading-[1.2] text-[#1E3A8A]">
                 The Values That <span className="italic">Guide Us</span>

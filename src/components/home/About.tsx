@@ -7,7 +7,7 @@ export default function About() {
   return (
     <section className="relative w-full bg-[#FFFFFF] overflow-hidden">
       {/* Desktop Wrapper */}
-      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative h-[500px] max-canvas:h-auto max-canvas:px-6 max-canvas:py-12 max-sm:py-8">
+      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative h-[500px] max-canvas:h-auto max-canvas:px-6 max-canvas:py-8 max-sm:py-0">
         
         {/* Left Content (Frame 2085663111) */}
         <div className="hidden canvas:block absolute left-[160px] top-[13px] w-[750px] h-[474px]">
@@ -60,7 +60,7 @@ export default function About() {
         </div>
 
         {/* Responsive layout (< 1280px) */}
-        <div className="canvas:hidden flex flex-col items-center gap-12 w-full max-w-[800px] mx-auto">
+        <div className="canvas:hidden flex flex-col items-center gap-6 sm:gap-12 w-full max-w-[800px] mx-auto">
           <RichTitle as="h2" text="About *Ksquare*" className="font-archivo font-normal text-[48px] sm:text-[60px] text-[#333333] text-center w-full" />
           
           <div className="relative w-full aspect-[3/2]">

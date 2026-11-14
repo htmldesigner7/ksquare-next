@@ -33,20 +33,20 @@ export default function OurPresenceTabs() {
   return (
     <div className="flex flex-col justify-center items-center gap-[40px] w-full max-w-[1600px]">
       {/* Tabs */}
-      <div className="flex items-center gap-[18px]">
+      <div className="flex items-center justify-center gap-[8px] sm:gap-[18px]">
         <button
           type="button"
           onClick={() => setZone("west")}
-          className={`font-archivo text-[24px] leading-[26px] px-[28px] py-[16px] rounded-t-[12px] transition-colors ${
+          className={`font-archivo whitespace-nowrap text-[18px] sm:text-[24px] leading-[26px] px-[16px] sm:px-[28px] py-[12px] sm:py-[16px] rounded-t-[12px] transition-colors ${
             zone === "west" ? "text-primary border-b border-primary" : "text-[#333333]"
           }`}
         >
-          west zone
+          West Zone
         </button>
         <button
           type="button"
           onClick={() => setZone("east")}
-          className={`font-archivo text-[24px] leading-[26px] px-[28px] py-[16px] rounded-t-[12px] transition-colors ${
+          className={`font-archivo whitespace-nowrap text-[18px] sm:text-[24px] leading-[26px] px-[16px] sm:px-[28px] py-[12px] sm:py-[16px] rounded-t-[12px] transition-colors ${
             zone === "east" ? "text-primary border-b border-primary" : "text-[#333333]"
           }`}
         >
@@ -60,7 +60,7 @@ export default function OurPresenceTabs() {
           {westZoneLocations.map((loc) => (
             <div
               key={loc.id}
-              className="w-full bg-[#F0F5FE] p-[24px] pb-[0] flex flex-col lg:flex-row justify-between items-start lg:items-center gap-[16px] lg:gap-[24px] border-b border-[#9DBCF3] min-h-[100px]"
+              className="w-full bg-[#F0F5FE] p-[24px] lg:pb-[0] flex flex-col lg:flex-row justify-between items-start lg:items-center gap-[16px] lg:gap-[24px] border-b border-[#9DBCF3] min-h-[100px]"
             >
               <div className="w-full lg:w-[264px] shrink-0">
                 <h3

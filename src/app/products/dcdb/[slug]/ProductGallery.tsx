@@ -167,7 +167,7 @@ export function ProductGalleryMobile({ image, alt, description, patternSrc }: Pr
         <div className="relative mx-auto w-full max-w-[420px] aspect-[396/450] drop-shadow-[0px_4px_12px_rgba(0,0,0,0.25)]" {...g.swipe}>
           <SlideStack slides={g.slides} active={g.active} alt={alt} sizes="(min-width:640px) 420px, 90vw" priority />
         </div>
-        <div className="flex items-center justify-between gap-[16px]">
+        <div className="flex flex-wrap items-center justify-between gap-[16px]">
           <div className="flex items-center gap-[10px]">
             {g.slides.map((src, i) => (
               <button
@@ -184,7 +184,7 @@ export function ProductGalleryMobile({ image, alt, description, patternSrc }: Pr
               </button>
             ))}
           </div>
-          <Arrows prev={g.prev} next={g.next} size={48} />
+          <div className="hidden sm:block"><Arrows prev={g.prev} next={g.next} size={48} /></div>
         </div>
         <p className="m-0 font-archivo text-[16px] leading-[1.5] text-[#F0F5FE]">{description}</p>
       </div>

@@ -82,30 +82,30 @@ export default function GrievancePage() {
       {/* 1. Hero Section & Breadcrumbs */}
       <section className="w-full pt-[40px] flex flex-col items-center">
         <Container maxWidth="1800">
-          <div className="flex flex-col lg:flex-row justify-between items-end gap-[40px] w-full">
+          <div className="flex flex-col xl:flex-row justify-between items-start xl:items-end gap-[16px] xl:gap-[40px] w-full">
             {/* Left: Breadcrumbs & Title */}
             <div className="flex flex-col gap-[12px] lg:max-w-[792px]">
               {/* Breadcrumb */}
               <div className="flex items-center gap-[10px] flex-wrap">
-                <Link href="/" className="font-archivo text-[16px] lg:text-[20px] text-[#666666] hover:text-primary leading-[28px]">
+                <Link href="/" className="font-archivo text-[15px] sm:text-[16px] lg:text-[20px] text-[#666666] hover:text-primary leading-[28px]">
                   Home
                 </Link>
                 <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 9L5 5L1 1" stroke="#333333" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                <Link href="/about-us" className="font-archivo text-[16px] lg:text-[20px] text-[#666666] hover:text-primary leading-[28px]">
+                <Link href="/about-us" className="font-archivo text-[15px] sm:text-[16px] lg:text-[20px] text-[#666666] hover:text-primary leading-[28px]">
                   About Us
                 </Link>
                 <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 9L5 5L1 1" stroke="#333333" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                <span className="font-archivo text-[16px] lg:text-[20px] text-primary leading-[26px]">
+                <span className="font-archivo text-[15px] sm:text-[16px] lg:text-[20px] text-primary leading-[26px]">
                   Grievance
                 </span>
               </div>
 
               {/* Title */}
-              <h1 className="font-recia text-[48px] lg:text-[68px] leading-[1.1] lg:leading-[78px] lg:h-[160px] text-primary font-normal">
+              <h1 className="font-recia text-[38px] sm:text-[48px] lg:text-[68px] leading-[1.1] lg:leading-[78px] lg:h-[160px] text-primary font-normal">
                 Grievance <br className="hidden lg:block" />
                 <span className="italic font-semibold">Redressal</span>
               </h1>
@@ -118,7 +118,7 @@ export default function GrievancePage() {
               </p>
 
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-[16px]">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-[16px]">
                 <Button variant="outline-primary" href="#grievance-form" showDot={true}>
                   Raise a Grievance
                 </Button>
@@ -212,7 +212,7 @@ export default function GrievancePage() {
         <Container maxWidth="1600">
           <div className="flex flex-col items-stretch gap-[48px]">
             <div className="flex flex-col items-center text-center gap-[8px]">
-              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[70px] lg:h-[57px] text-primary font-normal">
+              <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[70px] xl:h-[57px] text-primary font-normal">
                 What Can <span className="font-recia italic font-medium">You Report ?.</span>
               </h2>
               <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">
@@ -291,7 +291,7 @@ export default function GrievancePage() {
         {/* Mobile/tablet fallback (Figma provides no separate mobile frame) */}
         <div className="canvas:hidden">
           <Container maxWidth="1600">
-            <div className="flex flex-col items-center gap-[60px]">
+            <div className="flex flex-col items-center gap-[32px] lg:gap-[60px]">
               <h2 className="font-archivo text-[36px] leading-[1.15] text-primary font-normal text-center">
                 What Happens <span className="font-recia italic font-medium">After You Submit?</span>
               </h2>
@@ -323,7 +323,7 @@ export default function GrievancePage() {
       {/* 4. Tell Us What Went Wrong (Form + Contact Info) */}
       <section id="grievance-form" className="w-full scroll-mt-[110px]">
         <Container maxWidth="1600">
-          <div className="flex flex-col lg:flex-row gap-[48px] lg:gap-[80px] items-start lg:items-center w-full">
+          <div className="flex flex-col xl:flex-row gap-[48px] xl:gap-[80px] items-start xl:items-center w-full">
 
             {/* Form Column */}
             <div className="w-full lg:flex-1 bg-white border border-[#DDDDDD] p-[32px] lg:p-[48px] flex flex-col gap-[32px]">
@@ -412,7 +412,7 @@ export default function GrievancePage() {
             </div>
 
             {/* Info Column */}
-            <div className="w-full lg:w-[560px] shrink-0 flex flex-col gap-[24px]">
+            <div className="w-full xl:w-[560px] shrink-0 flex flex-col gap-[24px]">
               <div className="flex flex-col gap-[12px]">
                 <h3 className="font-dm text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[70px] text-primary font-medium">
                   Corporate Office

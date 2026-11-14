@@ -44,7 +44,7 @@ const DatePill = ({ date }: { date: string }) => (
 export default function Insights() {
   return (
     <section className="w-full bg-[#FFFFFF] py-0 overflow-hidden">
-      <div className="canvas-zoom w-full max-w-[1920px] canvas:w-[1920px] mx-auto px-6 canvas:px-[160px] flex flex-col gap-12 canvas:gap-[48px]">
+      <div className="canvas-zoom w-full max-w-[1920px] canvas:w-[1920px] mx-auto px-6 canvas:px-[160px] flex flex-col gap-8 sm:gap-12 canvas:gap-[48px]">
 
         {/* Header Area */}
         <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
@@ -76,7 +76,7 @@ export default function Insights() {
 
           {/* Featured Article */}
           <Link href="/blog/choosing-cable-glands-mc4-connectors" className="w-full canvas:w-[800px] shrink-0 flex flex-col bg-[#FFFFFF] group">
-            <div className="w-full h-[300px] sm:h-[400px] canvas:h-[546.67px] relative overflow-hidden bg-gray-100">
+            <div className="w-full aspect-[800/547] canvas:aspect-auto canvas:h-[546.67px] relative overflow-hidden bg-gray-100">
               <Image
                 src="/assets/img_1_13.png"
                 alt="Solar Cables Insight"

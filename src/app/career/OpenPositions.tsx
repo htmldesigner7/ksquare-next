@@ -20,9 +20,9 @@ export default function OpenPositions({
   const filtered = activeTab === "All Positions" ? positions : positions.filter((p) => p.category === activeTab);
 
   return (
-    <div className="flex flex-col items-center gap-[40px] w-full">
+    <div className="flex flex-col items-center gap-[24px] lg:gap-[40px] w-full">
       {/* Tabs */}
-      <div className="flex items-center gap-[10px] lg:gap-[18px] flex-wrap justify-center">
+      <div className="flex items-center gap-[10px] lg:gap-[18px] w-full justify-start lg:justify-center flex-nowrap overflow-x-auto lg:flex-wrap lg:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {tabs.map((tab) => (
           <button
             key={tab}
@@ -33,7 +33,7 @@ export default function OpenPositions({
             }`}
           >
             <span
-              className={`font-archivo text-[16px] lg:text-[24px] leading-[26px] ${
+              className={`font-archivo whitespace-nowrap text-[16px] lg:text-[24px] leading-[26px] ${
                 activeTab === tab ? "text-primary font-semibold" : "text-[#666666]"
               }`}
             >
@@ -64,7 +64,7 @@ export default function OpenPositions({
                   <div className="w-[48px] h-[48px] shrink-0 bg-[#EDF3FF] rounded-[5px] flex items-center justify-center">
                     <span className="font-archivo text-[17px] text-[#333333]">{i + 1}</span>
                   </div>
-                  <div className="flex items-center justify-between flex-1 min-w-0 gap-[16px] flex-wrap">
+                  <div className="flex items-center justify-between flex-1 min-w-0 gap-[16px] flex-wrap sm:flex-nowrap">
                     <h3 className="font-archivo text-[20px] lg:text-[24px] leading-[32px] text-[#333333]">
                       {pos.title}
                     </h3>

@@ -66,7 +66,7 @@ export default function CoreProducts() {
   return (
     <section className="relative w-full bg-[#FFFFFF] overflow-hidden">
       {/* Desktop Wrapper */}
-      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative h-[1369px] max-canvas:h-auto max-canvas:px-6 max-canvas:py-12 max-sm:py-8">
+      <div className="canvas-zoom w-[1920px] max-w-full mx-auto relative h-[1369px] max-canvas:h-auto max-canvas:px-6 max-canvas:py-8 max-sm:py-0">
         
         {/* Header (Frame 26) */}
         <div className="hidden canvas:block absolute left-[160px] top-0 w-[1600px] h-[105px]">
@@ -123,7 +123,7 @@ export default function CoreProducts() {
         </div>
 
         {/* Responsive layout (< 1280px) */}
-        <div className="canvas:hidden flex flex-col gap-12 w-full max-w-[1200px] mx-auto">
+        <div className="canvas:hidden flex flex-col gap-8 sm:gap-12 w-full max-w-[1200px] mx-auto">
           <div className="flex flex-col gap-6 text-center sm:text-left">
             <RichTitle as="h2" text="Core *Products*" className="font-archivo font-normal text-[48px] sm:text-[60px] text-[#333333] leading-none m-0 p-0" />
             <p className="font-archivo font-normal text-[17px] text-[#666666] leading-relaxed m-0 p-0">

@@ -85,45 +85,45 @@ export default function OurInfrastructurePage() {
   return (
     <main className="w-full bg-white font-archivo overflow-x-clip">
       {/* 1. Hero Section & Breadcrumbs */}
-      <section className="w-full pt-[90px] lg:pt-[130px] flex flex-col items-center">
+      <section className="w-full pt-[110px] lg:pt-[130px] flex flex-col items-center">
         <Container maxWidth="1800">
-          <div className="flex flex-col lg:flex-row justify-between items-end gap-[40px] w-full">
+          <div className="flex flex-col xl:flex-row justify-between items-end gap-[16px] xl:gap-[40px] w-full">
             {/* Left: Breadcrumbs & Title */}
             <div className="flex flex-col gap-[12px] w-full lg:max-w-[792px]">
               {/* Breadcrumb */}
               <div className="flex items-center gap-[10px] flex-wrap">
-                <Link href="/" className="font-archivo text-[16px] lg:text-[20px] text-[#333333] hover:text-primary leading-[28px] transition-colors">
+                <Link href="/" className="font-archivo text-[15px] sm:text-[16px] lg:text-[20px] text-[#333333] hover:text-primary leading-[28px] transition-colors">
                   Home
                 </Link>
                 <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 9L5 5L1 1" stroke="#333333" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                <Link href="/about-us" className="font-archivo text-[16px] lg:text-[20px] text-[#333333] hover:text-primary leading-[28px] transition-colors">
+                <Link href="/about-us" className="font-archivo text-[15px] sm:text-[16px] lg:text-[20px] text-[#333333] hover:text-primary leading-[28px] transition-colors">
                   About Us
                 </Link>
                 <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 9L5 5L1 1" stroke="#333333" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                <span className="font-archivo text-[16px] lg:text-[20px] text-primary leading-[26px]">
+                <span className="font-archivo text-[15px] sm:text-[16px] lg:text-[20px] text-primary leading-[26px]">
                   Our Infrastructure
                 </span>
               </div>
 
               {/* Title */}
-              <h1 className="font-recia text-[42px] lg:text-[68px] leading-[1.1] lg:leading-[78px] lg:min-h-[179px] desk:h-[179px] text-primary font-normal">
+              <h1 className="font-recia text-[38px] sm:text-[42px] lg:text-[68px] leading-[1.1] lg:leading-[78px] lg:min-h-[179px] desk:h-[179px] text-primary font-normal">
                 Built for Precision,<br />
                 <span className="italic font-semibold">Ready for Scale.</span>
               </h1>
             </div>
 
             {/* Right: Text & Buttons */}
-            <div className="flex flex-col gap-[32px] w-full lg:max-w-[760px] pt-[10px]">
+            <div className="flex flex-col gap-[32px] w-full lg:max-w-[760px] pt-0 lg:pt-[10px]">
               <p className="font-archivo text-[18px] lg:text-[24px] leading-[1.5] text-[#333333]">
                 Explore the infrastructure, technology and manufacturing capabilities behind Ksquare Energy&apos;s solar component solutions.
               </p>
 
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-[16px]">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-[16px]">
                 <Button variant="outline-primary" href="#gallery" showDot>
                   Explore Our Facility
                 </Button>
@@ -233,7 +233,7 @@ export default function OurInfrastructurePage() {
                 </div>
               ))}
               {/* Highlighted quote box completes the 6-tile grid */}
-              <div className="flex items-center justify-center bg-white p-[32px] lg:p-[40px]">
+              <div className="flex items-center justify-center bg-white px-0 py-[24px] lg:p-[40px]">
                 <p className="font-recia italic font-medium text-[20px] lg:text-[28px] leading-[1.4] text-[#333333] text-center">
                   From raw materials to finished products, Ksquare brings manufacturing, testing and technical expertise together to deliver reliable solar solutions with greater control and consistency.
                 </p>
@@ -290,7 +290,7 @@ export default function OurInfrastructurePage() {
         {/* Mobile/tablet fallback (Figma provides no separate mobile frame) */}
         <div className="canvas:hidden py-[80px] px-6">
           <Container maxWidth="1600">
-            <div className="flex flex-col items-center gap-[60px]">
+            <div className="flex flex-col items-center gap-[32px] lg:gap-[60px]">
               <div className="flex flex-col items-center text-center gap-[14px] max-w-[900px]">
                 <h2 className="font-archivo text-[32px] leading-[1.15] text-white font-normal">
                   Capabilities Built <span className="font-recia italic font-medium">Around Precision.</span>
@@ -367,7 +367,7 @@ export default function OurInfrastructurePage() {
         {/* Mobile/tablet fallback (Figma provides no separate mobile frame) */}
         <div className="w1100:hidden">
           <Container maxWidth="1600">
-            <div className="flex flex-col items-center gap-[60px]">
+            <div className="flex flex-col items-center gap-[32px] lg:gap-[60px]">
               <h2 className="font-archivo text-[32px] leading-[1.15] text-primary font-normal text-center">
                 From Production <span className="font-recia italic font-medium capitalize">to Quality Assurance.</span>
               </h2>

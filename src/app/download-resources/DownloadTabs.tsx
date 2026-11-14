@@ -56,9 +56,9 @@ export default function DownloadTabs() {
   const [activeTab, setActiveTab] = useState(1);
 
   return (
-    <div className="flex flex-col items-center gap-[40px] w-full">
+    <div className="flex flex-col items-center gap-[24px] lg:gap-[40px] w-full">
       {/* Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-[10px] lg:gap-[18px]">
+      <div className="flex w-full items-center justify-start lg:justify-center gap-[10px] lg:gap-[18px] flex-nowrap overflow-x-auto lg:flex-wrap lg:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {tabsData.map((tab, i) => (
           <button
             key={tab.label}
@@ -95,7 +95,7 @@ export default function DownloadTabs() {
                 <div className="w-[48px] h-[48px] shrink-0 bg-[#EDF3FF] rounded-[5px] flex items-center justify-center">
                   <span className="font-archivo text-[17px] text-[#333333]">{i + 1}</span>
                 </div>
-                <div className="flex items-center justify-between flex-1 min-w-0 gap-[16px] flex-wrap">
+                <div className="flex items-center justify-between flex-1 min-w-0 gap-[16px] flex-wrap sm:flex-nowrap">
                   <h3 className="font-archivo text-[20px] lg:text-[24px] leading-[32px] text-[#333333]">
                     {item.title}
                   </h3>

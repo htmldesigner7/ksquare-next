@@ -65,7 +65,7 @@ function IconTile({ name, badge, size = 90, bleed = false }: { name?: keyof type
 
 function Wrap({ id, tone = "white", children, className = "", width = "1600" }: { id?: string; tone?: "white" | "soft"; children: React.ReactNode; className?: string; width?: "1600" | "1800" }) {
   return (
-    <section id={id} className={`w-full scroll-mt-[110px] ${tone === "soft" ? "bg-[#F0F5FE] py-[60px] lg:py-[100px]" : "bg-white py-[40px] lg:py-[var(--wrap-py,80px)]"} ${className}`}>
+    <section id={id} className={`w-full scroll-mt-[110px] ${tone === "soft" ? "bg-[#F0F5FE] py-[48px] lg:py-[100px]" : "bg-white py-[32px] lg:py-[var(--wrap-py,80px)]"} ${className}`}>
       <Container maxWidth={width}>{children}</Container>
     </section>
   );
@@ -141,7 +141,7 @@ function CardsSection({ s }: { s: Extract<Section, { type: "cards" }> }) {
   const wide = cols === 4 && !s.items.some((i) => i.image) && (!inline || (!!s.inline && !s.quote));
   return (
     <Wrap id={s.id} tone={s.tone} width={wide ? "1800" : "1600"}>
-      <div className="flex flex-col gap-[48px]">
+      <div className="flex flex-col gap-[28px] lg:gap-[48px]">
         <Reveal>
           <Heading title={s.title} subtitle={s.subtitle} align={left ? "left" : "center"} wide={left || s.compactHead} compact={s.compactHead} ink={s.compactHead && s.fit === "contain"} />
         </Reveal>
@@ -247,7 +247,7 @@ function CardsSection({ s }: { s: Extract<Section, { type: "cards" }> }) {
           ))}
           {s.quote && (
             <Reveal delay={0.35} className="h-full">
-              <div className="flex h-full items-center justify-center bg-white p-[28px] lg:p-[40px]">
+              <div className="flex h-full items-center justify-center bg-white px-0 py-[20px] lg:p-[40px]">
                 <p className="m-0 text-center font-recia italic font-medium text-[22px] lg:text-[28px] leading-[1.4] text-[#333333]">{s.quote}</p>
               </div>
             </Reveal>
@@ -270,7 +270,7 @@ function TableSection({ s }: { s: Extract<Section, { type: "table" }> }) {
           <Heading title={s.title} subtitle={s.subtitle} />
         </Reveal>
         <Reveal>
-          <div className={`w-full overflow-x-auto border ${plain ? "border-[#DDDDDD]" : "border-[#C6CCED]"}`}>
+          <div className={`scroll-hint w-full overflow-x-auto border ${plain ? "border-[#DDDDDD]" : "border-[#C6CCED]"}`}>
             <table className={`w-full ${plain ? "min-w-[900px] table-fixed" : "min-w-[720px]"} border-collapse font-archivo ${plain ? "text-left" : "text-center"}`}>
               {plain && plainCols.length > 0 && (
                 <colgroup>
@@ -328,7 +328,7 @@ function StepsSection({ s }: { s: Extract<Section, { type: "steps" }> }) {
   const variant = s.variant ?? (s.items.length === 6 ? "circles" : "hex");
   return (
     <Wrap id={s.id} tone={s.tone} className="overflow-hidden">
-      <div className="flex flex-col gap-[48px] lg:gap-[70px]">
+      <div className="flex flex-col gap-[28px] lg:gap-[70px]">
         <Reveal>
           <Heading title={s.title} subtitle={s.subtitle} />
         </Reveal>
@@ -383,7 +383,7 @@ function CompareSection({ s }: { s: Extract<Section, { type: "compare" }> }) {
   // Figma: 520px cards on a 1600px row (20px gaps), 40/28 padding, 40px title, 17/26 copy with 20px gaps, hairline divider before the bottom padding.
   return (
     <Wrap id={s.id}>
-      <div className="flex flex-col gap-[48px] lg:gap-[84px] lg:py-[20px]">
+      <div className="flex flex-col gap-[28px] lg:gap-[84px] lg:py-[20px]">
         <Reveal>
           <Heading title={s.title} subtitle={s.subtitle} wide compact />
         </Reveal>
@@ -454,7 +454,7 @@ function Callout({ n, title, desc, bg = "bg-[#EDF3FF]" }: { n: number; title: st
 function CalloutsSection({ s }: { s: Extract<Section, { type: "dark" }> }) {
   const items = s.items ?? [];
   return (
-    <section id={s.id} className="relative w-full overflow-hidden bg-[#2B398B] scroll-mt-[110px] pt-[60px] pb-[60px] lg:pt-[57px] lg:pb-[21px] lg:my-[calc((80px-var(--wrap-py,80px))*5/3)]">
+    <section id={s.id} className="relative w-full overflow-hidden bg-[#2B398B] scroll-mt-[110px] pt-[48px] pb-[48px] lg:pt-[57px] lg:pb-[21px] lg:my-[calc((80px-var(--wrap-py,80px))*5/3)]">
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <Image src="/assets/pages/shared/callouts_pattern.svg" alt="" fill sizes="100vw" unoptimized className="object-cover object-center" />
       </div>
@@ -504,7 +504,7 @@ function CalloutsSection({ s }: { s: Extract<Section, { type: "dark" }> }) {
 function DarkSection({ s }: { s: Extract<Section, { type: "dark" }> }) {
   if (s.numbered) return <CalloutsSection s={s} />;
   return (
-    <section id={s.id} className="relative w-full overflow-hidden bg-[#1A1A1A] scroll-mt-[110px] py-[70px] lg:py-[80px] lg:min-h-[400px] lg:flex lg:items-center lg:my-[calc((80px-var(--wrap-py,80px))*5/3)]">
+    <section id={s.id} className="relative w-full overflow-hidden bg-[#1A1A1A] scroll-mt-[110px] py-[56px] lg:py-[80px] lg:min-h-[400px] lg:flex lg:items-center lg:my-[calc((80px-var(--wrap-py,80px))*5/3)]">
       <Image src={s.bgImage ?? "/assets/img_partner_bg.png"} alt="" fill sizes="100vw" className="object-cover pointer-events-none" aria-hidden="true" />
       <div className="absolute inset-0 bg-[#1A1A1A]/80" aria-hidden="true" />
       <Container maxWidth="1600" className="relative z-10">
@@ -544,7 +544,7 @@ function TiersSection({ s }: { s: Extract<Section, { type: "tiers" }> }) {
   // Figma: 520px cards on a 1600px row (20px gaps), 40/28 padding, 30px stack gap; the featured card is a 554px-tall navy-outlined card with a #1E40AF badge.
   return (
     <Wrap id={s.id} tone={s.tone}>
-      <div className="flex flex-col gap-[48px] lg:gap-[84px] lg:py-[20px]">
+      <div className="flex flex-col gap-[28px] lg:gap-[84px] lg:py-[20px]">
         <Reveal>
           <Heading title={s.title} subtitle={s.subtitle} compact={s.compactHead} />
         </Reveal>
@@ -676,7 +676,7 @@ function AccordionSection({ s }: { s: Extract<Section, { type: "accordion" }> })
   const center = s.centerHeading !== false;
   return (
     <Wrap id={s.id} tone={s.tone} className={s.tall ? "lg:py-[90px]!" : ""}>
-      <div className={`flex flex-col gap-[48px] ${s.tall ? "lg:gap-[60px]" : ""}`}>
+      <div className={`flex flex-col gap-[28px] lg:gap-[48px] ${s.tall ? "lg:gap-[60px]" : ""}`}>
         {center && (
           <Reveal>
             <Heading title={s.title} subtitle={s.subtitle} compact={s.tall} />
@@ -702,7 +702,7 @@ function NumberedSection({ s }: { s: Extract<Section, { type: "numbered" }> }) {
   // Figma: four-up numbered cards run on the 1800px row (430px cards); three-up stays on 1600px.
   return (
     <Wrap id={s.id} tone={s.tone} width={s.items.length === 4 ? "1800" : "1600"}>
-      <div className="flex flex-col gap-[48px]">
+      <div className="flex flex-col gap-[28px] lg:gap-[48px]">
         <Reveal>
           <Heading title={s.title} subtitle={s.subtitle} />
         </Reveal>
@@ -725,17 +725,17 @@ function NumberedSection({ s }: { s: Extract<Section, { type: "numbered" }> }) {
 function RegionsSection({ s }: { s: Extract<Section, { type: "regions" }> }) {
   // Figma: solid brand-blue 1920 x 920 band; centred heading, then a 800px state accordion beside the 612 x 620 map (100px apart)
   return (
-    <section id={s.id} className="relative w-full overflow-hidden bg-primary scroll-mt-[110px] py-[70px] lg:py-[52px] lg:min-h-[920px] lg:flex lg:items-center">
+    <section id={s.id} className="relative w-full overflow-hidden bg-primary scroll-mt-[110px] py-[56px] lg:py-[52px] lg:min-h-[920px] lg:flex lg:items-center">
       <Container maxWidth="1600" className="relative z-10">
-        <div className="flex flex-col items-center gap-[40px] lg:gap-[30px]">
+        <div className="flex flex-col items-center gap-[24px] lg:gap-[30px]">
           <Reveal>
             <Heading title={s.title} subtitle={s.desc} light />
           </Reveal>
-          <div className="flex w-full flex-col lg:flex-row items-center justify-center gap-[40px] lg:gap-[100px]">
-            <Reveal className="w-full lg:w-[800px] lg:shrink-0">
+          <div className="flex w-full flex-col xl:flex-row items-center justify-center gap-[40px] xl:gap-[100px]">
+            <Reveal className="w-full xl:w-[800px] xl:shrink-0">
               <RegionList states={s.states} />
             </Reveal>
-            <Reveal delay={0.1} className="relative w-full max-w-[520px] lg:max-w-none lg:w-[612px] shrink-0 aspect-[612/620]">
+            <Reveal delay={0.1} className="relative w-full max-w-[520px] xl:max-w-none xl:w-[612px] shrink-0 aspect-[612/620]">
               <Image src={s.map} alt="Map of India showing Ksquare Energy's presence" fill sizes="(min-width:1024px) 612px, 90vw" className="object-contain" />
             </Reveal>
           </div>
@@ -917,7 +917,7 @@ export function SectionRenderer({ section }: { section: Section }) {
     case "team":
       return (
         <Wrap id={section.id} width="1800">
-          <div className="flex flex-col gap-[48px]">
+          <div className="flex flex-col gap-[28px] lg:gap-[48px]">
             <Reveal>
               <Heading title={section.title} subtitle={section.subtitle} tight />
             </Reveal>
@@ -962,8 +962,8 @@ export function SectionRenderer({ section }: { section: Section }) {
       );
     case "timeline":
       return (
-        <section id={section.id} className="relative w-full overflow-hidden bg-[#2B398B] py-[70px] lg:py-[60px] lg:min-h-[920px] lg:flex lg:items-center">
-          <div className="absolute inset-0 opacity-[0.12] pointer-events-none" aria-hidden="true">
+        <section id={section.id} className="relative w-full overflow-hidden bg-[#2B398B] py-[56px] lg:py-[60px] lg:min-h-[920px] lg:flex lg:items-center">
+          <div className="absolute inset-0 hidden lg:block opacity-[0.12] pointer-events-none" aria-hidden="true">
             <Image src="/assets/mfg_pattern.png" alt="" fill sizes="100vw" className="object-cover" />
           </div>
           <Container maxWidth="1600" className="relative z-10">
@@ -979,7 +979,7 @@ export function SectionRenderer({ section }: { section: Section }) {
     case "featured":
       return (
         <Wrap id={section.id}>
-          <div className="flex flex-col gap-[48px]">
+          <div className="flex flex-col gap-[28px] lg:gap-[48px]">
             <Reveal>
               <Heading title={section.title} subtitle={section.subtitle} />
             </Reveal>
@@ -1004,7 +1004,7 @@ export function SectionRenderer({ section }: { section: Section }) {
     case "events":
       return (
         <Wrap id={section.id}>
-          <div className="flex flex-col gap-[48px]">
+          <div className="flex flex-col gap-[28px] lg:gap-[48px]">
             {section.title && (
               <Reveal>
                 <Heading title={section.title} subtitle={section.subtitle} />
@@ -1038,7 +1038,7 @@ export function SectionRenderer({ section }: { section: Section }) {
     case "articles":
       return (
         <Wrap id={section.id} width="1800">
-          <div className="flex flex-col gap-[48px]">
+          <div className="flex flex-col gap-[28px] lg:gap-[48px]">
             {section.title && (
               <Reveal>
                 <Heading title={section.title} subtitle={section.subtitle} />

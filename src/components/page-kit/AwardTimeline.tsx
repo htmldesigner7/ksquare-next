@@ -22,7 +22,7 @@ export default function AwardTimeline({ entries }: { entries: Entry[] }) {
   const years = nums.length ? Array.from({ length: Math.max(...nums) - Math.min(...nums) + 1 }, (_, k) => String(Math.min(...nums) + k)) : entries.map((x) => x.year);
 
   return (
-    <div className="flex flex-col gap-[48px] lg:gap-[90px]">
+    <div className="flex flex-col gap-[28px] lg:gap-[90px]">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-[40px] lg:gap-[80px] items-center">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div key={e.year} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.3 }} className="flex flex-col gap-[16px]">

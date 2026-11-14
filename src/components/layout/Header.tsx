@@ -375,26 +375,31 @@ export default function Header() {
             return (
               <div key={item.label} className="border-b border-[#E5E5E5]">
                 <div className="flex items-center justify-between">
-                  <Link href={item.href} className="flex-1 py-4 font-archivo text-[18px] text-[#333333] hover:text-primary transition-colors">
-                    {item.label}
-                  </Link>
-                  {item.groups && (
+                  {item.groups ? (
                     <button
                       type="button"
                       aria-label={"Toggle " + item.label + " menu"}
                       aria-expanded={expanded}
                       onClick={() => setMobileSection(expanded ? null : item.label)}
-                      className="p-[15px] text-[#4F4F4F] cursor-pointer"
+                      className="flex flex-1 items-center justify-between py-4 pr-[15px] text-left font-archivo text-[18px] text-[#333333] hover:text-primary transition-colors cursor-pointer"
                     >
+                      <span>{item.label}</span>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={clsx("transition-transform duration-300", expanded && "rotate-180")}>
                         <polyline points="6 9 12 15 18 9"></polyline>
                       </svg>
                     </button>
+                  ) : (
+                    <Link href={item.href} className="flex-1 py-4 font-archivo text-[18px] text-[#333333] hover:text-primary transition-colors">
+                      {item.label}
+                    </Link>
                   )}
                 </div>
                 {item.groups && (
                   <div className={clsx("grid transition-[grid-template-rows,opacity] duration-[550ms] ease-[cubic-bezier(0.22,1,0.36,1)]", expanded ? "grid-rows-[1fr] pb-4" : "grid-rows-[0fr]")}>
                     <div className="overflow-hidden">
+                      <Link href={item.href} tabIndex={expanded ? 0 : -1} className="mb-2 block py-[10px] font-archivo text-[16px] font-medium text-primary">
+                        {"View all " + item.label}
+                      </Link>
                       {item.groups.map((group) => (
                         <div key={group.title} className="mb-3">
                           <span className="block font-archivo text-[12px] font-semibold uppercase tracking-wider text-primary mb-1">{group.title}</span>

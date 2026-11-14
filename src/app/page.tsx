@@ -18,13 +18,13 @@ export default function Home() {
   return (
     <main className="min-h-dvh w-full flex flex-col bg-[#FFFFFF]">
       <Hero />
-      <div className="flex flex-col gap-[100px] pt-[100px] pb-[106px]">
+      <div className="flex flex-col gap-[60px] pt-[60px] pb-[60px] canvas:gap-[100px] canvas:pt-[100px] canvas:pb-[106px]">
         <About />
         <CoreProducts />
         <Manufacturing />
         <Industries />
         <Solutions />
-        <div className="flex flex-col gap-[99px]">
+        <div className="flex flex-col gap-[60px] canvas:gap-[99px]">
           <PartnerCTA />
           <Testimonials />
         </div>

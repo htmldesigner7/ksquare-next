@@ -94,7 +94,7 @@ export default function CertificateGallery({ items, categories: extra }: { items
 
   return (
     <div className="flex flex-col gap-[40px]">
-      <div role="tablist" className="flex flex-wrap items-center justify-center gap-x-[8px] gap-y-[4px]">
+      <div role="tablist" className="flex w-full items-center justify-start lg:justify-center gap-x-[8px] gap-y-[4px] flex-nowrap overflow-x-auto lg:flex-wrap lg:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {categories.map((c) => (
           <button
             key={c}
@@ -102,7 +102,7 @@ export default function CertificateGallery({ items, categories: extra }: { items
             type="button"
             aria-selected={c === active}
             onClick={() => setActive(c)}
-            className={`relative px-[16px] py-[10px] font-archivo text-[17px] lg:text-[24px] cursor-pointer transition-colors ${c === active ? "text-primary font-semibold" : "text-[#666666] hover:text-primary"}`}
+            className={`relative shrink-0 whitespace-nowrap px-[16px] py-[10px] font-archivo text-[17px] lg:text-[24px] cursor-pointer transition-colors ${c === active ? "text-primary font-semibold" : "text-[#666666] hover:text-primary"}`}
           >
             {c}
             <span className={`absolute left-0 bottom-0 h-[2px] bg-primary transition-all duration-300 ${c === active ? "w-full" : "w-0"}`} />
@@ -225,7 +225,7 @@ export default function CertificateGallery({ items, categories: extra }: { items
 
             {/* thumbnails */}
             {visible.length > 1 && (
-              <div className="flex justify-center gap-[10px] overflow-x-auto px-[16px] py-[16px]" onClick={(e) => e.stopPropagation()}>
+              <div className="flex justify-center-safe gap-[10px] overflow-x-auto px-[16px] py-[16px]" onClick={(e) => e.stopPropagation()}>
                 {visible.map((v, i) => (
                   <button
                     key={v.image}

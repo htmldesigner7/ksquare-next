@@ -72,16 +72,16 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
   return (
     <main className="w-full bg-white font-archivo">
       {/* Breadcrumb */}
-      <Container maxWidth="1800" className="pt-[90px] lg:pt-[130px] flex items-center flex-wrap gap-[10px]">
-        <Link href="/" className="font-archivo text-[16px] lg:text-[20px] text-[#333333] hover:text-primary leading-[28px] transition-colors">
+      <Container maxWidth="1800" className="pt-[110px] lg:pt-[130px] flex items-center flex-wrap gap-[10px]">
+        <Link href="/" className="font-archivo text-[15px] sm:text-[16px] lg:text-[20px] text-[#333333] hover:text-primary leading-[28px] transition-colors">
           Home
         </Link>
         <svg width="5" height="10" viewBox="0 0 5 10" fill="none"><path d="M1 1L4 5L1 9" stroke="#333333" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-        <Link href="/blog" className="font-archivo text-[16px] lg:text-[20px] text-[#333333] hover:text-primary leading-[28px] transition-colors">
+        <Link href="/blog" className="font-archivo text-[15px] sm:text-[16px] lg:text-[20px] text-[#333333] hover:text-primary leading-[28px] transition-colors">
           Blog
         </Link>
         <svg width="5" height="10" viewBox="0 0 5 10" fill="none"><path d="M1 1L4 5L1 9" stroke="#333333" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-        <span className="font-archivo text-[16px] lg:text-[20px] text-primary leading-[26px] truncate max-w-[400px]">
+        <span className="font-archivo text-[15px] sm:text-[16px] lg:text-[20px] text-primary leading-[26px] truncate max-w-[400px]">
           Blogs Blog Detail
         </span>
       </Container>
@@ -90,7 +90,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
 
       {/* Hero */}
       <Container maxWidth="1800">
-        <div className="flex flex-col xl:flex-row items-stretch gap-[40px]">
+        <div className="flex flex-col xl:flex-row items-stretch gap-[24px] xl:gap-[40px]">
           <div className="relative w-full xl:w-[900px] aspect-[900/615] rounded-[16px] overflow-hidden shrink-0 xl:shrink desk:shrink-0">
             <Image
               src="/assets/blog-detail/hero-article.png"
@@ -100,9 +100,9 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
               priority
             />
           </div>
-          <div className="flex flex-col gap-[30px] w-full justify-center">
-            <div className="flex flex-col gap-[30px]">
-              <h1 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[70px] font-medium text-primary">
+          <div className="flex flex-col gap-[20px] lg:gap-[30px] w-full justify-center">
+            <div className="flex flex-col gap-[16px] lg:gap-[30px]">
+              <h1 className="font-archivo text-[30px] sm:text-[36px] lg:text-[60px] leading-[1.2] lg:leading-[70px] font-medium text-primary">
                 The Ultimate Guide to Surge Protection for Utility-Scale Solar Systems
               </h1>
               <p className="font-archivo text-[17px] leading-[26px] text-[#666666] lg:text-justify">
@@ -174,7 +174,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
               </h2>
               <div className="w-full flex flex-col lg:flex-row gap-[24px]">
                 {[specsLeft, specsRight].map((rows, tableIdx) => (
-                  <div key={tableIdx} className="w-full lg:w-1/2 border border-[#DDDDDD] overflow-x-auto">
+                  <div key={tableIdx} className="w-full lg:w-1/2 border border-[#DDDDDD] overflow-x-auto scroll-hint">
                     <table className="w-full min-w-[400px] border-collapse">
                       <thead>
                         <tr className="bg-primary">
@@ -223,7 +223,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
             </div>
 
             {/* FAQ */}
-            <div id="faqs" className="flex flex-col gap-[48px] scroll-mt-[110px]">
+            <div id="faqs" className="flex flex-col gap-[28px] lg:gap-[48px] scroll-mt-[110px]">
               <div className="flex flex-col gap-[8px]">
                 <h2 className="font-archivo text-[36px] lg:text-[60px] leading-[1.15] text-primary">
                   <span className="font-normal">Frequently Asked </span>

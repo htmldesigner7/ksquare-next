@@ -91,7 +91,7 @@ function Result({ title, headline, sub, rows, actions, links }: { title: string;
       </p>
       <div className="flex flex-wrap gap-[12px]">
         {actions.map((a) => (
-          <Link key={a.label} href={a.href} className="group inline-flex items-center gap-[12px] border border-primary px-[16px] py-[10px] font-archivo text-[14px] text-primary transition-colors hover:bg-primary hover:text-white">
+          <Link key={a.label} href={a.href} className="group flex w-full sm:w-auto sm:inline-flex items-center justify-center gap-[12px] border border-primary px-[16px] py-[10px] font-archivo text-[14px] text-primary transition-colors hover:bg-primary hover:text-white">
             {a.label}
             <span className="h-[6px] w-[6px] rounded-full bg-current" />
           </Link>
@@ -110,7 +110,7 @@ function Result({ title, headline, sub, rows, actions, links }: { title: string;
 
 function CalcButton({ children, onClick }: { children: React.ReactNode; onClick: () => void }) {
   return (
-    <button type="button" onClick={onClick} className="group mt-[4px] inline-flex w-fit items-center gap-[12px] border border-primary px-[16px] py-[10px] font-archivo text-[14px] text-primary transition-colors hover:bg-primary hover:text-white cursor-pointer">
+    <button type="button" onClick={onClick} className="group mt-[4px] flex w-full sm:w-fit sm:inline-flex items-center justify-center gap-[12px] border border-primary px-[16px] py-[10px] font-archivo text-[14px] text-primary transition-colors hover:bg-primary hover:text-white cursor-pointer">
       {children}
       <span className="h-[6px] w-[6px] rounded-full bg-current" />
     </button>
@@ -399,7 +399,7 @@ export default function SolarCalculators() {
                 <h3 className="m-0 font-archivo text-[20px] leading-[28px] font-normal text-[#333333]">{c.title}</h3>
               </div>
               <p className="m-0 font-archivo text-[15px] leading-[24px] text-[#666666]">{c.desc}</p>
-              <button type="button" onClick={() => jump(c.id)} className="mt-auto inline-flex w-fit items-center gap-[12px] border border-primary px-[16px] py-[10px] font-archivo text-[14px] text-primary transition-colors hover:bg-primary hover:text-white cursor-pointer">
+              <button type="button" onClick={() => jump(c.id)} className="mt-auto flex w-full sm:w-fit sm:inline-flex items-center justify-center gap-[12px] border border-primary px-[16px] py-[10px] font-archivo text-[14px] text-primary transition-colors hover:bg-primary hover:text-white cursor-pointer">
                 Open Calculator
                 <span className="h-[6px] w-[6px] rounded-full bg-current" />
               </button>

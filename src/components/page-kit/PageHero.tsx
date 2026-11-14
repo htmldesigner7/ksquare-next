@@ -39,13 +39,13 @@ export default function PageHero({ hero }: { hero: HeroData }) {
   );
 
   return (
-    <section className="w-full pt-[90px] lg:pt-[130px] flex flex-col items-center overflow-x-clip">
+    <section className="w-full pt-[110px] lg:pt-[130px] flex flex-col items-center overflow-x-clip">
       <Container maxWidth="1800" className="relative z-10">
         {/* Single-line Figma variant: breadcrumb is its own row above the title + intro row */}
-        {crumbRow && <div className="mb-[14px]">{crumbNav}</div>}
-        <div className={`flex flex-col lg:flex-row justify-between ${crumbRow ? "lg:items-start" : "lg:items-end"} gap-[32px] lg:gap-[40px] w-full pt-[24px] lg:pt-0`}>
+        {crumbRow && <div className="mb-[20px] lg:mb-[14px]">{crumbNav}</div>}
+        <div className={`flex flex-col lg:flex-row justify-between ${crumbRow ? "lg:items-start" : "lg:items-end"} gap-[16px] lg:gap-[40px] w-full pt-[16px] lg:pt-0`}>
           {/* Left: breadcrumb + title (Figma title block is 179px tall even for one/two lines) */}
-          <div className={`flex flex-col ${crumbRow ? "gap-[14px]" : "gap-[12px]"} w-full lg:flex-1 lg:min-w-0 lg:max-w-[var(--hero-tw,792px)]`} style={hero.titleWidth ? ({ "--hero-tw": `${hero.titleWidth}px` } as React.CSSProperties) : undefined}>
+          <div className={`flex flex-col ${crumbRow ? "gap-[14px]" : "gap-[20px] lg:gap-[12px]"} w-full lg:flex-1 lg:min-w-0 lg:max-w-[var(--hero-tw,792px)]`} style={hero.titleWidth ? ({ "--hero-tw": `${hero.titleWidth}px` } as React.CSSProperties) : undefined}>
             {!crumbRow && crumbNav}
             <div className={crumbRow || hero.fitTitle ? "" : "lg:min-h-[179px]"}>
               <RichTitle
@@ -59,10 +59,10 @@ export default function PageHero({ hero }: { hero: HeroData }) {
           </div>
 
           {/* Right: intro + CTAs */}
-          <div className="flex flex-col gap-[32px] w-full lg:flex-1 lg:min-w-0 lg:max-w-[816px]">
+          <div className="flex flex-col gap-[24px] lg:gap-[32px] w-full lg:flex-1 lg:min-w-0 lg:max-w-[816px]">
             <p className="m-0 font-archivo text-[18px] lg:text-[24px] leading-[1.5] text-[#333333]">{hero.description}</p>
             {hero.ctas && hero.ctas.length > 0 && (
-              <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-[16px]">
+              <div className="flex flex-col items-stretch sm:flex-row sm:flex-wrap sm:items-center gap-[16px]">
                 {hero.ctas.map((cta) => (
                   <Button key={cta.label} variant="outline-primary" href={cta.href} showDot>
                     {cta.label}

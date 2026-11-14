@@ -96,26 +96,26 @@ export default function ProjectsPage() {
     <main className="w-full bg-white font-archivo overflow-x-clip">
       {/* Hero */}
       <section className="w-full pt-[90px] canvas:pt-[130px]">
-        <div className="canvas-zoom canvas:w-[1800px] w-full max-w-[1800px] mx-auto px-4 lg:px-8 g1864:px-0 pt-[40px] canvas:pt-0 flex flex-col canvas:flex-row canvas:justify-between gap-[32px]">
+        <div className="canvas-zoom canvas:w-[1800px] w-full max-w-[1800px] mx-auto px-4 lg:px-8 g1864:px-0 pt-[40px] canvas:pt-0 flex flex-col canvas:flex-row canvas:justify-between gap-[14px] canvas:gap-[32px]">
           <div className="flex flex-col gap-[14px] canvas:w-[900px]">
-            <div className="flex items-center gap-[10px] font-archivo text-[20px] leading-[28px] text-[#333333]">
+            <div className="flex items-center gap-[10px] font-archivo text-[15px] sm:text-[16px] lg:text-[20px] leading-[28px] text-[#333333]">
               <Link href="/" className="hover:text-primary transition-colors">Home</Link>
               <svg width="5" height="10" viewBox="0 0 5 10" fill="none" aria-hidden="true">
                 <path d="M1 1L4 5L1 9" stroke="#333333" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <span className="text-primary leading-[26px]">Our Projects</span>
             </div>
-            <h1 className="m-0 font-recia font-normal text-primary text-[44px] leading-[52px] lg:text-[68px] lg:leading-[78px]">
+            <h1 className="m-0 font-recia font-normal text-primary text-[38px] leading-[46px] sm:text-[44px] sm:leading-[52px] lg:text-[68px] lg:leading-[78px]">
               Solar Projects
               <br />
               <span className="italic font-semibold">Built to Perform.</span>
             </h1>
           </div>
           <div className="flex flex-col gap-[32px] canvas:w-[816px]">
-            <p className="m-0 font-archivo text-[20px] lg:text-[24px] leading-[30px] lg:leading-[36px] text-[#333333]">
+            <p className="m-0 font-archivo text-[18px] lg:text-[24px] leading-[28px] lg:leading-[36px] text-[#333333]">
               From individual rooftops to large industrial installations, Ksquare Energy has delivered 9,000+ solar projects across residential, commercial, industrial and government applications.
             </p>
-            <div className="flex flex-wrap items-center gap-[16px]">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-[16px]">
               <OutlineButton href="#enquiry-form">Enquire Now</OutlineButton>
               <OutlineButton href="#project-data">View Case Studies</OutlineButton>
             </div>
@@ -151,8 +151,8 @@ export default function ProjectsPage() {
               </h2>
             </div>
 
-            <div className="w-full overflow-x-auto border border-[#DDDDDD]">
-              <div className="min-w-[1100px] flex flex-col">
+            <div className="scroll-hint w-full overflow-x-auto border border-[#DDDDDD]">
+              <div className="min-w-[1380px] flex flex-col">
                 <div className="flex items-start gap-[24px] p-[20px] bg-[#F0F5FE]">
                   <span className="flex-1 font-archivo text-[24px] font-medium text-primary">Project Profile</span>
                   {["System Capacity", "Annual Generation", "Project Type", "Project Location"].map((h) => (
@@ -178,7 +178,7 @@ export default function ProjectsPage() {
           {/* Desktop: pixel-exact zigzag timeline per Figma (same pattern as /grievance) */}
           <div className="canvas-zoom hidden canvas:block relative w-[1600px] mx-auto h-[681px]">
             <div className="absolute left-0 right-0 top-[36px] flex justify-center">
-              <h2 className="m-0 font-recia text-[60px] leading-[70px] text-primary font-normal text-center capitalize">
+              <h2 className="m-0 font-recia text-[34px] sm:text-[40px] lg:text-[60px] leading-[1.2] lg:leading-[70px] text-primary font-normal text-center capitalize">
                 How a Ksquare <span className="italic font-medium">project actually runs</span>
               </h2>
             </div>
@@ -220,7 +220,7 @@ export default function ProjectsPage() {
         {/* FAQ */}
         <section className="w-full">
           <div className="mx-auto w-full max-w-[1920px] px-4 lg:px-8 canvas:px-[160px] flex flex-col items-center gap-[64px]">
-            <h2 className="m-0 font-archivo font-normal text-[36px] lg:text-[60px] leading-[1.25] text-primary text-center">
+            <h2 className="m-0 font-archivo font-normal text-[34px] sm:text-[40px] lg:text-[60px] leading-[1.25] text-primary text-center">
               Frequently Asked <span className="font-recia italic font-medium">Questions</span>
             </h2>
             <FaqList items={faqs} />
@@ -232,7 +232,7 @@ export default function ProjectsPage() {
           <div className="mx-auto w-full max-w-[1600px] px-4 lg:px-8 g1664:px-0">
             <div className="w-full bg-white border border-[#DDDDDD] p-[20px] md:p-[32px] flex flex-col gap-[32px]">
               <div className="flex flex-col gap-[12px]">
-                <h2 className="m-0 font-dm font-medium text-[40px] md:text-[60px] leading-[1.17] text-primary">
+                <h2 className="m-0 font-dm font-medium text-[34px] sm:text-[40px] md:text-[60px] leading-[1.17] text-primary">
                   Send an <span className="font-recia italic">Enquiry</span>
                 </h2>
                 <p className="m-0 font-archivo text-[17px] leading-[26px] text-[#666666] text-justify">

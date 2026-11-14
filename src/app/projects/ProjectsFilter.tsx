@@ -150,9 +150,9 @@ function ProjectCard({ project, chipBg }: { project: Project; chipBg: string }) 
       </div>
       <div className="flex flex-col gap-[12px] min-w-0">
         {project.tag && (
-          <div className="flex items-center justify-between">
-            <span className={`${chipBg} rounded-[4px] px-[24px] py-[6px] font-archivo text-[17px] leading-[1.2] text-primary`}>{project.tag}</span>
-            {project.capacity && <span className="font-archivo text-[15px] leading-[1.2] font-semibold text-primary">{project.capacity}</span>}
+          <div className="flex items-center justify-between gap-[8px]">
+            <span className={`${chipBg} rounded-[4px] px-[12px] lg:px-[24px] py-[6px] font-archivo text-[17px] leading-[1.2] text-primary`}>{project.tag}</span>
+            {project.capacity && <span className="font-archivo text-[15px] leading-[1.2] font-semibold text-primary whitespace-nowrap shrink-0">{project.capacity}</span>}
           </div>
         )}
         <div className="flex flex-col gap-[8px]">
@@ -178,7 +178,7 @@ function SectionBlock({ section }: { section: CategorySection }) {
   const projects = c.rotate(section.projects);
   return (
     <section className={`w-full ${section.bg} ${section.padding}`}>
-      <div className="mx-auto w-full max-w-[1920px] px-4 lg:px-8 xl:px-[160px] flex flex-col gap-[48px]">
+      <div className="mx-auto w-full max-w-[1920px] px-4 lg:px-8 xl:px-[160px] flex flex-col gap-[28px] lg:gap-[48px]">
         <div className="flex items-end justify-between gap-[24px]">
           <div className="flex flex-col gap-[12px] min-w-0">
             <span className="font-archivo text-[17px] font-semibold uppercase text-primary">{section.eyebrow}</span>
@@ -207,9 +207,9 @@ export default function ProjectsFilter() {
   const visibleSections = active === "All Projects" ? sections : sections.filter((s) => s.key === active);
 
   return (
-    <div className="w-full flex flex-col items-center gap-[60px] xl:gap-[100px]">
+    <div className="w-full flex flex-col items-center gap-[32px] lg:gap-[60px] xl:gap-[100px]">
       {/* Filter Tabs */}
-      <div role="tablist" className="flex items-end gap-[10px] lg:gap-[18px] flex-wrap justify-center px-4">
+      <div role="tablist" className="flex w-full items-end gap-[10px] lg:gap-[18px] justify-start lg:justify-center px-4 flex-nowrap overflow-x-auto lg:flex-wrap lg:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {tabs.map((tab) => {
           const isActive = active === tab;
           return (
@@ -219,7 +219,7 @@ export default function ProjectsFilter() {
               role="tab"
               aria-selected={isActive}
               onClick={() => setActive(tab)}
-              className={`flex items-center px-[16px] lg:px-[28px] py-[12px] lg:py-[16px] cursor-pointer rounded-t-[12px] border-b transition-colors ${
+              className={`flex shrink-0 whitespace-nowrap items-center px-[16px] lg:px-[28px] py-[12px] lg:py-[16px] cursor-pointer rounded-t-[12px] border-b transition-colors ${
                 isActive ? "border-primary" : "border-transparent hover:border-[#C6CCED]"
               }`}
             >
@@ -236,7 +236,7 @@ export default function ProjectsFilter() {
       </div>
 
       {/* Featured gallery */}
-      <div className="w-full flex flex-col items-center gap-[40px]">
+      <div className="w-full flex flex-col items-center gap-[24px] lg:gap-[40px]">
         <div className="flex flex-col items-center gap-[14px] text-center px-4">
           <h2 className="m-0 font-archivo font-normal text-[36px] lg:text-[60px] leading-[1.2] xl:leading-[42px] text-primary">
             How Much Solar Does <span className="font-recia italic font-medium">Your Home Need?</span>
@@ -263,7 +263,7 @@ export default function ProjectsFilter() {
       </div>
 
       {/* Category Sections */}
-      <div className="w-full flex flex-col gap-[60px] xl:gap-[100px]">
+      <div className="w-full flex flex-col gap-[32px] lg:gap-[60px] xl:gap-[100px]">
         {visibleSections.map((section) => (
           <SectionBlock key={section.key} section={section} />
         ))}

@@ -94,9 +94,9 @@ export default function ProductTabs() {
   const current = tabs.find((t) => t.key === active) ?? tabs[1];
 
   return (
-    <div className="flex flex-col items-center gap-[40px] w-full">
+    <div className="flex flex-col items-center gap-[24px] lg:gap-[40px] w-full">
       {/* Tabs */}
-      <div role="tablist" className="flex flex-wrap justify-center gap-[12px] lg:gap-[18px] w-full border-b border-[#E8E8E8]">
+      <div role="tablist" className="flex justify-start lg:justify-center gap-[12px] flex-nowrap overflow-x-auto lg:flex-wrap lg:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:gap-[18px] w-full border-b border-[#E8E8E8]">
         {tabs.map((tab) => {
           const isActive = tab.key === active;
           return (
@@ -106,7 +106,7 @@ export default function ProductTabs() {
               role="tab"
               aria-selected={isActive}
               onClick={() => setActive(tab.key)}
-              className={`flex items-center px-[16px] py-[12px] lg:px-[28px] lg:py-[16px] cursor-pointer rounded-t-[12px] border-b-2 transition-[color,border-color,background-color] duration-300 hover:bg-[#F0F5FE] ${
+              className={`flex shrink-0 items-center px-[16px] py-[12px] lg:px-[28px] lg:py-[16px] cursor-pointer rounded-t-[12px] border-b-2 transition-[color,border-color,background-color] duration-300 hover:bg-[#F0F5FE] ${
                 isActive ? "border-[#2B398B]" : "border-transparent"
               }`}
             >

@@ -68,20 +68,20 @@ export default function DcdbProductListing() {
         </div>
 
         {/* Title Group */}
-        <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-[40px] lg:gap-[80px]">
-          <h1 className="font-archivo text-[50px] lg:text-[68px] leading-[60px] lg:leading-[78px] text-primary font-normal">
+        <div className="flex flex-col xl:flex-row xl:items-start justify-between gap-[16px] xl:gap-[80px]">
+          <h1 className="font-archivo text-[38px] sm:text-[50px] lg:text-[68px] leading-[46px] sm:leading-[60px] lg:leading-[78px] text-primary font-normal">
             DC Distribution Boxes <br className="hidden lg:block" />
             <span className="font-recia italic font-bold">Engineered to Protect .</span>
           </h1>
-          <div className="flex flex-col gap-[24px] pt-[10px]">
+          <div className="flex flex-col gap-[24px] pt-0 xl:pt-[10px]">
             <p className="font-archivo text-[17px] leading-[26px] text-gray-dark max-w-[550px]">
               Explore our complete range of certified DC Distribution Boxes, engineered for dependable protection across every solar installation type.
             </p>
-            <div className="flex flex-wrap items-center gap-[16px]">
-              <Link href="/contact" className="flex items-center gap-[12px] px-[24px] py-[10px] border border-primary text-primary text-[15px] font-archivo font-medium hover:bg-primary hover:text-white transition-colors group">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-[16px]">
+              <Link href="/contact" className="flex items-center justify-center sm:justify-start gap-[12px] px-[24px] py-[10px] border border-primary text-primary text-[15px] font-archivo font-medium hover:bg-primary hover:text-white transition-colors group">
                 Request a Quote <span className="w-[5px] h-[5px] rounded-full bg-primary group-hover:bg-white transition-colors"></span>
               </Link>
-              <Link href="/download-resources" className="flex items-center gap-[12px] px-[24px] py-[10px] border border-primary text-primary text-[15px] font-archivo font-medium hover:bg-primary hover:text-white transition-colors group">
+              <Link href="/download-resources" className="flex items-center justify-center sm:justify-start gap-[12px] px-[24px] py-[10px] border border-primary text-primary text-[15px] font-archivo font-medium hover:bg-primary hover:text-white transition-colors group">
                 Download Datasheet <span className="w-[5px] h-[5px] rounded-full bg-primary group-hover:bg-white transition-colors"></span>
               </Link>
             </div>
@@ -105,10 +105,10 @@ export default function DcdbProductListing() {
       <div className="flex flex-col gap-[60px] lg:gap-[110px] mt-[60px] lg:mt-[110px]">
       {/* Core Products Section (Figma 106:1547: header 105, 60px gap, 614px cards) */}
       <Container maxWidth="1600">
-        <div className="flex flex-col gap-[60px]">
+        <div className="flex flex-col gap-[32px] lg:gap-[60px]">
           {/* Title Section */}
           <div className="flex flex-col gap-[8px] items-center text-center">
-            <h2 className="font-archivo text-[60px] leading-[71px] text-primary font-normal">
+            <h2 className="font-archivo text-[34px] sm:text-[40px] lg:text-[60px] leading-[1.2] lg:leading-[71px] text-primary font-normal">
               DCDB Core <span className="font-recia italic leading-none">Products</span>
             </h2>
             <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">
@@ -119,7 +119,7 @@ export default function DcdbProductListing() {
           {/* Products Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-[27px]">
             {products.map(product => (
-              <div key={product.id} className="flex flex-col w-full max-w-[380px] h-[614px] mx-auto gap-[24px]">
+              <div key={product.id} className="flex flex-col w-full max-w-[380px] md:max-w-none xl:max-w-[380px] h-[614px] mx-auto gap-[24px]">
                 {/* Image Container */}
                 <Link
                   href={product.href}
@@ -167,16 +167,16 @@ export default function DcdbProductListing() {
       {/* DCDB Configuration Section */}
       <Container maxWidth="1600" className="lg:-mt-[26px]">
         {/* Mobile / Tablet Fallback Layout */}
-        <div className="canvas:hidden flex flex-col gap-[40px]">
-          <div className="flex flex-col gap-[8px] text-center items-center mb-[20px]">
-            <h2 className="font-archivo text-[40px] leading-[48px] text-primary font-normal">
+        <div className="canvas:hidden flex flex-col gap-[28px] sm:gap-[40px]">
+          <div className="flex flex-col gap-[8px] text-center items-center sm:mb-[20px]">
+            <h2 className="font-archivo text-[34px] sm:text-[40px] leading-[1.2] lg:leading-[48px] text-primary font-normal">
               DCDB Configuration
             </h2>
             <p className="font-archivo text-[16px] leading-[24px] text-[#666666]">
               A DCDB for Every Solar Requirement.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-[40px] gap-y-[40px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-[40px] gap-y-[24px] sm:gap-y-[40px]">
             {[
               { title: "1 In 1 Out DCDB", desc: "Single-string DC distribution for residential and small rooftop installations.", icon: "/assets/dcdb/icon_1_1.svg" },
               { title: "2 In 2 Out DCDB", desc: "Dual-string configurations for higher capacity commercial and industrial systems.", icon: "/assets/dcdb/icon_1_2.svg" },
@@ -185,16 +185,18 @@ export default function DcdbProductListing() {
               { title: "MCB Type DCDB", desc: "MCB-based protection with resettable DC circuit protection.", icon: "/assets/dcdb/icon_1_6.svg" },
               { title: "DC SPD Integrated", desc: "Surge protection device integrated for complete transient defence.", icon: "/assets/dcdb/icon_1_5.svg" },
             ].map((config, index) => (
-              <div key={index} className="flex flex-col gap-[16px]">
-                <div className="w-[100px] h-[100px] bg-[#EFF0F6] rounded-full flex items-center justify-center p-[20px]">
+              <div key={index} className="flex flex-row items-start sm:flex-col gap-[16px]">
+                <div className="w-[64px] h-[64px] sm:w-[100px] sm:h-[100px] shrink-0 bg-[#EFF0F6] rounded-full flex items-center justify-center p-[14px] sm:p-[20px]">
                   <Image src={config.icon} width={50} height={50} alt={config.title} className="w-full h-full object-contain" />
                 </div>
-                <h3 className="font-archivo text-[24px] leading-[32px] text-[#333333] font-normal">
-                  {config.title}
-                </h3>
-                <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">
-                  {config.desc}
-                </p>
+                <div className="flex flex-col gap-[6px] sm:gap-[16px] min-w-0">
+                  <h3 className="font-archivo text-[20px] sm:text-[24px] leading-[28px] sm:leading-[32px] text-[#333333] font-normal">
+                    {config.title}
+                  </h3>
+                  <p className="font-archivo text-[15px] sm:text-[17px] leading-[24px] sm:leading-[26px] text-[#666666]">
+                    {config.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -204,7 +206,7 @@ export default function DcdbProductListing() {
         <div className="hidden canvas:flex flex-col items-center gap-[60px]">
           {/* Section Title */}
           <div className="flex flex-col items-center text-center w-full">
-            <h2 className="font-archivo text-[60px] leading-[57px] text-primary font-normal mb-[8px]">
+            <h2 className="font-archivo text-[34px] sm:text-[40px] lg:text-[60px] leading-[1.2] lg:leading-[57px] text-primary font-normal mb-[8px]">
               DCDB Configuration
             </h2>
             <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">
@@ -280,7 +282,7 @@ export default function DcdbProductListing() {
           <div className="flex flex-col gap-[40px] lg:gap-[60px]">
             {/* Header */}
             <div className="flex flex-col gap-[8px] w-full text-center">
-              <h2 className="font-archivo text-[60px] leading-[77px] text-primary font-normal">
+              <h2 className="font-archivo text-[34px] sm:text-[40px] lg:text-[60px] leading-[1.2] lg:leading-[77px] text-primary font-normal">
                 Why Choose a <span className="font-recia italic font-semibold">Ksquare DCDB?</span>
               </h2>
               <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">
@@ -358,7 +360,7 @@ export default function DcdbProductListing() {
             <div className="flex flex-col gap-[24px]">
               {/* Header */}
               <div className="flex flex-col gap-[12px]">
-                <h2 className="m-0 font-dm text-[40px] lg:text-[60px] leading-[1.2] lg:leading-[70px] text-primary font-medium">
+                <h2 className="m-0 font-dm text-[34px] sm:text-[40px] lg:text-[60px] leading-[1.2] lg:leading-[70px] text-primary font-medium">
                   Request Your Custom Quote
                 </h2>
                 <p className="m-0 font-archivo text-[16px] lg:text-[17px] text-primary leading-[26px]">
@@ -407,7 +409,7 @@ export default function DcdbProductListing() {
 
               {/* Form Title */}
               <div className="flex flex-col gap-[12px]">
-                <h3 className="m-0 text-[40px] lg:text-[60px] font-medium text-primary leading-[1.2] lg:leading-[70px] font-dm">
+                <h3 className="m-0 text-[34px] sm:text-[40px] lg:text-[60px] font-medium text-primary leading-[1.2] lg:leading-[70px] font-dm">
                   Send an <span className="font-recia italic">Enquiry</span>
                 </h3>
                 <p className="m-0 font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666]">
