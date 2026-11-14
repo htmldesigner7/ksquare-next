@@ -2,10 +2,13 @@ import React from "react";
 import Reveal from "@/components/common/Reveal";
 import ProcessTimelineArt from "./ProcessTimelineArt";
 import ConsultTimelineArt from "./ConsultTimelineArt";
+import type { StepIcon } from "./StepArt";
 
 interface Step {
   title: string;
   desc: string;
+  /** Optional icon file for this step's circle (.svg / .png), e.g. "/assets/process/my-icon.svg". */
+  iconSrc?: string;
 }
 
 // Figma "six-step" timeline (same artwork as the Grievance and Infrastructure pages): 1600 x 530 design canvas.
@@ -29,29 +32,32 @@ const FOUR = {
   w: 308,
 };
 
-function FourSteps({ steps }: { steps: Step[] }) {
+function FourSteps({ steps, icons }: { steps: Step[]; icons?: (StepIcon | undefined)[] }) {
   return (
     <div className="hidden canvas:flex justify-center">
       <div className="canvas-zoom relative shrink-0" style={{ width: 1600, height: 536 }}>
         {FOUR.labels.map((l, i) => (
-          <Reveal key={steps[i].title} delay={i * 0.07} y={16} className="absolute">
+          <Reveal key={steps[i].title} delay={i * 0.16 + 0.1} y={16} className="absolute">
             <div className="absolute flex flex-col items-center gap-[12px] text-center" style={{ left: l.cx - FOUR.w / 2, top: l.top, width: FOUR.w }}>
-              <h3 className="m-0 font-archivo text-[24px] leading-[26px] font-normal text-[#333333]">{steps[i].title}</h3>
+              <h3 className="ks-label ks-label4 m-0 font-archivo text-[24px] leading-[26px] font-normal text-[#333333]" style={{ "--ks-i": i } as React.CSSProperties}>{steps[i].title}</h3>
               <p className="m-0 font-archivo text-[17px] leading-[26px] text-[#666666]">{steps[i].desc}</p>
             </div>
           </Reveal>
         ))}
         <div className="absolute" style={{ left: 165, top: 90, width: 1256, height: 334 }}>
-          <ConsultTimelineArt />
+          <ConsultTimelineArt icons={steps.map((st, d) => icons?.[d] ?? st.iconSrc)} />
         </div>
       </div>
     </div>
   );
 }
 
-export default function CircleSteps({ steps, zigzag = false }: { steps: Step[]; zigzag?: boolean }) {
+/** `icons` (optional) swaps the artwork icon of each disc, left to right, e.g. for a page that needs its own icon set. */
+export default function CircleSteps({ steps, zigzag = false, icons }: { steps: Step[]; zigzag?: boolean; icons?: (StepIcon | undefined)[] }) {
   // `zigzag`: step order alternates top / bottom along the timeline instead of filling the top row first.
   const order = zigzag ? [0, 3, 1, 4, 2, 5] : [0, 1, 2, 3, 4, 5];
+  // icons are listed per disc (left to right); disc d belongs to the label at position pos, whose step is order.indexOf(pos)
+  const discIcons = Array.from({ length: 6 }, (_, d) => icons?.[d] ?? steps[order.indexOf(d % 2 === 0 ? d / 2 : 3 + (d - 1) / 2)]?.iconSrc);
   const mobile = (
     <ol className="canvas:hidden m-0 p-0 list-none grid grid-cols-1 sm:grid-cols-2 gap-x-[40px] gap-y-[40px]">
       {steps.map((s, i) => (
@@ -66,7 +72,7 @@ export default function CircleSteps({ steps, zigzag = false }: { steps: Step[]; 
   if (steps.length === 4) {
     return (
       <>
-        <FourSteps steps={steps} />
+        <FourSteps steps={steps} icons={icons} />
         {mobile}
       </>
     );
@@ -78,16 +84,16 @@ export default function CircleSteps({ steps, zigzag = false }: { steps: Step[]; 
           {LABELS.map((l, pos) => {
             const i = order.indexOf(pos);
             return (
-            <Reveal key={steps[i].title} delay={i * 0.07} y={16} className="absolute" >
+            <Reveal key={steps[i].title} delay={(pos < 3 ? pos * 2 : (pos - 3) * 2 + 1) * 0.14 + 0.1} y={16} className="absolute">
               <div className="absolute flex flex-col items-center gap-[12px] text-center" style={{ left: l.left, top: l.top, width: l.w }}>
-                <h3 className="m-0 font-archivo text-[24px] leading-[26px] font-normal text-[#333333]">{steps[i].title}</h3>
+                <h3 className="ks-label m-0 font-archivo text-[24px] leading-[26px] font-normal text-[#333333]" style={{ "--ks-i": pos < 3 ? pos * 2 : (pos - 3) * 2 + 1 } as React.CSSProperties}>{steps[i].title}</h3>
                 <p className="m-0 font-archivo text-[17px] leading-[26px] text-[#666666]">{steps[i].desc}</p>
               </div>
             </Reveal>
             );
           })}
           <div className="absolute left-0 w-[1600px] h-[302.82px]" style={{ top: 105 }}>
-            <ProcessTimelineArt />
+            <ProcessTimelineArt icons={discIcons} />
           </div>
         </div>
       </div>

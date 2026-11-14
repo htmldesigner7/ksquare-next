@@ -171,7 +171,7 @@ export type Section =
       /** Six-circle timeline whose steps alternate top / bottom (Figma "Custom Development Process"). */
       zigzag?: boolean;
       tone?: Tone;
-      items: { title: string; desc: string; icon?: IconKey }[];
+      items: { title: string; desc: string; icon?: IconKey; iconSrc?: string }[];
     }
   | {
       type: "tiers";

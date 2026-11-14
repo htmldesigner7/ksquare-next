@@ -1,28 +1,19 @@
 import React from "react";
-import { PROCESS_ICONS } from "./ProcessIcons";
+import StepArt, { type StepIcon } from "./StepArt";
+import { PROCESS_ARCS } from "./processArcs";
+
+/** Default icon files (public/assets/process), left to right. Replace a file, or pass `icons`, to change them. */
+export const PROCESS_ICON_SRC = [1, 2, 3, 4, 5, 6].map((n) => `/assets/process/step-${n}.svg`);
 
 /**
- * The six-circle process artwork, built entirely from code (no raster or exported artwork):
- * CSS discs with a soft halo, SVG arcs + chevron arrowheads computed from a few numbers, and inline SVG icons.
- * Design px on a 1600 x 303 canvas, matching the Figma timeline.
+ * The six-circle process timeline, built from one self-contained <StepArt> per step (disc + its own arcs + an icon slot).
+ * Design px on a 1600 x 303 canvas, matching the Figma timeline. Pass `icons` to give a page its own icon set;
+ * missing entries fall back to the default Figma icons.
  */
 const STEP = 265.8; // horizontal pitch between discs
 const X0 = 135.6; // first disc centre x
-export const DISC_R = 115.6; // white disc
-export const HALO_R = 133.7; // soft grey halo around it
-export const STROKE = 5.4;
-export const ARC_COLOR = "#C0C5E5";
 const RING_R = 132.7; // the large arc wrapped around each disc
 const ARROW_R = 157; // the arrowed arc outside it
-
-export const rad = (deg: number) => (deg * Math.PI) / 180;
-export const pt = (cx: number, cy: number, r: number, deg: number) => `${(cx + r * Math.cos(rad(deg))).toFixed(2)} ${(cy + r * Math.sin(rad(deg))).toFixed(2)}`;
-/** SVG arc path along a circle from angle a to angle b (degrees, 0 = right, 90 = down). */
-export const arc = (cx: number, cy: number, r: number, a: number, b: number) => {
-  const sweep = b > a ? 1 : 0;
-  const large = Math.abs(b - a) > 180 ? 1 : 0;
-  return `M ${pt(cx, cy, r, a)} A ${r} ${r} 0 ${large} ${sweep} ${pt(cx, cy, r, b)}`;
-};
 
 /** Steps alternate: odd steps sit high with their arcs underneath, even steps sit low with arcs above. */
 const steps = Array.from({ length: 6 }, (_, i) => {
@@ -44,40 +35,18 @@ const HEADS: Record<number, [number, number][]> = {
   4: [[1261.39, 265.05], [1290.32, 270.47], [1282.81, 298.93]],
 };
 
-export default function ProcessTimelineArt() {
+export default function ProcessTimelineArt({ icons }: { icons?: (StepIcon | undefined)[] }) {
   return (
     <div className="absolute inset-0" aria-hidden="true">
-      {steps.map((s, i) => {
-        const Icon = PROCESS_ICONS[i];
-        return (
-          <React.Fragment key={i}>
-            <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1600 303" fill="none" strokeLinecap="butt">
-              {/* large ring hugging the disc: bottom half for high steps, top half for low steps */}
-              <path d={s.low ? arc(s.cx, s.ringY, RING_R, -5.2, -174.8) : arc(s.cx, s.ringY, RING_R, -5.6, 174.4)} stroke={ARC_COLOR} strokeWidth={STROKE} />
-              {!s.last && (
-                <>
-                  <path d={s.low ? arc(s.cx, s.arrowY, ARROW_R, -124.8, -45.8) : arc(s.cx, s.arrowY, ARROW_R, 134.4, 54.7)} stroke={ARC_COLOR} strokeWidth={STROKE} />
-                  <polyline points={HEADS[i].map((p) => p.join(",")).join(" ")} stroke={ARC_COLOR} strokeWidth={STROKE} strokeLinejoin="miter" />
-                </>
-              )}
-            </svg>
-            {/* halo, then white disc */}
-            <span
-              className="absolute rounded-full"
-              style={{
-                left: s.cx - HALO_R,
-                top: s.discY - HALO_R,
-                width: HALO_R * 2,
-                height: HALO_R * 2,
-                background:
-                  "radial-gradient(closest-side, transparent 0 85%, rgba(60,60,60,0.15) 86%, rgba(110,110,110,0.09) 90.5%, rgba(160,160,160,0.045) 95%, transparent 100%)",
-              }}
-            />
-            <span className="absolute rounded-full bg-white" style={{ left: s.cx - DISC_R, top: s.discY - DISC_R, width: DISC_R * 2, height: DISC_R * 2 }} />
-            <Icon className="absolute block" style={{ left: s.cx - 64, top: s.iconY, width: 128, height: 128 }} />
-          </React.Fragment>
-        );
-      })}
+      {steps.map((s, i) => (
+        <StepArt
+          key={i}
+          disc={[s.cx, s.discY]}
+          fills={PROCESS_ARCS[i]}
+          delay={i * 0.14}
+          icon={icons?.[i] ?? PROCESS_ICON_SRC[i]}
+        />
+      ))}
     </div>
   );
 }

@@ -77,7 +77,7 @@ function SplitSection({ s }: { s: Extract<Section, { type: "split" }> }) {
       <div className={`flex flex-col ${s.reverse ? "lg:flex-row-reverse" : "lg:flex-row"} items-center justify-between gap-[40px] ${s.imageSize ? "lg:gap-[52px]" : "lg:gap-[100px]"}`}>
         <Reveal className={`flex flex-col gap-[32px] ${s.natural ? "xl:gap-[30px]" : s.tight ? "xl:gap-[40px]" : "xl:gap-[48px]"} w-full lg:flex-1 lg:min-w-0 lg:max-w-[750px]`}>
           <div className={`flex flex-col gap-[14px] ${s.tight || s.natural ? "" : "xl:min-h-[413px]"} ${s.natural ? "xl:gap-[30px]" : ""}`}>
-            <RichTitle text={s.title} className={`${H2} text-[#333333]! ${s.tight ? "xl:whitespace-nowrap" : ""}`} accentClassName="text-[#333333]" breakBeforeAccent={!s.natural} />
+            <RichTitle text={s.title} className={`${H2} text-[#333333]!`} accentClassName="text-[#333333]" breakBeforeAccent={!s.natural} />
             <div className={`flex flex-col gap-[14px] ${s.natural ? "xl:mt-0 xl:gap-[30px]" : s.tight ? "xl:gap-[26px] xl:mt-[16px]" : "xl:gap-[26px] xl:mt-[26px]"} mt-[10px]`}>
               {s.paras.map((p) => (
                 <p key={p.slice(0, 40)} className={LEAD}>
@@ -392,7 +392,7 @@ function CompareSection({ s }: { s: Extract<Section, { type: "compare" }> }) {
             <Reveal key={item.title} delay={i * 0.08} className="h-full">
               <article className="card-lift flex h-full flex-col gap-[24px] lg:gap-[30px] bg-white border border-[#C6CCED] px-[20px] py-[32px] lg:px-[28px] lg:py-[40px]">
                 <div className="flex flex-col gap-[20px]">
-                  <h3 className="m-0 font-archivo text-[28px] lg:text-[40px] leading-[1.15] lg:leading-[26px] font-medium text-primary">{item.title}</h3>
+                  <h3 className="m-0 font-archivo text-[28px] lg:text-[30px] leading-[1.15] min-[1196px]:text-[40px] min-[1196px]:leading-[26px] font-medium text-primary">{item.title}</h3>
                   <p className="m-0 font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666]">{item.desc}</p>
                   <ul className="m-0 p-0 list-none flex flex-col gap-[20px]">
                     {item.points.map((pt) => (
@@ -564,7 +564,7 @@ function TiersSection({ s }: { s: Extract<Section, { type: "tiers" }> }) {
                 <div className="flex w-full flex-col gap-[24px] lg:gap-[34px]">
                   <span className="font-archivo text-[14px] lg:text-[17px] font-medium leading-[17px] uppercase text-[#666666]">{t.label}</span>
                   <div className="flex flex-col gap-[20px]">
-                    <h3 className="m-0 font-archivo text-[30px] lg:text-[40px] leading-[1.15] lg:leading-[26px] font-medium text-primary">{t.title}</h3>
+                    <h3 className="m-0 font-archivo text-[30px] lg:text-[32px] leading-[1.15] min-[1196px]:text-[40px] min-[1196px]:leading-[26px] font-medium text-primary">{t.title}</h3>
                     <p className="m-0 font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666]">{t.desc}</p>
                     <ul className="m-0 p-0 list-none flex flex-col gap-[20px]">
                       {t.points.map((pt) => (

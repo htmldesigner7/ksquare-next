@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Reveal from "@/components/common/Reveal";
 import ProcessTimelineArt from "@/components/page-kit/ProcessTimelineArt";
 import Link from "next/link";
 import { Metadata } from "next";
@@ -331,18 +332,18 @@ export default function OurInfrastructurePage() {
           </div>
 
           {/* Row 1 labels (above the connector graphic) */}
-          <div className="absolute left-[3.39px] top-[169.9px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
+          <Reveal delay={0.10} y={16} className="absolute left-[3.39px] top-[169.9px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
             <h3 className="font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[0].title}</h3>
             <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[0].desc}</p>
-          </div>
-          <div className="absolute left-[521.49px] top-[169.9px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
+          </Reveal>
+          <Reveal delay={0.38} y={16} className="absolute left-[521.49px] top-[169.9px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
             <h3 className="font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[1].title}</h3>
             <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[1].desc}</p>
-          </div>
-          <div className="absolute left-[1053.13px] top-[169.9px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
+          </Reveal>
+          <Reveal delay={0.66} y={16} className="absolute left-[1053.13px] top-[169.9px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
             <h3 className="font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[2].title}</h3>
             <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[2].desc}</p>
-          </div>
+          </Reveal>
 
           {/* Connector graphic (circles + zigzag dotted line) with 4 overlaid icons */}
           <div className="absolute left-0 top-[274.95px] w-[1600px] h-[302.82px]">
@@ -350,18 +351,18 @@ export default function OurInfrastructurePage() {
           </div>
 
           {/* Row 2 labels (below the connector graphic) */}
-          <div className="absolute left-[256px] top-[590.77px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
+          <Reveal delay={0.24} y={16} className="absolute left-[256px] top-[590.77px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
             <h3 className="font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[3].title}</h3>
             <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[3].desc}</p>
-          </div>
-          <div className="absolute left-[789.82px] top-[590.77px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
+          </Reveal>
+          <Reveal delay={0.52} y={16} className="absolute left-[789.82px] top-[590.77px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
             <h3 className="font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[4].title}</h3>
             <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[4].desc}</p>
-          </div>
-          <div className="absolute left-[1309.15px] top-[590.77px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
+          </Reveal>
+          <Reveal delay={0.80} y={16} className="absolute left-[1309.15px] top-[590.77px] w-[290.85px] flex flex-col items-center text-center gap-[12px]">
             <h3 className="font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[5].title}</h3>
             <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[5].desc}</p>
-          </div>
+          </Reveal>
         </div>
 
         {/* Mobile/tablet fallback (Figma provides no separate mobile frame) */}

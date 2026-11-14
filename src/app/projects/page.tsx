@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Reveal from "@/components/common/Reveal";
 import ProcessTimelineArt from "@/components/page-kit/ProcessTimelineArt";
 import Link from "next/link";
 import { Metadata } from "next";
@@ -84,10 +85,10 @@ function SelectArrow() {
 
 function Step({ index, className }: { index: number; className: string }) {
   return (
-    <div className={`absolute w-[290.85px] flex flex-col items-center text-center gap-[12px] ${className}`}>
+    <Reveal delay={(index < 3 ? index * 2 : (index - 3) * 2 + 1) * 0.14 + 0.1} y={16} className={`absolute w-[290.85px] flex flex-col items-center text-center gap-[12px] ${className}`}>
       <h3 className="m-0 font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[index].title}</h3>
       <p className="m-0 font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[index].desc}</p>
-    </div>
+    </Reveal>
   );
 }
 

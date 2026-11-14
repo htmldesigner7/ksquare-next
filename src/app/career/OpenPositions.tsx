@@ -19,6 +19,9 @@ export default function OpenPositions({
 
   const filtered = activeTab === "All Positions" ? positions : positions.filter((p) => p.category === activeTab);
 
+  // With only a few openings the list sits at the top of a shorter box instead of floating in the middle of a tall one.
+  const few = filtered.length < 4;
+
   return (
     <div className="flex flex-col items-center gap-[24px] lg:gap-[40px] w-full">
       {/* Tabs */}
@@ -28,12 +31,12 @@ export default function OpenPositions({
             key={tab}
             type="button"
             onClick={() => setActiveTab(tab)}
-            className={`flex items-center px-[16px] lg:px-[28px] py-[12px] lg:py-[16px] transition-colors rounded-t-[12px] border-b border-transparent ${
+            className={`flex items-center px-[16px] lg:px-[20px] desk:px-[28px] py-[12px] lg:py-[16px] transition-colors rounded-t-[12px] border-b border-transparent ${
               activeTab === tab ? "!border-primary" : ""
             }`}
           >
             <span
-              className={`font-archivo whitespace-nowrap text-[16px] lg:text-[24px] leading-[26px] ${
+              className={`font-archivo whitespace-nowrap text-[16px] lg:text-[20px] desk:text-[24px] leading-[26px] ${
                 activeTab === tab ? "text-primary font-semibold" : "text-[#666666]"
               }`}
             >
@@ -44,7 +47,7 @@ export default function OpenPositions({
       </div>
 
       {/* Positions List */}
-      <div className="flex flex-col md:flex-row items-start md:items-center md:min-h-[554px] gap-[24px] md:gap-[60px] w-full">
+      <div className={`flex flex-col md:flex-row items-start gap-[24px] md:gap-[60px] w-full ${few ? "md:min-h-[440px]" : "md:items-center md:min-h-[554px]"}`}>
         <div className="hidden md:flex flex-col justify-center shrink-0 w-[100px] self-stretch relative">
           <span className="font-recia italic font-light text-[40px] lg:text-[64px] text-[#9DBCF3] leading-[1] whitespace-nowrap [writing-mode:vertical-rl] rotate-180">
             Open Positions

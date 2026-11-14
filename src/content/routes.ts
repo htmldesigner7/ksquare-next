@@ -5,6 +5,10 @@
 export interface NavLink {
   label: string;
   href: string;
+  /** One-line description shown under the link in the desktop mega menu. */
+  desc?: string;
+  /** Icon key (see page-kit/icons) for the tile beside the link in the mega menu. */
+  icon?: string;
 }
 
 export interface NavGroup {
@@ -12,10 +16,20 @@ export interface NavGroup {
   links: NavLink[];
 }
 
+/** Highlight card on the right of a mega menu panel. */
+export interface NavFeature {
+  title: string;
+  desc: string;
+  cta: string;
+  href: string;
+  image: string;
+}
+
 export interface NavItem {
   label: string;
   href: string;
   groups?: NavGroup[];
+  feature?: NavFeature;
 }
 
 export const ROUTES = {
@@ -68,17 +82,18 @@ export const NAV: NavItem[] = [
       {
         title: "Core Products",
         links: [
-          { label: "DCDB", href: ROUTES.dcdb },
-          { label: "ACDB", href: ROUTES.dcdb },
-          { label: "Combiner Box", href: ROUTES.dcdb },
-          { label: "Earthing Kits", href: ROUTES.dcdb },
+          { label: "DCDB", href: ROUTES.dcdb, desc: "DC distribution boxes for string-level protection", icon: "zap" },
+          { label: "ACDB", href: ROUTES.dcdb, desc: "AC distribution with NVR protection and indication", icon: "activity" },
+          { label: "Combiner Box", href: ROUTES.dcdb, desc: "Multi-string combiners for larger arrays", icon: "package" },
+          { label: "Earthing Kits", href: ROUTES.dcdb, desc: "Complete grounding for modules and structures", icon: "shield" },
         ],
       },
       {
         title: "Our Brands",
-        links: [{ label: "Ksquare Inverter", href: ROUTES.inverter }],
+        links: [{ label: "Ksquare Inverter", href: ROUTES.inverter, desc: "Smart solar inverters with remote monitoring", icon: "cpu" }],
       },
     ],
+    feature: { title: "Solar DCDB range", desc: "Certified protection boxes engineered and tested in our Ahmedabad plant.", cta: "Explore products", href: ROUTES.products, image: "/assets/dcdb_banner.webp" },
   },
   {
     label: "Solutions",
@@ -87,36 +102,37 @@ export const NAV: NavItem[] = [
       {
         title: "Solar Solutions",
         links: [
-          { label: "Residential Solar", href: ROUTES.residential },
-          { label: "Rooftop Solar", href: ROUTES.rooftop },
-          { label: "Rooftop Solar for Flats", href: ROUTES.rooftopFlats },
+          { label: "Residential Solar", href: ROUTES.residential, desc: "Rooftop systems designed around your home", icon: "home" },
+          { label: "Rooftop Solar", href: ROUTES.rooftop, desc: "For RCC, metal sheet, tiled and tin shed roofs", icon: "sun" },
+          { label: "Rooftop Solar for Flats", href: ROUTES.rooftopFlats, desc: "Shared systems for societies and apartments", icon: "building" },
         ],
       },
       {
         title: "Government Solutions",
         links: [
-          { label: "PM Surya Ghar", href: ROUTES.pmSuryaGhar },
-          { label: "Net Metering Support", href: ROUTES.netMetering },
-          { label: "Subsidy Assistance", href: ROUTES.subsidy },
+          { label: "PM Surya Ghar", href: ROUTES.pmSuryaGhar, desc: "Central subsidy handled end to end", icon: "badge" },
+          { label: "Net Metering Support", href: ROUTES.netMetering, desc: "DISCOM approvals and grid synchronisation", icon: "file" },
+          { label: "Subsidy Assistance", href: ROUTES.subsidy, desc: "Claim every eligible incentive", icon: "rupee" },
         ],
       },
       {
         title: "Business Solutions",
         links: [
-          { label: "EPC Solutions", href: ROUTES.epc },
-          { label: "OEM Solutions", href: ROUTES.oem },
-          { label: "Export Solutions", href: ROUTES.exportSolutions },
+          { label: "EPC Solutions", href: ROUTES.epc, desc: "Factory-direct BOS supply for EPCs and installers", icon: "wrench" },
+          { label: "OEM Solutions", href: ROUTES.oem, desc: "Build your branded range on our production line", icon: "factory" },
+          { label: "Export Solutions", href: ROUTES.exportSolutions, desc: "Export-ready BOS components, shipped worldwide", icon: "globe" },
         ],
       },
       {
         title: "Services",
         links: [
-          { label: "Solar Consultation", href: ROUTES.consultation },
-          { label: "Remote Monitoring", href: ROUTES.monitoring },
-          { label: "Annual Maintenance", href: ROUTES.amc },
+          { label: "Solar Consultation", href: ROUTES.consultation, desc: "Free site assessment and system sizing", icon: "headset" },
+          { label: "Remote Monitoring", href: ROUTES.monitoring, desc: "Live generation tracking and instant alerts", icon: "monitor" },
+          { label: "Annual Maintenance", href: ROUTES.amc, desc: "Cleaning, health checks and quick repairs", icon: "settings" },
         ],
       },
     ],
+    feature: { title: "Free site assessment", desc: "Get a system sized to your roof and bill, with the subsidy paperwork handled.", cta: "Book an assessment", href: ROUTES.consultation, image: "/assets/pages/residential/hero_full.webp" },
   },
   {
     label: "Manufacturing",
@@ -125,12 +141,13 @@ export const NAV: NavItem[] = [
       {
         title: "Manufacturing",
         links: [
-          { label: "Private Label Manufacturing", href: ROUTES.privateLabel },
-          { label: "Custom Product Development", href: ROUTES.customDevelopment },
-          { label: "Our Infrastructure", href: ROUTES.infrastructure },
+          { label: "Private Label Manufacturing", href: ROUTES.privateLabel, desc: "Your brand, built in our factory", icon: "package" },
+          { label: "Custom Product Development", href: ROUTES.customDevelopment, desc: "Engineered around your requirements", icon: "ruler" },
+          { label: "Our Infrastructure", href: ROUTES.infrastructure, desc: "Plant, testing lab and quality control", icon: "factory" },
         ],
       },
     ],
+    feature: { title: "Your product, our factory", desc: "From private label to fully custom builds, made to your specification.", cta: "Start a project", href: ROUTES.customDevelopment, image: "/assets/pages/custom-development/hero_full.webp" },
   },
   { label: "Projects", href: ROUTES.projects },
   {
@@ -140,21 +157,22 @@ export const NAV: NavItem[] = [
       {
         title: "Resources",
         links: [
-          { label: "Blogs", href: ROUTES.blog },
-          { label: "Downloads", href: ROUTES.downloads },
-          { label: "FAQs", href: ROUTES.faqs },
-          { label: "Solar Calculators", href: ROUTES.calculators },
+          { label: "Blogs", href: ROUTES.blog, desc: "Guides, news and technical insights", icon: "file" },
+          { label: "Downloads", href: ROUTES.downloads, desc: "Brochures, datasheets and certificates", icon: "layers" },
+          { label: "FAQs", href: ROUTES.faqs, desc: "Quick answers to common questions", icon: "search" },
+          { label: "Solar Calculators", href: ROUTES.calculators, desc: "Size your system and estimate savings", icon: "calculator" },
         ],
       },
       {
         title: "Partners",
         links: [
-          { label: "Become a Partner", href: ROUTES.partner },
-          { label: "OEM Partnership", href: ROUTES.oemPartnership },
-          { label: "Export Business", href: ROUTES.exportBusiness },
+          { label: "Become a Partner", href: ROUTES.partner, desc: "Join our distributor and dealer network", icon: "handshake" },
+          { label: "OEM Partnership", href: ROUTES.oemPartnership, desc: "A long-term manufacturing partnership", icon: "handshake" },
+          { label: "Export Business", href: ROUTES.exportBusiness, desc: "Represent Ksquare in your market", icon: "truck" },
         ],
       },
     ],
+    feature: { title: "Learn before you buy", desc: "Read our latest guides on sizing, protection and subsidies.", cta: "Read the blog", href: ROUTES.blog, image: "/assets/blog/post_1.png" },
   },
   {
     label: "About us",
@@ -163,25 +181,26 @@ export const NAV: NavItem[] = [
       {
         title: "Company",
         links: [
-          { label: "Company Profile", href: ROUTES.about },
-          { label: "Leadership Team", href: ROUTES.leadership },
-          { label: "Infrastructure", href: ROUTES.infrastructure },
-          { label: "Quality & Certifications", href: ROUTES.certifications },
-          { label: "Awards & Recognition", href: ROUTES.awards },
-          { label: "Our Presence", href: ROUTES.presence },
+          { label: "Company Profile", href: ROUTES.about, desc: "Who we are and what we build", icon: "building" },
+          { label: "Leadership Team", href: ROUTES.leadership, desc: "The people behind Ksquare", icon: "users" },
+          { label: "Infrastructure", href: ROUTES.infrastructure, desc: "Our manufacturing facility", icon: "factory" },
+          { label: "Quality & Certifications", href: ROUTES.certifications, desc: "BIS, CE, RoHS and test reports", icon: "badge" },
+          { label: "Awards & Recognition", href: ROUTES.awards, desc: "Milestones that mark our journey", icon: "award" },
+          { label: "Our Presence", href: ROUTES.presence, desc: "Offices and plants across India", icon: "pin" },
         ],
       },
       {
         title: "Media & Support",
         links: [
-          { label: "News & Events", href: ROUTES.news },
-          { label: "Press Releases", href: ROUTES.press },
-          { label: "Careers", href: ROUTES.career },
-          { label: "Grievance", href: ROUTES.grievance },
-          { label: "Track Solar Status", href: ROUTES.track },
+          { label: "News & Events", href: ROUTES.news, desc: "Exhibitions and company updates", icon: "clock" },
+          { label: "Press Releases", href: ROUTES.press, desc: "Ksquare in the news", icon: "file" },
+          { label: "Careers", href: ROUTES.career, desc: "Open positions at Ksquare", icon: "users" },
+          { label: "Grievance", href: ROUTES.grievance, desc: "Raise a concern with our team", icon: "headset" },
+          { label: "Track Solar Status", href: ROUTES.track, desc: "Follow your project stage by stage", icon: "activity" },
         ],
       },
     ],
+    feature: { title: "Meet the team", desc: "The founders and engineers building Ksquare Energy.", cta: "Leadership team", href: ROUTES.leadership, image: "/assets/pages/leadership/hero_full.webp" },
   },
   { label: "Contact", href: ROUTES.contact },
 ];

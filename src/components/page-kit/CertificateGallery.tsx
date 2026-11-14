@@ -40,6 +40,7 @@ export default function CertificateGallery({ items, categories: extra }: { items
   const [open, setOpen] = useState<number | null>(null);
   const [dir, setDir] = useState(1);
   const [zoom, setZoom] = useState(false);
+  const [ratio, setRatio] = useState(0.75); // width / height of the document being shown
   const [origin, setOrigin] = useState("50% 50%");
   const opener = useRef<HTMLElement | null>(null);
   const closeBtn = useRef<HTMLButtonElement | null>(null);
@@ -180,7 +181,7 @@ export default function CertificateGallery({ items, categories: extra }: { items
             </div>
 
             {/* stage */}
-            <div className="relative flex min-h-0 flex-1 items-center justify-center px-[16px] lg:px-[96px]">
+            <div className="relative flex min-h-0 flex-1 items-center justify-center px-[16px] lg:px-[96px] [container-type:size]">
               {visible.length > 1 && (
                 <button type="button" aria-label="Previous document" onClick={(e) => { e.stopPropagation(); go(-1); }} className={`${iconBtn} absolute left-[12px] lg:left-[32px] z-10`}>
                   {Icon.prev}
@@ -206,13 +207,30 @@ export default function CertificateGallery({ items, categories: extra }: { items
                     if (info.offset.x < -80) go(1);
                     else if (info.offset.x > 80) go(-1);
                   }}
-                  className="relative h-full max-h-[calc(100dvh-230px)] w-[min(92vw,560px)] overflow-hidden rounded-[8px] bg-white shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-white/20"
+                  className="relative overflow-hidden rounded-[8px] bg-white shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] ring-1 ring-white/20"
                   style={{ cursor: zoom ? "zoom-out" : "zoom-in" }}
                   onClick={(e) => { e.stopPropagation(); setZoom((z) => !z); }}
                   onMouseMove={onStageMove}
                 >
-                  <div className="absolute inset-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]" style={{ transform: zoom ? "scale(2.1)" : "scale(1)", transformOrigin: origin }}>
-                    <Image src={current.image} alt={current.title} fill sizes="(min-width:1024px) 1100px, 92vw" className="object-contain" priority />
+                  {/* the card is as big as the screen allows, shaped like the document itself (portrait or landscape) */}
+                  <div className="transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]" style={{ transform: zoom ? "scale(2.1)" : "scale(1)", transformOrigin: origin }}>
+                    <div
+                      className="relative [--mw:min(100cqw,1100px)]"
+                      style={{ aspectRatio: String(ratio), height: `min(100cqh, calc(var(--mw) / ${ratio}))` }}
+                    >
+                      <Image
+                        src={current.image}
+                        alt={current.title}
+                        fill
+                        sizes="(min-width:1024px) 1100px, 92vw"
+                        className="object-contain"
+                        priority
+                        onLoad={(e) => {
+                          const im = e.currentTarget;
+                          if (im.naturalWidth && im.naturalHeight) setRatio(im.naturalWidth / im.naturalHeight);
+                        }}
+                      />
+                    </div>
                   </div>
                 </motion.div>
               </AnimatePresence>

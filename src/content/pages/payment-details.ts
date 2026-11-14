@@ -14,7 +14,7 @@ export const page: PageData = {
     description: "Official payment options for Ksquare Energy Pvt. Ltd. — pay via UPI or bank transfer, and confirm your payment below.",
     ctas: [{ label: "Talk To Our Team", href: ROUTES.contact }],
     crumbRow: true,
-    cutout: { image: `${IMG}/hero_full.webp`, x: 0, y: -205, w: 1800, h: 705 },
+    cutout: { image: `${IMG}/hero_group.webp`, x: 0, y: -205, w: 1800, h: 705 },
     imageAlt: "Ksquare team member checking a payment on a phone beside a rooftop solar plant",
   },
   sectionPadding: 50,

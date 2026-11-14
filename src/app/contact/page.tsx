@@ -5,6 +5,7 @@ import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import SectionSpacer from "@/components/common/SectionSpacer";
 import OurPresenceTabs from "./OurPresenceTabs";
+import OfficeMap from "./OfficeMap";
 import ContactLink from "@/components/common/ContactLink";
 
 export const metadata: Metadata = {
@@ -247,18 +248,8 @@ export default function ContactPage() {
               </p>
             </div>
 
-            {/* Map — Figma #106:4471: the Google My Maps view ("Ksquare Offices" legend) sits on top of the campus view and its Get Direction card, 1800 x 472 */}
-            <div className="scroll-hint w-full overflow-x-auto lg:overflow-visible">
-            <div className="relative w-full min-w-[760px] aspect-[1800/472] overflow-hidden">
-              <Image
-                src="/assets/contact/ahmedabad_map-2796b0.png"
-                alt="Ksquare Offices map: Ahmedabad, Surat and Baner locations"
-                fill
-                sizes="(min-width:1864px) 1800px, 100vw"
-                className="object-cover object-left"
-              />
-            </div>
-            </div>
+            {/* Map: Figma #106:4471, the live "Ksquare Offices" Google My Map with the side panel rebuilt in code */}
+            <OfficeMap />
           </div>
         </Container>
       </section>

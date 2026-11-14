@@ -20,7 +20,7 @@ export const page: PageData = {
       { label: "Get a Free Consultation", href: ROUTES.consultation },
     ],
     afterGap: 42,
-    cutout: { image: `${IMG}/hero_full.webp`, x: 0, y: -306, w: 1800, h: 806 },
+    cutout: { image: `${IMG}/hero_group.webp`, x: 0, y: -315, w: 1810, h: 826 },
     imageAlt: "Engineers installing a rooftop solar system",
   },
   sectionPadding: 50,

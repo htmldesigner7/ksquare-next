@@ -361,3 +361,9 @@ html {
   background: #2b398b;
   border-radius: 4px;
 }
+
+/* Process timelines (circle steps): arcs colour; on hover only the icon lifts and tilts (no zoom; circle stays as it is). */
+.ks-arcs { color: #c0c5e5; }
+.ks-icon { transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
+.ks-disc:hover .ks-icon { transform: translateY(-7px) rotate(-8deg); }
+@media (prefers-reduced-motion: reduce) { .ks-icon { transition: none; } }

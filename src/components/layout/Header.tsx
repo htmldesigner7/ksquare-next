@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { NAV, ROUTES } from "@/content/routes";
+import { Icon, type IconKey } from "@/components/page-kit/icons";
 
 /** Injects Google Translate's element script once (its init callback fills the hidden #google_translate_element). */
 function loadTranslateScript() {
@@ -235,7 +236,7 @@ export default function Header() {
           <nav className="hidden hnav:flex items-center gap-[16px] desk:gap-[22px] w1536:gap-[28px] g1664:gap-[40px] h-full" aria-label="Primary">
             {NAV.map((item) => {
               return (
-                <div key={item.label} className="relative h-full flex items-center group">
+                <div key={item.label} className="h-full flex items-center group">
                   <Link
                     href={item.href}
                     className={clsx(
@@ -254,31 +255,92 @@ export default function Header() {
                     <span className="absolute left-0 bottom-0 h-[2px] bg-primary transition-all duration-300 w-0 group-hover:w-full" />
                   </Link>
 
-                  {/* Dropdown Menu */}
+                  {/* Mega menu: a full-width panel under the header (links with a short description, plus a highlight card) */}
                   {item.groups && (
                     <div
                       className={clsx(
-                        "absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-300 border-t-2 border-primary translate-y-4 group-hover:translate-y-0 group-focus-within:translate-y-0 rounded-b-lg overflow-hidden",
-                        item.groups.length > 2 ? "w-[760px] grid grid-cols-2 gap-x-6 p-6" : item.groups.length === 2 ? "w-[520px] grid grid-cols-2 gap-x-6 p-6" : "w-[300px] p-6"
+                        "absolute left-0 right-0 top-full bg-white border-t-2 border-primary shadow-[0_30px_60px_-24px_rgba(20,30,90,0.35)]",
+                        "opacity-0 invisible -translate-y-2 transition-[opacity,transform,visibility] duration-300 ease-out [transition-delay:140ms]",
+                        "group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:[transition-delay:0ms] group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:[transition-delay:0ms]"
                       )}
                     >
-                      {item.groups.map((group) => (
-                        <div key={group.title} className="flex flex-col mb-4 last:mb-0">
-                          <span className="font-archivo text-[13px] font-semibold uppercase tracking-wider text-primary mb-2">{group.title}</span>
-                          {group.links.map((link) => (
-                            <Link
-                              key={link.label}
-                              href={link.href}
-                              className={clsx(
-                                "py-[7px] text-[15px] font-archivo transition-all duration-200 hover:text-primary hover:translate-x-1",
-                                pathname === link.href ? "text-primary font-medium" : "text-[#4F4F4F]"
-                              )}
-                            >
-                              {link.label}
-                            </Link>
+                      {/* soft scrim over the page while a menu is open */}
+                      <span aria-hidden="true" className="pointer-events-none absolute left-0 right-0 top-full h-screen bg-[#0B1240]/25" />
+                      <div className="w-[1800px] max-w-full mx-auto px-4 lg:px-8 desk:px-[60px] g1864:px-0 py-10 flex items-stretch gap-[56px]">
+                        <div
+                          className="flex-1 min-w-0 grid gap-x-[40px] gap-y-8 content-start"
+                          style={{ gridTemplateColumns: `repeat(${Math.min(item.groups.length, 4)}, minmax(0, 1fr))` }}
+                        >
+                          {item.groups.map((group) => (
+                            <div key={group.title} className="flex flex-col">
+                              <span className="font-archivo text-[13px] font-semibold uppercase tracking-[0.08em] text-primary mb-3 pb-3 border-b border-[#E3E8F7]">{group.title}</span>
+                              {group.links.map((link) => {
+                                // several links of one panel can share a page (e.g. all the DCDB-family links); then none of them is "the" current page
+                                const sameHref = item.groups!.flatMap((g) => g.links).filter((l) => l.href === link.href).length;
+                                const current = pathname === link.href && sameHref === 1;
+                                return (
+                                  <Link
+                                    key={link.label}
+                                    href={link.href}
+                                    className={clsx(
+                                      "group/link -mx-3 flex items-start justify-between gap-3 rounded-[8px] px-3 py-[10px] transition-colors duration-200 hover:bg-[#F0F5FE] focus-visible:bg-[#F0F5FE] focus-visible:outline-none",
+                                      current && "bg-[#F0F5FE]"
+                                    )}
+                                  >
+                                    <span className="flex min-w-0 items-start gap-[14px]">
+                                      {link.icon && (
+                                        <span className={clsx("mt-[1px] flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-[10px] transition-colors duration-200 group-hover/link:bg-primary group-hover/link:text-white", current ? "bg-primary text-white" : "bg-[#EEF1FB] text-primary")}>
+                                          <Icon name={link.icon as IconKey} className="h-[20px] w-[20px]" />
+                                        </span>
+                                      )}
+                                      <span className="flex min-w-0 flex-col">
+                                        <span className={clsx("font-archivo text-[16px] leading-[22px] font-medium transition-colors group-hover/link:text-primary", current ? "text-primary" : "text-[#222222]")}>{link.label}</span>
+                                        {link.desc && <span className="mt-[2px] font-archivo text-[14px] leading-[20px] text-[#6B6B6B]">{link.desc}</span>}
+                                      </span>
+                                    </span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="mt-[3px] shrink-0 -translate-x-1 text-primary opacity-0 transition-all duration-200 group-hover/link:translate-x-0 group-hover/link:opacity-100 group-focus-visible/link:translate-x-0 group-focus-visible/link:opacity-100">
+                                      <path d="M5 12h14M13 6l6 6-6 6" />
+                                    </svg>
+                                  </Link>
+                                );
+                              })}
+                            </div>
                           ))}
                         </div>
-                      ))}
+                        {item.feature && (
+                          <Link href={item.feature.href} className="group/feat relative hidden w-[380px] shrink-0 flex-col self-start overflow-hidden rounded-[12px] bg-[#2B398B] xl:flex focus-visible:outline-2 focus-visible:outline-primary">
+                            <span className="relative block h-[170px] w-full overflow-hidden bg-gradient-to-b from-[#3B4BB0] to-[#2B398B]">
+                              <Image src={item.feature.image} alt="" fill sizes="380px" className="object-cover object-bottom transition-transform duration-700 group-hover/feat:scale-[1.05]" />
+                            </span>
+                            <span className="flex flex-1 flex-col gap-[6px] p-5 text-white">
+                              <span className="font-archivo text-[20px] leading-[26px] font-medium">{item.feature.title}</span>
+                              <span className="font-archivo text-[14px] leading-[21px] text-white/80">{item.feature.desc}</span>
+                              <span className="mt-auto flex items-center gap-2 pt-3 font-archivo text-[15px] font-medium">
+                                {item.feature.cta}
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="transition-transform duration-200 group-hover/feat:translate-x-1">
+                                  <path d="M5 12h14M13 6l6 6-6 6" />
+                                </svg>
+                              </span>
+                            </span>
+                          </Link>
+                        )}
+                      </div>
+                      {/* bottom bar: jump to the section page, or talk to the team */}
+                      <div className="border-t border-[#E3E8F7] bg-[#F7F9FF]">
+                        <div className="w-[1800px] max-w-full mx-auto px-4 lg:px-8 desk:px-[60px] g1864:px-0 flex items-center justify-between gap-6 py-[14px]">
+                          <Link href={item.href} className="group/all inline-flex items-center gap-2 font-archivo text-[15px] font-medium text-primary hover:underline underline-offset-4">
+                            {"View all " + item.label}
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="transition-transform duration-200 group-hover/all:translate-x-1">
+                              <path d="M5 12h14M13 6l6 6-6 6" />
+                            </svg>
+                          </Link>
+                          <span className="flex items-center gap-4 font-archivo text-[14px] text-[#555555]">
+                            Need help choosing?
+                            <a href="tel:+917969697979" className="font-medium text-[#222222] hover:text-primary">+91 79 6969 7979</a>
+                            <Link href={ROUTES.contact} className="rounded-[4px] border border-primary px-3 py-[6px] font-medium text-primary transition-colors hover:bg-primary hover:text-white">Talk to our team</Link>
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   )}
                 </div>

@@ -26,7 +26,6 @@ export const page: PageData = {
   },
   sectionPadding: 50,
   faqBottom: 50,
-  endGap: 531,
   sections: [
     {
       type: "cards",
@@ -115,6 +114,15 @@ export const page: PageData = {
       subtitle:
         "Apply now to join India's growing network of Ksquare Energy partners. Gain access to premium quality manufacturing, technical training, and co-branded marketing assets.",
       office: OFFICE,
+    },
+    {
+      type: "cta",
+      title: "Get bulk pricing on *Solar BOS Components*",
+      desc: "Whether you need certified solar components, OEM manufacturing, or complete rooftop solar solutions, our team is ready to help.",
+      ctas: [
+        { label: "Request a Quote", href: ROUTES.contact },
+        { label: "Talk to Our Experts", href: ROUTES.contact },
+      ],
     },
   ],
 };
