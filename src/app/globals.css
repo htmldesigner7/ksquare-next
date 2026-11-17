@@ -57,6 +57,9 @@
   --font-sans: var(--font-archivo);
   --font-inter: var(--font-inter);
   --font-dm: var(--font-dm-sans);
+  --font-geist: var(--font-geist), var(--font-archivo), sans-serif;
+  --font-roboto: var(--font-roboto), var(--font-archivo), sans-serif;
+  --font-instrument: var(--font-instrument-sans), var(--font-archivo), sans-serif;
   --font-recia: var(--font-playfair), Georgia, serif;
   --font-archivo: var(--font-archivo);
   --font-playfair: var(--font-playfair);

@@ -29,10 +29,11 @@ import ContactLink from "@/components/common/ContactLink";
 const H2 = "font-archivo text-[34px] sm:text-[44px] lg:text-[60px] leading-[1.15] text-primary font-normal m-0";
 const LEAD = "m-0 font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666]";
 
-function Heading({ title, subtitle, align = "center", light = false, tight = false, wide = false, compact = false, ink = false, wideSub = false }: { title: string; subtitle?: string; align?: "center" | "left"; light?: boolean; tight?: boolean; wide?: boolean; compact?: boolean; ink?: boolean; wideSub?: boolean }) {
+function Heading({ title, subtitle, align = "center", light = false, tight = false, wide = false, compact = false, ink = false, wideSub = false, serif = false, dm = false }: { title: string; subtitle?: string; align?: "center" | "left"; light?: boolean; tight?: boolean; wide?: boolean; compact?: boolean; ink?: boolean; wideSub?: boolean; serif?: boolean; dm?: boolean }) {
+  // `serif` / `dm`: a few Figma titles set their plain words in Recia (upright) or DM Sans Medium instead of Archivo.
   return (
     <div className={`flex flex-col ${tight ? "gap-[10px]" : "gap-[16px]"} ${align === "center" ? "items-center text-center mx-auto" : "items-start text-left"} ${wide ? "max-w-[1600px]" : "max-w-[1300px]"}`}>
-      <RichTitle text={title} className={`${H2} ${light ? "text-white!" : ""} ${tight ? "lg:leading-[42px]! lg:min-h-[42px] desk:h-[42px]" : compact ? "lg:leading-[42px]! lg:min-h-[42px] desk:h-[42px] lg:relative lg:-top-[14px]" : ""} ${compact && (align === "left" || ink) ? "text-[#333333]!" : ""}`} accentClassName={compact && (align === "left" || ink) ? "text-[#333333]" : undefined} breakBeforeAccent={align === "left" && !compact} />
+      <RichTitle text={title} className={`${H2} ${serif ? "font-recia!" : ""} ${dm ? "font-dm! font-medium!" : ""} ${light ? "text-white!" : ""} ${tight ? "lg:leading-[42px]! lg:min-h-[42px] desk:h-[42px]" : compact ? "lg:leading-[42px]! lg:min-h-[42px] desk:h-[42px] lg:relative lg:-top-[14px]" : ""} ${compact && (align === "left" || ink) ? "text-[#333333]!" : ""}`} accentClassName={compact && (align === "left" || ink) ? "text-[#333333]" : undefined} breakBeforeAccent={align === "left" && !compact} />
       {subtitle && <p className={`${LEAD} ${tight ? "lg:text-[17px]! lg:leading-[26px]!" : compact ? `lg:text-[17px]! lg:leading-[26px]! ${align === "left" ? "lg:max-w-[1600px]!" : "lg:max-w-[1270px]!"}` : "lg:text-[18px]! lg:leading-[28px]!"} ${wideSub ? "lg:max-w-[1300px]" : "max-w-[1100px]"} ${light ? "text-white/85!" : ""}`}>{subtitle}</p>}
     </div>
   );
@@ -161,7 +162,7 @@ function CardsSection({ s }: { s: Extract<Section, { type: "cards" }> }) {
                   </span>
                   <div className="flex min-w-0 flex-col gap-[4px] font-archivo">
                     <h3 className="m-0 text-[14px] lg:text-[16px] leading-[24px] font-normal text-[#333333]">{item.title}</h3>
-                    {item.meta && <span className="text-[14px] lg:text-[16px] leading-[24px] font-medium text-[#333333] break-words">{item.meta}</span>}
+                    {item.meta && <span className="font-dm text-[14px] lg:text-[16px] leading-[24px] font-medium text-[#333333] break-words">{item.meta}</span>}
                     <p className="m-0 text-[13px] lg:text-[15px] leading-[24px] text-[#666666]">{item.desc}</p>
                   </div>
                 </article>
@@ -461,7 +462,7 @@ function CalloutsSection({ s }: { s: Extract<Section, { type: "dark" }> }) {
       <div className="relative z-10 flex flex-col gap-[40px] lg:gap-[82px]">
         <Container maxWidth="1600">
           <Reveal>
-            <Heading title={s.title} subtitle={s.desc} light wideSub />
+            <Heading title={s.title} subtitle={s.desc} light wideSub serif={s.serifTitle} />
           </Reveal>
         </Container>
 
@@ -510,7 +511,7 @@ function DarkSection({ s }: { s: Extract<Section, { type: "dark" }> }) {
       <Container maxWidth="1600" className="relative z-10">
         <div className="flex flex-col gap-[40px] items-center">
           <Reveal>
-            <Heading title={s.title} subtitle={s.desc} light />
+            <Heading title={s.title} subtitle={s.desc} light serif={s.serifTitle} />
           </Reveal>
           {s.items && (
             <div className={`w-full grid grid-cols-1 sm:grid-cols-2 ${s.items.length >= 4 ? "xl:grid-cols-4" : "xl:grid-cols-3"} gap-[20px]`}>
@@ -753,14 +754,14 @@ function FormSection({ s }: { s: Extract<Section, { type: "form" }> }) {
       <div className={`grid grid-cols-1 ${s.office ? "xl:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]" : "max-w-[960px] mx-auto"} gap-[40px] lg:gap-[80px] items-start`}>
         <Reveal>
           <div className="flex flex-col gap-[28px] border border-[#E2E8F0] bg-white p-[24px] sm:p-[40px] lg:p-[48px]">
-            <Heading title={s.title} subtitle={s.subtitle} align="left" />
+            <Heading title={s.title} subtitle={s.subtitle} align="left" dm={s.kind === "partner"} />
             <LeadForm kind={s.kind} />
           </div>
         </Reveal>
         {s.office && (
           <Reveal delay={0.1} className="flex flex-col gap-[28px] xl:pt-[56px]">
             <div className="flex flex-col gap-[12px]">
-              <h2 className="m-0 font-archivo text-[36px] lg:text-[52px] leading-[1.1] font-normal text-primary">{s.office.title}</h2>
+              <h2 className="m-0 font-dm text-[36px] lg:text-[52px] leading-[1.1] font-medium text-primary">{s.office.title}</h2>
               <p className={LEAD}>{s.office.desc}</p>
             </div>
             <div className="flex flex-col gap-[16px]">

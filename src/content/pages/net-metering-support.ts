@@ -58,6 +58,7 @@ export const page: PageData = {
       type: "dark",
       numbered: true,
       tops: [56, 479, 56, 414],
+      serifTitle: true,
       title: "Why Net Metering Approval *Isn't Always Simple*",
       desc: "Approval involves multiple agencies, strict paperwork and timelines that differ across utilities. Here is where projects usually get stuck.",
       bgImage: "/assets/pages/shared/dark_bg.webp",

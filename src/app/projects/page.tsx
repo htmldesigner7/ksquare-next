@@ -179,8 +179,8 @@ export default function ProjectsPage() {
           {/* Desktop: pixel-exact zigzag timeline per Figma (same pattern as /grievance) */}
           <div className="canvas-zoom hidden canvas:block relative w-[1600px] mx-auto h-[681px]">
             <div className="absolute left-0 right-0 top-[36px] flex justify-center">
-              <h2 className="m-0 font-recia text-[34px] sm:text-[40px] lg:text-[60px] leading-[1.2] lg:leading-[70px] text-primary font-normal text-center capitalize">
-                How a Ksquare <span className="italic font-medium">project actually runs</span>
+              <h2 className="m-0 font-archivo text-[34px] sm:text-[40px] lg:text-[60px] leading-[1.2] lg:leading-[70px] text-primary font-normal text-center capitalize">
+                How a Ksquare <span className="font-recia italic font-medium">project actually runs</span>
               </h2>
             </div>
 
@@ -199,8 +199,8 @@ export default function ProjectsPage() {
 
           {/* Mobile/tablet fallback */}
           <div className="canvas:hidden mx-auto w-full max-w-[1600px] px-4 lg:px-8 flex flex-col items-center gap-[48px]">
-            <h2 className="m-0 font-recia text-[36px] leading-[1.15] text-primary font-normal text-center capitalize">
-              How a Ksquare <span className="italic font-medium">project actually runs</span>
+            <h2 className="m-0 font-archivo text-[36px] leading-[1.15] text-primary font-normal text-center capitalize">
+              How a Ksquare <span className="font-recia italic font-medium">project actually runs</span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[40px] gap-y-[48px] w-full">
               {processSteps.map((step, i) => (

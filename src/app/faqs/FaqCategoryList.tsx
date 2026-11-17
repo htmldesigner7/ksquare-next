@@ -27,7 +27,7 @@ export default function FaqCategoryList({
       {/* Sidebar Categories */}
       <div className="w-full xl:w-[360px] shrink-0 bg-[#EFF0F6] xl:self-start xl:min-h-[620px]">
         <div className="flex flex-col gap-[16px] xl:gap-[30px] p-[16px] xl:p-[24px] xl:sticky xl:top-[110px]">
-          <h3 className="font-archivo text-[22px] xl:text-[32px] leading-[1.3] text-[#041632] font-semibold">
+          <h3 className="font-inter text-[22px] xl:text-[32px] leading-[1.3] text-[#041632] font-semibold">
             Popular Questions
           </h3>
           <div className="flex gap-[10px] overflow-x-auto xl:flex-col xl:gap-[20px] xl:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">

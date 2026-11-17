@@ -67,6 +67,7 @@ export const page: PageData = {
     {
       type: "dark",
       numbered: true,
+      serifTitle: true,
       title: "Why Applications Get *Delayed or Rejected*",
       desc: "Most delays come from avoidable mistakes. Knowing them upfront keeps your application moving.",
       bgImage: `${IMG}/dark_house.png`,

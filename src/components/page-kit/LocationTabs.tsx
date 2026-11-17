@@ -47,8 +47,8 @@ export default function LocationTabs({ zones }: { zones: Zone[] }) {
                 key={o.name}
                 className="flex flex-col lg:flex-row lg:items-center gap-[12px] lg:gap-0 bg-[#F0F5FE] hover:bg-[#E3E9FB] transition-colors px-[24px] lg:px-[12px] py-[20px] lg:py-[10px] lg:min-h-[100px]"
               >
-                <h3 className="m-0 lg:w-[400px] shrink-0 lg:px-[20px] lg:border-r lg:border-[#C6CCED] font-archivo text-[22px] lg:text-[32px] leading-[34px] font-semibold text-primary">{o.name}</h3>
-                <p className="m-0 flex-1 lg:px-[48px] lg:border-r lg:border-[#C6CCED] font-archivo text-[15px] lg:text-[17px] leading-[26px] text-[#666666] lg:text-center">{o.address}</p>
+                <h3 className="m-0 lg:w-[400px] shrink-0 lg:px-[20px] lg:border-r lg:border-[#C6CCED] font-geist text-[22px] lg:text-[32px] leading-[34px] font-semibold text-primary">{o.name}</h3>
+                <p className="m-0 flex-1 lg:px-[48px] lg:border-r lg:border-[#C6CCED] font-instrument text-[15px] lg:text-[17px] leading-[26px] text-[#666666] lg:text-center">{o.address}</p>
                 <div className="lg:px-[20px] shrink-0">
                   <a
                     href={mapHref}

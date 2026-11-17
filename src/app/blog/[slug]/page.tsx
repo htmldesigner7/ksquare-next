@@ -186,7 +186,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
                         {rows.map((row, i) => (
                           <tr key={i} className={i % 2 === 0 ? "bg-white border-t border-[#F1F5F9]" : "bg-[#EFF0F6] border-t border-[#F1F5F9]"}>
                             <td className="font-archivo text-[16px] lg:text-[17px] font-medium text-primary p-[16px_24px] align-top">{row.label}</td>
-                            <td className="font-archivo text-[16px] lg:text-[18px] text-[#666666] p-[16px_24px] align-top">{row.value}</td>
+                            <td className="font-roboto text-[16px] lg:text-[18px] text-[#666666] p-[16px_24px] align-top">{row.value}</td>
                           </tr>
                         ))}
                       </tbody>

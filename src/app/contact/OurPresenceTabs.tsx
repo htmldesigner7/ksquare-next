@@ -63,16 +63,13 @@ export default function OurPresenceTabs() {
               className="w-full bg-[#F0F5FE] p-[24px] lg:pb-[0] flex flex-col lg:flex-row justify-between items-start lg:items-center gap-[16px] lg:gap-[24px] border-b border-[#9DBCF3] min-h-[100px]"
             >
               <div className="w-full lg:w-[264px] shrink-0">
-                <h3
-                  className="text-[28px] md:text-[40px] leading-[1.1] text-primary font-semibold"
-                  style={{ fontFamily: "Geist, var(--font-archivo), sans-serif" }}
-                >
+                <h3 className="font-geist text-[28px] md:text-[40px] leading-[1.1] text-primary font-semibold">
                   {loc.name}
                 </h3>
               </div>
               <div className="hidden lg:block w-[1px] self-stretch bg-[#9DBCF3]"></div>
               <div className="w-full lg:max-w-[744px]">
-                <p className="font-archivo text-[16px] lg:text-[18px] leading-[26px] text-[#666666]">
+                <p className="font-instrument text-[16px] lg:text-[18px] leading-[26px] text-[#666666]">
                   <ContactLink text={loc.address} />
                 </p>
               </div>

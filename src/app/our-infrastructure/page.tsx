@@ -263,7 +263,7 @@ export default function OurInfrastructurePage() {
 
           {/* Heading */}
           <div className="absolute left-[310px] top-[56px] w-[1300px] flex flex-col items-center gap-[24px] text-center">
-            <h2 className="font-archivo text-[60px] leading-[66px] text-white font-normal">
+            <h2 className="font-recia text-[60px] leading-[66px] text-white font-normal">
               Capabilities Built <span className="font-recia italic font-medium">Around Precision.</span>
             </h2>
             <p className="font-archivo text-[17px] leading-[26px] text-white">
@@ -293,7 +293,7 @@ export default function OurInfrastructurePage() {
           <Container maxWidth="1600">
             <div className="flex flex-col items-center gap-[32px] lg:gap-[60px]">
               <div className="flex flex-col items-center text-center gap-[14px] max-w-[900px]">
-                <h2 className="font-archivo text-[32px] leading-[1.15] text-white font-normal">
+                <h2 className="font-recia text-[32px] leading-[1.15] text-white font-normal">
                   Capabilities Built <span className="font-recia italic font-medium">Around Precision.</span>
                 </h2>
                 <p className="font-archivo text-[17px] leading-[26px] text-white">

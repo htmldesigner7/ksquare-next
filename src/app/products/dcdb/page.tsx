@@ -69,7 +69,7 @@ export default function DcdbProductListing() {
 
         {/* Title Group */}
         <div className="flex flex-col xl:flex-row xl:items-start justify-between gap-[16px] xl:gap-[80px]">
-          <h1 className="font-archivo text-[38px] sm:text-[50px] lg:text-[68px] leading-[46px] sm:leading-[60px] lg:leading-[78px] text-primary font-normal">
+          <h1 className="font-recia text-[38px] sm:text-[50px] lg:text-[68px] leading-[46px] sm:leading-[60px] lg:leading-[78px] text-primary font-normal">
             DC Distribution Boxes <br className="hidden lg:block" />
             <span className="font-recia italic font-bold">Engineered to Protect .</span>
           </h1>
@@ -170,7 +170,7 @@ export default function DcdbProductListing() {
         <div className="canvas:hidden flex flex-col gap-[28px] sm:gap-[40px]">
           <div className="flex flex-col gap-[8px] text-center items-center sm:mb-[20px]">
             <h2 className="font-archivo text-[34px] sm:text-[40px] leading-[1.2] lg:leading-[48px] text-primary font-normal">
-              DCDB Configuration
+              DCDB <span className="font-recia italic font-medium">Configuration</span>
             </h2>
             <p className="font-archivo text-[16px] leading-[24px] text-[#666666]">
               A DCDB for Every Solar Requirement.
@@ -207,7 +207,7 @@ export default function DcdbProductListing() {
           {/* Section Title */}
           <div className="flex flex-col items-center text-center w-full">
             <h2 className="font-archivo text-[34px] sm:text-[40px] lg:text-[60px] leading-[1.2] lg:leading-[57px] text-primary font-normal mb-[8px]">
-              DCDB Configuration
+              DCDB <span className="font-recia italic font-medium">Configuration</span>
             </h2>
             <p className="font-archivo text-[17px] leading-[26px] text-[#666666]">
               A DCDB for Every Solar Requirement.

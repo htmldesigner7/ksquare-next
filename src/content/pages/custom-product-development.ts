@@ -68,6 +68,7 @@ export const page: PageData = {
     },
     {
       type: "dark",
+      serifTitle: true,
       title: "Built for Requirements *That Don't Fit a Catalog*",
       desc: "Custom development supports teams whose projects, brands or markets need something specific.",
       bgImage: "/assets/pages/shared/dark_bg.webp",

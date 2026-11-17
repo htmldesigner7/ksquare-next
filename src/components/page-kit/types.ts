@@ -212,6 +212,8 @@ export type Section =
       bgImage?: string;
       /** Prefix un-valued items with 01, 02… */
       numbered?: boolean;
+      /** Figma sets this title's plain words in Recia (upright serif) instead of Archivo. */
+      serifTitle?: boolean;
       /** Callout card top offsets (px, per card) when a Figma page differs from the default 56/479/56/393. */
       tops?: number[];
       /** Height (px) of the house artwork canvas when Figma differs from the default 648. */
