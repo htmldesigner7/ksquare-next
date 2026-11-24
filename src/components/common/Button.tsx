@@ -8,6 +8,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   children: React.ReactNode;
   showDot?: boolean;
+  /** Opens `href` (an outside site) in a new tab. */
+  external?: boolean;
 }
 
 export default function Button({ 
@@ -16,6 +18,7 @@ export default function Button({
   className, 
   children, 
   showDot = false,
+  external = false,
   ...props 
 }: ButtonProps) {
   
@@ -45,6 +48,14 @@ export default function Button({
       )}
     </>
   );
+
+  if (href && external) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+        {inner}
+      </a>
+    );
+  }
 
   if (href) {
     return (

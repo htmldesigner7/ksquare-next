@@ -380,18 +380,7 @@ export default function GrievancePage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
-                  <div className="flex flex-col gap-[8px]">
-                    <label className="font-archivo text-[17px] leading-[27px] text-[#333333]">Grievance Type*</label>
-                    <div className="relative">
-                      <select className="w-full border border-[#DDDDDD] bg-white h-[52px] px-[16px] font-archivo text-[18px] text-[#666666] focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer rounded-[8px]">
-                        <option>Select grievance type</option>
-                      </select>
-                      <div className="absolute inset-y-0 right-[16px] flex items-center pointer-events-none">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 10l5 5 5-5H7z" fill="#2B398B" /></svg>
-                      </div>
-                    </div>
-                  </div>
+                <div className="grid grid-cols-1 gap-[20px]">
                   <div className="flex flex-col gap-[8px]">
                     <label className="font-archivo text-[17px] leading-[27px] text-[#333333]">Subject</label>
                     <input type="text" placeholder="Enter Subject" className="w-full border border-[#DDDDDD] bg-white h-[52px] px-[16px] font-archivo text-[18px] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors rounded-[8px]" />

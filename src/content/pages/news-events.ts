@@ -14,7 +14,7 @@ export const page: PageData = {
     description:
       "Explore solar industry events where Ksquare Energy showcases innovations, connects with partners, and drives the renewable energy conversation forward.",
     ctas: [
-      { label: "Get a Free Site Survey", href: ROUTES.consultation },
+      { label: "Get a Free Site Survey", href: ROUTES.contact },
       { label: "Calculate Savings", href: ROUTES.calculators },
     ],
     cutout: { image: `${IMG}/hero_full.webp`, x: 0, y: -204, w: 1800, h: 704 },

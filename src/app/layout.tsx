@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ScrollReveal from "@/components/common/ScrollReveal";
+import PublicOnly from "@/components/layout/PublicOnly";
 
 const archivo = Archivo({
   variable: "--font-archivo",
@@ -54,18 +55,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
+        suppressHydrationWarning
         className={`${archivo.variable} ${dmSans.variable} ${playfair.variable} ${inter.variable} ${geist.variable} ${instrumentSans.variable} ${roboto.variable} antialiased font-sans`}
       >
         <noscript>
           {/* Scroll-reveal animations start hidden; without JS they would never show. */}
           <style>{`[style*="opacity: 0"]{opacity:1!important;transform:none!important}`}</style>
         </noscript>
-        <Header />
+        <PublicOnly><Header /></PublicOnly>
         {children}
-        <Footer />
-        <ScrollReveal />
+        <PublicOnly><Footer /></PublicOnly>
+        <PublicOnly><ScrollReveal /></PublicOnly>
       </body>
     </html>
   );

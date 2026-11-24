@@ -2,6 +2,23 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+const ARROW_PATH = "M19.7563 9.41969L30.4244 4.1875L29.3219 14.8007L26.818 9.12058L19.7563 9.41969Z";
+
+/**
+ * Arrow for the two hero buttons: the arrow head from the Ksquare logo. On hover the arrow slides out to the
+ * top-right while a copy slides in from the bottom-left (follows the button text colour).
+ */
+const ButtonArrow = () => (
+  <span className="relative block size-[17px] shrink-0 overflow-hidden" aria-hidden>
+    <svg viewBox="19.4 3.9 11.4 11.2" fill="currentColor" className="absolute inset-0 size-full transition-transform duration-300 ease-out group-hover:translate-x-full group-hover:-translate-y-full">
+      <path d={ARROW_PATH} />
+    </svg>
+    <svg viewBox="19.4 3.9 11.4 11.2" fill="currentColor" className="absolute inset-0 size-full -translate-x-full translate-y-full transition-transform duration-300 ease-out group-hover:translate-x-0 group-hover:translate-y-0">
+      <path d={ARROW_PATH} />
+    </svg>
+  </span>
+);
+
 export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden bg-[#2B398B]">
@@ -59,7 +76,7 @@ export default function Hero() {
                 className="w-[208px] h-[50px] border border-white flex items-center justify-center gap-[16px] text-white hover:bg-white hover:text-[#2B398B] transition-colors group"
               >
                 <span className="font-archivo font-normal text-[17px]">Request Bulk Quote</span>
-                <span className="w-[8px] h-[8px] rounded-full bg-white group-hover:bg-[#2B398B] transition-colors duration-300"></span>
+                <ButtonArrow />
               </Link>
 
               {/* Download Catalog */}
@@ -68,7 +85,7 @@ export default function Hero() {
                 className="w-[195px] h-[50px] border border-white flex items-center justify-center gap-[16px] text-white hover:bg-white hover:text-[#2B398B] transition-colors group"
               >
                 <span className="font-archivo font-normal text-[17px]">Download Catalog</span>
-                <span className="w-[8px] h-[8px] rounded-full bg-white group-hover:bg-[#2B398B] transition-colors duration-300"></span>
+                <ButtonArrow />
               </Link>
             </div>
           </div>
@@ -105,11 +122,11 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact" className="px-8 h-[50px] border border-white flex items-center justify-center gap-4 text-white hover:bg-white hover:text-[#2B398B] transition-colors group">
                 <span className="font-archivo text-lg">Request Bulk Quote</span>
-                <span className="w-2 h-2 rounded-full bg-white group-hover:bg-[#2B398B] transition-colors"></span>
+                <ButtonArrow />
               </Link>
               <Link href="/download-resources" className="px-8 h-[50px] border border-white flex items-center justify-center gap-4 text-white hover:bg-white hover:text-[#2B398B] transition-colors group">
                 <span className="font-archivo text-lg">Download Catalog</span>
-                <span className="w-2 h-2 rounded-full bg-white group-hover:bg-[#2B398B] transition-colors"></span>
+                <ButtonArrow />
               </Link>
             </div>
           </div>

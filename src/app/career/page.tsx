@@ -6,7 +6,6 @@ import Button from "@/components/common/Button";
 import SectionSpacer from "@/components/common/SectionSpacer";
 import AnimatedCounter from "@/components/common/AnimatedCounter";
 import LifeSlider from "./LifeSlider";
-import OpenPositions from "./OpenPositions";
 
 export const metadata: Metadata = {
   title: "Careers | Ksquare Energy",
@@ -14,15 +13,8 @@ export const metadata: Metadata = {
     "Build your career with Ksquare Energy. Explore open positions in engineering, manufacturing, quality, operations and sales as we shape the future of solar.",
 };
 
-const openPositions = [
-  { title: "Solar Design Engineer", category: "Engineering" },
-  { title: "Production Engineer", category: "Manufacturing" },
-  { title: "Quality Engineer", category: "Manufacturing" },
-  { title: "Sales & Business Development Executive", category: "Sales & Marketing" },
-  { title: "Project Coordinator", category: "Operations" },
-];
-
-const tabs = ["All Positions", "Engineering", "Manufacturing", "Sales & Marketing", "Operations"];
+/** Open roles are listed on our careers portal. */
+const CAREERS_URL = "https://ksquareenergy.keka.com/careers/";
 
 const industries = [
   {
@@ -102,9 +94,6 @@ export default function CareerPage() {
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-[16px]">
                 <Button variant="outline-primary" href="#open-positions" showDot>
                   View Open Positions
-                </Button>
-                <Button variant="outline-primary" href="#connect" showDot>
-                  Send Your Resume
                 </Button>
               </div>
             </div>
@@ -251,7 +240,9 @@ export default function CareerPage() {
               </p>
             </div>
 
-            <OpenPositions tabs={tabs} positions={openPositions} />
+            <Button variant="outline-primary" href={CAREERS_URL} external showDot>
+              Click here to view Open Position
+            </Button>
           </div>
         </Container>
       </section>

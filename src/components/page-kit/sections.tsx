@@ -592,6 +592,41 @@ function TiersSection({ s }: { s: Extract<Section, { type: "tiers" }> }) {
   );
 }
 
+function LevelsSection({ s }: { s: Extract<Section, { type: "levels" }> }) {
+  return (
+    <Wrap id={s.id}>
+      <div className="flex flex-col gap-[28px] lg:gap-[60px]">
+        <Reveal>
+          <Heading title={s.title} subtitle={s.subtitle} />
+        </Reveal>
+        <div className="grid grid-cols-1 gap-[20px] lg:grid-cols-2">
+          {s.items.map((lv, i) => (
+            <Reveal key={lv.title} delay={i * 0.08} className="h-full">
+              <article className={`flex h-full flex-col border bg-white ${lv.featured ? "border-[#2B398B]" : "border-[#C6CCED]"}`}>
+                <header className={`flex flex-col gap-[10px] px-[24px] py-[28px] lg:px-[40px] lg:py-[36px] ${lv.featured ? "bg-[#0F1B5D] text-white" : "border-b border-[#C6CCED] text-primary"}`}>
+                  <h3 className="m-0 font-archivo text-[28px] lg:text-[32px] leading-[1.2] font-normal">{lv.title}</h3>
+                  <p className={`m-0 font-archivo text-[14px] leading-[20px] ${lv.featured ? "text-white/85" : "text-[#666666]"}`}>{lv.label}</p>
+                </header>
+                <div className="flex flex-1 flex-col px-[24px] pb-[28px] pt-[20px] lg:px-[40px] lg:pb-[36px]">
+                  <dl className="m-0 flex flex-col">
+                    {lv.rows.map((r) => (
+                      <div key={r.label} className="flex items-center justify-between gap-[16px] border-b border-[#E3E8F7] py-[18px]">
+                        <dt className="font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#333333]">{r.label}</dt>
+                        <dd className="m-0 shrink-0 font-archivo text-[14px] leading-[20px] text-[#666666]">{r.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <p className="m-0 mt-auto pt-[24px] font-archivo text-[15px] leading-[22px] text-[#666666]">{lv.note}</p>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </Wrap>
+  );
+}
+
 function DiagramSection({ s }: { s: Extract<Section, { type: "diagram" }> }) {
   // Figma: 1600 x 500 canvas, a 1600 x 322 line illustration at y108.7 (50% opacity) with three centred labels placed around it.
   return (
@@ -1081,6 +1116,8 @@ export function SectionRenderer({ section }: { section: Section }) {
       return <NumberedSection s={section} />;
     case "regions":
       return <RegionsSection s={section} />;
+    case "levels":
+      return <LevelsSection s={section} />;
     case "tiers":
       return <TiersSection s={section} />;
     case "form":

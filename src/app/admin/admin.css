@@ -1,0 +1,283 @@
+/* Admin theme. Everything is scoped under .admin-root so the public site is never affected. */
+.admin-root {
+  --adm-bg: #f4f6fb;
+  --adm-surface: #ffffff;
+  --adm-border: #e3e7f1;
+  --adm-text: #1a2038;
+  --adm-muted: #667085;
+  --adm-primary: #2b398b;
+  --adm-primary-dark: #0f1b5d;
+  --adm-primary-pale: #edf3ff;
+  --adm-danger: #c0392b;
+  --adm-danger-pale: #fdecea;
+  --adm-success: #1e8e5a;
+  --adm-success-pale: #e8f6ef;
+
+  min-height: 100vh;
+  background: var(--adm-bg);
+  color: var(--adm-text);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* The public site scales the whole <body> with `zoom` on desktop widths; the admin must render at 1:1. */
+body:has(.admin-root) {
+  zoom: 1;
+}
+
+.admin-root .adm-input {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--adm-border);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 16px;
+  color: var(--adm-text);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.admin-root .adm-input:focus {
+  border-color: var(--adm-primary);
+  box-shadow: 0 0 0 3px rgba(43, 57, 139, 0.15);
+}
+
+.admin-root .adm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s, opacity 0.15s;
+}
+.admin-root .adm-btn-primary {
+  width: 100%;
+  background: var(--adm-primary);
+  color: #fff;
+}
+.admin-root .adm-btn-primary:hover:not(:disabled) {
+  background: var(--adm-primary-dark);
+}
+.admin-root .adm-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.admin-root .adm-btn-ghost {
+  background: #fff;
+  border-color: var(--adm-border);
+  color: var(--adm-text);
+}
+.admin-root .adm-btn-ghost:hover {
+  background: var(--adm-primary-pale);
+}
+
+.admin-root .adm-input[aria-invalid="true"] {
+  border-color: var(--adm-danger);
+}
+.admin-root textarea.adm-input {
+  height: auto;
+  padding: 10px 14px;
+  line-height: 1.5;
+  resize: vertical;
+}
+.admin-root .adm-btn-inline {
+  width: auto;
+}
+
+/* ---- Visual polish (styling only) ---- */
+.admin-root {
+  --adm-shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 6px 20px rgba(16, 24, 40, 0.05);
+}
+
+/* Cards: the white bordered panels used for forms, tables and detail pages. */
+.admin-root main .rounded-xl.border {
+  border-radius: 14px;
+  box-shadow: var(--adm-shadow);
+}
+
+/* Tables */
+.admin-root table thead {
+  background: #f8f9fd;
+}
+.admin-root table thead th {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.admin-root table tbody tr {
+  transition: background-color 0.12s;
+}
+.admin-root table tbody tr:hover {
+  background: #f8faff;
+}
+
+/* Buttons */
+.admin-root .adm-btn-primary {
+  background: linear-gradient(135deg, var(--adm-primary), #3d4fc0);
+  box-shadow: 0 4px 12px rgba(43, 57, 139, 0.25);
+}
+.admin-root .adm-btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--adm-primary-dark), var(--adm-primary));
+  box-shadow: 0 6px 16px rgba(43, 57, 139, 0.3);
+}
+.admin-root .adm-btn:focus-visible {
+  outline: 2px solid var(--adm-primary);
+  outline-offset: 2px;
+}
+.admin-root .adm-input:hover:not(:focus) {
+  border-color: #c9d0e4;
+}
+
+/* Rich-text editor (RichTextField) */
+.admin-root .adm-rich {
+  border-color: var(--adm-border);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.admin-root .adm-rich:focus-within {
+  border-color: var(--adm-primary);
+  box-shadow: 0 0 0 3px rgba(43, 57, 139, 0.15);
+}
+.admin-root .adm-rich[data-invalid="true"] {
+  border-color: var(--adm-danger);
+}
+/* Summernote (lite): the wrapper above provides the border/focus ring, so the editor's own frame is flattened. */
+.admin-root .note-editor.note-frame {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+}
+.admin-root .note-editor .note-toolbar {
+  background: #f8f9fd;
+  border-bottom: 1px solid var(--adm-border);
+}
+.admin-root .note-editor .note-editable {
+  padding: 12px 14px;
+  font-size: 16px;
+  color: var(--adm-text);
+  background: #fff;
+}
+.admin-root .note-editor .note-statusbar {
+  background: #f8f9fd;
+}
+/* Keep the editor's dropdowns / dialogs above the sticky admin header. */
+.admin-root .note-modal,
+.admin-root .note-modal-backdrop {
+  z-index: 1100;
+}
+
+/* Formatted content, in the editor and on view pages (Tailwind's reset removes list/heading styles). */
+.admin-root .adm-prose > * + * {
+  margin-top: 0.75em;
+}
+.admin-root .adm-prose {
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.admin-root .adm-prose h1,
+.admin-root .adm-prose h2,
+.admin-root .adm-prose h3,
+.admin-root .adm-prose h4 {
+  font-weight: 700;
+  line-height: 1.3;
+}
+.admin-root .adm-prose h1 { font-size: 1.6em; }
+.admin-root .adm-prose h2 { font-size: 1.35em; }
+.admin-root .adm-prose h3 { font-size: 1.15em; }
+.admin-root .adm-prose ul { list-style: disc; padding-left: 1.5em; }
+.admin-root .adm-prose ol { list-style: decimal; padding-left: 1.5em; }
+.admin-root .adm-prose li > p { margin: 0; }
+.admin-root .adm-prose blockquote {
+  border-left: 3px solid var(--adm-primary);
+  padding-left: 1em;
+  color: var(--adm-muted);
+}
+.admin-root .adm-prose a { color: var(--adm-primary); text-decoration: underline; }
+.admin-root .adm-prose img { max-width: 100%; height: auto; border-radius: 8px; }
+.admin-root .adm-prose code { background: #f1f3f9; border-radius: 4px; padding: 0.1em 0.35em; font-size: 0.9em; }
+.admin-root .adm-prose pre { background: #f1f3f9; border-radius: 8px; padding: 0.75em 1em; overflow-x: auto; }
+.admin-root .adm-prose hr { border: 0; border-top: 1px solid var(--adm-border); }
+.admin-root .adm-prose table { border-collapse: collapse; width: 100%; }
+.admin-root .adm-prose th,
+.admin-root .adm-prose td { border: 1px solid var(--adm-border); padding: 6px 10px; text-align: left; vertical-align: top; }
+.admin-root .adm-prose th { background: #f8f9fd; font-weight: 600; font-size: inherit; letter-spacing: normal; text-transform: none; }
+.admin-root .adm-prose thead { background: none; }
+.admin-root .adm-prose p.is-editor-empty:first-child::before { content: none; }
+
+/* Page titles */
+.admin-root main h1 {
+  letter-spacing: -0.01em;
+}
+
+/* ---- Visual polish 2 (styling only) ---- */
+.admin-root {
+  background: radial-gradient(1200px 400px at 100% -10%, #e8edfb 0%, transparent 60%), var(--adm-bg);
+}
+.admin-root .adm-user {
+  transition: background-color 0.15s;
+}
+.admin-root .adm-user:hover {
+  background: var(--adm-primary-pale);
+}
+.admin-root main h1 {
+  font-size: 1.65rem;
+  font-weight: 700;
+}
+.admin-root main h1 + p {
+  max-width: 60ch;
+}
+/* Sidebar */
+.admin-root aside nav {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+.admin-root aside nav a {
+  letter-spacing: 0.01em;
+}
+.admin-root aside nav a[aria-current="page"] {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+/* Form labels and hints */
+.admin-root label {
+  font-size: 13.5px;
+}
+.admin-root .adm-input::placeholder {
+  color: #a4abbd;
+}
+.admin-root select.adm-input {
+  cursor: pointer;
+}
+/* Tables: a little more breathing room and a softer divider */
+.admin-root table tbody td {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.admin-root table tbody tr {
+  border-color: #edf0f7;
+}
+/* Links inside tables (View / Edit) */
+.admin-root table a.font-medium {
+  transition: color 0.12s;
+}
+.admin-root table a.font-medium:hover {
+  color: var(--adm-primary-dark);
+}
+/* Cards lift slightly on hover only where they are links/panels with actions */
+.admin-root main section.rounded-xl.border {
+  transition: box-shadow 0.15s;
+}
+.admin-root main section.rounded-xl.border:focus-within {
+  box-shadow: 0 2px 4px rgba(16, 24, 40, 0.05), 0 10px 28px rgba(43, 57, 139, 0.1);
+}
+/* Alerts */
+.admin-root [role="alert"],
+.admin-root [role="status"] {
+  border: 1px solid currentColor;
+  border-color: color-mix(in srgb, currentColor 18%, transparent);
+}

@@ -138,7 +138,11 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileSection, setMobileSection] = useState<string | null>(null);
+  // Desktop mega menu: the menu that was just used to navigate stays shut until the pointer leaves it.
+  const [dismissedMenu, setDismissedMenu] = useState<string | null>(null);
   const [currentLang, setCurrentLang] = useState(LANGUAGES[0]);
+  const [langQuery, setLangQuery] = useState("");
+  const filteredLanguages = LANGUAGES.filter((l) => l.label.toLowerCase().includes(langQuery.trim().toLowerCase()));
 
   useEffect(() => {
     // Attempt to restore language from Google Translate cookie if present
@@ -236,7 +240,16 @@ export default function Header() {
           <nav className="hidden hnav:flex items-center gap-[16px] desk:gap-[22px] w1536:gap-[28px] g1664:gap-[40px] h-full" aria-label="Primary">
             {NAV.map((item) => {
               return (
-                <div key={item.label} className="h-full flex items-center group">
+                <div
+                  key={item.label}
+                  className="h-full flex items-center group"
+                  onMouseLeave={() => setDismissedMenu(null)}
+                  onClick={() => {
+                    // Drop keyboard/click focus too, otherwise focus-within would keep the panel open.
+                    (document.activeElement as HTMLElement | null)?.blur();
+                    setDismissedMenu(item.label);
+                  }}
+                >
                   <Link
                     href={item.href}
                     className={clsx(
@@ -261,7 +274,8 @@ export default function Header() {
                       className={clsx(
                         "absolute left-0 right-0 top-full bg-white border-t-2 border-primary shadow-[0_30px_60px_-24px_rgba(20,30,90,0.35)]",
                         "opacity-0 invisible -translate-y-2 transition-[opacity,transform,visibility] duration-300 ease-out [transition-delay:140ms]",
-                        "group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:[transition-delay:0ms] group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:[transition-delay:0ms]"
+                        "group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:[transition-delay:0ms] group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:[transition-delay:0ms]",
+                        dismissedMenu === item.label && "!opacity-0 !invisible !-translate-y-2"
                       )}
                     >
                       {/* soft scrim over the page while a menu is open */}
@@ -328,12 +342,14 @@ export default function Header() {
                       {/* bottom bar: jump to the section page, or talk to the team */}
                       <div className="border-t border-[#E3E8F7] bg-[#F7F9FF]">
                         <div className="w-[1800px] max-w-full mx-auto px-4 lg:px-8 desk:px-[60px] g1864:px-0 flex items-center justify-between gap-6 py-[14px]">
+                          {item.hideViewAll ? <span /> : (
                           <Link href={item.href} className="group/all inline-flex items-center gap-2 font-archivo text-[15px] font-medium text-primary hover:underline underline-offset-4">
                             {"View all " + item.label}
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="transition-transform duration-200 group-hover/all:translate-x-1">
                               <path d="M5 12h14M13 6l6 6-6 6" />
                             </svg>
                           </Link>
+                          )}
                           <span className="flex items-center gap-4 font-archivo text-[14px] text-[#555555]">
                             Need help choosing?
                             <a href="tel:+917969697979" className="font-medium text-[#222222] hover:text-primary">+91 79 6969 7979</a>
@@ -368,12 +384,27 @@ export default function Header() {
               </button>
 
               {/* Language Dropdown */}
-              <div className="absolute top-full right-0 w-[190px] max-h-[340px] overflow-y-auto no-scrollbar bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border-t-2 border-primary translate-y-4 group-hover:translate-y-0 rounded-b-lg mt-1">
+              {/* notranslate: Google Translate must not rewrite the option names themselves */}
+              <div translate="no" className="notranslate absolute top-full right-0 w-[190px] max-h-[340px] overflow-y-auto no-scrollbar bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 transition-all duration-300 border-t-2 border-primary translate-y-4 group-hover:translate-y-0 rounded-b-lg mt-1">
+                <div className="sticky top-0 z-10 bg-white p-2 border-b border-gray-100">
+                  <input
+                    type="text"
+                    value={langQuery}
+                    onChange={(e) => setLangQuery(e.target.value)}
+                    placeholder="Search language"
+                    aria-label="Search language"
+                    autoComplete="off"
+                    className="w-full px-3 py-2 border border-gray-200 rounded text-[14px] font-archivo text-[#4F4F4F] outline-none focus:border-primary"
+                  />
+                </div>
                 <div className="flex flex-col">
-                  {LANGUAGES.map((lang) => (
-                    <button 
+                  {filteredLanguages.length === 0 && (
+                    <span className="px-4 py-3 text-[14px] font-archivo text-gray-400">No language found</span>
+                  )}
+                  {filteredLanguages.map((lang) => (
+                    <button
                       key={lang.code}
-                      onClick={() => handleLanguageChange(lang)}
+                      onClick={() => { handleLanguageChange(lang); setLangQuery(""); }}
                       className={clsx(
                         "px-4 py-3 text-[#4F4F4F] hover:text-primary hover:bg-gray-50/70 font-archivo text-[14px] flex items-center justify-start gap-3 transition-colors border-b border-gray-100 last:border-0 w-full text-left",
                         currentLang.code === lang.code && "bg-blue-50/50 text-primary font-semibold"

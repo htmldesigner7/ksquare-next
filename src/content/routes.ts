@@ -30,6 +30,8 @@ export interface NavItem {
   href: string;
   groups?: NavGroup[];
   feature?: NavFeature;
+  /** Leave out the "View all …" link in the menu footer. */
+  hideViewAll?: boolean;
 }
 
 export const ROUTES = {
@@ -97,6 +99,7 @@ export const NAV: NavItem[] = [
   },
   {
     label: "Solutions",
+    hideViewAll: true,
     href: ROUTES.residential,
     groups: [
       {
@@ -136,6 +139,7 @@ export const NAV: NavItem[] = [
   },
   {
     label: "Manufacturing",
+    hideViewAll: true,
     href: ROUTES.privateLabel,
     groups: [
       {
@@ -143,7 +147,6 @@ export const NAV: NavItem[] = [
         links: [
           { label: "Private Label Manufacturing", href: ROUTES.privateLabel, desc: "Your brand, built in our factory", icon: "package" },
           { label: "Custom Product Development", href: ROUTES.customDevelopment, desc: "Engineered around your requirements", icon: "ruler" },
-          { label: "Our Infrastructure", href: ROUTES.infrastructure, desc: "Plant, testing lab and quality control", icon: "factory" },
         ],
       },
     ],
@@ -152,6 +155,7 @@ export const NAV: NavItem[] = [
   { label: "Projects", href: ROUTES.projects },
   {
     label: "Resources",
+    hideViewAll: true,
     href: ROUTES.downloads,
     groups: [
       {
@@ -176,6 +180,7 @@ export const NAV: NavItem[] = [
   },
   {
     label: "About us",
+    hideViewAll: true,
     href: ROUTES.about,
     groups: [
       {

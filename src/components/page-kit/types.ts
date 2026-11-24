@@ -184,6 +184,14 @@ export type Section =
       items: { label: string; title: string; desc: string; points: string[]; cta: Cta; featured?: boolean; badge?: string }[];
     }
   | {
+      type: "levels";
+      /** Two side-by-side level cards: a header, rows of label / value, and a closing note (the featured one has a navy header). */
+      id?: string;
+      title: string;
+      subtitle?: string;
+      items: { title: string; label: string; rows: { label: string; value: string }[]; note: string; featured?: boolean }[];
+    }
+  | {
       type: "compare";
       id?: string;
       title: string;
