@@ -47,7 +47,7 @@ export default async function CategoryViewPage({ params }: { params: Promise<{ i
       </PageHeader>
 
       <Card title="Overview">
-        <Text>{c.short_description}</Text>
+        <RichText html={c.short_description} />
         <p className="text-sm">
           <span className="text-[var(--adm-muted)]">Type:</span> <span className="capitalize">{c.type}</span>
           <span className="mx-2 text-[var(--adm-muted)]">·</span>
@@ -74,14 +74,14 @@ export default async function CategoryViewPage({ params }: { params: Promise<{ i
         </div>
       </Card>
 
-      {(c.why_choose_img || c.menu_img) && (
+      {(c.why_choose_img || c.menu_img || c.menu_icon) && (
         <Card title="Additional images">
-          <div className="grid gap-4 sm:grid-cols-2">
-            {([["Why choose image", c.why_choose_img], ["Menu image", c.menu_img]] as const).map(
+          <div className="grid gap-4 sm:grid-cols-3">
+            {([["Why choose image", c.why_choose_img], ["Menu image", c.menu_img], ["Menu icon", c.menu_icon]] as const).map(
               ([label, src]) =>
                 src && (
                   <figure key={label}>
-                    <AdminImage src={src} alt={label} className="aspect-video w-full rounded-lg border border-[var(--adm-border)] object-cover" />
+                    <AdminImage src={src} alt={label} className="aspect-video w-full rounded-lg border border-[var(--adm-border)] bg-white object-contain" />
                     <figcaption className="mt-1 text-xs text-[var(--adm-muted)]">{label}</figcaption>
                   </figure>
                 ),

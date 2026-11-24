@@ -8,9 +8,12 @@ import Container from "@/components/common/Container";
 import CtaBanner from "@/components/page-kit/CtaBanner";
 import { footerHref, OWN_CTA_PREFIXES } from "@/content/routes";
 
+/** A sitemap label (resolved to a route by footerHref) or an explicit link. */
+type FooterLink = string | { label: string; href: string };
+
 interface FooterSection {
   subtitle: string | null;
-  links: string[];
+  links: FooterLink[];
   isTitle?: boolean;
 }
 
@@ -51,8 +54,10 @@ const footerLinks: { title: string; sections: FooterSection[] }[] = [
   },
 ];
 
-export default function Footer() {
+/** `productSections` (the active categories from the admin panel) replaces the fixed Products columns when given. */
+export default function Footer({ productSections }: { productSections?: { subtitle: string; links: { label: string; href: string }[] }[] }) {
   const pathname = usePathname();
+  const columns: { title: string; sections: FooterSection[] }[] = footerLinks.map((col) => (col.title === "Products" && productSections?.length ? { ...col, sections: productSections } : col));
   // We keep hasCTA true as per recent user request for uniform footer.
   // Blog detail pages embed their own narrower, column-scaled CTA per Figma
   // (nested inside the sidebar+article layout), so the global one is skipped there.
@@ -139,7 +144,7 @@ export default function Footer() {
 
             {/* Right Columns: Links (Figma: x717 y26.64, space-between) */}
             <div className="flex-1 grid grid-cols-2 w1100:grid-cols-4 gap-x-[20px] gap-y-[32px] sm:gap-[40px] desk:flex desk:justify-between desk:gap-[24px] desk:ml-[40px] desk:mt-[26.64px] desk:items-start">
-              {footerLinks.map((col, idx) => (
+              {columns.map((col, idx) => (
                 <div key={idx} className={`flex flex-col gap-[16px] min-w-0 desk:shrink-0 ${COLUMN_WIDTHS[idx]}`}>
                   <h4 className="font-semibold text-[18px] leading-[26px] text-[#2B398B] m-0 whitespace-nowrap">
                     {col.title}
@@ -155,13 +160,13 @@ export default function Footer() {
                         <ul className="flex flex-col gap-0 desk:gap-[8px] m-0 p-0 list-none">
                           {sec.links.map((link, lIdx) => (
                             <li key={lIdx}>
-                              <Link href={footerHref(link)} className="font-normal text-[15px] leading-[20px] text-[#666666] hover:text-[#2B398B] flex items-center gap-[8px] min-h-[44px] desk:min-h-0 group transition-all duration-200 hover:translate-x-[3px] whitespace-nowrap max-sm:whitespace-normal">
+                              <Link href={typeof link === "string" ? footerHref(link) : link.href} className="font-normal text-[15px] leading-[20px] text-[#666666] hover:text-[#2B398B] flex items-center gap-[8px] min-h-[44px] desk:min-h-0 group transition-all duration-200 hover:translate-x-[3px] whitespace-nowrap max-sm:whitespace-normal">
                                 <span className="flex items-center justify-center w-[13.61px] h-[13.47px] shrink-0">
                                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#2B398B]" aria-hidden="true">
                                     <path d="M0.000239918 0.000142582L9.3432 4.8189L0.740279 10.0002L3.45619 5.22508L0.000239918 0.000142582Z" fill="currentColor"/>
                                   </svg>
                                 </span>
-                                {link}
+                                {typeof link === "string" ? link : link.label}
                               </Link>
                             </li>
                           ))}

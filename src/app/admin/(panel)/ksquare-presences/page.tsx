@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import AdminImage from "@/components/admin/AdminImage";
 import Alert from "@/components/admin/Alert";
 import DeleteAction from "@/components/admin/DeleteAction";
+import { EditLink, ViewLink } from "@/components/admin/RowActions";
 import PageHeader from "@/components/admin/PageHeader";
 import Pagination from "@/components/admin/Pagination";
 import SearchBar from "@/components/admin/SearchBar";
+import StatusSwitch from "@/components/admin/StatusSwitch";
 import SuccessNotice from "@/components/admin/SuccessNotice";
 import { adminFetch, requireAdmin } from "@/lib/admin/dal";
 import type { PageMeta, PresenceSummary } from "@/lib/admin/types";
@@ -15,10 +16,10 @@ export const metadata: Metadata = { title: "Ksquare Presence" };
 export default async function PresencesPage({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: string; q?: string; status?: string; success?: string }>;
+  searchParams: Promise<{ page?: string; limit?: string; q?: string; status?: string; success?: string }>;
 }) {
-  const { page = "1", q = "", status = "", success } = await searchParams;
-  const [admin, res] = await Promise.all([requireAdmin(), adminFetch<PresenceSummary[]>("/admin/ksquare-presences", { query: { page, q, status } })]);
+  const { page = "1", limit = "", q = "", status = "", success } = await searchParams;
+  const [admin, res] = await Promise.all([requireAdmin(), adminFetch<PresenceSummary[]>("/admin/ksquare-presences", { query: { page, limit, q, status } })]);
   const rows = res.data ?? [];
   const meta = res.meta as PageMeta | undefined;
 
@@ -64,16 +65,14 @@ export default async function PresencesPage({
                   </div>
                 </td>
                 <td className="px-4 py-3 text-[var(--adm-muted)]">{s.short_line ?? "—"}</td>
-                <td className="px-4 py-3 capitalize">{s.status}</td>
+                <td className="px-4 py-3">
+                  <StatusSwitch endpoint={`/ksquare-presences/${s.id}/status`} status={s.status} />
+                </td>
                 <td className="px-4 py-3 text-[var(--adm-muted)]">{s.city_count}</td>
                 <td className="px-4 py-3 text-right whitespace-nowrap">
-                  <div className="flex justify-end gap-4">
-                    <Link href={`/admin/ksquare-presences/${s.id}`} className="font-medium text-[var(--adm-primary)] hover:underline">
-                      View
-                    </Link>
-                    <Link href={`/admin/ksquare-presences/${s.id}/edit`} className="font-medium text-[var(--adm-primary)] hover:underline">
-                      Edit
-                    </Link>
+                  <div className="flex items-center justify-end gap-2">
+                    <ViewLink href={`/admin/ksquare-presences/${s.id}`} />
+                    <EditLink href={`/admin/ksquare-presences/${s.id}/edit`} />
                     {admin.role === "super_admin" && (
                       <DeleteAction compact endpoint={`/ksquare-presences/${s.id}`} redirectTo="/admin/ksquare-presences" confirmMessage={`Delete "${s.state_name}" and its cities?`} />
                     )}
@@ -84,7 +83,7 @@ export default async function PresencesPage({
           </tbody>
         </table>
       </div>
-      <Pagination meta={meta} basePath="/admin/ksquare-presences" params={{ q, status }} />
+      <Pagination meta={meta} basePath="/admin/ksquare-presences" params={{ limit, q, status }} />
     </div>
   );
 }

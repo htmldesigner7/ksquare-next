@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import FaqAccordion from "./FaqAccordion";
+import ButtonArrow from "@/components/common/ButtonArrow";
 
 export const metadata: Metadata = {
   title: "Ksquare Inverters | Ksquare Energy",
@@ -43,7 +44,7 @@ function OutlineButton({ href, children }: { href: string; children: React.React
       className="group inline-flex items-center justify-center gap-[16px] px-[16px] py-[12px] border border-[#2B398B] text-[#2B398B] hover:bg-[#2B398B] hover:text-white transition-colors font-archivo text-[17px] leading-[26px]"
     >
       <span>{children}</span>
-      <span className="w-[8px] h-[8px] rounded-full bg-[#2B398B] group-hover:bg-white transition-colors" />
+      <ButtonArrow className="text-[#2B398B] group-hover:text-white" />
     </Link>
   );
 }

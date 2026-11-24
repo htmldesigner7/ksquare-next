@@ -1,4 +1,5 @@
 "use client";
+import ButtonArrow from "@/components/common/ButtonArrow";
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -34,7 +35,7 @@ export default function ArticleGrid({ items }: { items: Article[] }) {
                 className="group/btn mt-auto inline-flex items-center gap-[16px] self-start px-[16px] py-[10px] border border-primary text-primary font-archivo text-[17px] transition-colors hover:bg-primary hover:text-white cursor-pointer"
               >
                 {isOpen ? "Show Less" : "Read More"}
-                <span className="h-[8px] w-[8px] rounded-full bg-current" />
+                <ButtonArrow className="text-current" />
               </button>
             </div>
           </article>

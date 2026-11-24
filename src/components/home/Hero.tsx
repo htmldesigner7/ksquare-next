@@ -2,21 +2,11 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const ARROW_PATH = "M19.7563 9.41969L30.4244 4.1875L29.3219 14.8007L26.818 9.12058L19.7563 9.41969Z";
-
-/**
- * Arrow for the two hero buttons: the arrow head from the Ksquare logo. On hover the arrow slides out to the
- * top-right while a copy slides in from the bottom-left (follows the button text colour).
- */
+/** Arrow for the two hero buttons: the same arrow as the footer links (follows the text colour, nudges right on hover). */
 const ButtonArrow = () => (
-  <span className="relative block size-[17px] shrink-0 overflow-hidden" aria-hidden>
-    <svg viewBox="19.4 3.9 11.4 11.2" fill="currentColor" className="absolute inset-0 size-full transition-transform duration-300 ease-out group-hover:translate-x-full group-hover:-translate-y-full">
-      <path d={ARROW_PATH} />
-    </svg>
-    <svg viewBox="19.4 3.9 11.4 11.2" fill="currentColor" className="absolute inset-0 size-full -translate-x-full translate-y-full transition-transform duration-300 ease-out group-hover:translate-x-0 group-hover:translate-y-0">
-      <path d={ARROW_PATH} />
-    </svg>
-  </span>
+  <svg width="12" height="12" viewBox="0 0 10 10" fill="none" aria-hidden className="shrink-0 transition-transform duration-200 group-hover:translate-x-[3px]">
+    <path d="M0.000239918 0.000142582L9.3432 4.8189L0.740279 10.0002L3.45619 5.22508L0.000239918 0.000142582Z" fill="currentColor" />
+  </svg>
 );
 
 export default function Hero() {

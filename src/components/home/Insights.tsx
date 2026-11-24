@@ -2,8 +2,11 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import RichTitle from "@/components/common/RichTitle";
+import { getBlogs } from "@/lib/blog";
+import ButtonArrow from "@/components/common/ButtonArrow";
 
-const articles = [
+/** Shown only when the blog API cannot be reached (the section is normally filled with the latest published blogs). */
+const fallbackArticles = [
   {
     date: "2026-06-08",
     title: "Solar Panel Size Guide for 2BHK, 3BHK & Homes in India",
@@ -41,7 +44,13 @@ const DatePill = ({ date }: { date: string }) => (
   </div>
 );
 
-export default function Insights() {
+export default async function Insights() {
+  // The newest published blog is the featured one; the next three are listed beside it.
+  const { posts } = await getBlogs(1, 4);
+  const featured = posts[0];
+  const articles = posts.length
+    ? posts.slice(1).map((b) => ({ date: b.date, title: b.title, desc: b.short_description, link: `/blog/${b.url}` }))
+    : fallbackArticles;
   return (
     <section className="w-full bg-[#FFFFFF] py-0 overflow-hidden">
       <div className="canvas-zoom w-full max-w-[1920px] canvas:w-[1920px] mx-auto px-6 canvas:px-[160px] flex flex-col gap-8 sm:gap-12 canvas:gap-[48px]">
@@ -67,7 +76,7 @@ export default function Insights() {
             <span className="font-archivo font-normal text-[17px] leading-[26px] text-[#2B398B] group-hover:text-white transition-colors">
               View All Articles
             </span>
-            <span className="w-[8px] h-[8px] rounded-full bg-[#2B398B] group-hover:bg-white transition-colors"></span>
+            <ButtonArrow className="text-[#2B398B] group-hover:text-white" />
           </Link>
         </div>
 
@@ -75,21 +84,23 @@ export default function Insights() {
         <div className="w-full flex flex-col canvas:flex-row canvas:items-center gap-8 canvas:gap-[20px]">
 
           {/* Featured Article */}
-          <Link href="/blog/choosing-cable-glands-mc4-connectors" className="w-full canvas:w-[800px] shrink-0 flex flex-col bg-[#FFFFFF] group">
+          <Link href={featured ? `/blog/${featured.url}` : "/blog/choosing-cable-glands-mc4-connectors"} className="w-full canvas:w-[800px] shrink-0 flex flex-col bg-[#FFFFFF] group">
             <div className="w-full aspect-[800/547] canvas:aspect-auto canvas:h-[546.67px] relative overflow-hidden bg-gray-100">
-              <Image
-                src="/assets/img_1_13.png"
-                alt="Solar Cables Insight"
-                fill
-                className="object-cover"
-              />
+              {featured ? (
+                // Blog images are served by the API (another origin), so they are not optimised by next/image.
+                <Image src={featured.front_image} alt={featured.title} fill unoptimized className="object-cover" />
+              ) : (
+                <Image src="/assets/img_1_13.png" alt="Solar Cables Insight" fill className="object-cover" />
+              )}
             </div>
             <div className="w-full bg-[#F8F8F8] py-8 px-6 canvas:py-0 canvas:px-0 canvas:h-[163.5px] flex items-center justify-center">
               <div className="w-full canvas:w-[699px] flex flex-row items-end justify-between">
                 <div className="flex flex-col gap-[16px] flex-1 canvas:max-w-[571px]">
-                  <DatePill date="2026-06-19" />
-                  <p className="font-archivo font-normal text-[16px] canvas:text-[17px] text-[#666666] leading-[1.5] canvas:leading-[26px] m-0 p-0">
-                    Cables are the part of a solar system nobody gets excited about. Panels get the attention. The inverter gets a glossy spec sheet. The wiring? It us...
+                  <DatePill date={featured ? featured.date : "2026-06-19"} />
+                  <p className="font-archivo font-normal text-[16px] canvas:text-[17px] text-[#666666] leading-[1.5] canvas:leading-[26px] m-0 p-0 line-clamp-3">
+                    {featured
+                      ? featured.short_description
+                      : "Cables are the part of a solar system nobody gets excited about. Panels get the attention. The inverter gets a glossy spec sheet. The wiring? It us..."}
                   </p>
                 </div>
                 <ArrowCircle className="ml-6" />
@@ -111,7 +122,7 @@ export default function Insights() {
                     <h3 className="font-archivo font-normal text-[20px] canvas:text-[24px] text-[#333333] leading-[1.2] canvas:leading-[32px] m-0 p-0">
                       {article.title}
                     </h3>
-                    <p className="font-archivo font-normal text-[16px] canvas:text-[17px] text-[#666666] leading-[1.5] canvas:leading-[26px] m-0 p-0">
+                    <p className="font-archivo font-normal text-[16px] canvas:text-[17px] text-[#666666] leading-[1.5] canvas:leading-[26px] m-0 p-0 line-clamp-3">
                       {article.desc}
                     </p>
                   </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import clsx from 'clsx';
+import ButtonArrow from "./ButtonArrow";
 
 interface ProductCardProps {
   imageSrc: string;
@@ -43,7 +44,7 @@ export default function ProductCard({ imageSrc, title, description, href, classN
             className="inline-flex items-center gap-2.5 px-3 py-1.5 border border-primary text-primary font-archivo text-[13px] font-medium transition-colors hover:bg-primary hover:text-white group/btn"
           >
             <span>View Product</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-primary group-hover/btn:bg-white transition-colors"></span>
+            <ButtonArrow className="text-primary group-hover/btn:text-white" />
           </Link>
         </div>
       </div>

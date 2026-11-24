@@ -98,7 +98,7 @@ export default function BlogForm({
         />
         <TextAreaField label="Short description" name="short_description" rows={3} defaultValue={initial?.short_description} maxLength={500} required error={fieldErrors.short_description} />
         <RichTextField label="Description" name="description" defaultValue={initial?.description} required error={fieldErrors.description} minHeight={320} />
-        <TextAreaField label="Conclusion" name="conclusion" rows={4} defaultValue={initial?.conclusion} maxLength={20000} required error={fieldErrors.conclusion} />
+        <RichTextField label="Conclusion" name="conclusion" defaultValue={initial?.conclusion} required minHeight={200} error={fieldErrors.conclusion} />
       </FormSection>
 
       <FormSection title="Publishing">

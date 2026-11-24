@@ -1,4 +1,5 @@
 "use client";
+import ButtonArrow from "@/components/common/ButtonArrow";
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -94,7 +95,7 @@ export default function Solutions() {
                               <span className="absolute left-[15px] top-[11px] w-[100px] h-[26px] font-archivo font-normal text-[17px] leading-[26px] text-[#2B398B] group-hover/btn:text-white transition-colors flex items-center">
                                 Read More
                               </span>
-                              <span className="absolute left-[131px] top-[20px] w-[8px] h-[8px] rounded-full bg-[#2B398B] group-hover/btn:bg-white transition-colors"></span>
+                              <ButtonArrow className="absolute left-[131px] top-[20px] text-[#2B398B] group-hover/btn:text-white" />
                             </Link>
                           </div>
                         </div>
@@ -168,7 +169,7 @@ export default function Solutions() {
                               <span className="absolute left-[16px] font-archivo font-normal text-[17px] text-[#2B398B] group-hover/btn:text-white transition-colors">
                                 Read More
                               </span>
-                              <span className="absolute left-[132px] w-[8px] h-[8px] rounded-full bg-[#2B398B] group-hover/btn:bg-white transition-colors"></span>
+                              <ButtonArrow className="absolute left-[132px] text-[#2B398B] group-hover/btn:text-white" />
                             </Link>
                           </div>
                         </div>

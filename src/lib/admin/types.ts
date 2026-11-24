@@ -97,6 +97,7 @@ export type Category = {
   configuration_short_line: string | null;
   why_choose_img: string | null;
   menu_img: string | null;
+  menu_icon: string | null;
   type: CategoryType;
   status: ActiveStatus;
   configuration: CategoryConfiguration[];

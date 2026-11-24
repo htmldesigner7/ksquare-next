@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
+import ButtonArrow from './ButtonArrow';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'solid' | 'outline' | 'ghost' | 'outline-primary';
@@ -32,10 +33,10 @@ export default function Button({
   };
 
   const dotStyles = {
-    solid: "bg-primary-dark group-hover:bg-primary",
-    outline: "bg-white group-hover:bg-primary",
-    "outline-primary": "bg-primary group-hover:bg-white",
-    ghost: "bg-[#C6CCED] group-hover:bg-white"
+    solid: "text-primary-dark group-hover:text-primary",
+    outline: "text-white group-hover:text-primary",
+    "outline-primary": "text-primary group-hover:text-white",
+    ghost: "text-[#C6CCED] group-hover:text-white"
   };
 
   const classes = clsx(baseStyles, variants[variant as keyof typeof variants], className);
@@ -44,7 +45,7 @@ export default function Button({
     <>
       <span className="leading-[26px] text-[17px] font-normal">{children}</span>
       {showDot && (
-        <span className={clsx("w-[8px] h-[8px] rounded-full shrink-0 transition-colors", dotStyles[variant])}></span>
+        <ButtonArrow className={dotStyles[variant]} />
       )}
     </>
   );

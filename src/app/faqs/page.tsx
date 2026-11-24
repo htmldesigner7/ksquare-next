@@ -6,6 +6,7 @@ import SectionSpacer from "@/components/common/SectionSpacer";
 import PageHero from "@/components/page-kit/PageHero";
 import type { HeroData } from "@/components/page-kit/types";
 import FaqCategoryList from "./FaqCategoryList";
+import ButtonArrow from "@/components/common/ButtonArrow";
 
 export const metadata: Metadata = {
   title: "FAQs | Ksquare Energy",
@@ -123,14 +124,14 @@ export default function FaqsPage() {
                 className="flex items-center gap-[16px] px-[24px] py-[16px] border border-white text-white hover:bg-white hover:text-[#2B398B] transition-colors group"
               >
                 <span className="font-archivo text-[17px]">Talk to an Engineer</span>
-                <span className="w-[8px] h-[8px] rounded-full bg-white group-hover:bg-[#2B398B] transition-colors"></span>
+                <ButtonArrow className="text-white group-hover:text-[#2B398B]" />
               </Link>
               <Link
                 href="/contact"
                 className="flex items-center gap-[16px] px-[24px] py-[16px] border border-white text-white hover:bg-white hover:text-[#2B398B] transition-colors group"
               >
                 <span className="font-archivo text-[17px]">Apply for B2B Distributorship</span>
-                <span className="w-[8px] h-[8px] rounded-full bg-white group-hover:bg-[#2B398B] transition-colors"></span>
+                <ButtonArrow className="text-white group-hover:text-[#2B398B]" />
               </Link>
             </div>
           </div>
@@ -151,14 +152,14 @@ export default function FaqsPage() {
                 className="flex items-center justify-center gap-[16px] px-[24px] py-[14px] border border-white text-white hover:bg-white hover:text-[#2B398B] transition-colors group w-full sm:w-auto"
               >
                 <span className="font-archivo text-[16px]">Talk to an Engineer</span>
-                <span className="w-[8px] h-[8px] rounded-full bg-white group-hover:bg-[#2B398B] transition-colors"></span>
+                <ButtonArrow className="text-white group-hover:text-[#2B398B]" />
               </Link>
               <Link
                 href="/contact"
                 className="flex items-center justify-center gap-[16px] px-[24px] py-[14px] border border-white text-white hover:bg-white hover:text-[#2B398B] transition-colors group w-full sm:w-auto"
               >
                 <span className="font-archivo text-[16px]">Apply for B2B Distributorship</span>
-                <span className="w-[8px] h-[8px] rounded-full bg-white group-hover:bg-[#2B398B] transition-colors"></span>
+                <ButtonArrow className="text-white group-hover:text-[#2B398B]" />
               </Link>
             </div>
           </div>

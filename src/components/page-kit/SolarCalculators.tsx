@@ -1,4 +1,5 @@
 "use client";
+import ButtonArrow from "@/components/common/ButtonArrow";
 
 import React, { useMemo, useState } from "react";
 import Image from "next/image";
@@ -93,7 +94,7 @@ function Result({ title, headline, sub, rows, actions, links }: { title: string;
         {actions.map((a) => (
           <Link key={a.label} href={a.href} className="group flex w-full sm:w-auto sm:inline-flex items-center justify-center gap-[12px] border border-primary px-[16px] py-[10px] font-archivo text-[14px] text-primary transition-colors hover:bg-primary hover:text-white">
             {a.label}
-            <span className="h-[6px] w-[6px] rounded-full bg-current" />
+            <ButtonArrow className="text-current" />
           </Link>
         ))}
       </div>
@@ -112,7 +113,7 @@ function CalcButton({ children, onClick }: { children: React.ReactNode; onClick:
   return (
     <button type="button" onClick={onClick} className="group mt-[4px] flex w-full sm:w-fit sm:inline-flex items-center justify-center gap-[12px] border border-primary px-[16px] py-[10px] font-archivo text-[14px] text-primary transition-colors hover:bg-primary hover:text-white cursor-pointer">
       {children}
-      <span className="h-[6px] w-[6px] rounded-full bg-current" />
+      <ButtonArrow className="text-current" />
     </button>
   );
 }
@@ -401,7 +402,7 @@ export default function SolarCalculators() {
               <p className="m-0 font-archivo text-[15px] leading-[24px] text-[#666666]">{c.desc}</p>
               <button type="button" onClick={() => jump(c.id)} className="mt-auto flex w-full sm:w-fit sm:inline-flex items-center justify-center gap-[12px] border border-primary px-[16px] py-[10px] font-archivo text-[14px] text-primary transition-colors hover:bg-primary hover:text-white cursor-pointer">
                 Open Calculator
-                <span className="h-[6px] w-[6px] rounded-full bg-current" />
+                <ButtonArrow className="text-current" />
               </button>
             </div>
           </Reveal>

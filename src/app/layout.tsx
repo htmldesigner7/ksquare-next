@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ScrollReveal from "@/components/common/ScrollReveal";
 import PublicOnly from "@/components/layout/PublicOnly";
+import { getFooterProducts, getNav } from "@/lib/nav";
 
 const archivo = Archivo({
   variable: "--font-archivo",
@@ -49,11 +50,13 @@ export const metadata: Metadata = {
   description: "Globally recognized leading solar energy solutions provider.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Header menu and footer: the product categories come from the admin panel.
+  const [nav, productSections] = await Promise.all([getNav(), getFooterProducts()]);
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -64,9 +67,9 @@ export default function RootLayout({
           {/* Scroll-reveal animations start hidden; without JS they would never show. */}
           <style>{`[style*="opacity: 0"]{opacity:1!important;transform:none!important}`}</style>
         </noscript>
-        <PublicOnly><Header /></PublicOnly>
+        <PublicOnly><Header nav={nav} /></PublicOnly>
         {children}
-        <PublicOnly><Footer /></PublicOnly>
+        <PublicOnly><Footer productSections={productSections} /></PublicOnly>
         <PublicOnly><ScrollReveal /></PublicOnly>
       </body>
     </html>

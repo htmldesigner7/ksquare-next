@@ -53,9 +53,9 @@ export default function CategoryForm({ initial }: { initial?: Category }) {
       <FormSection title="Basic details">
         <div className="grid gap-6 md:grid-cols-2">
           <FormField label="Name" name="name" defaultValue={initial?.name} maxLength={150} required markRequired error={fieldErrors.name} onChange={(e) => auto.onNameChange(e.target.value)} />
-          <FormField label="Title" name="title" defaultValue={initial?.title} maxLength={255} required markRequired error={fieldErrors.title} />
+          <FormField label="Title" name="title" defaultValue={initial?.title} maxLength={255} required markRequired error={fieldErrors.title} hint="Heading of the category page. Put *asterisks* around the part to show in italics." />
         </div>
-        <TextAreaField label="Short description" name="short_description" rows={3} defaultValue={initial?.short_description} maxLength={500} required error={fieldErrors.short_description} />
+        <RichTextField label="Short description" name="short_description" defaultValue={initial?.short_description} required minHeight={140} error={fieldErrors.short_description} />
         <div className="grid gap-6 md:grid-cols-2">
           <SelectField
             label="Type"
@@ -92,9 +92,10 @@ export default function CategoryForm({ initial }: { initial?: Category }) {
           <ImageField name="detail_image_d" label="Detail image (desktop)" required currentUrl={initial?.detail_image_d} error={fieldErrors.detail_image_d} hint="JPG, PNG or WebP, up to 2 MB." />
           <ImageField name="detail_image_m" label="Detail image (mobile)" required currentUrl={initial?.detail_image_m} error={fieldErrors.detail_image_m} hint="JPG, PNG or WebP, up to 2 MB." />
         </div>
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-3">
           <ImageField name="why_choose_img" label="Why choose image (optional)" currentUrl={initial?.why_choose_img ?? undefined} error={fieldErrors.why_choose_img} hint="JPG, PNG or WebP, up to 2 MB." />
           <ImageField name="menu_img" label="Menu image (optional)" currentUrl={initial?.menu_img ?? undefined} error={fieldErrors.menu_img} hint="JPG, PNG or WebP, up to 2 MB." />
+          <ImageField name="menu_icon" label="Menu icon (optional)" currentUrl={initial?.menu_icon ?? undefined} error={fieldErrors.menu_icon} hint="Small icon shown next to the category in the menu. JPG, PNG or WebP, up to 2 MB." />
         </div>
       </FormSection>
 

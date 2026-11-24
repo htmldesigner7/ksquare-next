@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Alert from "@/components/admin/Alert";
 import DeleteAction from "@/components/admin/DeleteAction";
 import FieldValue from "@/components/admin/resource/FieldValue";
+import { EditLink, ViewLink } from "@/components/admin/RowActions";
 import PageHeader from "@/components/admin/PageHeader";
 import Pagination from "@/components/admin/Pagination";
 import SearchBar from "@/components/admin/SearchBar";
@@ -28,7 +28,7 @@ export default async function ResourceListPage({
   searchParams: Promise<Record<string, string | undefined>>;
 }) {
   const resource = resourceOr404((await params).resource);
-  const { page = "1", q = "", status = "", success, ...rest } = await searchParams;
+  const { page = "1", limit = "", q = "", status = "", success, ...rest } = await searchParams;
 
   // One dropdown filter per fk field (e.g. certificates by category).
   const filterFields = resource.fields.filter((f) => f.type === "fk");
@@ -38,7 +38,7 @@ export default async function ResourceListPage({
 
   const [admin, res, options] = await Promise.all([
     requireAdmin(),
-    adminFetch<ResourceRow[]>(`/admin/${resource.slug}`, { query: { page, q, status, ...filters } }),
+    adminFetch<ResourceRow[]>(`/admin/${resource.slug}`, { query: { page, limit, q, status, ...filters } }),
     loadOptions(resource),
   ]);
   const rows = res.data ?? [];
@@ -100,13 +100,9 @@ export default async function ResourceListPage({
                 </td>
                 <td className="px-4 py-3 whitespace-nowrap text-[var(--adm-muted)]">{formatDate(row.updated_at)}</td>
                 <td className="px-4 py-3 text-right whitespace-nowrap">
-                  <div className="flex justify-end gap-4">
-                    <Link href={`${base}/${row.id}`} className="font-medium text-[var(--adm-primary)] hover:underline">
-                      View
-                    </Link>
-                    <Link href={`${base}/${row.id}/edit`} className="font-medium text-[var(--adm-primary)] hover:underline">
-                      Edit
-                    </Link>
+                  <div className="flex items-center justify-end gap-2">
+                    <ViewLink href={`${base}/${row.id}`} />
+                    <EditLink href={`${base}/${row.id}/edit`} />
                     {admin.role === "super_admin" && (
                       <DeleteAction
                         compact
@@ -122,7 +118,7 @@ export default async function ResourceListPage({
           </tbody>
         </table>
       </div>
-      <Pagination meta={meta} basePath={base} params={{ q, status, ...filters }} />
+      <Pagination meta={meta} basePath={base} params={{ limit, q, status, ...filters }} />
     </div>
   );
 }

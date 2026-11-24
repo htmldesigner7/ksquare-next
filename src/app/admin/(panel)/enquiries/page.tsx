@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Alert from "@/components/admin/Alert";
+import Pagination from "@/components/admin/Pagination";
+import { ViewLink } from "@/components/admin/RowActions";
 import StatusBadge from "@/components/admin/StatusBadge";
 import { adminFetch } from "@/lib/admin/dal";
 import { formatDate } from "@/lib/admin/format";
@@ -8,15 +9,14 @@ import { STATUS_LABEL, type EnquirySummary, type PageMeta } from "@/lib/admin/ty
 
 export const metadata: Metadata = { title: "Enquiries" };
 
-type Search = { page?: string; status?: string; q?: string; deleted?: string };
+type Search = { page?: string; limit?: string; status?: string; q?: string; deleted?: string };
 
 export default async function EnquiriesPage({ searchParams }: { searchParams: Promise<Search> }) {
-  const { page = "1", status = "", q = "", deleted } = await searchParams;
-  const res = await adminFetch<EnquirySummary[]>("/admin/enquiries", { query: { page, status, q } });
+  const { page = "1", limit = "", status = "", q = "", deleted } = await searchParams;
+  const res = await adminFetch<EnquirySummary[]>("/admin/enquiries", { query: { page, limit, status, q } });
   const rows = res.data ?? [];
   const meta = res.meta as PageMeta | undefined;
 
-  const link = (p: number) => `/admin/enquiries?${new URLSearchParams({ ...(status && { status }), ...(q && { q }), page: String(p) })}`;
 
   return (
     <div className="mx-auto max-w-6xl space-y-6">
@@ -74,9 +74,7 @@ export default async function EnquiriesPage({ searchParams }: { searchParams: Pr
                 </td>
                 <td className="px-4 py-3 whitespace-nowrap text-[var(--adm-muted)]">{formatDate(e.created_at)}</td>
                 <td className="px-4 py-3 text-right">
-                  <Link href={`/admin/enquiries/${e.id}`} className="font-medium text-[var(--adm-primary)] hover:underline">
-                    View
-                  </Link>
+                  <ViewLink href={`/admin/enquiries/${e.id}`} />
                 </td>
               </tr>
             ))}
@@ -84,25 +82,7 @@ export default async function EnquiriesPage({ searchParams }: { searchParams: Pr
         </table>
       </div>
 
-      {meta && meta.totalPages > 1 && (
-        <nav className="flex items-center justify-between text-sm" aria-label="Pagination">
-          <span className="text-[var(--adm-muted)]">
-            Page {meta.page} of {meta.totalPages} · {meta.total} total
-          </span>
-          <div className="flex gap-2">
-            {meta.page > 1 && (
-              <Link href={link(meta.page - 1)} className="adm-btn adm-btn-ghost !h-9">
-                Previous
-              </Link>
-            )}
-            {meta.page < meta.totalPages && (
-              <Link href={link(meta.page + 1)} className="adm-btn adm-btn-ghost !h-9">
-                Next
-              </Link>
-            )}
-          </div>
-        </nav>
-      )}
+      <Pagination meta={meta} basePath="/admin/enquiries" params={{ status, q }} />
     </div>
   );
 }

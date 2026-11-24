@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Alert from "@/components/admin/Alert";
 import DeleteAction from "@/components/admin/DeleteAction";
+import { EditLink } from "@/components/admin/RowActions";
 import PageHeader from "@/components/admin/PageHeader";
 import Pagination from "@/components/admin/Pagination";
 import SearchBar from "@/components/admin/SearchBar";
@@ -16,12 +17,12 @@ const PAGE_SIZE = "20";
 export default async function FaqsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: string; q?: string; category_id?: string; success?: string }>;
+  searchParams: Promise<{ page?: string; limit?: string; q?: string; category_id?: string; success?: string }>;
 }) {
-  const { page = "1", q = "", category_id = "", success } = await searchParams;
+  const { page = "1", limit = PAGE_SIZE, q = "", category_id = "", success } = await searchParams;
   const [admin, res, cats] = await Promise.all([
     requireAdmin(),
-    adminFetch<Faq[]>("/admin/faqs", { query: { page, q, category_id, limit: PAGE_SIZE } }),
+    adminFetch<Faq[]>("/admin/faqs", { query: { page, q, category_id, limit } }),
     adminFetch<FaqCategorySummary[]>("/admin/faq-categories", { query: { limit: "100" } }), // filter dropdown
   ]);
   const rows = res.data ?? [];
@@ -79,10 +80,8 @@ export default async function FaqsPage({
                   <span className="mt-0.5 text-xs text-[var(--adm-muted)] group-open:hidden">Show</span>
                 </summary>
                 <p className="mt-2 whitespace-pre-wrap text-sm leading-relaxed text-[var(--adm-muted)]">{f.answer}</p>
-                <div className="mt-3 flex gap-4 text-sm">
-                  <Link href={`/admin/faqs/${f.id}/edit`} className="font-medium text-[var(--adm-primary)] hover:underline">
-                    Edit
-                  </Link>
+                <div className="mt-3 flex items-center gap-2">
+                  <EditLink href={`/admin/faqs/${f.id}/edit`} />
                   {admin.role === "super_admin" && (
                     <DeleteAction compact endpoint={`/faqs/${f.id}`} redirectTo="/admin/faqs" confirmMessage="Delete this FAQ? This cannot be undone." />
                   )}
@@ -93,7 +92,7 @@ export default async function FaqsPage({
         </section>
       ))}
 
-      <Pagination meta={meta} basePath="/admin/faqs" params={{ q, category_id }} />
+      <Pagination meta={meta} basePath="/admin/faqs" params={{ limit, q, category_id }} />
     </div>
   );
 }

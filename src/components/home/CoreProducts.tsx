@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import RichTitle from "@/components/common/RichTitle";
 import Link from "next/link";
+import ButtonArrow from "@/components/common/ButtonArrow";
 
 const products = [
   {
@@ -115,7 +116,7 @@ export default function CoreProducts() {
                   <span className="absolute left-[16px] font-archivo font-normal text-[17px] text-[#2B398B] group-hover:text-white transition-colors">
                     View Product
                   </span>
-                  <span className="absolute left-[132px] w-[8px] h-[8px] rounded-full bg-[#2B398B] group-hover:bg-white transition-colors"></span>
+                  <ButtonArrow className="absolute left-[132px] text-[#2B398B] group-hover:text-white" />
                 </Link>
               </div>
             </div>
@@ -157,7 +158,7 @@ export default function CoreProducts() {
                   <span className="absolute left-[16px] font-archivo font-normal text-[17px] text-[#2B398B] group-hover:text-white transition-colors">
                     View Product
                   </span>
-                  <span className="absolute left-[132px] w-[8px] h-[8px] rounded-full bg-[#2B398B] group-hover:bg-white transition-colors"></span>
+                  <ButtonArrow className="absolute left-[132px] text-[#2B398B] group-hover:text-white" />
                 </Link>
               </div>
             ))}

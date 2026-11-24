@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import AdminImage from "@/components/admin/AdminImage";
 import Alert from "@/components/admin/Alert";
 import DeleteAction from "@/components/admin/DeleteAction";
+import { EditLink, ViewLink } from "@/components/admin/RowActions";
 import PageHeader from "@/components/admin/PageHeader";
 import Pagination from "@/components/admin/Pagination";
 import SearchBar from "@/components/admin/SearchBar";
@@ -16,10 +16,10 @@ export const metadata: Metadata = { title: "Testimonials" };
 export default async function TestimonialsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: string; q?: string; success?: string }>;
+  searchParams: Promise<{ page?: string; limit?: string; q?: string; success?: string }>;
 }) {
-  const { page = "1", q = "", success } = await searchParams;
-  const [admin, res] = await Promise.all([requireAdmin(), adminFetch<Testimonial[]>("/admin/testimonials", { query: { page, q } })]);
+  const { page = "1", limit = "", q = "", success } = await searchParams;
+  const [admin, res] = await Promise.all([requireAdmin(), adminFetch<Testimonial[]>("/admin/testimonials", { query: { page, limit, q } })]);
   const rows = res.data ?? [];
   const meta = res.meta as PageMeta | undefined;
 
@@ -75,13 +75,9 @@ export default async function TestimonialsPage({
                 </td>
                 <td className="px-4 py-3 whitespace-nowrap text-[var(--adm-muted)]">{formatDate(t.created_at)}</td>
                 <td className="px-4 py-3 text-right whitespace-nowrap">
-                  <div className="flex justify-end gap-4">
-                    <Link href={`/admin/testimonials/${t.id}`} className="font-medium text-[var(--adm-primary)] hover:underline">
-                      View
-                    </Link>
-                    <Link href={`/admin/testimonials/${t.id}/edit`} className="font-medium text-[var(--adm-primary)] hover:underline">
-                      Edit
-                    </Link>
+                  <div className="flex items-center justify-end gap-2">
+                    <ViewLink href={`/admin/testimonials/${t.id}`} />
+                    <EditLink href={`/admin/testimonials/${t.id}/edit`} />
                     {admin.role === "super_admin" && (
                       <DeleteAction
                         compact
@@ -97,7 +93,7 @@ export default async function TestimonialsPage({
           </tbody>
         </table>
       </div>
-      <Pagination meta={meta} basePath="/admin/testimonials" params={{ q }} />
+      <Pagination meta={meta} basePath="/admin/testimonials" params={{ limit, q }} />
     </div>
   );
 }

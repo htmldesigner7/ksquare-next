@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Alert from "@/components/admin/Alert";
 import DeleteAction from "@/components/admin/DeleteAction";
+import { EditLink, ViewLink } from "@/components/admin/RowActions";
 import PageHeader from "@/components/admin/PageHeader";
 import Pagination from "@/components/admin/Pagination";
 import SearchBar from "@/components/admin/SearchBar";
@@ -16,12 +16,12 @@ export const metadata: Metadata = { title: "FAQ Categories" };
 export default async function FaqCategoriesPage({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: string; q?: string; status?: string; success?: string }>;
+  searchParams: Promise<{ page?: string; limit?: string; q?: string; status?: string; success?: string }>;
 }) {
-  const { page = "1", q = "", status = "", success } = await searchParams;
+  const { page = "1", limit = "", q = "", status = "", success } = await searchParams;
   const [admin, res] = await Promise.all([
     requireAdmin(),
-    adminFetch<FaqCategorySummary[]>("/admin/faq-categories", { query: { page, q, status } }),
+    adminFetch<FaqCategorySummary[]>("/admin/faq-categories", { query: { page, limit, q, status } }),
   ]);
   const rows = res.data ?? [];
   const meta = res.meta as PageMeta | undefined;
@@ -72,13 +72,9 @@ export default async function FaqCategoriesPage({
                 <td className="px-4 py-3 text-[var(--adm-muted)]">{c.faq_count}</td>
                 <td className="px-4 py-3 whitespace-nowrap text-[var(--adm-muted)]">{formatDate(c.updated_at)}</td>
                 <td className="px-4 py-3 text-right whitespace-nowrap">
-                  <div className="flex justify-end gap-4">
-                    <Link href={`/admin/faq-categories/${c.id}`} className="font-medium text-[var(--adm-primary)] hover:underline">
-                      View
-                    </Link>
-                    <Link href={`/admin/faq-categories/${c.id}/edit`} className="font-medium text-[var(--adm-primary)] hover:underline">
-                      Edit
-                    </Link>
+                  <div className="flex items-center justify-end gap-2">
+                    <ViewLink href={`/admin/faq-categories/${c.id}`} />
+                    <EditLink href={`/admin/faq-categories/${c.id}/edit`} />
                     {admin.role === "super_admin" && (
                       <DeleteAction
                         compact
@@ -94,7 +90,7 @@ export default async function FaqCategoriesPage({
           </tbody>
         </table>
       </div>
-      <Pagination meta={meta} basePath="/admin/faq-categories" params={{ q, status }} />
+      <Pagination meta={meta} basePath="/admin/faq-categories" params={{ limit, q, status }} />
     </div>
   );
 }

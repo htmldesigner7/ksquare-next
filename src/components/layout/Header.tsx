@@ -1,11 +1,12 @@
 'use client';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-import { NAV, ROUTES } from "@/content/routes";
+import { NAV, ROUTES, type NavItem } from "@/content/routes";
 import { Icon, type IconKey } from "@/components/page-kit/icons";
+import ButtonArrow from "@/components/common/ButtonArrow";
 
 /** Injects Google Translate's element script once (its init callback fills the hidden #google_translate_element). */
 function loadTranslateScript() {
@@ -132,7 +133,7 @@ const LANGUAGES = [
   { code: 'zu', label: 'Zulu', short: 'ZU', flagCode: 'za' }
 ];
 
-export default function Header() {
+export default function Header({ nav = NAV }: { nav?: NavItem[] }) {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
@@ -140,6 +141,18 @@ export default function Header() {
   const [mobileSection, setMobileSection] = useState<string | null>(null);
   // Desktop mega menu: the menu that was just used to navigate stays shut until the pointer leaves it.
   const [dismissedMenu, setDismissedMenu] = useState<string | null>(null);
+  // Desktop mega menu: opened by pointer hover with a short grace period when the pointer leaves, so crossing the small gap
+  // between a menu item and its panel keeps it open, while the closed panel can never be re-opened by hovering the page below.
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const openOnHover = (label: string) => {
+    clearTimeout(closeTimer.current);
+    setOpenMenu(label);
+  };
+  const closeOnLeave = () => {
+    clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setOpenMenu(null), 200);
+  };
   const [currentLang, setCurrentLang] = useState(LANGUAGES[0]);
   const [langQuery, setLangQuery] = useState("");
   const filteredLanguages = LANGUAGES.filter((l) => l.label.toLowerCase().includes(langQuery.trim().toLowerCase()));
@@ -238,16 +251,21 @@ export default function Header() {
 
           {/* Center Navigation */}
           <nav className="hidden hnav:flex items-center gap-[16px] desk:gap-[22px] w1536:gap-[28px] g1664:gap-[40px] h-full" aria-label="Primary">
-            {NAV.map((item) => {
+            {nav.map((item) => {
               return (
                 <div
                   key={item.label}
                   className="h-full flex items-center group"
-                  onMouseLeave={() => setDismissedMenu(null)}
+                  onMouseEnter={() => openOnHover(item.label)}
+                  onMouseLeave={() => {
+                    setDismissedMenu(null);
+                    closeOnLeave();
+                  }}
                   onClick={() => {
                     // Drop keyboard/click focus too, otherwise focus-within would keep the panel open.
                     (document.activeElement as HTMLElement | null)?.blur();
                     setDismissedMenu(item.label);
+                    setOpenMenu(null);
                   }}
                 >
                   <Link
@@ -273,9 +291,10 @@ export default function Header() {
                     <div
                       className={clsx(
                         "absolute left-0 right-0 top-full bg-white border-t-2 border-primary shadow-[0_30px_60px_-24px_rgba(20,30,90,0.35)]",
-                        "opacity-0 invisible -translate-y-2 transition-[opacity,transform,visibility] duration-300 ease-out [transition-delay:140ms]",
-                        "group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:[transition-delay:0ms] group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:[transition-delay:0ms]",
-                        dismissedMenu === item.label && "!opacity-0 !invisible !-translate-y-2"
+                        "transition-[opacity,transform,visibility] duration-300 ease-out",
+                        openMenu === item.label ? "opacity-100 visible pointer-events-auto translate-y-0" : "opacity-0 invisible pointer-events-none -translate-y-2",
+                        "group-focus-within:opacity-100 group-focus-within:visible group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:[transition-delay:0ms]",
+                        dismissedMenu === item.label && "!opacity-0 !invisible !pointer-events-none !-translate-y-2"
                       )}
                     >
                       {/* soft scrim over the page while a menu is open */}
@@ -302,9 +321,15 @@ export default function Header() {
                                     )}
                                   >
                                     <span className="flex min-w-0 items-start gap-[14px]">
-                                      {link.icon && (
+                                      {(link.icon || link.iconSrc) && (
                                         <span className={clsx("mt-[1px] flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-[10px] transition-colors duration-200 group-hover/link:bg-primary group-hover/link:text-white", current ? "bg-primary text-white" : "bg-[#EEF1FB] text-primary")}>
-                                          <Icon name={link.icon as IconKey} className="h-[20px] w-[20px]" />
+                                          {link.iconSrc ? (
+                                            // Uploaded icons are served by the API (another origin); they turn white when the tile fills (on hover and for the current page).
+                                            // eslint-disable-next-line @next/next/no-img-element
+                                            <img src={link.iconSrc} alt="" className={clsx("h-[26px] w-[26px] object-contain transition-[filter] duration-200 group-hover/link:brightness-0 group-hover/link:invert", current && "brightness-0 invert")} />
+                                          ) : (
+                                            <Icon name={link.icon as IconKey} className="h-[20px] w-[20px]" />
+                                          )}
                                         </span>
                                       )}
                                       <span className="flex min-w-0 flex-col">
@@ -426,7 +451,7 @@ export default function Header() {
               )}
             >
               Request a Quote
-              <span className={clsx("w-[8px] h-[8px] rounded-full transition-colors", isTransparent ? "bg-white group-hover:bg-primary" : "bg-[#333333] group-hover:bg-white")}></span>
+              <ButtonArrow className={isTransparent ? "text-white group-hover:text-primary" : "text-[#333333] group-hover:text-white"} />
             </Link>
           </div>
           
@@ -463,7 +488,7 @@ export default function Header() {
         )}
       >
         <nav className="flex flex-col px-6 py-4" aria-label="Mobile">
-          {NAV.map((item) => {
+          {nav.map((item) => {
             const expanded = mobileSection === item.label;
             return (
               <div key={item.label} className="border-b border-[#E5E5E5]">
@@ -514,7 +539,7 @@ export default function Header() {
             className="mt-6 mb-8 h-[48px] border border-primary text-primary flex items-center justify-center gap-3 font-archivo text-[16px] hover:bg-primary hover:text-white transition-colors"
           >
             Request a Quote
-            <span className="w-[6px] h-[6px] rounded-full bg-current" />
+            <ButtonArrow />
           </Link>
         </nav>
       </div>

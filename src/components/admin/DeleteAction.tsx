@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { MdDeleteOutline } from "react-icons/md";
+import { ROW_ACTION_DELETE } from "@/components/admin/RowActions";
+import { confirmAction, showAlert } from "@/lib/admin/alerts";
 import { adminRequest } from "@/lib/admin/client";
 
 /** Confirm -> DELETE through the API -> back to the list with a success banner. */
@@ -23,14 +26,14 @@ export default function DeleteAction({
   const [pending, setPending] = useState(false);
 
   async function onClick() {
-    if (!window.confirm(confirmMessage)) return;
+    if (!(await confirmAction(confirmMessage))) return;
     setPending(true);
     const res = await adminRequest(endpoint, { method: "DELETE" });
     if (res.ok) {
       router.push(`${redirectTo}?success=deleted`);
       router.refresh();
     } else {
-      window.alert(res.message);
+      showAlert(res.message);
       setPending(false);
     }
   }
@@ -40,13 +43,14 @@ export default function DeleteAction({
       type="button"
       onClick={onClick}
       disabled={pending}
+      {...(compact && { title: pending ? "Deleting…" : label, "aria-label": label })}
       className={
         compact
-          ? "font-medium text-[var(--adm-danger)] hover:underline disabled:opacity-50"
+          ? ROW_ACTION_DELETE
           : "adm-btn adm-btn-inline !h-10 border-[var(--adm-danger)] bg-[var(--adm-danger-pale)] text-[var(--adm-danger)] hover:bg-[var(--adm-danger)] hover:text-white"
       }
     >
-      {pending ? "Deleting…" : label}
+      {compact ? <MdDeleteOutline className="size-[19px]" aria-hidden /> : pending ? "Deleting…" : label}
     </button>
   );
 }

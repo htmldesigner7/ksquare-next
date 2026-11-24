@@ -1,4 +1,5 @@
 "use client";
+import ButtonArrow from "@/components/common/ButtonArrow";
 
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -57,7 +58,7 @@ export default function LocationTabs({ zones }: { zones: Zone[] }) {
                     className="inline-flex items-center gap-[12px] px-[16px] py-[10px] border border-primary bg-white text-primary font-archivo text-[14px] hover:bg-primary hover:text-white transition-colors"
                   >
                     Get Direction
-                    <span className="w-[6px] h-[6px] rounded-full bg-current" />
+                    <ButtonArrow className="text-current" />
                   </a>
                 </div>
               </li>

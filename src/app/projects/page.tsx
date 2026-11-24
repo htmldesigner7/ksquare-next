@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import ProjectsFilter from "./ProjectsFilter";
 import FaqList from "./FaqList";
+import ButtonArrow from "@/components/common/ButtonArrow";
 
 export const metadata: Metadata = {
   title: "Our Projects | Ksquare Energy",
@@ -68,7 +69,7 @@ function OutlineButton({ href, children }: { href: string; children: React.React
       className="group inline-flex items-center justify-center gap-[16px] px-[16px] py-[12px] border border-primary text-primary hover:bg-primary hover:text-white transition-colors font-archivo text-[17px] leading-[26px]"
     >
       <span>{children}</span>
-      <span className="w-[8px] h-[8px] rounded-full bg-primary group-hover:bg-white transition-colors" />
+      <ButtonArrow className="text-primary group-hover:text-white" />
     </Link>
   );
 }
@@ -316,7 +317,7 @@ export default function ProjectsPage() {
                   className="group inline-flex items-center justify-center gap-[16px] px-[16px] py-[12px] border border-primary text-primary hover:bg-primary hover:text-white transition-colors font-archivo text-[17px] leading-[26px] cursor-pointer"
                 >
                   <span>Send Enquiry</span>
-                  <span className="w-[8px] h-[8px] rounded-full bg-primary group-hover:bg-white transition-colors" />
+                  <ButtonArrow className="text-primary group-hover:text-white" />
                 </button>
               </div>
             </div>

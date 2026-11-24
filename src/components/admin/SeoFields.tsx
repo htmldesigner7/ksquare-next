@@ -51,7 +51,7 @@ export default function SeoFields({ auto, metaTitle, metaDescription, errors }: 
         hint="Generated from the name; you can change it. Lowercase letters, numbers and hyphens. Must be unique."
         error={errors.slug}
       />
-      <FormField label="Meta title" name="meta_title" defaultValue={metaTitle ?? ""} maxLength={255} error={errors.meta_title} />
+      <FormField label="Meta title" name="meta_title" defaultValue={metaTitle ?? ""} maxLength={255} error={errors.meta_title} hint="Title for search engines and the browser tab (not the page heading)." />
       <TextAreaField label="Meta description" name="meta_description" rows={3} defaultValue={metaDescription ?? ""} maxLength={500} error={errors.meta_description} />
     </>
   );

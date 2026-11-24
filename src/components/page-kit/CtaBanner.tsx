@@ -4,6 +4,7 @@ import Link from "next/link";
 import Container from "@/components/common/Container";
 import Reveal from "@/components/common/Reveal";
 import RichTitle from "@/components/common/RichTitle";
+import ButtonArrow from "@/components/common/ButtonArrow";
 
 export default function CtaBanner({ title, desc, ctas }: { title: string; desc: string; ctas: { label: string; href: string }[] }) {
   // Figma breaks the heading so the italic serif phrase sits on its own line.
@@ -30,7 +31,7 @@ export default function CtaBanner({ title, desc, ctas }: { title: string; desc: 
                 className="group inline-flex w-full sm:w-auto items-center justify-center gap-[16px] px-[23px] py-[15px] border border-white text-white hover:bg-white hover:text-primary transition-colors"
               >
                 <span className="font-normal text-[17px] leading-[26px]">{cta.label}</span>
-                <span className="w-[8px] h-[8px] rounded-full bg-white group-hover:bg-primary transition-colors" />
+                <ButtonArrow className="text-white group-hover:text-primary" />
               </Link>
             ))}
           </div>

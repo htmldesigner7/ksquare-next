@@ -1,7 +1,7 @@
 import "server-only";
 import sanitizeHtml from "sanitize-html";
 
-// Same allowlist as the API (ksquare-api/src/utils/sanitizeHtml.js): stored HTML is cleaned again before it is shown.
+// Same allowlist as the API (ksquare-apis/src/utils/sanitizeHtml.js): stored HTML is cleaned again before it is shown.
 const OPTIONS: sanitizeHtml.IOptions = {
   allowedTags: [
     "p", "br", "hr", "strong", "b", "em", "i", "u", "s", "strike", "sub", "sup", "code", "pre", "blockquote",

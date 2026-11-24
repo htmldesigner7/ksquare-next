@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import AdminImage from "@/components/admin/AdminImage";
 import Alert from "@/components/admin/Alert";
 import BlogStatusToggle from "@/components/admin/BlogStatusToggle";
 import DeleteAction from "@/components/admin/DeleteAction";
+import { EditLink, ViewLink } from "@/components/admin/RowActions";
 import PageHeader from "@/components/admin/PageHeader";
 import Pagination from "@/components/admin/Pagination";
 import SearchBar from "@/components/admin/SearchBar";
@@ -17,10 +17,10 @@ export const metadata: Metadata = { title: "Blogs" };
 export default async function BlogsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: string; q?: string; status?: string; success?: string }>;
+  searchParams: Promise<{ page?: string; limit?: string; q?: string; status?: string; success?: string }>;
 }) {
-  const { page = "1", q = "", status = "", success } = await searchParams;
-  const [admin, res] = await Promise.all([requireAdmin(), adminFetch<BlogSummary[]>("/admin/blogs", { query: { page, q, status } })]);
+  const { page = "1", limit = "", q = "", status = "", success } = await searchParams;
+  const [admin, res] = await Promise.all([requireAdmin(), adminFetch<BlogSummary[]>("/admin/blogs", { query: { page, limit, q, status } })]);
   const rows = res.data ?? [];
   const meta = res.meta as PageMeta | undefined;
 
@@ -74,13 +74,9 @@ export default async function BlogsPage({
                   <BlogStatusToggle id={b.id} status={b.status} />
                 </td>
                 <td className="px-4 py-3 text-right whitespace-nowrap">
-                  <div className="flex justify-end gap-4">
-                    <Link href={`/admin/blogs/${b.id}`} className="font-medium text-[var(--adm-primary)] hover:underline">
-                      View
-                    </Link>
-                    <Link href={`/admin/blogs/${b.id}/edit`} className="font-medium text-[var(--adm-primary)] hover:underline">
-                      Edit
-                    </Link>
+                  <div className="flex items-center justify-end gap-2">
+                    <ViewLink href={`/admin/blogs/${b.id}`} />
+                    <EditLink href={`/admin/blogs/${b.id}/edit`} />
                     {admin.role === "super_admin" && (
                       <DeleteAction
                         compact
@@ -96,7 +92,7 @@ export default async function BlogsPage({
           </tbody>
         </table>
       </div>
-      <Pagination meta={meta} basePath="/admin/blogs" params={{ q, status }} />
+      <Pagination meta={meta} basePath="/admin/blogs" params={{ limit, q, status }} />
     </div>
   );
 }

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import AdminImage from "@/components/admin/AdminImage";
 import Alert from "@/components/admin/Alert";
 import DeleteAction from "@/components/admin/DeleteAction";
+import { EditLink, ViewLink } from "@/components/admin/RowActions";
 import PageHeader from "@/components/admin/PageHeader";
 import Pagination from "@/components/admin/Pagination";
 import SearchBar from "@/components/admin/SearchBar";
+import StatusSwitch from "@/components/admin/StatusSwitch";
 import SuccessNotice from "@/components/admin/SuccessNotice";
 import { adminFetch, requireAdmin } from "@/lib/admin/dal";
 import type { PageMeta, ProductSummary } from "@/lib/admin/types";
@@ -15,10 +16,10 @@ export const metadata: Metadata = { title: "Products" };
 export default async function ProductsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: string; q?: string; status?: string; success?: string }>;
+  searchParams: Promise<{ page?: string; limit?: string; q?: string; status?: string; success?: string }>;
 }) {
-  const { page = "1", q = "", status = "", success } = await searchParams;
-  const [admin, res] = await Promise.all([requireAdmin(), adminFetch<ProductSummary[]>("/admin/products", { query: { page, q, status } })]);
+  const { page = "1", limit = "", q = "", status = "", success } = await searchParams;
+  const [admin, res] = await Promise.all([requireAdmin(), adminFetch<ProductSummary[]>("/admin/products", { query: { page, limit, q, status } })]);
   const rows = res.data ?? [];
   const meta = res.meta as PageMeta | undefined;
 
@@ -40,7 +41,7 @@ export default async function ProductsPage({
         <table className="w-full min-w-[720px] text-left text-sm">
           <thead className="border-b border-[var(--adm-border)] text-[var(--adm-muted)]">
             <tr>
-              {["Product", "Category", "Title", "Status", "Images", "FAQs", ""].map((h) => (
+              {["Product", "Category", "Title", "Status", ""].map((h) => (
                 <th key={h} className="px-4 py-3 font-medium">
                   {h}
                 </th>
@@ -50,7 +51,7 @@ export default async function ProductsPage({
           <tbody>
             {rows.length === 0 && (
               <tr>
-                <td colSpan={7} className="px-4 py-10 text-center text-[var(--adm-muted)]">
+                <td colSpan={5} className="px-4 py-10 text-center text-[var(--adm-muted)]">
                   No products found.
                 </td>
               </tr>
@@ -65,17 +66,13 @@ export default async function ProductsPage({
                 </td>
                 <td className="px-4 py-3">{p.category_name ?? "—"}</td>
                 <td className="px-4 py-3">{p.title}</td>
-                <td className="px-4 py-3 capitalize">{p.status}</td>
-                <td className="px-4 py-3 text-[var(--adm-muted)]">{p.image_count}</td>
-                <td className="px-4 py-3 text-[var(--adm-muted)]">{p.faq_count}</td>
+                <td className="px-4 py-3">
+                  <StatusSwitch endpoint={`/products/${p.id}/status`} status={p.status} />
+                </td>
                 <td className="px-4 py-3 text-right whitespace-nowrap">
-                  <div className="flex justify-end gap-4">
-                    <Link href={`/admin/products/${p.id}`} className="font-medium text-[var(--adm-primary)] hover:underline">
-                      View
-                    </Link>
-                    <Link href={`/admin/products/${p.id}/edit`} className="font-medium text-[var(--adm-primary)] hover:underline">
-                      Edit
-                    </Link>
+                  <div className="flex items-center justify-end gap-2">
+                    <ViewLink href={`/admin/products/${p.id}`} />
+                    <EditLink href={`/admin/products/${p.id}/edit`} />
                     {admin.role === "super_admin" && (
                       <DeleteAction compact endpoint={`/products/${p.id}`} redirectTo="/admin/products" confirmMessage={`Delete the product "${p.name}"?`} />
                     )}
@@ -86,7 +83,7 @@ export default async function ProductsPage({
           </tbody>
         </table>
       </div>
-      <Pagination meta={meta} basePath="/admin/products" params={{ q, status }} />
+      <Pagination meta={meta} basePath="/admin/products" params={{ limit, q, status }} />
     </div>
   );
 }

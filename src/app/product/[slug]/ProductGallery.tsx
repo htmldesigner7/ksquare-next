@@ -1,11 +1,13 @@
 "use client";
+import ButtonArrow from "@/components/common/ButtonArrow";
 
 import React, { useRef, useState } from "react";
 import Image from "next/image";
 import Button from "@/components/common/Button";
 
 interface Props {
-  image: string;
+  /** Product photos (served by the API, another origin), main photo first. */
+  images: string[];
   alt: string;
   description: string;
   patternSrc: string;
@@ -21,10 +23,8 @@ const NOTCH_W = 431;
 const NOTCH_H = 171;
 const THUMB = 114;
 const THUMB_GAP = 20.6;
-const GALLERY = ["/assets/dcdb/gallery/gallery-2.webp", "/assets/dcdb/gallery/gallery-3.webp"];
 
-function useGallery(image: string) {
-  const slides = [image, ...GALLERY];
+function useGallery(slides: string[]) {
   const [active, setActive] = useState(0);
   const touch = useRef<number | null>(null);
   const prev = () => setActive((i) => (i - 1 + slides.length) % slides.length);
@@ -57,7 +57,7 @@ function SlideStack({ slides, active, alt, sizes, priority }: { slides: string[]
             i === active ? "opacity-100 translate-x-0 scale-100" : i < active ? "opacity-0 -translate-x-8 scale-95" : "opacity-0 translate-x-8 scale-95"
           }`}
         >
-          <Image src={src} alt={i === active ? alt : ""} fill sizes={sizes} priority={priority && i === 0} className="object-contain" />
+          <Image src={src} alt={i === active ? alt : ""} unoptimized fill sizes={sizes} priority={priority && i === 0} className="object-contain" />
         </div>
       ))}
     </>
@@ -77,7 +77,7 @@ function Thumb({ src, selected, onClick, label }: { src: string; selected: boole
       style={{ width: THUMB, height: THUMB }}
     >
       <span className="absolute inset-y-[12px] inset-x-[24px]">
-        <Image src={src} alt="" fill sizes="114px" className="object-contain drop-shadow-[0_3px_6px_rgba(0,0,0,0.15)]" />
+        <Image src={src} alt="" unoptimized fill sizes="114px" className="object-contain drop-shadow-[0_3px_6px_rgba(0,0,0,0.15)]" />
       </span>
     </button>
   );
@@ -103,13 +103,13 @@ const InquiryButton = () => (
     className="inline-flex items-center justify-center gap-[16px] px-[15px] py-[11px] group border border-[#2B398B] bg-primary text-white hover:bg-white hover:text-[#2B398B] transition-colors font-archivo text-[17px] leading-[26px] whitespace-nowrap cursor-pointer"
   >
     <span>Inquiry Now</span>
-    <span className="w-[8px] h-[8px] rounded-full bg-white group-hover:bg-[#2B398B] transition-colors" />
+    <ButtonArrow className="text-white group-hover:text-[#2B398B]" />
   </button>
 );
 
 /** Desktop gallery, pixel-placed from Figma (1800 x 693). */
-export default function ProductGallery({ image, alt, description, patternSrc }: Props) {
-  const g = useGallery(image);
+export default function ProductGallery({ images, alt, description, patternSrc }: Props) {
+  const g = useGallery(images);
 
   return (
     <div className="relative w-full" style={{ height: 693 }} onKeyDown={g.onKey}>
@@ -157,8 +157,8 @@ export default function ProductGallery({ image, alt, description, patternSrc }: 
 }
 
 /** Mobile / tablet gallery: same three images, same motion, swipe + arrows + thumbnails. */
-export function ProductGalleryMobile({ image, alt, description, patternSrc }: Props) {
-  const g = useGallery(image);
+export function ProductGalleryMobile({ images, alt, description, patternSrc }: Props) {
+  const g = useGallery(images);
 
   return (
     <div className="relative w-full overflow-hidden bg-primary-dark" onKeyDown={g.onKey}>
@@ -179,7 +179,7 @@ export function ProductGalleryMobile({ image, alt, description, patternSrc }: Pr
                 className={`relative h-[64px] w-[64px] sm:h-[80px] sm:w-[80px] overflow-hidden rounded-[10px] bg-[#EDECEB] border cursor-pointer transition-colors duration-300 ${g.active === i ? "border-[#2B398B] ring-2 ring-white/70" : "border-transparent"}`}
               >
                 <span className="absolute inset-[8px]">
-                  <Image src={src} alt="" fill sizes="80px" className="object-contain" />
+                  <Image src={src} alt="" unoptimized fill sizes="80px" className="object-contain" />
                 </span>
               </button>
             ))}

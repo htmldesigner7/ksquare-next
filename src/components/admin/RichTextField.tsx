@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import "summernote/dist/summernote-lite.min.css";
+import { showAlert } from "@/lib/admin/alerts";
 
 type Props = {
   label: string;
@@ -48,6 +49,11 @@ export default function RichTextField({ label, name, defaultValue, onChange, req
     const host = hostRef.current;
     if (!host) return;
     let cancelled = false;
+    // Summernote adds a hidden file input (name="files") for its picture dialog. It must not travel with the form:
+    // every editor would add an empty file part and the API would reject the upload ("Invalid upload") once there are many.
+    const form = host.closest("form");
+    const dropEditorFiles = (e: FormDataEvent) => e.formData.delete("files");
+    form?.addEventListener("formdata", dropEditorFiles);
     let $editor: ReturnType<typeof import("jquery")> | null = null;
     const initial = toHtml(defaultValue);
 
@@ -80,7 +86,7 @@ export default function RichTextField({ label, name, defaultValue, onChange, req
             onChangeRef.current?.(next);
           },
           // Uploaded / pasted image files would be embedded as base64 (bloated, and removed by the API): URLs only.
-          onImageUpload: () => window.alert("Add images by URL: use the picture button and paste the image link."),
+          onImageUpload: () => void showAlert("Add images by URL: use the picture button and paste the image link.", { title: "Add image by URL", icon: "info" }),
         },
       });
       $editor.summernote("code", initial);
@@ -88,6 +94,7 @@ export default function RichTextField({ label, name, defaultValue, onChange, req
     })();
 
     return () => {
+      form?.removeEventListener("formdata", dropEditorFiles);
       cancelled = true;
       if ($editor) {
         $editor.summernote("destroy");

@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import RichTitle from "@/components/common/RichTitle";
 import Link from "next/link";
+import ButtonArrow from "@/components/common/ButtonArrow";
 
 export default function PartnerCTA() {
   return (
@@ -40,7 +41,7 @@ export default function PartnerCTA() {
             <span className="absolute left-[16px] font-archivo font-normal text-[17px] text-[#FFFFFF] group-hover:text-[#2B398B] transition-colors">
               Apply as a distributor 
             </span>
-            <span className="absolute left-[190px] w-[8px] h-[8px] rounded-full bg-[#FFFFFF] group-hover:bg-[#2B398B] transition-colors"></span>
+            <ButtonArrow className="absolute left-[190px] text-[#FFFFFF] group-hover:text-[#2B398B]" />
           </Link>
           
         </div>
@@ -61,7 +62,7 @@ export default function PartnerCTA() {
             <span className="absolute left-[16px] font-archivo font-normal text-[17px] text-[#FFFFFF] group-hover:text-[#2B398B] transition-colors">
               Apply as a distributor 
             </span>
-            <span className="absolute left-[190px] w-[8px] h-[8px] rounded-full bg-[#FFFFFF] group-hover:bg-[#2B398B] transition-colors"></span>
+            <ButtonArrow className="absolute left-[190px] text-[#FFFFFF] group-hover:text-[#2B398B]" />
           </Link>
         </div>
 

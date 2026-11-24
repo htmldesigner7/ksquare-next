@@ -82,7 +82,7 @@ export default async function BlogViewPage({ params }: { params: Promise<{ id: s
         <p className="text-sm font-medium">{b.cta_text}</p>
       </Card>
       <Card title="Conclusion">
-        <p className="whitespace-pre-wrap text-sm leading-relaxed">{b.conclusion}</p>
+        <RichText html={b.conclusion} />
       </Card>
       <Card title="SEO">
         <p className="text-sm font-medium">{b.meta_title}</p>

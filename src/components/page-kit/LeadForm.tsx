@@ -1,4 +1,5 @@
 "use client";
+import ButtonArrow from "@/components/common/ButtonArrow";
 
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -166,7 +167,7 @@ export default function LeadForm({ kind }: { kind: FormKind }) {
               className="group inline-flex items-center justify-center gap-[16px] px-[28px] py-[16px] border border-primary bg-primary text-white font-archivo text-[17px] hover:bg-white hover:text-primary transition-colors cursor-pointer w-full sm:w-auto"
             >
               {cfg.submit}
-              <span className="w-[8px] h-[8px] rounded-full bg-white group-hover:bg-primary transition-colors" />
+              <ButtonArrow className="text-white group-hover:text-primary" />
             </button>
           </div>
         </motion.form>

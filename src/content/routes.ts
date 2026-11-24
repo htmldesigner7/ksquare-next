@@ -9,6 +9,8 @@ export interface NavLink {
   desc?: string;
   /** Icon key (see page-kit/icons) for the tile beside the link in the mega menu. */
   icon?: string;
+  /** Uploaded icon image (e.g. a category's menu icon); used instead of `icon` when set. */
+  iconSrc?: string;
 }
 
 export interface NavGroup {

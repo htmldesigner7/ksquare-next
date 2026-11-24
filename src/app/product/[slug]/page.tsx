@@ -3,11 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/common/Button";
 import Container from "@/components/common/Container";
-import ProductTabs from "./ProductTabs";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+import ProductTabs, { type ProductTab } from "./ProductTabs";
 import ProductGallery, { ProductGalleryMobile } from "./ProductGallery";
-import { getDcdbProduct } from "./products-data";
+import { getProduct, htmlToText } from "@/lib/catalog";
 import Disclosure from "@/components/common/Disclosure";
 import ContactLink from "@/components/common/ContactLink";
+import ButtonArrow from "@/components/common/ButtonArrow";
 
 const A = "/assets/product-detail";
 
@@ -16,14 +19,6 @@ const badges = [
   { icon: `${A}/icon_delivery.svg`, label: "Fast Delivery", w: 40, h: 40 },
   { icon: `${A}/made_in_india-3edbf2.png`, label: "Made in India", w: 81, h: 41 },
   { icon: `${A}/icon_warranty.svg`, label: "Warranty Support", w: 40, h: 40 },
-];
-
-const faqs = [
-  { q: "What solar array sizes is this DCDB suitable for?", a: "This unit is engineered for the specified kW range and MPPT/string configuration noted in the title above, and can be paired with matching inverters for residential, commercial, or industrial installations." },
-  { q: "What protection devices are integrated inside the box?", a: "Each DCDB integrates DC-rated fuses or MCBs, surge protection devices (SPDs), and monitoring-ready terminals depending on the configuration selected." },
-  { q: "Is the enclosure suitable for outdoor installation?", a: "Yes. All Ksquare DCDBs use IP-rated enclosures designed to withstand dust, moisture, and temperature extremes typical of rooftop and ground-mount solar sites." },
-  { q: "Does this product come with a warranty?", a: "Yes, every unit is backed by Ksquare Energy warranty support along with access to our technical service team for installation guidance." },
-  { q: "How can I get pricing or a datasheet for this product?", a: 'Use the "Inquiry Now" or "View Datasheet" buttons above, or reach out through our contact page and our team will respond with pricing and technical documentation.' },
 ];
 
 function Chevron() {
@@ -38,9 +33,31 @@ const inputClass =
   "w-full border border-[#DDDDDD] bg-white px-[16px] py-[12px] font-archivo text-[16px] lg:text-[18px] leading-[1.55em] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors";
 const labelClass = "font-archivo text-[16px] lg:text-[17px] leading-[27px] text-[#333333]";
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const product = await getProduct((await params).slug);
+  if (!product) return { title: "Product | Ksquare Energy" };
+  return {
+    title: product.meta_title || `${product.title} | Ksquare Energy`,
+    description: product.meta_description || htmlToText(product.short_description).slice(0, 300),
+  };
+}
+
 export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const product = getDcdbProduct(slug);
+  const product = await getProduct((await params).slug);
+  if (!product) notFound();
+
+  const images = [...new Set([product.list_img, ...product.detail_imgs].filter((src): src is string => !!src))];
+  const summary = htmlToText(product.short_description);
+  const faqs = product.faqs;
+  // Only the sections that have content get a tab.
+  const tabs: ProductTab[] = [
+    { key: "info", label: "Product Info", verticalLabel: "Info", html: product.product_info },
+    { key: "highlights", label: "Product Highlights", verticalLabel: "Highlights", html: product.highlights },
+    { key: "benefits", label: "Benefits", verticalLabel: "Benefits", html: product.benefits },
+    { key: "features", label: "Product Features", verticalLabel: "Features", html: product.features },
+    { key: "specs", label: "Technical Specifications", verticalLabel: "Specs", html: product.technical_specification },
+    { key: "installation", label: "Installation Process", verticalLabel: "Install", html: product.installation_process },
+  ].flatMap((t) => (t.html && htmlToText(t.html) ? [{ ...t, html: t.html }] : []));
 
   return (
     <main className="w-full bg-white min-h-dvh pt-[90px] font-archivo overflow-x-clip">
@@ -52,14 +69,18 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           <div className="flex items-center flex-wrap gap-[10px] font-archivo text-[15px] sm:text-[16px] lg:text-[20px] text-[#333333] leading-[28px]">
             <Link href="/" className="hover:text-primary transition-colors">Home</Link>
             <Chevron />
-            <Link href="/products/dcdb" className="hover:text-primary transition-colors">Products</Link>
+            <Link href="/products" className="hover:text-primary transition-colors">Products</Link>
             <Chevron />
-            <Link href="/products/dcdb" className="hover:text-primary transition-colors">DCDB</Link>
-            <Chevron />
-            <span className="text-primary leading-[26px] truncate max-w-[300px]">{product.breadcrumb}</span>
+            {product.category && (
+              <>
+                <Link href={`/products/${product.category.slug}`} className="hover:text-primary transition-colors">{product.category.name}</Link>
+                <Chevron />
+              </>
+            )}
+            <span className="text-primary leading-[26px] truncate max-w-[300px]">{product.name}</span>
           </div>
           <h1 className="m-0 font-archivo text-[34px] sm:text-[36px] lg:text-[60px] leading-[1.15] lg:leading-[72px] text-primary font-normal">
-            {product.title} <span className="font-recia italic font-semibold">{product.highlight}</span>
+            {product.title}
           </h1>
         </div>
 
@@ -69,7 +90,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             className="inline-flex items-center justify-center gap-[16px] px-[15px] py-[11px] group border border-[#2B398B] bg-primary text-white hover:bg-white hover:text-[#2B398B] transition-colors font-archivo text-[17px] leading-[26px] cursor-pointer"
           >
             <span>Inquiry Now</span>
-            <span className="w-[8px] h-[8px] rounded-full bg-white group-hover:bg-[#2B398B] transition-colors" />
+            <ButtonArrow className="text-white group-hover:text-[#2B398B]" />
           </button>
           <Button variant="outline-primary" showDot>View Datasheet</Button>
         </div>
@@ -80,9 +101,9 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         {/* Desktop */}
         <div className="canvas-zoom hidden canvas:block w-[1800px] mx-auto">
           <ProductGallery
-            image={product.image}
-            alt={`${product.title} ${product.highlight}`}
-            description={product.description}
+            images={images}
+            alt={product.title}
+            description={summary}
             patternSrc="/assets/dcdb/gallery/hero-banner.webp"
           />
 
@@ -102,9 +123,9 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         {/* Mobile / tablet fallback */}
         <div className="canvas:hidden flex flex-col gap-[24px]">
           <ProductGalleryMobile
-            image={product.image}
-            alt={`${product.title} ${product.highlight}`}
-            description={product.description}
+            images={images}
+            alt={product.title}
+            description={summary}
             patternSrc="/assets/dcdb/gallery/hero-banner.webp"
           />
           <div className="flex flex-wrap items-center gap-x-[32px] gap-y-[16px]">
@@ -121,6 +142,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       </Container>
 
       {/* Product Detail (tabbed) */}
+      {tabs.length > 0 && (
       <Container maxWidth="1800" className="py-[80px] lg:pt-[96px] lg:pb-[102px]">
         <div className="flex flex-col items-center gap-[24px] lg:gap-[40px] w-full">
           <div className="flex flex-col items-center text-center gap-[8px]">
@@ -132,11 +154,13 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             </p>
           </div>
 
-          <ProductTabs />
+          <ProductTabs tabs={tabs} />
         </div>
       </Container>
+      )}
 
       {/* FAQ */}
+      {faqs.length > 0 && (
       <div className="w-full bg-[#F0F5FE] py-[80px] lg:py-[98px] lg:min-h-[800px]">
         <Container maxWidth="1600">
           <div className="flex flex-col items-center gap-[28px] lg:gap-[48px] w-full">
@@ -151,16 +175,16 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
             <div className="flex flex-col gap-[24px] w-full">
               {faqs.map((item, index) => (
-                <React.Fragment key={item.q}>
+                <React.Fragment key={item.faq_question}>
                   <Disclosure defaultOpen={index === 0} summaryClassName="flex items-center justify-between gap-[24px]" summary={<>
                       <h3 className="m-0 font-archivo text-[18px] lg:text-[24px] text-[#333333] group-data-[open=true]:font-semibold transition-all">
-                        {item.q}
+                        {item.faq_question}
                       </h3>
                       <span className="font-archivo text-[24px] text-[#333333] shrink-0 group-data-[open=true]:hidden">+</span>
                       <span className="font-archivo text-[24px] text-[#333333] shrink-0 hidden group-data-[open=true]:block">-</span>
                     </>}>
                     <div className="pt-[16px]">
-                      <p className="m-0 font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666]">{item.a}</p>
+                      <p className="m-0 font-archivo text-[16px] lg:text-[17px] leading-[26px] text-[#666666]">{item.faq_answer}</p>
                     </div>
                   </Disclosure>
                   {index < faqs.length - 1 && <hr className="border-[#DDDDDD]" />}
@@ -170,6 +194,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           </div>
         </Container>
       </div>
+      )}
 
       {/* Request Your Custom Quote */}
       <Container maxWidth="1600" className="py-[80px] lg:pt-[104px] lg:pb-[75px]">

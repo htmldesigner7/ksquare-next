@@ -1,6 +1,6 @@
 /**
  * Admin modules that share the same list / add / edit / view screens (see app/admin/(panel)/[resource]).
- * Mirrors the API definitions in ksquare-api/src/crud/resources.js - keep field names and `required` in sync.
+ * Mirrors the API definitions in ksquare-apis/src/crud/resources.js - keep field names and `required` in sync.
  * To add a module: add the table + API definition, then one entry here and one in the Sidebar.
  */
 
@@ -56,7 +56,7 @@ export const RESOURCES: Record<string, Resource> = {
     fields: [
       text("name", "Name", { required: true, max: 150, list: true }),
       text("designation", "Designation", { required: true, max: 150, list: true }),
-      { name: "years_of_exp", label: "Years of experience", type: "int", required: true, min: 0, max: 80, list: true },
+      { name: "years_of_exp", label: "Years of experience", type: "int", min: 0, max: 80, list: true },
       area("description", "Description", { required: true, max: 15000, rich: true }),
       img("main_img", "Main image", { required: true, section: "Images", list: true }),
       img("thumbnail_img", "Thumbnail image", { section: "Images" }),
