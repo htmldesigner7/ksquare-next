@@ -4,7 +4,7 @@
  * To add a module: add the table + API definition, then one entry here and one in the Sidebar.
  */
 
-export type FieldType = "text" | "textarea" | "int" | "date" | "bool" | "url" | "image" | "fk";
+export type FieldType = "text" | "textarea" | "int" | "date" | "bool" | "url" | "image" | "file" | "fk";
 
 export type Field = {
   name: string;
@@ -84,8 +84,8 @@ export const RESOURCES: Record<string, Resource> = {
     titleField: "name",
     searchHint: "Search name",
     fields: [
-      img("img", "Image", { required: true, list: true }),
       text("name", "Name", { required: true, max: 255, list: true }),
+      { name: "pdf_file", label: "PDF file", type: "file", required: true, list: true, hint: "PDF, up to 15 MB. This is what visitors download." },
       { name: "certificate_category_id", label: "Certificate category", type: "fk", required: true, ref: "certificate-categories", list: true },
     ],
   },

@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Container from "@/components/common/Container";
 import CtaBanner from "@/components/page-kit/CtaBanner";
-import { footerHref, OWN_CTA_PREFIXES } from "@/content/routes";
+import { footerHref, OWN_CTA_PREFIXES, ROUTES } from "@/content/routes";
 
 /** A sitemap label (resolved to a route by footerHref) or an explicit link. */
 type FooterLink = string | { label: string; href: string };
@@ -39,8 +39,7 @@ const footerLinks: { title: string; sections: FooterSection[] }[] = [
   {
     title: "Resources",
     sections: [
-      { subtitle: null, links: ["Blogs", "Case Studies", "Videos", "Downloads", "FAQs"] },
-      { subtitle: "Projects", links: ["Residential Project", "Commercial Project", "Industrial Project", "Government Project"], isTitle: true },
+      { subtitle: null, links: ["Blogs", "Downloads", "FAQs"] },
       { subtitle: "Partners", links: ["Become a Partner", "OEM Partnership"], isTitle: true },
       { subtitle: "Manufacturing", links: ["Private Label Manufacturing", "Custom Product Development"], isTitle: true },
     ],
@@ -48,7 +47,7 @@ const footerLinks: { title: string; sections: FooterSection[] }[] = [
   {
     title: "About Us",
     sections: [
-      { subtitle: null, links: ["Company Profile", "Leadership Team", "Infrastructure", "Quality & Certifications", "Awards & Recognition", "News & Events", "CSR", "Grievance", "Press Releases", "Our Presence"] },
+      { subtitle: null, links: ["Company Profile", "Leadership Team", "Infrastructure", { label: "Projects", href: ROUTES.projects }, "Quality & Certifications", "Awards & Recognition", "News & Events", "CSR", "Grievance", "Press Releases", "Our Presence"] },
       { subtitle: "Quick Links", links: ["Careers", "Contact", "Track Solar Status", "Calculator"], isTitle: true },
     ],
   },

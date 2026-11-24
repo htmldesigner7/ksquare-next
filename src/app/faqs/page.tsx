@@ -6,6 +6,7 @@ import SectionSpacer from "@/components/common/SectionSpacer";
 import PageHero from "@/components/page-kit/PageHero";
 import type { HeroData } from "@/components/page-kit/types";
 import FaqCategoryList from "./FaqCategoryList";
+import { getFaqs } from "@/lib/faq";
 import ButtonArrow from "@/components/common/ButtonArrow";
 
 export const metadata: Metadata = {
@@ -14,7 +15,8 @@ export const metadata: Metadata = {
     "Find clear answers about Ksquare Energy, our solar products, solutions, services and support.",
 };
 
-const categories = [
+/** Shown only when the FAQ API cannot be reached (the page is normally filled from the admin panel). */
+const fallbackCategories = [
   "Solar Products",
   "Solar Solutions",
   "Company",
@@ -22,7 +24,7 @@ const categories = [
   "Locations",
 ];
 
-const faqs = [
+const fallbackFaqs = [
   {
     category: "Solar Products",
     question: "What solar products does KSquare manufacture?",
@@ -74,7 +76,10 @@ const hero: HeroData = {
   imageAlt: "Rooftop solar panels on a modern building at sunset",
 };
 
-export default function FaqsPage() {
+export default async function FaqsPage() {
+  const data = await getFaqs();
+  const categories = data.faqs.length ? data.categories : fallbackCategories;
+  const faqs = data.faqs.length ? data.faqs : fallbackFaqs;
   return (
     <div className="w-full bg-white font-archivo">
       {/* 1. Hero: shared page-kit hero (Figma cutout photo overhangs the banner) */}

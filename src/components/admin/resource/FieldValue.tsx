@@ -15,6 +15,14 @@ export default function FieldValue({ field, row, imageClass }: { field: Field; r
       ) : (
         <Empty />
       );
+    case "file":
+      return value ? (
+        <a href={String(value)} target="_blank" rel="noopener noreferrer" className="font-medium text-[var(--adm-primary)] hover:underline">
+          View PDF
+        </a>
+      ) : (
+        <Empty />
+      );
     case "textarea":
       return field.rich ? <RichText html={value as string | null} /> : <span className="whitespace-pre-wrap">{value ?? <Empty />}</span>;
     case "bool":

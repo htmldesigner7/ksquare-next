@@ -5,6 +5,7 @@ import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import SectionSpacer from "@/components/common/SectionSpacer";
 import DownloadTabs from "./DownloadTabs";
+import { getDownloads } from "@/lib/downloads";
 
 export const metadata: Metadata = {
   title: "Download Resources | Ksquare Energy",
@@ -12,7 +13,8 @@ export const metadata: Metadata = {
     "Download official product brochures, certificates, compliance notifications and technical datasheets for Ksquare Energy's solar products and solutions.",
 };
 
-export default function DownloadResourcesPage() {
+export default async function DownloadResourcesPage() {
+  const downloads = await getDownloads();
   return (
     <main className="w-full bg-white font-archivo">
       {/* 1. Hero Section & Breadcrumbs */}
@@ -89,7 +91,7 @@ export default function DownloadResourcesPage() {
               </p>
             </div>
 
-            <DownloadTabs />
+            <DownloadTabs tabsData={downloads} />
           </div>
         </Container>
       </section>

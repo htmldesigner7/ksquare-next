@@ -1,5 +1,6 @@
 "use client";
 
+import FileField from "@/components/admin/FileField";
 import FormField from "@/components/admin/FormField";
 import { FormActions, FormError, FormSection } from "@/components/admin/FormShell";
 import ImageField from "@/components/admin/ImageField";
@@ -25,7 +26,7 @@ export default function ResourceForm({
   options?: Record<string, SelectOption[]>;
 }) {
   const base = `/admin/${resource.slug}`;
-  const hasImages = resource.fields.some((f) => f.type === "image");
+  const hasImages = resource.fields.some((f) => f.type === "image" || f.type === "file"); // forms with files are sent as multipart
   const { pending, error, fieldErrors, onSubmit } = useAdminForm({
     endpoint: initial ? `/${resource.slug}/${initial.id}` : `/${resource.slug}`,
     method: initial ? "PUT" : "POST",
@@ -40,6 +41,8 @@ export default function ResourceForm({
     const common = { label: f.label, name: f.name, error: fieldErrors[f.name], hint: f.hint };
     const value = initial?.[f.name];
     switch (f.type) {
+      case "file":
+        return <FileField key={f.name} {...common} required={f.required} currentUrl={value ? String(value) : undefined} />;
       case "image":
         return <ImageField key={f.name} {...common} required={f.required} currentUrl={value ? String(value) : undefined} />;
       case "textarea":

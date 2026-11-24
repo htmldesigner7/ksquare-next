@@ -19,7 +19,11 @@ export default function FaqCategoryList({
   // Figma opens on the mixed "Popular Questions" list while the first category is highlighted.
   const [selected, setSelected] = useState<string | null>(null);
   const activeCategory = selected ?? categories[0];
-  const popular = [faqs[0], faqs[2], faqs[1], faqs[3], faqs[4]].filter(Boolean);
+  // "Popular Questions": the first question of each category in turn (up to five).
+  const popular = categories
+    .map((cat) => faqs.find((item) => item.category === cat))
+    .filter((item): item is FaqItem => Boolean(item))
+    .slice(0, 5);
   const filtered = selected ? faqs.filter((item) => item.category === selected) : popular;
 
   return (
