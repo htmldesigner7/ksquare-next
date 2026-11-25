@@ -20,9 +20,13 @@ export type Field = {
   ref?: string;
   /** Form card the field is shown in (default "Details"). */
   section?: string;
+  /** bool only: in the list, shown as a switch that updates the value directly (like Status). */
+  toggle?: boolean;
   /** Show as a column in the list. */
   list?: boolean;
 };
+
+export type Repeater = { name: string; label: string; /** Singular name of one row ("Step"); defaults to the label. */ rowName?: string; max: number; fields: Field[] };
 
 export type Resource = {
   slug: string;
@@ -33,12 +37,20 @@ export type Resource = {
   titleField?: string;
   searchHint?: string;
   fields: Field[];
+  /** Extra buttons next to "Add" on the list page, e.g. a link to an editor for related page content. */
+  extraActions?: { label: string; href: string }[];
+  /** Repeating rows (the form's "Add more" lists), each with its own fields; `max` matches the API limit. */
+  repeaters?: Repeater[];
 };
 
 /** Row as returned by the API: fk fields also carry `<field minus _id>_name`, images are absolute URLs. */
 export type ResourceRow = { id: number; status: "active" | "inactive"; created_at: string; updated_at: string } & Record<string, string | number | null>;
 
 export type SelectOption = { id: number; label: string };
+
+/** The rows of one repeater of a row returned by the API (resources with `repeaters`); images are absolute URLs. */
+export const repeaterRows = (row: ResourceRow | undefined, name: string): Record<string, string | number | null>[] =>
+  (row as unknown as Record<string, Record<string, string | number | null>[] | undefined> | undefined)?.[name] ?? [];
 
 const IMG_HINT = "JPG, PNG or WebP, up to 2 MB.";
 const text = (name: string, label: string, o: Partial<Field> = {}): Field => ({ name, label, type: "text", ...o });
@@ -101,7 +113,7 @@ export const RESOURCES: Record<string, Resource> = {
       text("title", "Title", { required: true, max: 255, list: true }),
       area("description", "Description", { required: true, max: 15000, rich: true }),
       img("img", "Image", { list: true }),
-      { name: "is_feature", label: "Featured", type: "bool", list: true },
+      { name: "is_feature", label: "Featured", type: "bool", list: true, toggle: true },
     ],
   },
   events: {
@@ -174,12 +186,33 @@ export const RESOURCES: Record<string, Resource> = {
     label: "Project",
     plural: "Projects",
     description: "Projects shown on the website.",
-    titleField: "title",
-    searchHint: "Search title",
+    titleField: "project_categories_name",
+    extraActions: [{ label: "Page content", href: "/admin/projects/page-content" }],
     fields: [
-      img("img", "Image", { required: true, list: true }),
-      text("title", "Title", { required: true, max: 255, list: true }),
       { name: "project_categories_id", label: "Project category", type: "fk", required: true, ref: "project-categories", list: true },
+    ],
+    repeaters: [
+      {
+        name: "gallery",
+        label: "Project pictures",
+        rowName: "Picture",
+        max: 20,
+        fields: [img("img", "Image", { required: true }), text("name", "Name", { required: true, max: 150 })],
+      },
+      {
+        name: "items",
+        label: "Projects",
+        rowName: "Project",
+        max: 20,
+        fields: [
+          img("project_img", "Project image", { required: true }),
+          text("title", "Title", { required: true, max: 255 }),
+          text("tag", "Tag", { max: 100 }),
+          text("location", "Location", { max: 255 }),
+          text("power_capacity", "Power capacity", { max: 100, hint: "For example 25 kW" }),
+          area("short_note", "Short note", { max: 500 }),
+        ],
+      },
     ],
   },
 };

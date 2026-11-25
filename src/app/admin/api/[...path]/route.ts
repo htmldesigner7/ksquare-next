@@ -8,7 +8,7 @@ import { SESSION_COOKIE } from "@/lib/admin/session";
  * Only the content modules below are reachable; auth endpoints are handled by server actions instead.
  */
 const API_URL = (process.env.ADMIN_API_URL ?? "http://localhost:4000/api/v1").replace(/\/$/, "");
-const ALLOWED_MODULES = new Set(["testimonials", "blogs", "categories", "authors", "settings", "faq-categories", "faqs", "products", "ksquare-presences", "profile", ...Object.keys(RESOURCES)]);
+const ALLOWED_MODULES = new Set(["testimonials", "blogs", "categories", "authors", "settings", "faq-categories", "faqs", "products", "ksquare-presences", "profile", "page-content", ...Object.keys(RESOURCES)]);
 
 const fail = (status: number, message: string) => Response.json({ success: false, message }, { status });
 

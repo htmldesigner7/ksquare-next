@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Alert from "@/components/admin/Alert";
 import DeleteAction from "@/components/admin/DeleteAction";
 import FieldValue from "@/components/admin/resource/FieldValue";
+import FlagSwitch from "@/components/admin/FlagSwitch";
 import { EditLink, ViewLink } from "@/components/admin/RowActions";
 import PageHeader from "@/components/admin/PageHeader";
 import Pagination from "@/components/admin/Pagination";
@@ -43,11 +45,18 @@ export default async function ResourceListPage({
   ]);
   const rows = res.data ?? [];
   const meta = res.meta as PageMeta | undefined;
-  const headings = [...columns.map((c) => c.label), "Status", "Updated", ""];
+  const repeaters = resource.repeaters ?? [];
+  const headings = [...columns.map((c) => c.label), ...repeaters.map((r) => r.label), "Status", "Updated", ""];
 
   return (
     <div className="mx-auto max-w-6xl space-y-6">
-      <PageHeader title={resource.plural} description={resource.description} action={{ href: `${base}/new`, label: `Add ${resource.label}` }} />
+      <PageHeader title={resource.plural} description={resource.description} action={{ href: `${base}/new`, label: `Add ${resource.label}` }}>
+        {resource.extraActions?.map((a) => (
+          <Link key={a.href} href={a.href} className="adm-btn adm-btn-ghost adm-btn-inline">
+            {a.label}
+          </Link>
+        ))}
+      </PageHeader>
       <SuccessNotice code={success} noun={resource.label} />
       {!res.ok && <Alert type="error">{res.message}</Alert>}
 
@@ -92,7 +101,12 @@ export default async function ResourceListPage({
               <tr key={row.id} className="border-b border-[var(--adm-border)] last:border-0">
                 {columns.map((c) => (
                   <td key={c.name} className="px-4 py-3">
-                    <FieldValue field={c} row={row} />
+                    {c.toggle ? <FlagSwitch endpoint={`/${resource.slug}/${row.id}/flag`} field={c.name} label={c.label} value={!!row[c.name]} /> : <FieldValue field={c} row={row} />}
+                  </td>
+                ))}
+                {repeaters.map((r) => (
+                  <td key={r.name} className="px-4 py-3 text-[var(--adm-muted)]">
+                    {row[`${r.name}_count`] ?? 0}
                   </td>
                 ))}
                 <td className="px-4 py-3">

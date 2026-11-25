@@ -7,8 +7,9 @@ import ImageField from "@/components/admin/ImageField";
 import RichTextField from "@/components/admin/RichTextField";
 import SelectField from "@/components/admin/SelectField";
 import TextAreaField from "@/components/admin/TextAreaField";
+import RepeaterSection from "@/components/admin/resource/RepeaterSection";
 import { useAdminForm } from "@/lib/admin/client";
-import { fkLabelKey, type Field, type Resource, type ResourceRow, type SelectOption } from "@/lib/admin/resources";
+import { fkLabelKey, repeaterRows, type Field, type Resource, type ResourceRow, type SelectOption } from "@/lib/admin/resources";
 
 const STATUS_OPTIONS = [
   { value: "active", label: "Active" },
@@ -26,8 +27,9 @@ export default function ResourceForm({
   options?: Record<string, SelectOption[]>;
 }) {
   const base = `/admin/${resource.slug}`;
-  const hasImages = resource.fields.some((f) => f.type === "image" || f.type === "file"); // forms with files are sent as multipart
-  const { pending, error, fieldErrors, onSubmit } = useAdminForm({
+  const hasImages =
+    resource.fields.some((f) => f.type === "image" || f.type === "file") || (resource.repeaters ?? []).some((r) => r.fields.some((f) => f.type === "image")); // forms with files are sent as multipart
+  const { pending, error, fieldErrors, onSubmit, clearErrors } = useAdminForm({
     endpoint: initial ? `/${resource.slug}/${initial.id}` : `/${resource.slug}`,
     method: initial ? "PUT" : "POST",
     successHref: `${base}?success=${initial ? "updated" : "created"}`,
@@ -101,7 +103,7 @@ export default function ResourceForm({
       noValidate // the server validates and returns a message per field
       // Forms with images are sent as multipart; the others as JSON.
       onSubmit={(e) => onSubmit(e, hasImages ? undefined : (fd) => Object.fromEntries(fd))}
-      className="space-y-6"
+            className="space-y-6"
     >
       {/* Field errors are shown under their inputs; the banner only points at them (no duplicate text). */}
       <FormError message={hasFieldErrors ? "Please correct the highlighted fields." : error} />
@@ -118,6 +120,9 @@ export default function ResourceForm({
             )}
           </div>
         </FormSection>
+      ))}
+      {(resource.repeaters ?? []).map((r) => (
+        <RepeaterSection key={r.name} repeater={r} initial={repeaterRows(initial, r.name)} errors={fieldErrors} onRemove={clearErrors} />
       ))}
       <FormActions pending={pending} cancelHref={base} submitLabel={initial ? "Save changes" : `Add ${resource.label}`} />
     </form>

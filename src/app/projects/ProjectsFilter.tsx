@@ -3,103 +3,22 @@
 import React from "react";
 import Image from "next/image";
 
-type Project = {
-  title: string;
-  location: string;
-  img: string;
-  tag?: string;
-  capacity?: string;
-  description?: string;
-  program?: string;
-  roundedImage?: boolean;
+import type { ProjectCategory, ProjectItem, ProjectPicture } from "@/lib/projects";
+
+// Section headings of the known categories (the accent word is shown in italics); other categories get "<name> Projects".
+const HEADINGS: Record<string, [string, string]> = {
+  Residential: ["Residential Solar", "Projects"],
+  Commercial: ["Commercial Solar", "Solutions"],
+  Industrial: ["Heavy Industrial", "Solar Plants"],
+  Government: ["State & National Tender", "Deployments"],
 };
 
-type CategorySection = {
-  key: string;
-  eyebrow: string;
-  heading: string;
-  headingAccent: string;
-  bg: string;
-  padding: string;
-  chipBg: string;
-  projects: Project[];
-};
-
-const P = "/assets/projects";
-const F = "/assets/projects/figma";
-
-const sections: CategorySection[] = [
-  {
-    key: "Residential",
-    eyebrow: "01 / RESIDENTIAL",
-    heading: "Residential Solar",
-    headingAccent: "Projects",
-    bg: "bg-white",
-    padding: "py-0",
-    chipBg: "bg-[#EFF0F6]",
-    projects: [
-      { title: "Bunglow Solar Array", tag: "Independent Home", capacity: "5 kW", location: "Sardar Patel Ring Road, Ahmedabad", description: "Offset 85% of monthly residential electricity bill.", img: `${P}/residential_1.png` },
-      { title: "Premium Villa Rooftop", tag: "Independent Home", capacity: "10 kW", location: "Shela, Ahmedabad", description: "Smooth hybrid transition with premium net-metering.", img: `${P}/residential_2.png` },
-      { title: "Residential Penthouse System", tag: "Independent Home", capacity: "8 kW", location: "Science City, Ahmedabad", description: "Installed with high-efficiency crystalline PV.", img: `${P}/residential_3.png`, roundedImage: true },
-    ],
-  },
-  {
-    key: "Commercial",
-    eyebrow: "02 / COMMERCIAL",
-    heading: "Commercial Solar",
-    headingAccent: "Solutions",
-    bg: "bg-[#F0F5FE]",
-    padding: "py-[60px]",
-    chipBg: "bg-white",
-    projects: [
-      { title: "IT Park Solar Roof Array", tag: "OFFICE", capacity: "150 kW", location: "SG Highway, Ahmedabad", img: `${P}/commercial_1.png` },
-      { title: "Apex Multispeciality Hospital", tag: "HOSPITALITY", capacity: "80 kW", location: "Vadodara, Gujarat", img: `${P}/commercial_2.png` },
-      { title: "Logistics Park Grid-Tie", tag: "WAREHOUSE", capacity: "250 kW", location: "Sanand Industrial Zone", img: `${P}/commercial_3.png` },
-    ],
-  },
-  {
-    key: "Industrial",
-    eyebrow: "03 / INDUSTRIAL",
-    heading: "Heavy Industrial",
-    headingAccent: "Solar Plants",
-    bg: "bg-white",
-    padding: "py-0",
-    chipBg: "bg-white",
-    projects: [
-      { title: "Surat Textile Processing Mega-Project", location: "Sardar Patel Ring Road, Ahmedabad", img: `${P}/industrial_1.png` },
-      { title: "Engineering Factory Solar Shed", location: "Kalol, Gujarat", img: `${P}/industrial_2.png` },
-      { title: "Ceramic Kiln Heat-Shield Rooftop", location: "Morbi, Gujarat", img: `${P}/industrial_3.png` },
-    ],
-  },
-  {
-    key: "Government",
-    eyebrow: "04 / GOVERNMENT",
-    heading: "State & National Tender",
-    headingAccent: "Deployments",
-    bg: "bg-[#F0F5FE]",
-    padding: "py-[60px]",
-    chipBg: "bg-white",
-    projects: [
-      { title: "Model High School Rooftop Program", tag: "GOVERNMENT", capacity: "150 kW", location: "Mehsana, Gujarat", program: "PM Surya Ghar Yojana", img: `${P}/government_1.png` },
-      { title: "Municipal Water Treatment Station", tag: "MUNICIPAL", capacity: "80 kW", location: "Ahmedabad City limits", program: "Gujarat State Water Tender", img: `${P}/government_2.png` },
-    ],
-  },
-];
-
-const tabs = ["All Projects", "Residential", "Commercial", "Industrial", "Government"];
-
-const galleryItems = [
-  { label: "Lorem ipsum", img: `${F}/gallery_1.png` },
-  { label: "Lorem ipsum", img: `${F}/gallery_2.png` },
-  { label: "Lorem", img: `${F}/gallery_3-548297.png` },
-  { label: "Lorem", img: `${F}/gallery_4.png` },
-  { label: "Lorem ipsum", img: `${F}/gallery_5.png` },
-];
 const gallerySlots = ["xl:w-[1000px]", "xl:flex-1", "xl:flex-1", "xl:w-[600px]", "xl:flex-1"];
 
 type Dir = "next" | "prev";
 
-function useCarousel(length: number) {
+function useCarousel(count: number) {
+  const length = Math.max(count, 1); // nothing to rotate yet: avoid dividing by zero
   const [state, setState] = React.useState({ offset: 0, dir: "next" as Dir, tick: 0 });
   const go = (dir: Dir) =>
     setState((s) => ({
@@ -134,7 +53,7 @@ function ArrowButtons({ onPrev, onNext }: { onPrev: () => void; onNext: () => vo
 function GalleryTile({ label, img, className }: { label: string; img: string; className: string }) {
   return (
     <div className={`img-hover-zoom relative w-full h-[260px] md:h-[320px] xl:h-full overflow-hidden ${className}`}>
-      <Image src={img} alt={label} fill className="object-cover" sizes="(min-width: 1280px) 1000px, 100vw" />
+      <Image src={img} alt={label} fill unoptimized className="object-cover" />
       <div className="absolute right-0 top-0 w-[141px] px-[34px] py-[10px] bg-primary flex justify-center">
         <span className="font-archivo text-[12px] uppercase text-white">{label}</span>
       </div>
@@ -142,56 +61,52 @@ function GalleryTile({ label, img, className }: { label: string; img: string; cl
   );
 }
 
-function ProjectCard({ project, chipBg }: { project: Project; chipBg: string }) {
+function ProjectCard({ project, chipBg }: { project: ProjectItem; chipBg: string }) {
   return (
     <div className="flex flex-col gap-[20px] w-full flex-1">
-      <div className={`img-hover-zoom relative w-full h-[240px] lg:h-[320px] overflow-hidden shrink-0 ${project.roundedImage ? "rounded-[12px]" : ""}`}>
-        <Image src={project.img} alt={project.title} fill className="object-cover" />
+      <div className="img-hover-zoom relative w-full h-[240px] lg:h-[320px] overflow-hidden shrink-0">
+        {/* Project images are served by the API (another origin), so they are not optimised by next/image. */}
+        <Image src={project.project_img} alt={project.title} fill unoptimized className="object-cover" />
       </div>
       <div className="flex flex-col gap-[12px] min-w-0">
         {project.tag && (
           <div className="flex items-center justify-between gap-[8px]">
             <span className={`${chipBg} rounded-[4px] px-[12px] lg:px-[24px] py-[6px] font-archivo text-[17px] leading-[1.2] text-primary`}>{project.tag}</span>
-            {project.capacity && <span className="font-archivo text-[15px] leading-[1.2] font-semibold text-primary whitespace-nowrap shrink-0">{project.capacity}</span>}
+            {project.power_capacity && <span className="font-archivo text-[15px] leading-[1.2] font-semibold text-primary whitespace-nowrap shrink-0">{project.power_capacity}</span>}
           </div>
         )}
         <div className="flex flex-col gap-[8px]">
           <h3 className="m-0 font-archivo text-[20px] lg:text-[24px] leading-[1.2] font-semibold text-[#333333]">{project.title}</h3>
-          <p className="m-0 font-archivo text-[14px] leading-[1.2] text-[#666666]">{project.location}</p>
+          {project.location && <p className="m-0 font-archivo text-[14px] leading-[1.2] text-[#666666]">{project.location}</p>}
         </div>
-        {project.description && (
-          <p className="m-0 font-archivo text-[13px] leading-[1.2] italic text-[#666666]">{project.description}</p>
-        )}
-        {project.program && (
-          <div className="flex items-center gap-[6px]">
-            <span className="font-archivo text-[17px] leading-[1.2] font-medium text-[#666666]">Prog:</span>
-            <span className="font-archivo text-[17px] leading-[1.2] font-semibold text-primary">{project.program}</span>
-          </div>
-        )}
+        {project.short_note && <p className="m-0 font-archivo text-[13px] leading-[1.2] italic text-[#666666]">{project.short_note}</p>}
       </div>
     </div>
   );
 }
 
-function SectionBlock({ section }: { section: CategorySection }) {
-  const c = useCarousel(section.projects.length);
-  const projects = c.rotate(section.projects);
+/** A category's projects. Sections alternate between a white and a light-blue background, as in the design. */
+function SectionBlock({ category, index }: { category: ProjectCategory; index: number }) {
+  const c = useCarousel(category.items.length);
+  const projects = c.rotate(category.items);
+  const tinted = index % 2 === 1;
+  const [heading, accent] = HEADINGS[category.name] ?? [category.name, "Projects"];
   return (
-    <section className={`w-full ${section.bg} ${section.padding}`}>
+    <section className={`w-full ${tinted ? "bg-[#F0F5FE] py-[60px]" : "bg-white py-0"}`}>
       <div className="mx-auto w-full max-w-[1920px] px-4 lg:px-8 xl:px-[160px] flex flex-col gap-[28px] lg:gap-[48px]">
         <div className="flex items-end justify-between gap-[24px]">
           <div className="flex flex-col gap-[12px] min-w-0">
-            <span className="font-archivo text-[17px] font-semibold uppercase text-primary">{section.eyebrow}</span>
+            <span className="font-archivo text-[17px] font-semibold uppercase text-primary">{String(index + 1).padStart(2, "0")} / {category.name}</span>
             <h2 className="m-0 font-archivo font-normal text-[32px] lg:text-[44px] leading-[1.2] xl:leading-[52px] text-[#333333]">
-              {section.heading} <span className="font-recia italic font-semibold">{section.headingAccent}</span>
+              {heading} <span className="font-recia italic font-semibold">{accent}</span>
             </h2>
           </div>
           <ArrowButtons onPrev={() => c.go("prev")} onNext={() => c.go("next")} />
         </div>
 
         <div key={c.tick} className={`flex flex-col md:flex-row md:flex-wrap xl:flex-nowrap gap-[32px] items-stretch ${c.animClass}`}>
-          {projects.map((project) => (
-            <ProjectCard key={project.title} project={project} chipBg={section.chipBg} />
+          {projects.map((project, i) => (
+            <ProjectCard key={`${project.title}-${i}`} project={project} chipBg={tinted ? "bg-white" : "bg-[#EFF0F6]"} />
           ))}
         </div>
       </div>
@@ -199,12 +114,14 @@ function SectionBlock({ section }: { section: CategorySection }) {
   );
 }
 
-export default function ProjectsFilter() {
+export default function ProjectsFilter({ categories, gallery }: { categories: ProjectCategory[]; gallery: ProjectPicture[] }) {
+  const tabs = ["All Projects", ...categories.map((c) => c.name)];
   const [active, setActive] = React.useState("All Projects");
-  const g = useCarousel(galleryItems.length);
-  const items = g.rotate(galleryItems);
+  const g = useCarousel(gallery.length);
+  const items = g.rotate(gallery);
 
-  const visibleSections = active === "All Projects" ? sections : sections.filter((s) => s.key === active);
+  // Keep each section's number and colour when a single category is shown.
+  const visibleSections = categories.map((category, index) => ({ category, index })).filter(({ category }) => active === "All Projects" || category.name === active);
 
   return (
     <div className="w-full flex flex-col items-center gap-[32px] lg:gap-[60px] xl:gap-[100px]">
@@ -236,6 +153,7 @@ export default function ProjectsFilter() {
       </div>
 
       {/* Featured gallery */}
+      {gallery.length > 0 && (
       <div className="w-full flex flex-col items-center gap-[24px] lg:gap-[40px]">
         <div className="flex flex-col items-center gap-[14px] text-center px-4">
           <h2 className="m-0 font-archivo font-normal text-[36px] lg:text-[60px] leading-[1.2] xl:leading-[42px] text-primary">
@@ -249,28 +167,28 @@ export default function ProjectsFilter() {
           <div key={g.tick} className={`flex flex-col gap-[24px] w-full max-w-[1600px] xl:h-[744px] ${g.animClass}`}>
             <div className="flex flex-col xl:flex-row gap-[24px] xl:h-[400px]">
               {items.slice(0, 2).map((it, i) => (
-                <GalleryTile key={it.img} {...it} className={gallerySlots[i]} />
+                <GalleryTile key={it.img} label={it.name} img={it.img} className={gallerySlots[i]} />
               ))}
             </div>
             <div className="flex flex-col xl:flex-row gap-[24px] xl:h-[320px]">
               {items.slice(2).map((it, i) => (
-                <GalleryTile key={it.img} {...it} className={gallerySlots[i + 2]} />
+                <GalleryTile key={it.img} label={it.name} img={it.img} className={gallerySlots[i + 2]} />
               ))}
             </div>
           </div>
           <ArrowButtons onPrev={() => g.go("prev")} onNext={() => g.go("next")} />
         </div>
       </div>
+      )}
 
       {/* Category Sections */}
       <div className="w-full flex flex-col gap-[32px] lg:gap-[60px] xl:gap-[100px]">
-        {visibleSections.map((section) => (
-          <SectionBlock key={section.key} section={section} />
+        {visibleSections.map(({ category, index }) => (
+          <SectionBlock key={category.name} category={category} index={index} />
         ))}
+        {categories.length === 0 && <p className="text-center font-archivo text-[17px] text-[#666666]">Projects will be shown here soon.</p>}
       </div>
     </div>
   );
 }
 
-export { sections as projectSections };
-export type { Project, CategorySection };

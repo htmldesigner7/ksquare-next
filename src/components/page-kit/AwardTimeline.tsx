@@ -26,7 +26,7 @@ export default function AwardTimeline({ entries }: { entries: Entry[] }) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-[40px] lg:gap-[80px] items-center">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div key={e.year} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.3 }} className="flex flex-col gap-[16px]">
-            <span className="font-archivo text-[14px] lg:text-[17px] font-semibold tracking-wide text-white uppercase">{e.label}</span>
+            {e.label && <span className="font-archivo text-[14px] lg:text-[17px] font-semibold tracking-wide text-white uppercase">{e.label}</span>}
             <span className="font-archivo text-[72px] lg:text-[100px] leading-none text-white">{e.year}</span>
             <h3 className="m-0 font-archivo text-[28px] lg:text-[40px] font-medium leading-[1.2] text-white">{e.title}</h3>
             <p className="m-0 font-archivo text-[16px] lg:text-[17px] leading-[26px] text-white/85 max-w-[640px]">{e.desc}</p>
@@ -45,11 +45,8 @@ export default function AwardTimeline({ entries }: { entries: Entry[] }) {
 
         <AnimatePresence mode="wait" initial={false}>
           <motion.div key={e.year + "-img"} initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.35 }} className="relative mx-auto w-full max-w-[600px] aspect-[600/420]">
-            <div className="absolute left-0 top-0 h-[76%] w-[83%] overflow-hidden rounded-[8px] shadow-xl">
-              <Image src={e.imageBack} alt="" fill sizes="500px" className="object-cover" />
-            </div>
-            <div className="absolute bottom-0 right-0 h-[76%] w-[87%] overflow-hidden rounded-[8px] shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
-              <Image src={e.imageFront} alt={e.title} fill sizes="520px" className="object-cover" />
+            <div className="absolute inset-0 overflow-hidden rounded-[8px] shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+              <Image src={e.imageFront} alt={e.title} fill sizes="520px" unoptimized className="object-cover" />
             </div>
           </motion.div>
         </AnimatePresence>

@@ -1024,7 +1024,7 @@ export function SectionRenderer({ section }: { section: Section }) {
                 <Reveal key={it.title} delay={(i % 4) * 0.07} className="h-full">
                   <article className="card-lift group flex h-full flex-col gap-[16px] border border-[#E2E8F0] bg-white p-[12px] lg:p-[12px]">
                     <div className="relative aspect-[186/220] w-full overflow-hidden bg-[#DDDDDD]">
-                      <Image src={it.image} alt={it.title} fill sizes="(min-width:1280px) 25vw, 50vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <Image src={it.image} alt={it.title} fill sizes="(min-width:1280px) 25vw, 50vw" unoptimized={it.image.startsWith("http")} className="object-cover transition-transform duration-700 group-hover:scale-105" />
                     </div>
                     <div className="flex flex-col gap-[6px] px-[4px] pb-[8px]">
                       <h3 className="m-0 font-archivo text-[20px] lg:text-[22px] font-normal text-[#333333]">{it.title}</h3>

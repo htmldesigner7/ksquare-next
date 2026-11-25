@@ -8,7 +8,8 @@ import StatusSwitch from "@/components/admin/StatusSwitch";
 import { adminFetch, requireAdmin } from "@/lib/admin/dal";
 import { formatDate, parseId } from "@/lib/admin/format";
 import { resourceOr404 } from "@/lib/admin/resource-data";
-import { getResource, rowTitle, type ResourceRow } from "@/lib/admin/resources";
+import AdminImage from "@/components/admin/AdminImage";
+import { getResource, repeaterRows, rowTitle, type ResourceRow } from "@/lib/admin/resources";
 
 type Params = Promise<{ resource: string; id: string }>;
 
@@ -62,6 +63,37 @@ export default async function ResourceViewPage({ params }: { params: Params }) {
           </div>
         </dl>
       </section>
+
+      {(resource.repeaters ?? []).map((r) => {
+        const rows = repeaterRows(row, r.name);
+        if (rows.length === 0) return null;
+        return (
+          <section key={r.name} className="space-y-3 rounded-xl border border-[var(--adm-border)] bg-[var(--adm-surface)] p-6">
+            <h2 className="text-sm font-semibold text-[var(--adm-muted)] uppercase tracking-wide">
+              {r.label} ({rows.length})
+            </h2>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {rows.map((item) => (
+                <div key={String(item.id)} className="space-y-2 rounded-lg border border-[var(--adm-border)] p-3 text-sm">
+                  {r.fields
+                    .filter((f) => f.type === "image")
+                    .map((f) => (
+                      <AdminImage key={f.name} src={String(item[f.name] ?? "")} alt={f.label} className="aspect-video w-full rounded-lg border border-[var(--adm-border)] bg-white object-cover" />
+                    ))}
+                  {r.fields
+                    .filter((f) => f.type !== "image" && item[f.name])
+                    .map((f) => (
+                      <p key={f.name}>
+                        <span className="text-[var(--adm-muted)]">{f.label}: </span>
+                        {item[f.name]}
+                      </p>
+                    ))}
+                </div>
+              ))}
+            </div>
+          </section>
+        );
+      })}
     </div>
   );
 }

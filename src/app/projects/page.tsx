@@ -5,6 +5,7 @@ import ProcessTimelineArt from "@/components/page-kit/ProcessTimelineArt";
 import Link from "next/link";
 import { Metadata } from "next";
 import ProjectsFilter from "./ProjectsFilter";
+import { getProjects, type ProjectsPageContent } from "@/lib/projects";
 import FaqList from "./FaqList";
 import ButtonArrow from "@/components/common/ButtonArrow";
 
@@ -13,50 +14,6 @@ export const metadata: Metadata = {
   description:
     "From individual rooftops to large industrial installations, Ksquare Energy has delivered 9,000+ solar projects across residential, commercial, industrial and government applications.",
 };
-
-const tableRows = [
-  { profile: "Surat Textile processing mill installation", capacity: "480 kW", generation: "7.1 Lakh Units", type: "Heavy Industrial", location: "Surat, GJ" },
-  { profile: "Apex Multispeciality Corporate Hospital", capacity: "80 kW", generation: "1.2 Lakh Units", type: "Commercial Roof", location: "Vadodara, GJ" },
-  { profile: "PM Surya Ghar Model Schools Batch 1", capacity: "15 kW", generation: "22,500 Units", type: "Govt. Institution", location: "Mehsana, GJ" },
-  { profile: "Dholera SIR Activation Zone Carport", capacity: "110 kW", generation: "1.6 Lakh Units", type: "Commercial Ground-mount", location: "Dholera, GJ" },
-];
-
-const processSteps = [
-  { title: "Site Visit", desc: "An engineer checks your roof, shadow free area, and sanctioned load." },
-  { title: "Paperwork", desc: "DISCOM and subsidy applications are handled where applicable." },
-  { title: "Commissioning", desc: "Net-metering and grid synchronization are coordinated with the DISCOM." },
-  { title: "Design", desc: "The system is sized according to your actual electricity consumption." },
-  { title: "Installation", desc: "Our own crews install the system using our manufactured components." },
-  { title: "After-Sales", desc: "Monitoring and maintenance support continue after commissioning." },
-];
-
-const faqs = [
-  {
-    question: "How many projects has Ksquare completed so far?",
-    answer:
-      "Ksquare Energy has successfully installed and commissioned over 9,000+ residential, commercial, industrial, and institutional solar systems over the last 8+ years across India.",
-  },
-  {
-    question: "What segments of solar energy do you serve?",
-    answer:
-      "We serve residential, commercial, industrial and government/institutional segments, delivering rooftop, ground-mount and hybrid solar systems tailored to each sector's requirements.",
-  },
-  {
-    question: "Do you manufacture your own distribution and combiner boxes?",
-    answer:
-      "Yes. Ksquare Energy manufactures its own DCDBs, ACDBs, combiner boxes and BOS accessories in-house, giving us full control over quality, customization and lead times.",
-  },
-  {
-    question: "Do you execute solar installations outside Gujarat?",
-    answer:
-      "Yes. While our manufacturing base and the majority of our projects are in Gujarat, we also execute residential, commercial and government solar projects across other states through our partner and distributor network.",
-  },
-  {
-    question: "How can I request a similar high-capacity industrial system?",
-    answer:
-      "Share your site details, sanctioned load and consumption pattern through our enquiry form or speak with our sales team directly, and our engineers will prepare a customised proposal for your facility.",
-  },
-];
 
 const inputClass =
   "w-full border border-[#DDDDDD] bg-white px-[16px] py-[12px] font-archivo text-[18px] leading-[1.55em] text-[#333333] placeholder:text-[#666666] focus:outline-none focus:border-primary transition-colors";
@@ -84,16 +41,19 @@ function SelectArrow() {
   );
 }
 
-function Step({ index, className }: { index: number; className: string }) {
+function Step({ step, index, className }: { step: ProjectsPageContent["steps"][number]; index: number; className: string }) {
   return (
     <Reveal delay={(index < 3 ? index * 2 : (index - 3) * 2 + 1) * 0.14 + 0.1} y={16} className={`absolute w-[290.85px] flex flex-col items-center text-center gap-[12px] ${className}`}>
-      <h3 className="m-0 font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{processSteps[index].title}</h3>
-      <p className="m-0 font-archivo text-[17px] leading-[26px] text-[#666666]">{processSteps[index].desc}</p>
+      <h3 className="m-0 font-archivo text-[24px] leading-[26px] font-medium text-[#333333]">{step.title}</h3>
+      <p className="m-0 font-archivo text-[17px] leading-[26px] text-[#666666]">{step.desc}</p>
     </Reveal>
   );
 }
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const projects = await getProjects();
+  // The table, the process steps and the FAQs are edited in the admin panel (Projects -> Page content).
+  const { stats = [], steps = [], faqs = [] } = projects.content ?? {};
   return (
     <main className="w-full bg-white font-archivo overflow-x-clip">
       {/* Hero */}
@@ -141,9 +101,10 @@ export default function ProjectsPage() {
       </section>
 
       <div className="mt-[60px] canvas:mt-[81px] flex flex-col gap-[60px] canvas:gap-[100px] pb-[100px]">
-        <ProjectsFilter />
+        <ProjectsFilter categories={projects.categories} gallery={projects.gallery} />
 
         {/* Beyond the Photograph: data table */}
+        {stats.length > 0 && (
         <section id="project-data" className="w-full scroll-mt-[110px]">
           <div className="mx-auto w-full max-w-[1920px] px-4 lg:px-8 canvas:px-[160px] flex flex-col gap-[48px]">
             <div className="flex flex-col gap-[12px]">
@@ -161,7 +122,7 @@ export default function ProjectsPage() {
                     <span key={h} className="w-[240px] shrink-0 font-archivo text-[24px] font-medium text-primary">{h}</span>
                   ))}
                 </div>
-                {tableRows.map((row) => (
+                {stats.map((row) => (
                   <div key={row.profile} className="flex items-center gap-[24px] p-[24px] border-b border-[#DDDDEC] last:border-b-0">
                     <span className="flex-1 font-archivo text-[17px] font-semibold text-[#333333]">{row.profile}</span>
                     <span className="w-[240px] shrink-0 font-archivo text-[17px] text-[#333333]">{row.capacity}</span>
@@ -174,8 +135,10 @@ export default function ProjectsPage() {
             </div>
           </div>
         </section>
+        )}
 
         {/* How a Ksquare project actually runs */}
+        {steps.length === 6 && (
         <section className="w-full">
           {/* Desktop: pixel-exact zigzag timeline per Figma (same pattern as /grievance) */}
           <div className="canvas-zoom hidden canvas:block relative w-[1600px] mx-auto h-[681px]">
@@ -185,17 +148,17 @@ export default function ProjectsPage() {
               </h2>
             </div>
 
-            <Step index={0} className="left-[3.39px] top-[169.9px]" />
-            <Step index={1} className="left-[521.49px] top-[169.9px]" />
-            <Step index={2} className="left-[1053.13px] top-[169.9px]" />
+            <Step step={steps[0]} index={0} className="left-[3.39px] top-[169.9px]" />
+            <Step step={steps[1]} index={1} className="left-[521.49px] top-[169.9px]" />
+            <Step step={steps[2]} index={2} className="left-[1053.13px] top-[169.9px]" />
 
             <div className="absolute left-0 top-[274.95px] w-[1600px] h-[302.82px]">
-              <ProcessTimelineArt />
+              <ProcessTimelineArt icons={steps.map((s) => s.icon ?? undefined)} />
             </div>
 
-            <Step index={3} className="left-[256px] top-[590.77px]" />
-            <Step index={4} className="left-[789.82px] top-[590.77px]" />
-            <Step index={5} className="left-[1309.16px] top-[590.77px]" />
+            <Step step={steps[3]} index={3} className="left-[256px] top-[590.77px]" />
+            <Step step={steps[4]} index={4} className="left-[789.82px] top-[590.77px]" />
+            <Step step={steps[5]} index={5} className="left-[1309.16px] top-[590.77px]" />
           </div>
 
           {/* Mobile/tablet fallback */}
@@ -204,7 +167,7 @@ export default function ProjectsPage() {
               How a Ksquare <span className="font-recia italic font-medium">project actually runs</span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[40px] gap-y-[48px] w-full">
-              {processSteps.map((step, i) => (
+              {steps.map((step, i) => (
                 <div key={step.title} className="flex flex-col items-center text-center gap-[16px]">
                   <div className="w-[64px] h-[64px] rounded-full bg-[#EFF0F6] flex items-center justify-center">
                     <span className="font-archivo text-[24px] font-medium text-primary">{i + 1}</span>
@@ -218,8 +181,10 @@ export default function ProjectsPage() {
             </div>
           </div>
         </section>
+        )}
 
         {/* FAQ */}
+        {faqs.length > 0 && (
         <section className="w-full">
           <div className="mx-auto w-full max-w-[1920px] px-4 lg:px-8 canvas:px-[160px] flex flex-col items-center gap-[64px]">
             <h2 className="m-0 font-archivo font-normal text-[34px] sm:text-[40px] lg:text-[60px] leading-[1.25] text-primary text-center">
@@ -228,6 +193,7 @@ export default function ProjectsPage() {
             <FaqList items={faqs} />
           </div>
         </section>
+        )}
 
         {/* Send an Enquiry */}
         <section id="enquiry-form" className="w-full scroll-mt-[110px]">
