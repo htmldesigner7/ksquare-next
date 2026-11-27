@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,6 +7,19 @@ import Container from "@/components/common/Container";
 import Reveal from "@/components/common/Reveal";
 import RichTitle from "@/components/common/RichTitle";
 import ButtonArrow from "@/components/common/ButtonArrow";
+import { useCtaHref } from "@/components/common/TelProvider";
+
+function CtaLink({ label, href }: { label: string; href: string }) {
+  return (
+    <Link
+      href={useCtaHref(label, href) ?? href}
+      className="group inline-flex w-full sm:w-auto items-center justify-center gap-[16px] px-[23px] py-[15px] border border-white text-white hover:bg-white hover:text-primary transition-colors"
+    >
+      <span className="font-normal text-[17px] leading-[26px]">{label}</span>
+      <ButtonArrow className="text-white group-hover:text-primary" />
+    </Link>
+  );
+}
 
 export default function CtaBanner({ title, desc, ctas }: { title: string; desc: string; ctas: { label: string; href: string }[] }) {
   // Figma breaks the heading so the italic serif phrase sits on its own line.
@@ -25,14 +40,7 @@ export default function CtaBanner({ title, desc, ctas }: { title: string; desc: 
           </div>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-[16px] lg:gap-[24px]">
             {ctas.map((cta) => (
-              <Link
-                key={cta.label}
-                href={cta.href}
-                className="group inline-flex w-full sm:w-auto items-center justify-center gap-[16px] px-[23px] py-[15px] border border-white text-white hover:bg-white hover:text-primary transition-colors"
-              >
-                <span className="font-normal text-[17px] leading-[26px]">{cta.label}</span>
-                <ButtonArrow className="text-white group-hover:text-primary" />
-              </Link>
+              <CtaLink key={cta.label} label={cta.label} href={cta.href} />
             ))}
           </div>
         </Reveal>

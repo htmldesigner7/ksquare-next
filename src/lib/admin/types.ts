@@ -114,6 +114,7 @@ export type Settings = {
   facebook_link: string | null;
   instagram_link: string | null;
   linkedin_link: string | null;
+  tel_number: string | null;
   updated_at: string;
 };
 

@@ -126,6 +126,7 @@ export const RESOURCES: Record<string, Resource> = {
     fields: [
       text("name", "Name", { required: true, max: 255, list: true }),
       text("location", "Location", { required: true, max: 255, list: true }),
+      img("img", "Image", { section: "Images", list: true }),
       { name: "from_date", label: "From date", type: "date", required: true, list: true },
       { name: "to_date", label: "To date", type: "date", required: true, list: true },
     ],

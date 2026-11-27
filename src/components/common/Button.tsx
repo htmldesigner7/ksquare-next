@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { useCtaHref } from './TelProvider';
 import Link from 'next/link';
 import clsx from 'clsx';
 import ButtonArrow from './ButtonArrow';
@@ -20,9 +23,10 @@ export default function Button({
   children, 
   showDot = false,
   external = false,
-  ...props 
+  ...props
 }: ButtonProps) {
-  
+  href = useCtaHref(children, href);
+
   const baseStyles = "flex items-center justify-center gap-[16px] transition-all duration-300 font-archivo group";
   
   const variants = {

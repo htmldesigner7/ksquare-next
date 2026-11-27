@@ -6,6 +6,8 @@ import Footer from "@/components/layout/Footer";
 import ScrollReveal from "@/components/common/ScrollReveal";
 import PublicOnly from "@/components/layout/PublicOnly";
 import { getFooterProducts, getNav } from "@/lib/nav";
+import { TelProvider } from "@/components/common/TelProvider";
+import { getSiteSettings } from "@/lib/settings";
 
 const archivo = Archivo({
   variable: "--font-archivo",
@@ -56,7 +58,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   // Header menu and footer: the product categories come from the admin panel.
-  const [nav, productSections] = await Promise.all([getNav(), getFooterProducts()]);
+  const [nav, productSections, settings] = await Promise.all([getNav(), getFooterProducts(), getSiteSettings()]);
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -67,9 +69,11 @@ export default async function RootLayout({
           {/* Scroll-reveal animations start hidden; without JS they would never show. */}
           <style>{`[style*="opacity: 0"]{opacity:1!important;transform:none!important}`}</style>
         </noscript>
-        <PublicOnly><Header nav={nav} /></PublicOnly>
-        {children}
-        <PublicOnly><Footer productSections={productSections} /></PublicOnly>
+        <TelProvider tel={settings?.tel_number ?? null}>
+          <PublicOnly><Header nav={nav} /></PublicOnly>
+          {children}
+          <PublicOnly><Footer productSections={productSections} settings={settings} /></PublicOnly>
+        </TelProvider>
         <PublicOnly><ScrollReveal /></PublicOnly>
       </body>
     </html>

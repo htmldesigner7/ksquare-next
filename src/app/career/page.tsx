@@ -6,6 +6,7 @@ import Button from "@/components/common/Button";
 import SectionSpacer from "@/components/common/SectionSpacer";
 import AnimatedCounter from "@/components/common/AnimatedCounter";
 import LifeSlider from "./LifeSlider";
+import { getLifePhotos } from "@/lib/life";
 
 export const metadata: Metadata = {
   title: "Careers | Ksquare Energy",
@@ -49,7 +50,9 @@ const industries = [
   },
 ];
 
-export default function CareerPage() {
+export default async function CareerPage() {
+  // Photos come from the admin "Life at Ksquare" module; the built-in ones stay as the fallback.
+  const lifePhotos = await getLifePhotos();
   return (
     <main className="w-full bg-white font-archivo overflow-x-clip">
       {/* 1. Hero Section & Breadcrumbs */}
@@ -183,7 +186,7 @@ export default function CareerPage() {
               </p>
             </div>
 
-            <LifeSlider />
+            <LifeSlider slides={lifePhotos.map((p) => ({ src: p.img, alt: "Life at Ksquare Energy" }))} />
           </div>
         </Container>
       </section>

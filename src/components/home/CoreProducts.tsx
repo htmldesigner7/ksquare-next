@@ -3,6 +3,8 @@ import Image from "next/image";
 import RichTitle from "@/components/common/RichTitle";
 import Link from "next/link";
 import ButtonArrow from "@/components/common/ButtonArrow";
+import CoreProductsTabs from "./CoreProductsTabs";
+import { getHomeCategories } from "@/lib/nav";
 
 const products = [
   {
@@ -63,7 +65,7 @@ const products = [
   }
 ];
 
-export default function CoreProducts() {
+function CoreProductsStatic() {
   return (
     <section className="relative w-full bg-[#FFFFFF] overflow-hidden">
       {/* Desktop Wrapper */}
@@ -168,4 +170,10 @@ export default function CoreProducts() {
       </div>
     </section>
   );
+}
+
+/** Active core and brand categories from the admin panel, in two tabs; the fixed list below is only the fallback when the API has none. */
+export default async function CoreProducts() {
+  const items = await getHomeCategories();
+  return items.length > 0 ? <CoreProductsTabs items={items} /> : <CoreProductsStatic />;
 }

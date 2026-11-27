@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import RichTitle from "@/components/common/RichTitle";
 
-const row1 = [
+const defaultItems = [
   {
     name: "Hiren Dhameliya",
     company: "Flame Solren Pvt Ltd",
@@ -29,7 +29,7 @@ const row1 = [
   }
 ];
 
-const row2 = [...row1].reverse(); // Swapped just for variety since the original was mostly repeated
+// (row1 / row2 are derived inside the component from the items shown)
 
 const QuoteIcon = () => (
   <svg width="75" height="57" viewBox="0 0 75 57" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -49,7 +49,7 @@ const TestimonialCard = ({ item }: { item: any }) => (
     
     <div className="flex canvas:absolute canvas:left-[60px] canvas:top-[40px] items-center gap-4 sm:gap-6 relative z-10">
       <div className="w-[60px] h-[60px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden bg-gray-200 shrink-0 relative">
-        <Image src={item.img} alt={item.name} fill className="object-cover" />
+        <Image src={item.img} alt={item.name} fill unoptimized={item.img.startsWith("http")} className="object-cover" />
       </div>
       <div className="flex flex-col gap-[4px] flex-1 min-w-0 pr-[16px] sm:pr-0 canvas:flex-none canvas:w-[300px]">
         <span className="font-archivo font-semibold text-[15px] sm:text-[17px] text-[#2B398B] leading-[26px] m-0 p-0">{item.name}</span>
@@ -63,7 +63,12 @@ const TestimonialCard = ({ item }: { item: any }) => (
   </div>
 );
 
-export default function Testimonials() {
+export type TestimonialItem = { name: string; company: string; text: string; img: string };
+
+/** `items` (from the admin Testimonials module) replaces the built-in list when given. */
+export default function Testimonials({ items }: { items?: TestimonialItem[] } = {}) {
+  const row1 = items?.length ? items : defaultItems;
+  const row2 = [...row1].reverse();
   return (
     <section className="relative w-full bg-[#FFFFFF] overflow-hidden">
       <style>{`

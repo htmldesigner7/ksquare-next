@@ -64,3 +64,17 @@ export async function getNav(): Promise<NavItem[]> {
 
   return NAV.map((item) => (item.label === "Products" ? { ...item, href: core[0]?.href ?? item.href, groups } : item));
 }
+
+export type HomeCategory = { name: string; href: string; desc: string; img: string | null; type: "core" | "brand" };
+
+/** Active categories for the home page "Products" section (core and brand), in admin order. */
+export async function getHomeCategories(): Promise<HomeCategory[]> {
+  const categories = await loadCategories();
+  return categories.map((c) => ({
+    name: c.name,
+    href: `/products/${c.slug}`,
+    desc: plain(c.short_description),
+    img: (c as MenuCategory & { list_image?: string | null }).list_image ?? null,
+    type: c.type,
+  }));
+}

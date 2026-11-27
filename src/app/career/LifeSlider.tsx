@@ -3,13 +3,15 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const slides = [
+const defaultSlides = [
   { src: "/assets/career/life_slide_1.png", alt: "Ksquare Energy 8th Foundation Day celebration" },
   { src: "/assets/career/life_slide_2.png", alt: "Life at Ksquare Energy" },
   { src: "/assets/career/life_slide_3.png", alt: "Ksquare Energy team activities" },
 ];
 
-export default function LifeSlider() {
+/** `slides` (from the admin "Life at Ksquare" module) replaces the built-in photos when given. */
+export default function LifeSlider({ slides: given }: { slides?: { src: string; alt: string }[] } = {}) {
+  const slides = given?.length ? given : defaultSlides;
   const [active, setActive] = useState(0);
 
   const prev = () => setActive((i) => (i - 1 + slides.length) % slides.length);
@@ -26,7 +28,7 @@ export default function LifeSlider() {
             className={`absolute left-0 w-full transition-opacity duration-500 ${i === active ? "opacity-100" : "opacity-0"}`}
             style={{ top: "-21.7%", height: "121.69%" }}
           >
-            <Image src={slide.src} alt={slide.alt} fill sizes="1440px" className="object-cover" priority={i === 0} />
+            <Image src={slide.src} alt={slide.alt} fill sizes="1440px" unoptimized={slide.src.startsWith("http")} className="object-cover" priority={i === 0} />
           </div>
         ))}
       </div>

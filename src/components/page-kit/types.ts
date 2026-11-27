@@ -207,7 +207,7 @@ export type Section =
       id?: string;
       title: string;
       desc: string;
-      states: { name: string; blurb?: string; cities?: string[] }[];
+      states: { name: string; blurb?: string; cities?: (string | { name: string; link?: string | null })[]; /** Map with this state highlighted (replaces `map` while the state is open). */ map?: string }[];
       map: string;
     }
   | {
@@ -276,7 +276,7 @@ export type Section =
       entries: { year: string; label: string; title: string; desc: string; imageBack: string; imageFront: string }[];
     }
   | { type: "featured"; id?: string; title: string; subtitle?: string; items: { title: string; desc: string; image: string }[] }
-  | { type: "testimonials" }
+  | { type: "testimonials"; items?: { name: string; company: string; text: string; img: string }[] }
   | { type: "locations"; title: string; subtitle?: string; zones: Zone[] }
   | { type: "faq"; id?: string; title: string; tone?: Tone; items: FaqItem[] }
   | {

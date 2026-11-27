@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import Container from "@/components/common/Container";
 import CtaBanner from "@/components/page-kit/CtaBanner";
 import { footerHref, OWN_CTA_PREFIXES, ROUTES } from "@/content/routes";
+import type { SiteSettings } from "@/lib/settings";
 
 /** A sitemap label (resolved to a route by footerHref) or an explicit link. */
 type FooterLink = string | { label: string; href: string };
@@ -47,15 +48,37 @@ const footerLinks: { title: string; sections: FooterSection[] }[] = [
   {
     title: "About Us",
     sections: [
-      { subtitle: null, links: ["Company Profile", "Leadership Team", "Infrastructure", { label: "Projects", href: ROUTES.projects }, "Quality & Certifications", "Awards & Recognition", "News & Events", "CSR", "Grievance", "Press Releases", "Our Presence"] },
+      { subtitle: null, links: ["Company Profile", "Leadership Team", "Infrastructure", { label: "Projects", href: ROUTES.projects }, "Quality & Certifications", "Awards & Recognition", "News & Events", "Grievance", "Press Releases", "Our Presence"] },
       { subtitle: "Quick Links", links: ["Careers", "Contact", "Track Solar Status", "Calculator"], isTitle: true },
     ],
   },
 ];
 
-/** `productSections` (the active categories from the admin panel) replaces the fixed Products columns when given. */
-export default function Footer({ productSections }: { productSections?: { subtitle: string; links: { label: string; href: string }[] }[] }) {
+const DEFAULT_CONTACT = {
+  call_details: ["+91 79 6969 7979"],
+  email_details: ["info@ksquareenergy.com"],
+  address_details: ["B-403/404 Signature - 2 Sarkhej Sanand Road, Sarkhej, Ahmedabad - 382210."],
+};
+
+const SOCIALS = [
+  { key: "facebook_link", src: "/assets/footer/social-1.svg", label: "Facebook" },
+  { key: "instagram_link", src: "/assets/footer/social-2.svg", label: "Instagram" },
+  { key: "linkedin_link", src: "/assets/footer/social-3.svg", label: "LinkedIn" },
+] as const;
+
+const LINK_CLASS = "font-normal text-[15px] leading-[20px] text-[#666666] hover:text-[#2B398B] transition-colors py-[12px] -my-[12px] desk:py-0 desk:my-0 [overflow-wrap:anywhere]";
+
+/**
+ * `productSections` (the active categories from the admin panel) replaces the fixed Products columns when given.
+ * `settings` (Admin > Settings) supplies phones, emails, addresses and social links; the built-in contact
+ * details are used only when it is missing (API unreachable).
+ */
+export default function Footer({ productSections, settings }: { productSections?: { subtitle: string; links: { label: string; href: string }[] }[]; settings?: SiteSettings }) {
   const pathname = usePathname();
+  const phones = settings ? settings.call_details : DEFAULT_CONTACT.call_details;
+  const emails = settings ? settings.email_details : DEFAULT_CONTACT.email_details;
+  const addresses = settings ? settings.address_details : DEFAULT_CONTACT.address_details;
+  const socials = SOCIALS.map((s) => ({ ...s, href: settings ? settings[s.key] : "#" })).filter((s) => s.href);
   const columns: { title: string; sections: FooterSection[] }[] = footerLinks.map((col) => (col.title === "Products" && productSections?.length ? { ...col, sections: productSections } : col));
   // We keep hasCTA true as per recent user request for uniform footer.
   // Blog detail pages embed their own narrower, column-scaled CTA per Figma
@@ -108,27 +131,29 @@ export default function Footer({ productSections }: { productSections?: { subtit
 
               <div className="flex flex-col gap-[24px]">
                 <div className="flex flex-col gap-[24px]">
-                  <div className="flex items-center gap-[11px]">
-                    <Image src="/assets/footer/contact-mail.svg" alt="" width={18} height={14} aria-hidden="true" />
-                    <a href="mailto:info@ksquareenergy.com" target="_blank" rel="noopener noreferrer" className="font-normal text-[15px] leading-[20px] text-[#666666] hover:text-[#2B398B] transition-colors py-[12px] -my-[12px] desk:py-0 desk:my-0 [overflow-wrap:anywhere]">info@ksquareenergy.com</a>
-                  </div>
-                  <div className="flex items-center gap-[11px]">
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" className="text-[#2B398B] shrink-0" aria-hidden="true"><path d="M3.62 7.79C5.06 10.62 7.38 12.93 10.21 14.38L12.41 12.18C12.68 11.91 13.08 11.82 13.43 11.94C14.56 12.31 15.76 12.51 17 12.51C17.55 12.51 18 12.96 18 13.51V17C18 17.55 17.55 18 17 18C7.61 18 0 10.39 0 1C0 0.45 0.45 0 1 0H4.5C5.05 0 5.5 0.45 5.5 1C5.5 2.24 5.7 3.44 6.07 4.57C6.18 4.92 6.1 5.31 5.82 5.59L3.62 7.79Z"/></svg>
-                    <a href="tel:+917969697979" target="_blank" rel="noopener noreferrer" className="font-normal text-[15px] leading-[20px] text-[#666666] hover:text-[#2B398B] transition-colors py-[12px] -my-[12px] desk:py-0 desk:my-0 [overflow-wrap:anywhere]">+91 79 6969 7979</a>
-                  </div>
-                  <div className="flex items-center gap-[11px]">
-                    <svg width="17" height="20" viewBox="0 0 17 20" fill="currentColor" className="text-[#2B398B] shrink-0" aria-hidden="true"><path d="M8.5 0C3.8 0 0 3.8 0 8.5C0 14.9 8.5 20 8.5 20C8.5 20 17 14.9 17 8.5C17 3.8 13.2 0 8.5 0ZM8.5 11.5C6.8 11.5 5.5 10.2 5.5 8.5C5.5 6.8 6.8 5.5 8.5 5.5C10.2 5.5 11.5 6.8 11.5 8.5C11.5 10.2 10.2 11.5 8.5 11.5Z"/></svg>
-                    <a href="https://www.google.com/maps/search/?api=1&query=B-403%2F404+Signature+2+Sarkhej+Sanand+Road+Sarkhej+Ahmedabad+382210" target="_blank" rel="noopener noreferrer" className="font-normal text-[15px] leading-[20px] text-[#666666] hover:text-[#2B398B] transition-colors py-[12px] -my-[12px] desk:py-0 desk:my-0 [overflow-wrap:anywhere]">B-403/404 Signature - 2 Sarkhej Sanand Road, Sarkhej, Ahmedabad - 382210.</a>
-                  </div>
+                  {emails.map((email) => (
+                    <div key={email} className="flex items-center gap-[11px]">
+                      <Image src="/assets/footer/contact-mail.svg" alt="" width={18} height={14} aria-hidden="true" />
+                      <a href={`mailto:${email}`} className={LINK_CLASS}>{email}</a>
+                    </div>
+                  ))}
+                  {phones.map((phone) => (
+                    <div key={phone} className="flex items-center gap-[11px]">
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" className="text-[#2B398B] shrink-0" aria-hidden="true"><path d="M3.62 7.79C5.06 10.62 7.38 12.93 10.21 14.38L12.41 12.18C12.68 11.91 13.08 11.82 13.43 11.94C14.56 12.31 15.76 12.51 17 12.51C17.55 12.51 18 12.96 18 13.51V17C18 17.55 17.55 18 17 18C7.61 18 0 10.39 0 1C0 0.45 0.45 0 1 0H4.5C5.05 0 5.5 0.45 5.5 1C5.5 2.24 5.7 3.44 6.07 4.57C6.18 4.92 6.1 5.31 5.82 5.59L3.62 7.79Z"/></svg>
+                      <a href={`tel:${phone.replace(/[^\d+]/g, "")}`} className={LINK_CLASS}>{phone}</a>
+                    </div>
+                  ))}
+                  {addresses.map((address) => (
+                    <div key={address} className="flex items-center gap-[11px]">
+                      <svg width="17" height="20" viewBox="0 0 17 20" fill="currentColor" className="text-[#2B398B] shrink-0" aria-hidden="true"><path d="M8.5 0C3.8 0 0 3.8 0 8.5C0 14.9 8.5 20 8.5 20C8.5 20 17 14.9 17 8.5C17 3.8 13.2 0 8.5 0ZM8.5 11.5C6.8 11.5 5.5 10.2 5.5 8.5C5.5 6.8 6.8 5.5 8.5 5.5C10.2 5.5 11.5 6.8 11.5 8.5C11.5 10.2 10.2 11.5 8.5 11.5Z"/></svg>
+                      <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`} target="_blank" rel="noopener noreferrer" className={LINK_CLASS}>{address}</a>
+                    </div>
+                  ))}
                 </div>
 
                 <div className="flex items-center gap-[16px]">
-                  {[
-                    { src: "/assets/footer/social-1.svg", label: "Facebook" },
-                    { src: "/assets/footer/social-2.svg", label: "Instagram" },
-                    { src: "/assets/footer/social-3.svg", label: "LinkedIn" },
-                  ].map((s) => (
-                    <Link key={s.label} href="#" target="_blank" rel="noopener noreferrer" aria-label={s.label} className="group relative block w-[32px] h-[32px] before:absolute before:-inset-[6px] before:content-[''] transition-transform duration-300 ease-out hover:-translate-y-[3px] hover:scale-110 focus-visible:-translate-y-[3px] focus-visible:scale-110">
+                  {socials.map((s) => (
+                    <Link key={s.label} href={s.href!} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="group relative block w-[32px] h-[32px] before:absolute before:-inset-[6px] before:content-[''] transition-transform duration-300 ease-out hover:-translate-y-[3px] hover:scale-110 focus-visible:-translate-y-[3px] focus-visible:scale-110">
                       <Image src={s.src} alt="" width={32} height={32} className="absolute inset-0 transition-opacity duration-300 group-hover:opacity-0 group-focus-visible:opacity-0" />
                       <Image src={s.src.replace(".svg", "-hover.svg")} alt="" width={32} height={32} aria-hidden="true" className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 drop-shadow-[0_4px_6px_rgba(43,57,139,0.35)]" />
                     </Link>

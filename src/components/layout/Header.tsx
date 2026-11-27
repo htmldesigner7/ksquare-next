@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { NAV, ROUTES, type NavItem } from "@/content/routes";
 import { Icon, type IconKey } from "@/components/page-kit/icons";
 import ButtonArrow from "@/components/common/ButtonArrow";
+import { useTel } from "@/components/common/TelProvider";
 
 /** Injects Google Translate's element script once (its init callback fills the hidden #google_translate_element). */
 function loadTranslateScript() {
@@ -134,6 +135,8 @@ const LANGUAGES = [
 ];
 
 export default function Header({ nav = NAV }: { nav?: NavItem[] }) {
+  const tel = useTel();
+  const telHref = tel ? `tel:${tel.replace(/[^\d+]/g, "")}` : null;
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
@@ -377,8 +380,8 @@ export default function Header({ nav = NAV }: { nav?: NavItem[] }) {
                           )}
                           <span className="flex items-center gap-4 font-archivo text-[14px] text-[#555555]">
                             Need help choosing?
-                            <a href="tel:+917969697979" className="font-medium text-[#222222] hover:text-primary">+91 79 6969 7979</a>
-                            <Link href={ROUTES.contact} className="rounded-[4px] border border-primary px-3 py-[6px] font-medium text-primary transition-colors hover:bg-primary hover:text-white">Talk to our team</Link>
+                            <a href={telHref ?? "tel:+917969697979"} className="font-medium text-[#222222] hover:text-primary">{tel ?? "+91 79 6969 7979"}</a>
+                            <Link href={telHref ?? ROUTES.contact} className="rounded-[4px] border border-primary px-3 py-[6px] font-medium text-primary transition-colors hover:bg-primary hover:text-white">Talk to our team</Link>
                           </span>
                         </div>
                       </div>

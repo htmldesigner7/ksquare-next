@@ -47,6 +47,7 @@ export default function SettingsForm({ initial }: { initial: Settings }) {
         facebook_link: fd.get("facebook_link"),
         instagram_link: fd.get("instagram_link"),
         linkedin_link: fd.get("linkedin_link"),
+        tel_number: fd.get("tel_number"),
       },
     });
     if (res.ok) {
@@ -103,6 +104,19 @@ export default function SettingsForm({ initial }: { initial: Settings }) {
           max={MAX_ENTRIES}
           errorPrefix="address_details"
           errors={fieldErrors}
+        />
+      </FormSection>
+
+      <FormSection title="Tel number">
+        <FormField
+          label="Tel number"
+          name="tel_number"
+          type="tel"
+          defaultValue={initial.tel_number ?? ""}
+          maxLength={30}
+          placeholder="+91 98765 43210"
+          hint='Dialled by every "Talk to Our Experts" button on the website. Leave empty to send visitors to the contact page instead.'
+          error={fieldErrors.tel_number}
         />
       </FormSection>
 

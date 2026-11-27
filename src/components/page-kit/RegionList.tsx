@@ -6,12 +6,18 @@ import Collapse from "@/components/common/Collapse";
 interface State {
   name: string;
   blurb?: string;
-  cities?: string[];
+  /** Plain names, or names with an optional link (cities managed in the admin panel). */
+  cities?: (string | { name: string; link?: string | null })[];
 }
 
 /** Accordion of states on the brand-blue background; the open state lists its cities. */
-export default function RegionList({ states }: { states: State[] }) {
-  const [open, setOpen] = useState(0);
+/** `onOpenChange` reports the open state (-1 when all are closed) so a map beside the list can follow it. */
+export default function RegionList({ states, onOpenChange }: { states: State[]; onOpenChange?: (index: number) => void }) {
+  const [open, setOpenState] = useState(0);
+  const setOpen = (i: number) => {
+    setOpenState(i);
+    onOpenChange?.(i);
+  };
 
   return (
     <div className="flex flex-col w-full">
@@ -39,12 +45,21 @@ export default function RegionList({ states }: { states: State[] }) {
                     {st.blurb && <p className="m-0 font-archivo text-[16px] lg:text-[17px] leading-[26px] text-white/85">{st.blurb}</p>}
                     {st.cities && (
                       <ul className="m-0 p-0 list-none grid grid-cols-2 sm:grid-cols-3 gap-x-[24px] gap-y-[10px]">
-                        {st.cities.map((c) => (
-                          <li key={c} className="flex items-center gap-[10px] font-archivo text-[16px] text-white">
-                            <span className="h-[6px] w-[6px] rounded-full bg-white/70" aria-hidden="true" />
-                            {c}
-                          </li>
-                        ))}
+                        {st.cities.map((city) => {
+                          const c = typeof city === "string" ? { name: city, link: null } : city;
+                          return (
+                            <li key={c.name} className="flex items-center gap-[10px] font-archivo text-[16px] text-white">
+                              <span className="h-[6px] w-[6px] rounded-full bg-white/70" aria-hidden="true" />
+                              {c.link ? (
+                                <a href={c.link} className="text-white hover:underline underline-offset-4">
+                                  {c.name}
+                                </a>
+                              ) : (
+                                c.name
+                              )}
+                            </li>
+                          );
+                        })}
                       </ul>
                     )}
                   </div>

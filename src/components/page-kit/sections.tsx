@@ -14,7 +14,7 @@ import HexSteps from "./HexSteps";
 import TrackerBar from "./TrackerBar";
 import CircleSteps from "./CircleSteps";
 import LocationTabs from "./LocationTabs";
-import RegionList from "./RegionList";
+import RegionExplorer from "./RegionExplorer";
 import CertificateGallery from "./CertificateGallery";
 import ArticleGrid from "./ArticleGrid";
 import SolarCalculators from "./SolarCalculators";
@@ -761,19 +761,14 @@ function NumberedSection({ s }: { s: Extract<Section, { type: "numbered" }> }) {
 function RegionsSection({ s }: { s: Extract<Section, { type: "regions" }> }) {
   // Figma: solid brand-blue 1920 x 920 band; centred heading, then a 800px state accordion beside the 612 x 620 map (100px apart)
   return (
-    <section id={s.id} className="relative w-full overflow-hidden bg-primary scroll-mt-[110px] py-[56px] lg:py-[52px] lg:min-h-[920px] lg:flex lg:items-center">
+    <section id={s.id} className="relative w-full overflow-clip bg-primary scroll-mt-[110px] py-[56px] lg:py-[52px] lg:min-h-[920px] lg:flex lg:items-center">
       <Container maxWidth="1600" className="relative z-10">
         <div className="flex flex-col items-center gap-[24px] lg:gap-[30px]">
           <Reveal>
             <Heading title={s.title} subtitle={s.desc} light />
           </Reveal>
           <div className="flex w-full flex-col xl:flex-row items-center justify-center gap-[40px] xl:gap-[100px]">
-            <Reveal className="w-full xl:w-[800px] xl:shrink-0">
-              <RegionList states={s.states} />
-            </Reveal>
-            <Reveal delay={0.1} className="relative w-full max-w-[520px] xl:max-w-none xl:w-[612px] shrink-0 aspect-[612/620]">
-              <Image src={s.map} alt="Map of India showing Ksquare Energy's presence" fill sizes="(min-width:1024px) 612px, 90vw" className="object-contain" />
-            </Reveal>
+            <RegionExplorer states={s.states} map={s.map} />
           </div>
         </div>
       </Container>
@@ -1051,7 +1046,7 @@ export function SectionRenderer({ section }: { section: Section }) {
                 <Reveal key={e.title} delay={(i % 3) * 0.08} className="h-full">
                   <article className="group flex h-full flex-col bg-white border border-[#E2E8F0] transition-all duration-300 hover:-translate-y-[6px] hover:shadow-[0_18px_40px_-18px_rgba(43,57,139,0.35)]">
                     <div className="relative aspect-[574/300] w-full overflow-hidden bg-[#EFF0F6]">
-                      <Image src={e.image} alt={e.title} fill sizes="(min-width:1280px) 33vw, (min-width:768px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <Image src={e.image} alt={e.title} fill sizes="(min-width:1280px) 33vw, (min-width:768px) 50vw, 100vw" unoptimized={e.image.startsWith("http")} className="object-cover transition-transform duration-700 group-hover:scale-105" />
                     </div>
                     <div className="flex flex-col gap-[14px] p-[24px] lg:p-[28px]">
                       <h3 className="m-0 font-archivo text-[20px] lg:text-[24px] font-medium leading-[30px] text-[#333333] group-hover:text-primary transition-colors">{e.title}</h3>
@@ -1125,7 +1120,7 @@ export function SectionRenderer({ section }: { section: Section }) {
     case "testimonials":
       return (
         <div className="pt-[60px] lg:pt-[100px] pb-[40px] lg:pb-[60px]">
-          <Testimonials />
+          <Testimonials items={section.items} />
         </div>
       );
     case "locations":

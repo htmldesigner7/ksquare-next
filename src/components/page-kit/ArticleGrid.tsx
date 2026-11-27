@@ -21,7 +21,7 @@ export default function ArticleGrid({ items }: { items: Article[] }) {
         return (
           <article key={`${a.title}-${i}`} className="group flex h-full flex-col bg-[#EFF0F6] border border-[#E2E8F0] transition-all duration-300 hover:-translate-y-[6px] hover:shadow-[0_18px_40px_-18px_rgba(43,57,139,0.35)]">
             <div className="relative aspect-[580/396] w-full overflow-hidden">
-              <Image src={a.image} alt="" fill sizes="(min-width:1280px) 33vw, (min-width:768px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <Image src={a.image} alt="" fill sizes="(min-width:1280px) 33vw, (min-width:768px) 50vw, 100vw" unoptimized={a.image.startsWith("http")} className="object-cover transition-transform duration-700 group-hover:scale-105" />
             </div>
             <div className="flex flex-1 flex-col gap-[20px] p-[24px]">
               <div className="flex flex-col gap-[20px]">
