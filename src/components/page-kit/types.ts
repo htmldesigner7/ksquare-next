@@ -77,6 +77,13 @@ export type Tone = "white" | "soft";
 
 export type Section =
   | {
+      /** Home page "Our Products" tabs (active core + brand categories); `fallback` shows if the API has none. */
+      type: "productTabs";
+      title: string;
+      subtitle?: string;
+      fallback: Extract<Section, { type: "cards" }>;
+    }
+  | {
       type: "brandSwap";
       id?: string;
       title: string;

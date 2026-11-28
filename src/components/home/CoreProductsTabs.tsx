@@ -9,13 +9,14 @@ import type { HomeCategory } from "@/lib/nav";
 
 const TABS = [
   { key: "core", label: "Core Products" },
-  { key: "brand", label: "Our Brands" },
+  { key: "brand", label: "Our Brands Product" },
 ] as const;
 
 const INTRO =
   "From solar protection systems to electrical panels and OEM manufacturing, explore our complete range of certified solar components designed for performance, reliability, and long-term durability.";
 
-export default function CoreProductsTabs({ items }: { items: HomeCategory[] }) {
+/** `title` / `intro` default to the home page wording; pass `intro=""` to omit the paragraph. */
+export default function CoreProductsTabs({ items, title = "Our *Products*", intro = INTRO }: { items: HomeCategory[]; title?: string; intro?: string }) {
   const [tab, setTab] = useState<(typeof TABS)[number]["key"]>("core");
   const visible = items.filter((i) => i.type === tab);
 
@@ -28,7 +29,7 @@ export default function CoreProductsTabs({ items }: { items: HomeCategory[] }) {
           role="tab"
           aria-selected={tab === t.key}
           onClick={() => setTab(t.key)}
-          className={`px-[24px] py-[12px] border font-archivo text-[17px] leading-[26px] transition-colors ${
+          className={`min-w-[200px] px-[40px] py-[12px] border font-archivo text-[17px] leading-[26px] transition-colors ${
             tab === t.key ? "bg-[#2B398B] border-[#2B398B] text-white" : "border-[#2B398B] text-[#2B398B] hover:bg-[#2B398B]/10"
           }`}
         >
@@ -47,8 +48,8 @@ export default function CoreProductsTabs({ items }: { items: HomeCategory[] }) {
         {/* Desktop layout */}
         <div className="hidden canvas:flex flex-col gap-[48px] w-[1600px] mx-auto">
           <div className="flex flex-col gap-[24px]">
-            <RichTitle as="h2" text="Our *Products*" className="font-archivo font-normal text-[60px] text-[#333333] leading-none m-0 p-0" />
-            <p className="w-[1600px] font-archivo font-normal text-[17px] text-[#666666] leading-relaxed m-0 p-0">{INTRO}</p>
+            <RichTitle as="h2" text={title} className="font-archivo font-normal text-[60px] text-[#333333] leading-none m-0 p-0" />
+            {intro && <p className="w-[1600px] font-archivo font-normal text-[17px] text-[#666666] leading-relaxed m-0 p-0">{intro}</p>}
             {tabs}
           </div>
 
@@ -78,8 +79,8 @@ export default function CoreProductsTabs({ items }: { items: HomeCategory[] }) {
         {/* Responsive layout (< 1280px) */}
         <div className="canvas:hidden flex flex-col gap-8 sm:gap-12 w-full max-w-[1200px] mx-auto">
           <div className="flex flex-col gap-6 text-center sm:text-left items-center sm:items-start">
-            <RichTitle as="h2" text="Our *Products*" className="font-archivo font-normal text-[48px] sm:text-[60px] text-[#333333] leading-none m-0 p-0" />
-            <p className="font-archivo font-normal text-[17px] text-[#666666] leading-relaxed m-0 p-0">{INTRO}</p>
+            <RichTitle as="h2" text={title} className="font-archivo font-normal text-[48px] sm:text-[60px] text-[#333333] leading-none m-0 p-0" />
+            {intro && <p className="font-archivo font-normal text-[17px] text-[#666666] leading-relaxed m-0 p-0">{intro}</p>}
             {tabs}
           </div>
 

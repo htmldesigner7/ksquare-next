@@ -23,6 +23,7 @@ import NumberedAccordion from "./NumberedAccordion";
 import LeadForm from "./LeadForm";
 import AwardTimeline from "./AwardTimeline";
 import CtaBanner from "./CtaBanner";
+import ProductTabs from "./ProductTabs";
 import type { Section } from "./types";
 import ContactLink from "@/components/common/ContactLink";
 
@@ -935,6 +936,8 @@ export function SectionRenderer({ section }: { section: Section }) {
       return <SplitSection s={section} />;
     case "cards":
       return <CardsSection s={section} />;
+    case "productTabs":
+      return <ProductTabs title={section.title} subtitle={section.subtitle} fallback={<CardsSection s={section.fallback} />} />;
     case "table":
       return <TableSection s={section} />;
     case "steps":
